@@ -28,7 +28,7 @@ class wiewaswie_plugin extends research_base_plugin {
 		$all_names=$dummy->getAllNames();
 		$primary_name=$all_names[0];
 		
-		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/'.str_replace(" ", "+", $primary_name['fullNN']).'/type/documenten';
+		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/'.str_replace(" ", "+", $primary_name['givn'].' '.$primary_name['surn']).'/type/documenten';
 	}
 	
 	static function create_sublink(WT_Fact $event) {
