@@ -78,17 +78,6 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 		
 		$controller->addInlineJavascript('
 			jQuery("#'.$this->getName().' a").text("'.$this->getSidebarTitle().'");
-			jQuery("a.research_link").each(function(){
-				var url = jQuery(this).attr("href");
-				jQuery(this).colorbox({
-					width:		"75%",
-					height:		"90%",
-					fixed:		true,
-					iframe:		true,
-					modal:		true,
-					title:		"<a href=\"" + url + "\" target=\"_blank\">" + url + "</a>"
-				});					
-			});
 			jQuery("#research_status a.mainlink").click(function(e){
 				e.preventDefault();
 				jQuery(this).parent().find(".sublinks").toggle();
