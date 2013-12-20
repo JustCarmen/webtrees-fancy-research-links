@@ -10,24 +10,7 @@ class dsrotterdam_plugin extends research_base_plugin {
 		return 'Digitale Stamboom Rotterdam';
 	}
 
-	/**
-	* Based on a small part of function print_name_record() in /library/WT/Controller/Individual.php
-	*/
-	static function create_link(WT_Fact $event) {
-		if (!$event->canShow()) {
-			return false;
-		}
-		$factrec = $event->getGedCom();
-		// Create a dummy record, so we can extract the formatted NAME value from the event.
-		$dummy=new WT_Individual(
-			'xref',
-			"0 @xref@ INDI\n1 DEAT Y\n".$factrec,
-			null,
-			WT_GED_ID
-		);
-		$all_names=$dummy->getAllNames();
-		$primary_name=$all_names[0];
-		
+	static function create_link($primary_name) {
 		$givn   = $primary_name['givn'];
 		$surn   = $primary_name['surn'];
 		if($surn != $primary_name['surname']) {
@@ -36,11 +19,11 @@ class dsrotterdam_plugin extends research_base_plugin {
 		else {
 			$prefix = "";
 		}
-				
+
 		return $link = 'http://rotterdam.digitalestamboom.nl/search.aspx?lang=nl&verder='.$givn.'||'.$prefix.'|'.$surn;;
 	}
-	
-	static function create_sublink(WT_Fact $event) {
+
+	static function create_sublink($primary_name) {
 		return false;
 	}
 }

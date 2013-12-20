@@ -27,7 +27,7 @@ if (!defined('WT_WEBTREES')) {
 }
 
 class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Sidebar {
-	
+
 	public function __construct() {
 		// Load any local user translations
 		if (is_dir(WT_MODULES_DIR.$this->getName().'/language')) {
@@ -38,12 +38,12 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 			}
 		}
 	}
-	
+
 	// Extend WT_Module
 	public function getTitle() {
 		return /* Name of a module (not translatable) */ 'Fancy Research Links';
 	}
-	
+
 	public function getSidebarTitle() {
 		return /* Title used in the sidebar */ WT_I18N::translate('Research links');
 	}
@@ -62,44 +62,47 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 	public function hasSidebarContent() {
 		return true;
 	}
-	
+
 	// Implement WT_Module_Sidebar
 	public function getSidebarAjaxContent() {
 		return false;
 	}
-	
+
 	// Implement WT_Module_Sidebar
 	public function getSidebarContent() {
 		// code based on similar in function_print_list.php
 		global $controller;
-		
+
 		// load the module stylesheet
-		$html = $this->includeCss(WT_MODULES_DIR.$this->getName().'/style.css');	
-		
+		$html = $this->includeCss(WT_MODULES_DIR.$this->getName().'/style.css');
+
 		$controller->addInlineJavascript('
 			jQuery("#'.$this->getName().' a").text("'.$this->getSidebarTitle().'");
 			jQuery("#research_status a.mainlink").click(function(e){
 				e.preventDefault();
 				jQuery(this).parent().find(".sublinks").toggle();
 			});
-		');	 
-		
+		');
+
 		$html .= '<ul id="research_status">';
 		foreach ($this->getPluginList() as $plugin) {
 			foreach ($controller->record->getFacts() as $key=>$value) {
 				$fact = $value->getTag();
 				if ($fact=="NAME") {
-					$link = $plugin->create_link($value);
-					$sublinks = $plugin->create_sublink($value);
+					$primary_name = $this->getPrimaryName($value);
+					if($primary_name) {
+						$link = $plugin->create_link($primary_name);
+						$sublinks = $plugin->create_sublink($primary_name);
+					}
 				}
-			}			
+			}
 			if($sublinks) {
 				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.$link.'">'.$plugin->getName().'</a>';
 				$html .= '<ul class="sublinks">';
 				foreach ($sublinks as $sublink) {
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'">'.$sublink['title'].'</a></li>';				
-				}				
-				$html .= '</ul></li>';			
+					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'">'.$sublink['title'].'</a></li>';
+				}
+				$html .= '</ul></li>';
 			}
 			else { // default
 				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$link.'">'.$plugin->getName().'</a></li>';
@@ -108,7 +111,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 		$html.= '</ul>';
 		return $html;
 	}
-	
+
 	// Scan the plugin folder for a list of plugins
 	private function getPluginList() {
 		$array=array();
@@ -125,7 +128,24 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 		ksort($array);
 		return $array;
 	}
-	
+
+	// Based on function print_name_record() in /library/WT/Controller/Individual.php
+	private function getPrimaryName(WT_Fact $event) {
+		if (!$event->canShow()) {
+			return false;
+		}
+		$factrec = $event->getGedCom();
+		// Create a dummy record, so we can extract the formatted NAME value from the event.
+		$dummy=new WT_Individual(
+			'xref',
+			"0 @xref@ INDI\n1 DEAT Y\n".$factrec,
+			null,
+			WT_GED_ID
+		);
+		$all_names=$dummy->getAllNames();
+		return $all_names[0];
+	}
+
 	private function includeCss($css) {
 		return
 			'<script>

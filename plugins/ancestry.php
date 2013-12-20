@@ -9,25 +9,8 @@ class ancestry_plugin extends research_base_plugin {
 	static function getName() {
 		return 'Ancestry';
 	}
-	
-	/**
-	* Based on function print_name_record() in /library/WT/Controller/Individual.php
-	*/
-	static function create_link(WT_Fact $event) {
-		if (!$event->canShow()) {
-			return false;
-		}
-		$factrec = $event->getGedCom();
-		// Create a dummy record, so we can extract the formatted NAME value from the event.
-		$dummy=new WT_Individual(
-			'xref',
-			"0 @xref@ INDI\n1 DEAT Y\n".$factrec,
-			null,
-			WT_GED_ID
-		);
-		$all_names=$dummy->getAllNames();
-		$primary_name=$all_names[0];
-		
+
+	static function create_link($primary_name) {
 		$domain = array(
 			'de'	=> 'de',
 			'en_GB' => 'co.uk',
@@ -45,11 +28,9 @@ class ancestry_plugin extends research_base_plugin {
 						.'&gsln='
 						.rawurlencode($primary_name['surname'])
 						.'&gl=ROOT_CATEGORY&rank=1';
-						// &gss=sfs63_&sbo=0';
-						// &gss=sfs21_cms_lohp_de&msydy=<year>&msypn__ftp=<place>
 	}
-	
-	static function create_sublink(WT_Fact $event) {
+
+	static function create_sublink($primary_name) {
 		return false;
 	}
 }
