@@ -2,7 +2,7 @@
 /**
   *  Fancy Privacy Check Module
 
-  *  Version 1.0
+  *  Version 1.5.1.1
   *  Copyright (C) 2013 webtrees Development Team. All rights reserved.
   *
   *  This and other information can be found on line at
@@ -29,7 +29,7 @@
 </head><body>
 <a name="top">
 <h1>ReadMe File - &quot;Fancy Research Links&quot;</h1>
-<h2>Version 1.5.1</h2>
+<h2>Version 1.5.1.1</h2>
 </a>
 <ul>
 	<li><a href="#description">Description</a></li>
@@ -37,6 +37,7 @@
 	<li><a href="#install">Installing the module</a></li>
     <li><a href="#update">Updating from a previous version</a></li>
 	<li><a href="#themes">Themes</a></li>
+    <li><a href="#plugins">Plugins</a></li>
 	<li><a href="#translations">Translations</a></li>
     <li><a href="#bugs">Bugs and feature requests</a></li>
 </ul>
@@ -69,12 +70,26 @@
   <p>There is a base stylesheet added to the module which should work in any theme.</p>
 </div>
 <hr/>
+<!-- PLUGINS -->
+<div style="float:left;"><a name="plugins">
+<h3>Plugins</h3></a></div><div class="back"><a href="#top">back to top</a></div>
+<div style="clear:both;">
+  <p>At the moment mainly Dutch research web sites are added as plugin. You can extend the list of possible research sites by making your own plugin. Look in the pluginfolder of the module for examples.</p>
+  <p>A quick guide to add your own plugin:</p>
+      <ol>
+        <li>Take a copy of one of the existing files from the modules plugin folder and rename it. Note: not all plugin files are exactly the same. Some have more variables depending on the research site they are linking to.</li>
+        <li>In the new file, change the class to match the file name and change the name of the link to something suitable.</li>
+        <li>At the research site you are linking to, perform a simple name only search, and note the URL the search generates. Use this to change the output of the link in your new plugin file, the section starting with return $link = ...... taking careful note where the variables need to be inserted.</li>
+        <li>If you made a plugin that could be interesting for other users you can do a pull request or send me a copy. </li>
+      </ol>
+</div>
+<hr/>
 <!-- TRANSLATIONS -->
 <div style="float:left;"><a name="translations">
 <h3>Custom translations</h3></a></div><div class="back"><a href="#top">back to top</a></div>
 <div style="clear:both;">
   <p>We have included only two new language strings. To translate these strings into your own language copy the file modules_v3/fancy_research_links/language/en-US.php and rename it to your language code used by webtrees (leave the extension as is). To find the right language code look in the folder webtrees/language. Change the second part of each string (the part after the '=&gt;') to a suitable translation in your language and save the file. You can use any texteditor for this purpose.</p>
-<p>The  Dutch translation file is already added to the module language folder. If you have made your own translation or updated an existing one, please send me a copy.</p>
+<p>The  Dutch and German translation files are already added to the module language folder. If you have made your own translation or updated an existing one, please send me a copy.</p>
 </div>
 <hr/>
 <!-- BUGS AND FEATURE REQUESTS -->
