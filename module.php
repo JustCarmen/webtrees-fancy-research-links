@@ -101,12 +101,12 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.$link.'">'.$plugin->getName().'</a>';
 				$html .= '<ul class="sublinks">';
 				foreach ($sublinks as $sublink) {
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'">'.$sublink['title'].'</a></li>';
+					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'" target="_blank">'.$sublink['title'].'</a></li>';
 				}
 				$html .= '</ul></li>';
 			}
 			else { // default
-				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$link.'">'.$plugin->getName().'</a></li>';
+				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$link.'" target="_blank">'.$plugin->getName().'</a></li>';
 			}
 		}
 		$html.= '</ul>';
