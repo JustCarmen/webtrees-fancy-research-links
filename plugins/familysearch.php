@@ -18,7 +18,7 @@ class familysearch_plugin extends research_base_plugin {
 						.'%22~';
 	}
 
-	static function create_sublink($primary_namet) {
+	static function create_sublink($primary_name) {
 		return false;
 	}
 }
