@@ -1,0 +1,26 @@
+For more information goto: http://www.justcarmen.nl/fancy-modules/fancy-research-links or https://github.com/JustCarmen/fancy_research_links
+===========================================================================================================================
+
+Version 1.5.1.3 - 19-01-2014
+* Several new plugins added
+* Fixed error in Dutch language file
+* New feature: Basic configuration page to set or unset plugins
+===========================================================================================================================
+
+Version 1.5.1.2 - 24-12-2013
+* Add "target="_blank" to the links to force them to open in a new browser window or tab.
+===========================================================================================================================
+
+Version 1.5.1.1 - 20-12-2013
+* 2 new plugins added: "ancestry.com" and "find a grave"
+* German language file added
+* Moved common code from the plugins to the module
+* Open the links in the browser instead of in a colorbox frame.
+===========================================================================================================================
+
+Version 1.5.1 - 03-12-2013
+* Bugfix. Don't use primary_name['fullNN'] because it includes the nickname. The quotes around the nickname causes the 'wiewaswie' entry to break.
+===========================================================================================================================
+
+Version 1.5.0 - 01-11-2013
+* First release. The version number reflects the webtrees version number.
