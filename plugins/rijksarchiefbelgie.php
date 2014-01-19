@@ -7,7 +7,7 @@ if (!defined('WT_WEBTREES')) {
 
 class rijksarchiefbelgie_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Rijksarchief Belgi&euml;';
+		return 'Rijksarchief België';
 	}
 
 	static function create_link($primary_name) {
