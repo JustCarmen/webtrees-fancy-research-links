@@ -84,7 +84,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		$controller=new WT_Controller_Page;
 		$controller
 			->requireAdminLogin()
-			->setPageTitle(WT_I18N::translate('Configuration page for the Fancy Research Module'))
+			->setPageTitle(WT_I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
 				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");');
