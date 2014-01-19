@@ -25,7 +25,7 @@ A quick guide to add your own plugin:
 
 4. If you made a plugin that could be interesting for other users you can do a pull request or send me a copy.
 
-On the Fancy Research Links configuration page (new in version 1.5.2) you can select the plugins you want to use in the sidebar.
+On the Fancy Research Links configuration page (new in version 1.5.1.3) you can select the plugins you want to use in the sidebar.
 
 Installation, updating and translations
 ---------------------------------------
