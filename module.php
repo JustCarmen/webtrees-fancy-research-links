@@ -24,7 +24,7 @@ if (!defined('WT_WEBTREES')) {
 	exit;
 }
 
-class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Sidebar {
+class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Config, WT_Module_Sidebar {
 
 	public function __construct() {
 		// Load any local user translations
@@ -50,7 +50,68 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 	public function getDescription() {
 		return /* I18N: Description of the module */ WT_I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
 	}
-
+	
+	// Extend WT_Module_Config
+	public function modAction($mod_action) {
+		switch($mod_action) {
+		case 'admin_config':
+			$this->config();
+			break;
+		case 'admin_reset':
+			$this->frl_reset();
+			$this->config();
+			break;
+		default:
+			header('HTTP/1.0 404 Not Found');
+		}
+	}
+		
+	// Implement WT_Module_Config
+	public function getConfigLink() {
+		return 'module.php?mod='.$this->getName().'&amp;mod_action=admin_config';
+	}
+	
+	// Reset all settings to default
+	private function frl_reset() {
+		WT_DB::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
+		AddToLog($this->getTitle().' reset to default values', 'config');
+	}
+	
+	// Configuration page
+	private function config() {		
+		require WT_ROOT.'includes/functions/functions_edit.php';								
+		$controller=new WT_Controller_Page;
+		$controller
+			->requireAdminLogin()
+			->setPageTitle(WT_I18N::translate('Configuration page for the Fancy Research Module'))
+			->pageHeader()
+			->addInlineJavascript('
+				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");');
+		
+		if (WT_Filter::postBool('save')) {
+			set_module_setting($this->getName(), 'FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));				
+			AddToLog($this->getTitle().' config updated', 'config');
+		}			
+		
+		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));			
+		$html = '	<h2>'.$controller->getPageTitle().'</h2>
+					<form method="post" name="configform" action="'.$this->getConfigLink().'">						
+					<input type="hidden" name="save" value="1">';
+		$html .= '	<h3>'.WT_I18N::translate('Check the plugins you want to use in the sidebar').'</h3>';
+					foreach ($this->getPluginList() as $plugin) {		
+						$value = $FRL_PLUGINS[$plugin->getName()];
+						if(!isset($value)) $value = '1';
+		$html .=			'<div class="field">'.two_state_checkbox('NEW_FRL_PLUGINS['.$plugin->getName().']', $value).'<label>'.$plugin->getName().'</label></div>';
+						}
+		$html .= '		<div class="buttons">
+							<input type="submit" value="'.WT_I18N::translate('Save').'" />
+							<input type="reset" value="'.WT_I18N::translate('Reset').'" onclick="if (confirm(\''.WT_I18N::translate('The settings will be reset to default. Are you sure you want to do this?').'\')) window.location.href=\'module.php?mod='.$this->getName().'&amp;mod_action=admin_reset\';"/>
+						</div>
+					</form>';
+		// output
+		ob_start();$html .= ob_get_clean();echo $html;
+	}
+	
 	// Implement WT_Module_Sidebar
 	public function defaultSidebarOrder() {
 		return 9;
@@ -81,29 +142,32 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Side
 				jQuery(this).parent().find(".sublinks").toggle();
 			});
 		');
-
+		
+		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
 		$html .= '<ul id="research_status">';
 		foreach ($this->getPluginList() as $plugin) {
-			foreach ($controller->record->getFacts() as $key=>$value) {
-				$fact = $value->getTag();
-				if ($fact=="NAME") {
-					$primary_name = $this->getPrimaryName($value);
-					if($primary_name) {
-						$link = $plugin->create_link($primary_name);
-						$sublinks = $plugin->create_sublink($primary_name);
+			if($FRL_PLUGINS[$plugin->getName()] == true) {
+				foreach ($controller->record->getFacts() as $key=>$value) {
+					$fact = $value->getTag();
+					if ($fact=="NAME") {
+						$primary_name = $this->getPrimaryName($value);
+						if($primary_name) {
+							$link = $plugin->create_link($primary_name);
+							$sublinks = $plugin->create_sublink($primary_name);
+						}
 					}
 				}
-			}
-			if($sublinks) {
-				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.$link.'">'.$plugin->getName().'</a>';
-				$html .= '<ul class="sublinks">';
-				foreach ($sublinks as $sublink) {
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'" target="_blank">'.$sublink['title'].'</a></li>';
+				if($sublinks) {
+					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.$link.'">'.$plugin->getName().'</a>';
+					$html .= '<ul class="sublinks">';
+					foreach ($sublinks as $sublink) {
+						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'" target="_blank">'.$sublink['title'].'</a></li>';
+					}
+					$html .= '</ul></li>';
 				}
-				$html .= '</ul></li>';
-			}
-			else { // default
-				$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$link.'" target="_blank">'.$plugin->getName().'</a></li>';
+				else { // default
+					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$link.'" target="_blank">'.$plugin->getName().'</a></li>';
+				}
 			}
 		}
 		$html.= '</ul>';
