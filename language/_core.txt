@@ -1,0 +1,14 @@
+
+===============================================================================================================
+#The strings below exists in the Fancy Research Links module but are part of the core translation of webtrees.
+#Do not translate these strings within the module. Remove them if they exists in the module language files.
+#Note: the line number may be different from the current line number in the file fancy_treeview/module.php
+===============================================================================================================
+
+#: modules_v3\fancy_research_links/module.php:108
+msgid "Save"
+msgstr ""
+
+#: modules_v3\fancy_research_links/module.php:109
+msgid "Reset"
+msgstr ""
