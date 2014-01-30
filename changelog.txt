@@ -1,4 +1,10 @@
-For more information goto: http://www.justcarmen.nl/fancy-modules/fancy-research-links or https://github.com/JustCarmen/fancy_research_links
+GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
+
+Version 1.5.2 - 30-01-2014
+* Changes made to the function for adding module translations due to compatibility with webtrees 1.5.2
+* Language support for all formats (po, php and csv)
+* Use po files by default in stead of php for translations
+* Several new plugins added
 ===========================================================================================================================
 
 Version 1.5.1.3 - 19-01-2014
