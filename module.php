@@ -50,7 +50,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 
 	// Extend WT_Module
 	public function getTitle() {
-		return /* Name of a module (not translatable) */ 'Fancy Research Links';
+		return /* I18N: Name of the module */ WT_I18N::translate('Fancy Research Links');
 	}
 
 	public function getSidebarTitle() {
