@@ -10,7 +10,8 @@ class geneall_plugin extends research_base_plugin {
 		return 'Geneall';
 	}
 	
-	static function create_link($primary_name) {
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+		// this plugin needs refactoring. Multiple websites for multiple country categories. Not on a per language base. See: http://www.geneall.net/site/home.php
 		$languages = array(
 			'de'		=> 'D',
 			'en_GB' 	=> 'U',
@@ -31,13 +32,13 @@ class geneall_plugin extends research_base_plugin {
 		return $link = 'http://www.geneall.net/'
 						.$language
 						.'/per_search.php?s='
-						.rawurlencode($primary_name['givn'])
+						.rawurlencode($givn)
 						.'+'
-						.rawurlencode($primary_name['surname'])
+						.rawurlencode($surname)
 						.'&s_type=per_search.php';
 	}
 	
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

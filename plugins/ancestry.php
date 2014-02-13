@@ -10,8 +10,9 @@ class ancestry_plugin extends research_base_plugin {
 		return 'Ancestry';
 	}
 
-	static function create_link($primary_name) {
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		$domain = array(
+			// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
 			'de'		=> 'de',		// German
 			'en_GB' 	=> 'co.uk',
 			'en_US'		=> 'com',
@@ -30,13 +31,13 @@ class ancestry_plugin extends research_base_plugin {
 		return $link = 'http://search.ancestry.'
 						.$ancestry_domain
 						.'/cgi-bin/sse.dll?new=1&gsfn='
-						.rawurlencode($primary_name['givn'])
+						.rawurlencode($givn)
 						.'&gsln='
-						.rawurlencode($primary_name['surname'])
+						.rawurlencode($surname)
 						.'&gl=ROOT_CATEGORY&rank=1';
 	}
 
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

@@ -10,20 +10,11 @@ class dsrotterdam_plugin extends research_base_plugin {
 		return 'Digitale Stamboom Rotterdam';
 	}
 
-	static function create_link($primary_name) {
-		$givn   = $primary_name['givn'];
-		$surn   = $primary_name['surn'];
-		if($surn != $primary_name['surname']) {
-			$prefix = substr($primary_name['surname'], 0, strpos($primary_name['surname'], $surn) - 1);
-		}
-		else {
-			$prefix = "";
-		}
-
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return $link = 'http://rotterdam.digitalestamboom.nl/search.aspx?lang=nl&verder='.$givn.'||'.$prefix.'|'.$surn;;
 	}
 
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

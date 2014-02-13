@@ -10,17 +10,11 @@ class roglo_plugin extends research_base_plugin {
 		return 'Roglo';
 	}
 	
-	static function create_link($primary_name) {
-		return $link = 'http://roglo.eu/roglo?lang='
-						.WT_LOCALE
-						.'&m=NG&n='
-						.rawurlencode($primary_name['givn'])
-						.'+'
-						.rawurlencode($primary_name['surname'])
-						.'&t=PN';
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+		return $link = 'http://roglo.eu/roglo?lang='.WT_LOCALE.'&m=NG&n='.str_replace(" ", "+", $fullname).'&t=PN';
 	}
 	
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

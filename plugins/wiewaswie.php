@@ -10,11 +10,11 @@ class wiewaswie_plugin extends research_base_plugin {
 		return 'WieWasWie';
 	}
 
-	static function create_link($primary_name) {
-		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/'.str_replace(" ", "+", $primary_name['givn'].' '.$primary_name['surn']).'/type/documenten';
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/'.str_replace(" ", "+", $fullname).'/type/documenten';
 	}
 
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

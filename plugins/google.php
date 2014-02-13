@@ -10,12 +10,11 @@ class google_plugin extends research_base_plugin {
 		return 'Google';
 	}	
 	
-	static function create_link($primary_name) {
-		$name = $primary_name['givn'].' '.$primary_name['surname'];
-		return $link = 'https://www.google.nl/search?q='.str_replace(" ", "+", $name);
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+		return $link = 'https://www.google.nl/search?q='.str_replace(" ", "+", $fullname);
 	}
 
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

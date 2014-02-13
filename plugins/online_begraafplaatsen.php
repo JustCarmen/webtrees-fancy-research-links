@@ -10,12 +10,12 @@ class online_begraafplaatsen_plugin extends research_base_plugin {
 		return 'Online Begraafplaatsen';
 	}	
 	
-	static function create_link($primary_name) {
-		$name = $primary_name['givn'].' '.$primary_name['surname'];
-		return $link = 'http://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekformres&achternaam='.str_replace(" ", "+", $primary_name['surname']).'&amp;voornaam='.$primary_name['givn'];
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+		return $link = 'http://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekformres&achternaam='.
+						str_replace(" ", "+", $surname).'&amp;voornaam='.$givn;
 	}
 
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }

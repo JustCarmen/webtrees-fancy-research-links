@@ -161,10 +161,21 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				foreach ($controller->record->getFacts() as $key=>$value) {
 					$fact = $value->getTag();
 					if ($fact=="NAME") {
-						$primary_name = $this->getPrimaryName($value);
-						if($primary_name) {
-							$link = $plugin->create_link($primary_name);
-							$sublinks = $plugin->create_sublink($primary_name);
+						$primary = $this->getPrimaryName($value);
+						if($primary) {
+							
+							// create plugin vars						
+							$givn 		= $primary['givn'];
+							$given		= explode(" ", $givn);
+							$first		= $given[0];
+							$middle		= count($given) > 1 ? $given[1] : "";
+							$surn 		= $primary['surn'];
+							$surname	= $primary['surname'];
+							$fullname 	= $givn.' '.$surname;
+							$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : "";
+							
+							$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
+							$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 						}
 					}
 				}

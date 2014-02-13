@@ -10,17 +10,12 @@ class wikipedia_plugin extends research_base_plugin {
 		return 'Wikipedia';
 	}
 
-	static function create_link($primary_name) {
+	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		$language = substr(WT_LOCALE, 0, 2);	
-		return $link = 'https://'
-						.$language
-						.'.wikipedia.org/wiki/'
-						.rawurlencode($primary_name['givn'])
-						.'_'
-						.rawurlencode($primary_name['surname']);
+		return $link = 'https://'.$language.'.wikipedia.org/wiki/'.rawurlencode($givn).'_'.rawurlencode($surname);
 	}
 	
-	static function create_sublink($primary_name) {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 }
