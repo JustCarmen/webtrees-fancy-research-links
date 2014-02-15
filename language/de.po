@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links 1.5\n"
 "POT-Creation-Date: 2014-01-20 07:05+0100\n"
-"PO-Revision-Date: 2014-01-20 07:22+0100\n"
-"Last-Translator: Carmen Pijpers <carmen@justcarmen.nl>\n"
+"PO-Revision-Date: 2014-02-14 23:25+0100\n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler,de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-Basepath: c:\\xampp\\htdocs\\webtrees_build\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -23,7 +23,7 @@ msgstr "Ein Sidebar-Modul, das Links zu populären Ahnenforschungs-Webseiten ber
 
 #: modules_v3\fancy_research_links/module.php:101
 msgid "Check the plugins you want to use in the sidebar"
-msgstr ""
+msgstr "Wählen Sie diejenige Plugins, die in der Seitenleiste verwendet werden sollen"
 
 #: modules_v3\fancy_research_links/module.php:87
 msgid "Fancy Research Links"
@@ -35,4 +35,4 @@ msgstr "Ahnenforschung"
 
 #: modules_v3\fancy_research_links/module.php:109
 msgid "The settings will be reset to default. Are you sure you want to do this?"
-msgstr ""
+msgstr "Die Einstellungen werden auf Standardwerte zurückgesetzt. Wollen Sie das wirklich?"
