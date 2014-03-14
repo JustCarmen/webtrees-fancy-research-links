@@ -5,7 +5,7 @@ Fancy Research Links Module for webtrees 1.5x
 
 The development version of the module requires [webtrees 1.5.3](https://github.com/fisharebest/webtrees) or later.
 
-Download the latest stable release for webtrees 1.5.2 here: https://github.com/JustCarmen/fancy_research_links/releases/tag/1.5.2
+Download the latest stable release for webtrees 1.5.2 here: https://github.com/JustCarmen/fancy_research_links/releases/tag/1.5.2.1
 
 Description
 -----------
