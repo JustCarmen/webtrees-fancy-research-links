@@ -110,9 +110,9 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					<input type="hidden" name="save" value="1">';
 		$html .= '	<h3>'.WT_I18N::translate('Check the plugins you want to use in the sidebar').'</h3>';
 					foreach ($this->getPluginList() as $plugin) {
-						if(is_array($FRL_PLUGINS) && array_key_exists($plugin->getName(), $FRL_PLUGINS)) $value = $FRL_PLUGINS[$plugin->getName()];
+						if(is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) $value = $FRL_PLUGINS[get_class($plugin)];
 						if(!isset($value)) $value = '1';
-		$html .=			'<div class="field">'.two_state_checkbox('NEW_FRL_PLUGINS['.$plugin->getName().']', $value).'<label>'.$plugin->getName().'</label></div>';
+		$html .=			'<div class="field">'.two_state_checkbox('NEW_FRL_PLUGINS['.get_class($plugin).']', $value).'<label>'.$plugin->getName().'</label></div>';
 						}
 		$html .= '		<div class="buttons">
 							<input type="submit" value="'.WT_I18N::translate('Save').'" />
@@ -157,7 +157,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
 		$html .= '<ul id="research_status">';
 		foreach ($this->getPluginList() as $plugin) {
-			if(is_array($FRL_PLUGINS) && array_key_exists($plugin->getName(), $FRL_PLUGINS)) $value = $FRL_PLUGINS[$plugin->getName()];
+			if(is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) $value = $FRL_PLUGINS[get_class($plugin)];
 			if(!isset($value)) $value = '1';
 			if($value == true) {
 				foreach ($controller->record->getFacts() as $key=>$value) {
@@ -182,15 +182,15 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					}
 				}
 				if($sublinks) {
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.$link.'">'.$plugin->getName().'</a>';
+					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.htmlspecialchars($link).'">'.$plugin->getName().'</a>';
 					$html .= '<ul class="sublinks">';
 					foreach ($sublinks as $sublink) {
-						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$sublink['link'].'" target="_blank">'.$sublink['title'].'</a></li>';
+						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($sublink['link']).'" target="_blank">'.$sublink['title'].'</a></li>';
 					}
 					$html .= '</ul></li>';
 				}
 				else { // default
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.$link.'" target="_blank">'.$plugin->getName().'</a></li>';
+					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($link).'" target="_blank">'.$plugin->getName().'</a></li>';
 				}
 			}
 		}

@@ -11,7 +11,7 @@ class digitalestamboom_plugin extends research_base_plugin {
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder='.$givn.'||'.$prefix.'|'.$surn;;
+		return $link = 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder='.urlencode($givn.'||'.$prefix.'|'.$surn);
 	}
 
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
