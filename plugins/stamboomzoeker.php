@@ -11,7 +11,7 @@ class stamboomzoeker_plugin extends research_base_plugin {
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://stamboomzoeker.nl/search.php?l=nl&fn='.$givn.'&sn='.$surname.'&m=1&bd1=0&bd2=2014&bp=&t=1&submit=Zoeken';
+		return $link = 'http://stamboomzoeker.nl/search.php?l=nl&fn=' . str_replace("%20", "+", $givn) . '&sn=' . str_replace("%20", "+", $surname) . '&m=1&bd1=0&bd2=2014&bp=&t=1&submit=Zoeken';
 	}
 
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

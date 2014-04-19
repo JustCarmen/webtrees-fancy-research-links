@@ -28,13 +28,7 @@ class ancestry_plugin extends research_base_plugin {
 			$ancestry_domain = $domain['en_US'];
 		}
 
-		return $link = 'http://search.ancestry.'
-						.$ancestry_domain
-						.'/cgi-bin/sse.dll?new=1&gsfn='
-						.rawurlencode($givn)
-						.'&gsln='
-						.rawurlencode($surname)
-						.'&gl=ROOT_CATEGORY&rank=1';
+		return $link = 'http://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $givn.'&gsln=' . $surname . '&gl=ROOT_CATEGORY&rank=1';
 	}
 
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

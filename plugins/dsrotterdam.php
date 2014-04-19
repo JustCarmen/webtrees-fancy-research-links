@@ -11,7 +11,7 @@ class dsrotterdam_plugin extends research_base_plugin {
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://rotterdam.digitalestamboom.nl/search.aspx?lang=nl&verder='.urlencode($givn.'||'.$prefix.'|'.$surn);
+		return $link = 'http://rotterdam.digitalestamboom.nl/search.aspx?lang=nl&verder=' . str_replace('%20', '+', $givn . urlencode('||') . $prefix . urlencode('|') . $surn);
 	}
 
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

@@ -167,13 +167,13 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 						if($primary) {
 							
 							// create plugin vars						
-							$givn 		= $primary['givn']; 														// all given names
-							$given		= explode(" ", $givn);
+							$givn 		= rawurlencode($primary['givn']); 											// all given names
+							$given		= explode(" ", rawurldecode($givn));
 							$first		= $given[0]; 																// first given name
 							$middle		= count($given) > 1 ? $given[1] : "";										// middle name (second given name
-							$surn 		= $primary['surn'];															// surname without prefix
-							$surname	= $primary['surname'];														// full surname (with prefix)
-							$fullname 	= $givn.' '.$surname;														// full name
+							$surn 		= rawurlencode($primary['surn']);											// surname without prefix
+							$surname	= rawurlencode($primary['surname']);										// full surname (with prefix)
+							$fullname 	= $givn.'%20'.$surname;														// full name
 							$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : "";// prefix
 							
 							$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);

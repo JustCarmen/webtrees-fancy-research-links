@@ -11,7 +11,7 @@ class wiewaswie_plugin extends research_base_plugin {
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/'.str_replace(" ", "+", $fullname).'/type/documenten';
+		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/' . str_replace("%20", "+", $fullname) . '/type/documenten';
 	}
 
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

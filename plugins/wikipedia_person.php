@@ -11,7 +11,7 @@ class wikipedia_person_plugin extends research_base_plugin {
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {		
-		return $link = 'https://toolserver.org/~apper/pd/person/'.rawurlencode($givn).'_'.rawurlencode($surname);
+		return $link = 'https://toolserver.org/~apper/pd/person/' . $givn . '_' . $surname;
 	}
 	
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
