@@ -29,10 +29,14 @@ class geneall_plugin extends research_base_plugin {
 			$language = $languages['en_US'];
 		}
 
-		return $link = 'http://www.geneall.net/' . $language . '/per_search.php?s=' . str_replace('%20', '+', $givn . '+' . $surname) . '&s_type=per_search.php';
+		return $link = 'http://www.geneall.net/' . $language . '/per_search.php?s=' . $fullname . '&s_type=per_search.php';
 	}
 	
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
+	}
+	
+	static function encode_plus() {
+		return true;	
 	}
 }

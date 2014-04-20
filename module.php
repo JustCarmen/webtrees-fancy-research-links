@@ -167,14 +167,14 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 						if($primary) {
 							
 							// create plugin vars						
-							$givn 		= rawurlencode($primary['givn']); 											// all given names
-							$given		= explode(" ", rawurldecode($givn));
-							$first		= $given[0]; 																// first given name
-							$middle		= count($given) > 1 ? $given[1] : "";										// middle name (second given name
-							$surn 		= rawurlencode($primary['surn']);											// surname without prefix
-							$surname	= rawurlencode($primary['surname']);										// full surname (with prefix)
-							$fullname 	= $givn.'%20'.$surname;														// full name
-							$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : "";// prefix
+							$givn 		= $this->encode($primary['givn'], $plugin->encode_plus()); // all given names
+							$given		= explode(" ", $primary['givn']);
+							$first		= $given[0]; // first given name
+							$middle		= count($given) > 1 ? $given[1] : ""; // middle name (second given name)
+							$surn 		= $this->encode($primary['surn'], $plugin->encode_plus()); // surname without prefix
+							$surname	= $this->encode($primary['surname'], $plugin->encode_plus()); // full surname (with prefix)
+							$fullname 	= $plugin->encode_plus() ? $givn.'+'.$surname : $givn.'%20'.$surname; // full name
+							$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : ""; // prefix
 							
 							$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 							$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
@@ -196,6 +196,11 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		}
 		$html.= '</ul>';
 		return $html;
+	}
+	
+	private function encode($var, $plus) {
+		$var = rawurlencode($var);
+		return $plus ? str_replace("%20", "+", $var) : $var;
 	}
 
 	// Scan the plugin folder for a list of plugins
