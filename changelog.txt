@@ -1,5 +1,12 @@
 GOTO HTTP://WWW.JUSTCARMEN.NL/HELP FOR INSTALLATION AND UPGRADE INSTRUCTIONS
 
+Version 1.5.3 - 04-05-2014
+* New plugins added: Stamboomzoeker (Dutch) en Deceased online.
+* Changed link in Google plugin from google.nl to google.com
+* Improved url encoding for better performance.
+* W3C validation errors fixed.
+===========================================================================================================================
+
 Version 1.5.2.1 - 14-03-2014
 * Finish, Hebrew and Swedish translations added.
 * German translation updated.
