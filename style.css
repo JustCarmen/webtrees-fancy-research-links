@@ -1,8 +1,41 @@
-/* Basic style for the Fancy Research Links module - this css file is suitable for all themes.
-/* No specific theme stylesheets required
-*/
-ul#research_status li {list-style-type:none; line-height:16px; padding:2px 0; margin-bottom:5px}
-ul#research_status li ul, ul#research_status li li:last-child {margin-bottom:0}
-ul#research_status span.ui-icon {display:inline-block;vertical-align:middle}
-ul#research_status ul.sublinks {display:none}
+/*
+ * Stylesheet for the Fancy Research Links Module
+ *
+ * webtrees: Web based Family History software
+ * Copyright (C) 2014 webtrees development team.
+ * Copyright (C) 2014 JustCarmen.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
 
+ul#research_status li {
+	list-style-type: none;
+	line-height: 16px;
+	padding: 2px 0;
+	margin-bottom: 5px;
+}
+
+ul#research_status li ul, ul#research_status li li:last-child {
+	margin-bottom: 0;
+}
+
+ul#research_status span.ui-icon {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+ul#research_status ul.sublinks {
+	display: none;
+}
