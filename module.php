@@ -87,7 +87,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 	// Reset all settings to default
 	private function frl_reset() {
 		WT_DB::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
-		AddToLog($this->getTitle().' reset to default values', 'config');
+		\WT\Log::addConfigurationLog($this->getTitle().' reset to default values');
 	}
 
 	// Configuration page
@@ -95,7 +95,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		require WT_ROOT.'includes/functions/functions_edit.php';
 		$controller=new WT_Controller_Page;
 		$controller
-			->requireAdminLogin()
+			->restrictAccess(\WT\Auth::isAdmin())
 			->setPageTitle(WT_I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
@@ -103,7 +103,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 
 		if (WT_Filter::postBool('save')) {
 			set_module_setting($this->getName(), 'FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
-			AddToLog($this->getTitle().' config updated', 'config');
+			\WT\Log::addConfigurationLog($this->getTitle().' config updated');
 		}
 
 		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
