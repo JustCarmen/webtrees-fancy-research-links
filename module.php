@@ -63,7 +63,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 	public function getDescription() {
 		return /* I18N: Description of the module */ WT_I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
 	}
-	
+
 	// Extend WT_Module_Config
 	public function modAction($mod_action) {
 		switch($mod_action) {
@@ -78,21 +78,21 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 			header('HTTP/1.0 404 Not Found');
 		}
 	}
-		
+
 	// Implement WT_Module_Config
 	public function getConfigLink() {
 		return 'module.php?mod='.$this->getName().'&amp;mod_action=admin_config';
 	}
-	
+
 	// Reset all settings to default
 	private function frl_reset() {
 		WT_DB::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
 		AddToLog($this->getTitle().' reset to default values', 'config');
 	}
-	
+
 	// Configuration page
-	private function config() {		
-		require WT_ROOT.'includes/functions/functions_edit.php';								
+	private function config() {
+		require WT_ROOT.'includes/functions/functions_edit.php';
 		$controller=new WT_Controller_Page;
 		$controller
 			->requireAdminLogin()
@@ -100,15 +100,15 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 			->pageHeader()
 			->addInlineJavascript('
 				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");');
-		
+
 		if (WT_Filter::postBool('save')) {
-			set_module_setting($this->getName(), 'FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));				
+			set_module_setting($this->getName(), 'FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
 			AddToLog($this->getTitle().' config updated', 'config');
-		}			
-		
-		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));			
+		}
+
+		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
 		$html = '	<h2>'.$controller->getPageTitle().'</h2>
-					<form method="post" name="configform" action="'.$this->getConfigLink().'">						
+					<form method="post" name="configform" action="'.$this->getConfigLink().'">
 					<input type="hidden" name="save" value="1">';
 		$html .= '	<h3>'.WT_I18N::translate('Check the plugins you want to use in the sidebar').'</h3>';
 					foreach ($this->getPluginList() as $plugin) {
@@ -124,7 +124,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		// output
 		ob_start();$html .= ob_get_clean();echo $html;
 	}
-	
+
 	// Implement WT_Module_Sidebar
 	public function defaultSidebarOrder() {
 		return 9;
@@ -155,7 +155,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				jQuery(this).parent().find(".sublinks").toggle();
 			});
 		');
-		
+
 		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
 		$html .= '<ul id="research_status">';
 		foreach ($this->getPluginList() as $plugin) {
@@ -167,8 +167,8 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					if ($fact=="NAME") {
 						$primary = $this->getPrimaryName($value);
 						if($primary) {
-							
-							// create plugin vars						
+
+							// create plugin vars
 							$givn 		= $this->encode($primary['givn'], $plugin->encode_plus()); // all given names
 							$given		= explode(" ", $primary['givn']);
 							$first		= $given[0]; // first given name
@@ -177,7 +177,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 							$surname	= $this->encode($primary['surname'], $plugin->encode_plus()); // full surname (with prefix)
 							$fullname 	= $plugin->encode_plus() ? $givn.'+'.$surname : $givn.'%20'.$surname; // full name
 							$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : ""; // prefix
-							
+
 							$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 							$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 						}
@@ -199,7 +199,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		$html.= '</ul>';
 		return $html;
 	}
-	
+
 	private function encode($var, $plus) {
 		$var = rawurlencode($var);
 		return $plus ? str_replace("%20", "+", $var) : $var;
