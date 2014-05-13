@@ -170,7 +170,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				$value = '1';
 			}
 			if($value == true) {
-				foreach ($controller->record->getFacts() as $key=>$value) {
+				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
 					if ($fact=="NAME") {
 						$primary = $this->getPrimaryName($value);
