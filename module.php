@@ -170,12 +170,13 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				$value = '1';
 			}
 			if($value == true) {
+				$name = false; // only use the first fact with a NAME tag.
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
-					if ($fact=="NAME") {
+					if ($fact=="NAME" && !$name) {
 						$primary = $this->getPrimaryName($value);
 						if($primary) {
-
+							$name = true;
 							// create plugin vars
 							$givn 		= $this->encode($primary['givn'], $plugin->encode_plus()); // all given names
 							$given		= explode(" ", $primary['givn']);
