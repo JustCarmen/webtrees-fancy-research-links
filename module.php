@@ -159,7 +159,8 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				jQuery(this).parent().find(".sublinks").toggle();
 			});
 		');
-
+		
+		$count = 0;
 		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
 		$html .= '<ul id="research_status">';
 		foreach ($this->getPluginList() as $plugin) {
@@ -170,42 +171,49 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				$value = '1';
 			}
 			if($value == true) {
-				$name = false; // only use the first fact with a NAME tag.
+				$primary = "";
+				$name = false; // only use the first fact with a NAME tag.				
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
 					if ($fact=="NAME" && !$name) {
 						$primary = $this->getPrimaryName($value);
-						if($primary) {
-							$name = true;
-							// create plugin vars
-							$givn 		= $this->encode($primary['givn'], $plugin->encode_plus()); // all given names
-							$given		= explode(" ", $primary['givn']);
-							$first		= $given[0]; // first given name
-							$middle		= count($given) > 1 ? $given[1] : ""; // middle name (second given name)
-							$surn 		= $this->encode($primary['surn'], $plugin->encode_plus()); // surname without prefix
-							$surname	= $this->encode($primary['surname'], $plugin->encode_plus()); // full surname (with prefix)
-							$fullname 	= $plugin->encode_plus() ? $givn.'+'.$surname : $givn.'%20'.$surname; // full name
-							$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : ""; // prefix
+						$name = true;
+					}
+				}				
+				if($primary) {					
+					// create plugin vars
+					$givn 		= $this->encode($primary['givn'], $plugin->encode_plus()); // all given names
+					$given		= explode(" ", $primary['givn']);
+					$first		= $given[0]; // first given name
+					$middle		= count($given) > 1 ? $given[1] : ""; // middle name (second given name)
+					$surn 		= $this->encode($primary['surn'], $plugin->encode_plus()); // surname without prefix
+					$surname	= $this->encode($primary['surname'], $plugin->encode_plus()); // full surname (with prefix)
+					$fullname 	= $plugin->encode_plus() ? $givn.'+'.$surname : $givn.'%20'.$surname; // full name
+					$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : ""; // prefix
 
-							$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
-							$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
+					$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
+					$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
+				
+					if($sublinks) {
+						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.htmlspecialchars($link).'">'.$plugin->getName().'</a>';
+						$html .= '<ul class="sublinks">';
+						foreach ($sublinks as $sublink) {
+							$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($sublink['link']).'" target="_blank">'.$sublink['title'].'</a></li>';
 						}
+						$html .= '</ul></li>';
 					}
-				}
-				if($sublinks) {
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.htmlspecialchars($link).'">'.$plugin->getName().'</a>';
-					$html .= '<ul class="sublinks">';
-					foreach ($sublinks as $sublink) {
-						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($sublink['link']).'" target="_blank">'.$sublink['title'].'</a></li>';
+					else { // default
+						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($link).'" target="_blank">'.$plugin->getName().'</a></li>';
 					}
-					$html .= '</ul></li>';
-				}
-				else { // default
-					$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($link).'" target="_blank">'.$plugin->getName().'</a></li>';
+					$count++;
 				}
 			}
 		}
 		$html.= '</ul>';
+		
+		if($count === 0) {
+			$html = WT_I18N::translate('There are no research links available for this individual.');
+		}
 		return $html;
 	}
 
