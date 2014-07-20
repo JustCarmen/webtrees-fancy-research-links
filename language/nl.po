@@ -41,4 +41,4 @@ msgstr "De standaardinstellingen worden teruggezet. Weet u zeker dat u dit wilt?
 
 #: modules_v3\fancy_research_links/module.php:215
 msgid "There are no research links available for this individual."
-msgstr "Voor deze persoon zijn geen onderzoekslinken beschikbaar."
+msgstr "Voor deze persoon zijn geen onderzoekskoppelingen beschikbaar."
