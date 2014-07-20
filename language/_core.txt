@@ -12,3 +12,11 @@ msgstr ""
 #: modules_v3\fancy_research_links/module.php:109
 msgid "Reset"
 msgstr ""
+
+#: modules_v3\fancy_research_links/plugins/rijksarchiefbelgie.php:20
+msgid "birth"
+msgstr ""
+
+#: modules_v3\fancy_research_links/plugins/rijksarchiefbelgie.php:24
+msgid "death"
+msgstr ""
