@@ -24,11 +24,6 @@
 use WT\Auth;
 use WT\Log;
 
-if (!defined('WT_WEBTREES')) {
-	header('HTTP/1.0 403 Forbidden');
-	exit;
-}
-
 class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Config, WT_Module_Sidebar {
 
 	public function __construct() {

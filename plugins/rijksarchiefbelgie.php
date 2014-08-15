@@ -1,10 +1,5 @@
 <?php
 
-if (!defined('WT_WEBTREES')) {
-	header('HTTP/1.0 403 Forbidden');
-	exit;
-}
-
 class rijksarchiefbelgie_plugin extends research_base_plugin {
 	static function getName() {
 		return 'Rijksarchief België';
