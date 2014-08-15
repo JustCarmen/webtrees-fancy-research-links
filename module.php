@@ -21,6 +21,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
+use WT\Auth;
+use WT\Log;
+
 if (!defined('WT_WEBTREES')) {
 	header('HTTP/1.0 403 Forbidden');
 	exit;
@@ -87,7 +90,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 	// Reset all settings to default
 	private function frl_reset() {
 		WT_DB::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
-		\WT\Log::addConfigurationLog($this->getTitle().' reset to default values');
+		Log::addConfigurationLog($this->getTitle().' reset to default values');
 	}
 
 	// Configuration page
@@ -95,7 +98,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		require WT_ROOT.'includes/functions/functions_edit.php';
 		$controller=new WT_Controller_Page;
 		$controller
-			->restrictAccess(\WT\Auth::isAdmin())
+			->restrictAccess(Auth::isAdmin())
 			->setPageTitle(WT_I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
@@ -103,7 +106,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 
 		if (WT_Filter::postBool('save')) {
 			set_module_setting($this->getName(), 'FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
-			\WT\Log::addConfigurationLog($this->getTitle().' config updated');
+			Log::addConfigurationLog($this->getTitle().' config updated');
 		}
 
 		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
