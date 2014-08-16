@@ -193,15 +193,15 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 				
 					if($sublinks) {
-						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="mainlink" href="'.htmlspecialchars($link).'">'.$plugin->getName().'</a>';
+						$html.='<li><i class="icon-research-link"></i><a class="mainlink" href="'.htmlspecialchars($link).'">'.$plugin->getName().'</a>';
 						$html .= '<ul class="sublinks">';
 						foreach ($sublinks as $sublink) {
-							$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($sublink['link']).'" target="_blank">'.$sublink['title'].'</a></li>';
+							$html.='<li><i class="icon-research-link"></i><a class="research_link" href="'.htmlspecialchars($sublink['link']).'" target="_blank">'.$sublink['title'].'</a></li>';
 						}
 						$html .= '</ul></li>';
 					}
 					else { // default
-						$html.='<li><span class="ui-icon ui-icon-triangle-1-e left"></span><a class="research_link" href="'.htmlspecialchars($link).'" target="_blank">'.$plugin->getName().'</a></li>';
+						$html.='<li><i class="icon-research-link"></i><a class="research_link" href="'.htmlspecialchars($link).'" target="_blank">'.$plugin->getName().'</a></li>';
 					}
 					$count++;
 				}

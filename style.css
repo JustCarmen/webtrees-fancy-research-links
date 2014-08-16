@@ -31,11 +31,6 @@ ul#research_status li ul, ul#research_status li li:last-child {
 	margin-bottom: 0;
 }
 
-ul#research_status span.ui-icon {
-	display: inline-block;
-	vertical-align: middle;
-}
-
 ul#research_status ul.sublinks {
 	display: none;
 }
