@@ -100,11 +100,11 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");');
 
 		if (WT_Filter::postBool('save')) {
-			set_module_setting($this->getName(), 'FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
+			$this->setSetting('FRL_PLUGINS',  serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
 			Log::addConfigurationLog($this->getTitle().' config updated');
 		}
 
-		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
+		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html = '	<h2>'.$controller->getPageTitle().'</h2>
 					<form method="post" name="configform" action="'.$this->getConfigLink().'">
 					<input type="hidden" name="save" value="1">';
@@ -159,7 +159,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		');
 		
 		$count = 0;
-		$FRL_PLUGINS = unserialize(get_module_setting($this->getName(), 'FRL_PLUGINS'));
+		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="research_status">';
 		foreach ($this->getPluginList() as $plugin) {
 			if (is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) {
