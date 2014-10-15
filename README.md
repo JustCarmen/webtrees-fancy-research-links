@@ -1,17 +1,15 @@
 Fancy Research Links
 ====================
 
-Fancy Research Links Module for webtrees 1.5x
+Fancy Research Links Module for webtrees.
 
-The development version of the module requires [webtrees 1.5.4](https://github.com/fisharebest/webtrees).
-
-Download the latest stable release for webtrees 1.5.3 here: https://github.com/JustCarmen/fancy_research_links/releases/tag/1.5.3
+This module requires [webtrees 1.6.0](https://github.com/fisharebest/webtrees). Download the latest stable release [here](https://github.com/JustCarmen/fancy_privacy_list/releases/tag/1.6.0).
 
 Description
 -----------
 A sidebar module that provides quick links to popular research web sites, using the individuals name as the search reference. There is a base stylesheet added to the module which should work with any theme.
 
-At the moment mainly Dutch research web sites and a few others are added as plugin. [Here](https://github.com/JustCarmen/fancy_research_links/tree/master/plugins) you can get a quick overview of the plugins currently available in the development version. Plugins not available yet in the latest release will be available in the next release.
+[Here](https://github.com/JustCarmen/fancy_research_links/tree/1.6.0/plugins) you can get a quick overview of the plugins (links) available in the latest release. The plugins are grouped by search area.
 
 You can extend the list of possible research sites by making your own plugin. Look in the pluginfolder of the module for examples.
 
@@ -25,7 +23,7 @@ A quick guide to add your own plugin:
 
 4. If you made a plugin that could be interesting for other users you can do a pull request or send me a copy.
 
-On the Fancy Research Links configuration page (new in version 1.5.1.3) you can select the plugins you want to use in the sidebar.
+On the Fancy Research Links configuration page you can select the plugins you want to use in the sidebar.
 
 Installation, updating and translations
 ---------------------------------------
