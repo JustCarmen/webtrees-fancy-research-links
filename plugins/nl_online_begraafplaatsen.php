@@ -1,8 +1,8 @@
 <?php
 
-class online_begraafplaatsen_plugin extends research_base_plugin {
+class nl_online_begraafplaatsen_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Online Begraafplaatsen';
+		return 'NL | Online Begraafplaatsen';
 	}	
 	
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

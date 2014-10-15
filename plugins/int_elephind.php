@@ -1,13 +1,8 @@
 <?php
 
-if (!defined('WT_WEBTREES')) {
-	header('HTTP/1.0 403 Forbidden');
-	exit;
-}
-
-class elephind_plugin extends research_base_plugin {
+class int_elephind_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Elephind Newspapers';
+		return 'INT | Elephind Newspapers';
 	}
 
 	static function create_link($fullname, $givn, $first, $prefix, $surn, $surname) {

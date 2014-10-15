@@ -1,8 +1,8 @@
 <?php
 
-class hetutrechtsarchief_plugin extends research_base_plugin {
+class nl_hetutrechtsarchief_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Het Utrechts Archief';
+		return 'NL | Het Utrechts Archief';
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {		

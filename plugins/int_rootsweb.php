@@ -1,8 +1,8 @@
 <?php
 
-class rootsweb_plugin extends research_base_plugin {
+class int_rootsweb_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Rootsweb';
+		return 'INT | Rootsweb';
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

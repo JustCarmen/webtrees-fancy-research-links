@@ -1,8 +1,8 @@
 <?php
 
-class rijksarchiefbelgie_plugin extends research_base_plugin {
+class be_rijksarchiefbelgie_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Rijksarchief België';
+		return 'BE | Rijksarchief België';
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {

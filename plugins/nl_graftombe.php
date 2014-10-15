@@ -1,12 +1,13 @@
 <?php
 
-class voorouder_plugin extends research_base_plugin {
+class nl_graftombe_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Voorouder.nl';
+		return 'NL | Graftombe';
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.voorouder.nl/genealogie/search.php?mybool=AND&nr=50&showdeath=yes&mylastname=' . $surname .'&lnqualify=equals&myfirstname=' . $givn .'&fnqualify=contains';
+		$surname = $prefix ? $surn . ' ' . $prefix : $surn;
+		return $link = 'http://www.graftombe.nl/names/search?forename=' . $givn . '&surname=' . $surname .'&submit=Zoeken&r=names-search';
 	}
 
 	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
@@ -14,6 +15,6 @@ class voorouder_plugin extends research_base_plugin {
 	}
 	
 	static function encode_plus() {
-		return false;	
+		return true;	
 	}
 }

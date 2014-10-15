@@ -1,8 +1,8 @@
 <?php
 
-class wikipedia_person_plugin extends research_base_plugin {
+class de_wikipedia_person_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Wikipedia-Personensuche';  // uses German wikipedia
+		return 'DE | Wikipedia-Personensuche';  // uses German wikipedia
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {		

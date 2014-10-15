@@ -1,8 +1,8 @@
 <?php
 
-class ancestry_plugin extends research_base_plugin {
+class int_ancestry_plugin extends research_base_plugin {
 	static function getName() {
-		return 'Ancestry';
+		return 'INT | Ancestry | $';
 	}
 
 	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
