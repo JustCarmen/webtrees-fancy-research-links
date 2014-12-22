@@ -3,7 +3,7 @@ Fancy Research Links
 
 Fancy Research Links Module for webtrees.
 
-This module requires [webtrees 1.6.0](https://github.com/fisharebest/webtrees) or later. Download the latest stable release [here](https://github.com/JustCarmen/fancy_privacy_list/releases/tag/1.6.2).
+This module requires [webtrees 1.6.0](https://github.com/fisharebest/webtrees) or later. Download the latest stable release [here](https://github.com/JustCarmen/fancy_research_links/releases/tag/1.6.2).
 
 Description
 -----------
