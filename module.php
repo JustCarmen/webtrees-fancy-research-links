@@ -187,7 +187,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					$surn 		= $this->encode($primary['surn'], $plugin->encode_plus()); // surname without prefix
 					$surname	= $this->encode($primary['surname'], $plugin->encode_plus()); // full surname (with prefix)
 					$fullname 	= $plugin->encode_plus() ? $givn.'+'.$surname : $givn.'%20'.$surname; // full name
-					$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 1) : ""; // prefix
+					$prefix		= $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 3) : ""; // prefix
 
 					$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 					$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
