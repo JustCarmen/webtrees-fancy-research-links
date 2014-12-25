@@ -273,5 +273,12 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 
 // Each plugin should extend the base_plugin class, and implement any functions included here
 class research_base_plugin {
+	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+		return false;
+	}
+	
+	static function encode_plus() {
+		return false;	
+	}
 }
 

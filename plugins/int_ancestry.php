@@ -25,12 +25,4 @@ class int_ancestry_plugin extends research_base_plugin {
 
 		return $link = 'http://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $givn.'&gsln=' . $surname . '&gl=ROOT_CATEGORY&rank=1';
 	}
-
-	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return false;
-	}
-	
-	static function encode_plus() {
-		return false;	
-	}
 }

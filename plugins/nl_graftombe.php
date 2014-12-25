@@ -9,10 +9,6 @@ class nl_graftombe_plugin extends research_base_plugin {
 		$surname = $prefix ? $surn . ' ' . $prefix : $surn;
 		return $link = 'http://www.graftombe.nl/names/search?forename=' . $givn . '&surname=' . $surname .'&submit=Zoeken&r=names-search';
 	}
-
-	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return false;
-	}
 	
 	static function encode_plus() {
 		return true;	
