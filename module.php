@@ -98,7 +98,18 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 			->setPageTitle(WT_I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
-				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");');
+				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");
+				jQuery("input[name=select-all]").click(function(){
+				if (jQuery(this).is(":checked") == true) {
+					jQuery("#linklist").find(":checkbox").prop("checked", true).val(1);
+					jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
+				} else {
+					jQuery("#linklist").find(":checkbox").prop("checked", false).val(0);
+					jQuery("input[id^=NEW_FRL_PLUGINS]").val(0);
+				}
+				formChanged = true;
+			});
+			');
 
 		if (WT_Filter::postBool('save')) {
 			$this->setSetting('FRL_PLUGINS', serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
@@ -106,26 +117,42 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		}
 
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
-		$html = '	<h2>' . $controller->getPageTitle() . '</h2>
-					<form method="post" name="configform" action="' . $this->getConfigLink() . '">
-					<input type="hidden" name="save" value="1">';
-		$html .= '	<h3>' . WT_I18N::translate('Check the plugins you want to use in the sidebar') . '</h3>';
-		foreach ($this->getPluginList() as $plugin) {
-			if (is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) {
-				$value = $FRL_PLUGINS[get_class($plugin)];
-			}
-			if (!isset($value)) {
-				$value = '1';
-			}
-			$html .= '<div class="field">' . two_state_checkbox('NEW_FRL_PLUGINS[' . get_class($plugin) . ']', $value) . '<label>' . $plugin->getName() . '</label></div>';
-		}
-		$html .= '		<div class="buttons">
-							<input type="submit" value="' . WT_I18N::translate('Save') . '" />
-							<input type="reset" value="' . WT_I18N::translate('Reset') . '" onclick="if (confirm(\'' . WT_I18N::translate('The settings will be reset to default. Are you sure you want to do this?') . '\')) window.location.href=\'module.php?mod=' . $this->getName() . '&amp;mod_action=admin_reset\';"/>
-						</div>
-					</form>';
-		// output
-		ob_start(); $html .= ob_get_clean(); echo $html;
+		?>
+		<h2><?php echo $controller->getPageTitle(); ?></h2>
+		<p class="small text-muted"><?php echo WT_I18N::translate('Check the plugins you want to use in the sidebar'); ?></p>
+		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink(); ?>">
+			<input type="hidden" name="save" value="1">
+			<!-- SELECT ALL -->
+			<div class="checkbox-inline">
+				<label>
+					<?php echo checkbox('select-all') . WT_I18N::translate('select all'); ?>
+				</label>
+				<?php // The datatable will be dynamically filled with images from the database. ?>
+			</div>
+			<!-- RESEARCH LINKS -->
+			<div id="linklist" class="form-group">
+				<?php foreach ($this->getPluginList() as $plugin): ?>
+					<?php
+					if (is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) {
+						$value = $FRL_PLUGINS[get_class($plugin)];
+					} if (!isset($value)) {
+						$value = '1';
+					}
+					?>
+					<div class="checkbox col-xs-4">
+						<label class="checkbox-inline">
+							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . get_class($plugin) . ']', $value) . ' ' . $plugin->getName(); ?>
+						</label>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<button type="submit" class="btn btn-primary"><?php echo WT_I18N::translate('Save'); ?></button>
+			<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo WT_I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
+								window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
+				<?php echo WT_I18N::translate('Reset'); ?>
+			</button>
+		</form>
+		<?php
 	}
 
 	// Implement WT_Module_Sidebar
@@ -171,7 +198,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 			}
 			if ($value == true) {
 				$primary = "";
-				$name = false; // only use the first fact with a NAME tag.				
+				$name = false; // only use the first fact with a NAME tag.
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
 					if ($fact == "NAME" && !$name) {
