@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Fancy Research Links Module
  *
@@ -132,7 +131,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 				<label>
 					<?php echo checkbox('select-all') . WT_I18N::translate('select all'); ?>
 				</label>
-				<?php // The datatable will be dynamically filled with images from the database. ?>
+				<?php // The datatable will be dynamically filled with images from the database.  ?>
 			</div>
 			<!-- RESEARCH LINKS -->
 			<div id="linklist" class="form-group">
@@ -151,9 +150,13 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					</div>
 				<?php endforeach; ?>
 			</div>
-			<button type="submit" class="btn btn-primary"><?php echo WT_I18N::translate('Save'); ?></button>
+			<button type="submit" class="btn btn-primary">
+				<i class="fa fa-check"></i>
+				<?php echo WT_I18N::translate('Save'); ?>
+			</button>
 			<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo WT_I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
 								window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
+				<i class="fa fa-recycle"></i>
 				<?php echo WT_I18N::translate('Reset'); ?>
 			</button>
 		</form>
