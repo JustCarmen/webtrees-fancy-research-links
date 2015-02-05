@@ -1,12 +1,14 @@
 <?php
 
+namespace Webtrees;
+
 class nl_digitalestamboom_plugin extends research_base_plugin {
 
-	static function getName() {
+	static function getPluginName() {
 		return 'NL | Digitale Stamboom';
 	}
 
-	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return $link = 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $givn . urlencode('||') . $prefix . urlencode('|') . $surn;
 	}
 

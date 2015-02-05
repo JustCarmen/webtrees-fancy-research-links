@@ -1,12 +1,14 @@
 <?php
 
+namespace Webtrees;
+
 class int_geneall_plugin extends research_base_plugin {
 
-	static function getName() {
+	static function getPluginName() {
 		return 'INT | Geneall | $';
 	}
 
-	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		// this plugin needs refactoring. Multiple websites for multiple country categories. Not on a per language base. See: http://www.geneall.net/site/home.php
 		$languages = array(
 			'de'	 => 'D',

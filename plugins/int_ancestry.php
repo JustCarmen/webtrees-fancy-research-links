@@ -1,12 +1,14 @@
 <?php
 
+namespace Webtrees;
+
 class int_ancestry_plugin extends research_base_plugin {
 
-	static function getName() {
+	static function getPluginName() {
 		return 'INT | Ancestry | $';
 	}
 
-	static function create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		$domain = array(
 			// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
 			'de'	 => 'de', // German

@@ -1,47 +1,43 @@
 <?php
-/*
- * Fancy Research Links Module
- *
- * webtrees: Web based Family History software
- * Copyright (C) 2014 webtrees development team.
- * Copyright (C) 2014 JustCarmen.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
+
+namespace Webtrees;
+
+/**
+ * webtrees: online genealogy
+ * Copyright (C) 2015 webtrees development team
+ * Copyright (C) 2015 JustCarmen
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
- *
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+use Zend_Translate;
 
-use WT\Auth;
-use WT\Log;
-
-class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Config, WT_Module_Sidebar {
+class fancy_research_links_WT_Module extends Module implements ModuleConfigInterface, ModuleSidebarInterface {
 
 	public function __construct() {
 		parent::__construct();
+		require_once WT_MODULES_DIR . $this->getName() . '/research_base_plugin.php';
 		// Load any local user translations
 		if (is_dir(WT_MODULES_DIR . $this->getName() . '/language')) {
 			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.mo')) {
-				WT_I18N::addTranslation(
+				I18N::addTranslation(
 					new Zend_Translate('gettext', WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.mo', WT_LOCALE)
 				);
 			}
 			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.php')) {
-				WT_I18N::addTranslation(
+				I18N::addTranslation(
 					new Zend_Translate('array', WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.php', WT_LOCALE)
 				);
 			}
 			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.csv')) {
-				WT_I18N::addTranslation(
+				I18N::addTranslation(
 					new Zend_Translate('csv', WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.csv', WT_LOCALE)
 				);
 			}
@@ -50,16 +46,16 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 
 	// Extend WT_Module
 	public function getTitle() {
-		return /* I18N: Name of the module */ WT_I18N::translate('Fancy Research Links');
+		return /* I18N: Name of the module */ I18N::translate('Fancy Research Links');
 	}
 
 	public function getSidebarTitle() {
-		return /* Title used in the sidebar */ WT_I18N::translate('Research links');
+		return /* Title used in the sidebar */ I18N::translate('Research links');
 	}
 
 	// Extend WT_Module
 	public function getDescription() {
-		return /* I18N: Description of the module */ WT_I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
+		return /* I18N: Description of the module */ I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
 	}
 
 	// Extend WT_Module_Config
@@ -84,17 +80,16 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 
 	// Reset all settings to default
 	private function frl_reset() {
-		WT_DB::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
+		Database::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
 		Log::addConfigurationLog($this->getTitle() . ' reset to default values');
 	}
 
 	// Configuration page
 	private function config() {
-		require WT_ROOT . 'includes/functions/functions_edit.php';
-		$controller = new WT_Controller_Page;
+		$controller = new PageController;
 		$controller
 			->restrictAccess(Auth::isAdmin())
-			->setPageTitle(WT_I18N::translate('Fancy Research Links'))
+			->setPageTitle(I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
 				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");
@@ -110,26 +105,26 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 			});
 			');
 
-		if (WT_Filter::postBool('save')) {
-			$this->setSetting('FRL_PLUGINS', serialize(WT_Filter::post('NEW_FRL_PLUGINS')));
+		if (Filter::postBool('save')) {
+			$this->setSetting('FRL_PLUGINS', serialize(Filter::post('NEW_FRL_PLUGINS')));
 			Log::addConfigurationLog($this->getTitle() . ' config updated');
 		}
 
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		?>
 		<ol class="breadcrumb small">
-			<li><a href="admin.php"><?php echo WT_I18N::translate('Control panel'); ?></a></li>
-			<li><a href="admin_modules.php"><?php echo WT_I18N::translate('Module administration'); ?></a></li>
+			<li><a href="admin.php"><?php echo I18N::translate('Control panel'); ?></a></li>
+			<li><a href="admin_modules.php"><?php echo I18N::translate('Module administration'); ?></a></li>
 			<li class="active"><?php echo $controller->getPageTitle(); ?></li>
 		</ol>
 		<h2><?php echo $controller->getPageTitle(); ?></h2>
-		<p class="small text-muted"><?php echo WT_I18N::translate('Check the plugins you want to use in the sidebar'); ?></p>
+		<p class="small text-muted"><?php echo I18N::translate('Check the plugins you want to use in the sidebar'); ?></p>
 		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink(); ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
 			<div class="checkbox-inline">
 				<label>
-					<?php echo checkbox('select-all') . WT_I18N::translate('select all'); ?>
+					<?php echo checkbox('select-all') . I18N::translate('select all'); ?>
 				</label>
 				<?php // The datatable will be dynamically filled with images from the database.  ?>
 			</div>
@@ -145,19 +140,19 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					?>
 					<div class="checkbox col-xs-4">
 						<label class="checkbox-inline">
-							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . get_class($plugin) . ']', $value) . ' ' . $plugin->getName(); ?>
+							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . get_class($plugin) . ']', $value) . ' ' . $plugin->getPluginName(); ?>
 						</label>
 					</div>
 				<?php endforeach; ?>
 			</div>
 			<button type="submit" class="btn btn-primary">
 				<i class="fa fa-check"></i>
-				<?php echo WT_I18N::translate('Save'); ?>
+				<?php echo I18N::translate('Save'); ?>
 			</button>
-			<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo WT_I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
+			<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
 								window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
 				<i class="fa fa-recycle"></i>
-				<?php echo WT_I18N::translate('Reset'); ?>
+				<?php echo I18N::translate('Reset'); ?>
 			</button>
 		</form>
 		<?php
@@ -225,18 +220,18 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					$fullname = $plugin->encode_plus() ? $givn . '+' . $surname : $givn . '%20' . $surname; // full name
 					$prefix = $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 3) : ""; // prefix
 
-					$link = $plugin->create_link($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
-					$sublinks = $plugin->create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
+					$link = $plugin->createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
+					$sublinks = $plugin->createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 
 					if ($sublinks) {
-						$html.='<li><i class="icon-research-link"></i><a class="mainlink" href="' . htmlspecialchars($link) . '">' . $plugin->getName() . '</a>';
+						$html.='<li><i class="icon-research-link"></i><a class="mainlink" href="' . htmlspecialchars($link) . '">' . $plugin->getPluginName() . '</a>';
 						$html .= '<ul class="sublinks">';
 						foreach ($sublinks as $sublink) {
 							$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . htmlspecialchars($sublink['link']) . '" target="_blank">' . $sublink['title'] . '</a></li>';
 						}
 						$html .= '</ul></li>';
 					} else { // default
-						$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . htmlspecialchars($link) . '" target="_blank">' . $plugin->getName() . '</a></li>';
+						$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . htmlspecialchars($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
 					}
 					$count++;
 				}
@@ -245,7 +240,7 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 		$html.= '</ul>';
 
 		if ($count === 0) {
-			$html = WT_I18N::translate('There are no research links available for this individual.');
+			$html = I18N::translate('There are no research links available for this individual.');
 		}
 		return $html;
 	}
@@ -258,12 +253,12 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 	// Scan the plugin folder for a list of plugins
 	private function getPluginList() {
 		$array = array();
-		$dir = dirname(__FILE__) . '/plugins/';
+		$dir = WT_MODULES_DIR . $this->getName() . '/plugins/';
 		$dir_handle = opendir($dir);
 		while ($file = readdir($dir_handle)) {
 			if (substr($file, -4) == '.php') {
-				require dirname(__FILE__) . '/plugins/' . $file;
-				$class = basename($file, '.php') . '_plugin';
+				require_once WT_MODULES_DIR . $this->getName() . '/plugins/' . $file;
+				$class = '\\Webtrees\\' . basename($file, '.php') . '_plugin';
 				$array[$class] = new $class;
 			}
 		}
@@ -273,13 +268,13 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 	}
 
 	// Based on function print_name_record() in /library/WT/Controller/Individual.php
-	private function getPrimaryName(WT_Fact $event) {
+	private function getPrimaryName(Fact $event) {
 		if (!$event->canShow()) {
 			return false;
 		}
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
-		$dummy = new WT_Individual(
+		$dummy = new Individual(
 			'xref', "0 @xref@ INDI\n1 DEAT Y\n" . $factrec, null, WT_GED_ID
 		);
 		$all_names = $dummy->getAllNames();
@@ -299,19 +294,6 @@ class fancy_research_links_WT_Module extends WT_Module implements WT_Module_Conf
 					document.getElementsByTagName("head")[0].appendChild(newSheet);
 				}
 			</script>';
-	}
-
-}
-
-// Each plugin should extend the base_plugin class, and implement any functions included here
-class research_base_plugin {
-
-	static function create_sublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return false;
-	}
-
-	static function encode_plus() {
-		return false;
 	}
 
 }
