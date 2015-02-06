@@ -1,5 +1,4 @@
 <?php
-
 namespace Webtrees;
 
 /**
@@ -17,13 +16,13 @@ namespace Webtrees;
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
 use Zend_Translate;
 
 class fancy_research_links_WT_Module extends Module implements ModuleConfigInterface, ModuleSidebarInterface {
 
 	public function __construct() {
 		parent::__construct();
-		require_once WT_MODULES_DIR . $this->getName() . '/research_base_plugin.php';
 		// Load any local user translations
 		if (is_dir(WT_MODULES_DIR . $this->getName() . '/language')) {
 			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.mo')) {
@@ -42,6 +41,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 				);
 			}
 		}
+		require_once WT_MODULES_DIR . $this->getName() . '/research_base_plugin.php';
 	}
 
 	// Extend WT_Module
@@ -65,7 +65,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 				$this->config();
 				break;
 			case 'admin_reset':
-				$this->frl_reset();
+				$this->resetAll();
 				$this->config();
 				break;
 			default:
@@ -79,7 +79,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 	}
 
 	// Reset all settings to default
-	private function frl_reset() {
+	private function resetAll() {
 		Database::prepare("DELETE FROM `##module_setting` WHERE setting_name LIKE 'FRL%'")->execute();
 		Log::addConfigurationLog($this->getTitle() . ' reset to default values');
 	}
@@ -92,17 +92,17 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 			->setPageTitle(I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
-				jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");
-				jQuery("input[name=select-all]").click(function(){
-				if (jQuery(this).is(":checked") == true) {
-					jQuery("#linklist").find(":checkbox").prop("checked", true).val(1);
-					jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
-				} else {
-					jQuery("#linklist").find(":checkbox").prop("checked", false).val(0);
-					jQuery("input[id^=NEW_FRL_PLUGINS]").val(0);
-				}
-				formChanged = true;
-			});
+					jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");
+					jQuery("input[name=select-all]").click(function(){
+					if (jQuery(this).is(":checked") == true) {
+						jQuery("#linklist").find(":checkbox").prop("checked", true).val(1);
+						jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
+					} else {
+						jQuery("#linklist").find(":checkbox").prop("checked", false).val(0);
+						jQuery("input[id^=NEW_FRL_PLUGINS]").val(0);
+					}
+					formChanged = true;
+				});
 			');
 
 		if (Filter::postBool('save')) {
@@ -130,17 +130,17 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 			</div>
 			<!-- RESEARCH LINKS -->
 			<div id="linklist" class="form-group">
-				<?php foreach ($this->getPluginList() as $plugin): ?>
+				<?php foreach ($this->getPluginList() as $plugin_label => $plugin): ?>
 					<?php
-					if (is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) {
-						$value = $FRL_PLUGINS[get_class($plugin)];
+					if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
+						$value = $FRL_PLUGINS[$plugin_label];
 					} if (!isset($value)) {
 						$value = '1';
 					}
 					?>
 					<div class="checkbox col-xs-4">
 						<label class="checkbox-inline">
-							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . get_class($plugin) . ']', $value) . ' ' . $plugin->getPluginName(); ?>
+							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . $plugin_label . ']', $value) . ' ' . $plugin->getPluginName(); ?>
 						</label>
 					</div>
 				<?php endforeach; ?>
@@ -192,9 +192,9 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 		$count = 0;
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="research_status">';
-		foreach ($this->getPluginList() as $plugin) {
-			if (is_array($FRL_PLUGINS) && array_key_exists(get_class($plugin), $FRL_PLUGINS)) {
-				$value = $FRL_PLUGINS[get_class($plugin)];
+		foreach ($this->getPluginList() as $plugin_label => $plugin) {
+			if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
+				$value = $FRL_PLUGINS[$plugin_label];
 			}
 			if (!isset($value)) {
 				$value = '1';
@@ -258,8 +258,9 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 		while ($file = readdir($dir_handle)) {
 			if (substr($file, -4) == '.php') {
 				require_once WT_MODULES_DIR . $this->getName() . '/plugins/' . $file;
-				$class = '\\Webtrees\\' . basename($file, '.php') . '_plugin';
-				$array[$class] = new $class;
+				$label = basename($file, ".php");
+				$class = '\\Webtrees\\' . $label. '_plugin';
+				$array[$label] = new $class;
 			}
 		}
 		closedir($dir_handle);
