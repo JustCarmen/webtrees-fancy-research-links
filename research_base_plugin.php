@@ -1,6 +1,6 @@
 <?php
 
-namespace Webtrees;
+namespace Fisharebest\Webtrees;
 
 /*
  *  webtrees: Web based Family History software
