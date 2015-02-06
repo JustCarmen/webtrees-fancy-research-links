@@ -268,7 +268,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 		return $array;
 	}
 
-	// Based on function print_name_record() in /library/WT/Controller/Individual.php
+	// Based on function print_name_record() in /app/Controller/Individual.php
 	private function getPrimaryName(Fact $event) {
 		if (!$event->canShow()) {
 			return false;
