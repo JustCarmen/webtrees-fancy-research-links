@@ -250,7 +250,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 		return $plus ? str_replace("%20", "+", $var) : $var;
 	}
 
-	// Scan the plugin folder for a list of plugins
+	// Scan the plugin folder for a list of plugins - see: app/Module.php - getActiveModulesByComponent
 	private function getPluginList() {
 		$array = array();
 		$dir = WT_MODULES_DIR . $this->getName() . '/plugins/';
@@ -259,7 +259,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 			if (substr($file, -4) == '.php') {
 				require_once WT_MODULES_DIR . $this->getName() . '/plugins/' . $file;
 				$label = basename($file, ".php");
-				$class = '\\Webtrees\\' . $label. '_plugin';
+				$class = 'Webtrees\\' . $label. '_plugin';
 				$array[$label] = new $class;
 			}
 		}
