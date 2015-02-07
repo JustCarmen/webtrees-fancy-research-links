@@ -269,11 +269,11 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 	}
 
 	// Based on function print_name_record() in /app/Controller/Individual.php
-	private function getPrimaryName(Fact $event) {
-		if (!$event->canShow()) {
+	private function getPrimaryName(Fact $fact) {
+		if (!$fact->canShow()) {
 			return false;
 		}
-		$factrec = $event->getGedCom();
+		$factrec = $fact->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
 		$dummy = new Individual(
 			'xref', "0 @xref@ INDI\n1 DEAT Y\n" . $factrec, null, WT_GED_ID
