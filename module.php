@@ -259,7 +259,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 			if (substr($file, -4) == '.php') {
 				require_once WT_MODULES_DIR . $this->getName() . '/plugins/' . $file;
 				$label = basename($file, ".php");
-				$class = 'Webtrees\\' . $label. '_plugin';
+				$class = __NAMESPACE__ . '\\' . $label. '_plugin';
 				$array[$label] = new $class;
 			}
 		}
