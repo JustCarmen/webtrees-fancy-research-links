@@ -69,7 +69,8 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 				$this->config();
 				break;
 			default:
-				header('HTTP/1.0 404 Not Found');
+				http_response_code(404);
+				break;
 		}
 	}
 
