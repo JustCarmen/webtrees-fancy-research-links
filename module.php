@@ -192,7 +192,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 
 		$count = 0;
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
-		$html .= '<ul id="research_status">';
+		$html .= '<ul id="research_status" dir="ltr">';
 		foreach ($this->getPluginList() as $plugin_label => $plugin) {
 			if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
 				$value = $FRL_PLUGINS[$plugin_label];
