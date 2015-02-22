@@ -93,8 +93,8 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 			->setPageTitle(I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
-					jQuery("head").append("<style>input{vertical-align:middle;margin-right:8px}h3{margin-bottom:10px}</style>");
-					jQuery("input[name=select-all]").click(function(){
+				jQuery("head").append("<style>[dir=rtl] .checkbox-inline input[type=checkbox]{margin-left:-20px}</style>");
+				jQuery("input[name=select-all]").click(function(){
 					if (jQuery(this).is(":checked") == true) {
 						jQuery("#linklist").find(":checkbox").prop("checked", true).val(1);
 						jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
@@ -139,7 +139,7 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 						$value = '1';
 					}
 					?>
-					<div class="checkbox col-xs-4">
+					<div class="checkbox col-xs-4" dir="ltr">
 						<label class="checkbox-inline">
 							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . $plugin_label . ']', $value) . ' ' . $plugin->getPluginName(); ?>
 						</label>
