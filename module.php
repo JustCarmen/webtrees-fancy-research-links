@@ -19,10 +19,10 @@ namespace Fisharebest\Webtrees;
 
 use Zend_Translate;
 
-class fancy_research_links_WT_Module extends Module implements ModuleConfigInterface, ModuleSidebarInterface {
+class FancyResearchLinksModule extends Module implements ModuleConfigInterface, ModuleSidebarInterface {
 
 	public function __construct() {
-		parent::__construct();
+		parent::__construct('fancy_research_links');
 		// Load any local user translations
 		if (is_dir(WT_MODULES_DIR . $this->getName() . '/language')) {
 			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.mo')) {
@@ -302,3 +302,5 @@ class fancy_research_links_WT_Module extends Module implements ModuleConfigInter
 	}
 
 }
+
+return new FancyResearchLinksModule;
