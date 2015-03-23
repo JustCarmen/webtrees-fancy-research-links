@@ -23,24 +23,6 @@ class FancyResearchLinksModule extends Module implements ModuleConfigInterface, 
 
 	public function __construct() {
 		parent::__construct('fancy_research_links');
-		// Load any local user translations
-		if (is_dir(WT_MODULES_DIR . $this->getName() . '/language')) {
-			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.mo')) {
-				I18N::addTranslation(
-					new Zend_Translate('gettext', WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.mo', WT_LOCALE)
-				);
-			}
-			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.php')) {
-				I18N::addTranslation(
-					new Zend_Translate('array', WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.php', WT_LOCALE)
-				);
-			}
-			if (file_exists(WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.csv')) {
-				I18N::addTranslation(
-					new Zend_Translate('csv', WT_MODULES_DIR . $this->getName() . '/language/' . WT_LOCALE . '.csv', WT_LOCALE)
-				);
-			}
-		}
 		require_once WT_MODULES_DIR . $this->getName() . '/research_base_plugin.php';
 	}
 
