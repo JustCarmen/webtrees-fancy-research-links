@@ -19,7 +19,7 @@ namespace Fisharebest\Webtrees;
 
 use Zend_Translate;
 
-class FancyResearchLinksModule extends Module implements ModuleConfigInterface, ModuleSidebarInterface {
+class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
 	public function __construct() {
 		parent::__construct('fancy_research_links');
