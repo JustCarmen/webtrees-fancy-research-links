@@ -207,14 +207,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 					$sublinks = $plugin->createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
 
 					if ($sublinks) {
-						$html.='<li><i class="icon-research-link"></i><a class="mainlink" href="' . htmlspecialchars($link) . '">' . $plugin->getPluginName() . '</a>';
+						$html.='<li><i class="icon-research-link"></i><a class="mainlink" href="' . Filter::escapeHtml($link) . '">' . $plugin->getPluginName() . '</a>';
 						$html .= '<ul class="sublinks">';
 						foreach ($sublinks as $sublink) {
-							$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . htmlspecialchars($sublink['link']) . '" target="_blank">' . $sublink['title'] . '</a></li>';
+							$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($sublink['link']) . '" target="_blank">' . $sublink['title'] . '</a></li>';
 						}
 						$html .= '</ul></li>';
 					} else { // default
-						$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . htmlspecialchars($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
+						$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
 					}
 					$count++;
 				}
