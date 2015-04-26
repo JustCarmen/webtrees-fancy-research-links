@@ -240,7 +240,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			if (substr($file, -4) == '.php') {
 				require_once WT_MODULES_DIR . $this->getName() . '/plugins/' . $file;
 				$label = basename($file, ".php");
-				$class = __NAMESPACE__ . '\\' . $label. '_plugin';
+				$class = __NAMESPACE__ . '\\' . $label . '_plugin';
 				$array[$label] = new $class;
 			}
 		}
@@ -254,10 +254,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
 		$dummy = new Individual(
-			'xref',
-			"0 @xref@ INDI\n1 DEAT Y\n" . $factrec,
-			null,
-			$event->getParent()->getTree()
+			'xref', "0 @xref@ INDI\n1 DEAT Y\n" . $factrec, null, $event->getParent()->getTree()
 		);
 		$all_names = $dummy->getAllNames();
 		return $all_names[0];
