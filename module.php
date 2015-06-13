@@ -21,6 +21,7 @@ use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use Fisharebest\Webtrees\Controller\PageController;
+use Fisharebest\Webtrees\Functions\FunctionsEdit;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
@@ -110,7 +111,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			<!-- SELECT ALL -->
 			<div class="checkbox-inline">
 				<label>
-					<?php echo checkbox('select-all') . I18N::translate('select all'); ?>
+					<?php echo FunctionsEdit::checkbox('select-all') . I18N::translate('select all'); ?>
 				</label>
 				<?php // The datatable will be dynamically filled with images from the database.  ?>
 			</div>
@@ -126,7 +127,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 					?>
 					<div class="checkbox col-xs-4" dir="ltr">
 						<label class="checkbox-inline">
-							<?php echo two_state_checkbox('NEW_FRL_PLUGINS[' . $plugin_label . ']', $value) . ' ' . $plugin->getPluginName(); ?>
+							<?php echo FunctionsEdit::twoStateCheckbox('NEW_FRL_PLUGINS[' . $plugin_label . ']', $value) . ' ' . $plugin->getPluginName(); ?>
 						</label>
 					</div>
 				<?php endforeach; ?>
