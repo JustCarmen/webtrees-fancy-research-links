@@ -1,6 +1,4 @@
 <?php
-namespace Fisharebest\Webtrees;
-
 /**
  * webtrees: online genealogy
  * Copyright (C) 2015 webtrees development team
@@ -16,12 +14,13 @@ namespace Fisharebest\Webtrees;
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+namespace Fisharebest\Webtrees;
 
+use Fisharebest\Webtrees\Controller\PageController;
+use Fisharebest\Webtrees\Functions\FunctionsEdit;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
-use Fisharebest\Webtrees\Controller\PageController;
-use Fisharebest\Webtrees\Functions\FunctionsEdit;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
@@ -137,7 +136,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				<?php echo I18N::translate('Save'); ?>
 			</button>
 			<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
-								window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
+						window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
 				<i class="fa fa-recycle"></i>
 				<?php echo I18N::translate('Reset'); ?>
 			</button>

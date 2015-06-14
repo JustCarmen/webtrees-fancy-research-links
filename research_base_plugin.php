@@ -1,6 +1,4 @@
 <?php
-namespace Fisharebest\Webtrees;
-
 /*
  *  webtrees: Web based Family History software
  *  Copyright (C) 2015 webtrees development team.
@@ -20,6 +18,7 @@ namespace Fisharebest\Webtrees;
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
+namespace Fisharebest\Webtrees;
 
 class research_base_plugin {
 
