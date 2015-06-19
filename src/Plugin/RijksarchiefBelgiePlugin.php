@@ -16,6 +16,7 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
+use Fisharebest\Webtrees\I18N;
 use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
 
 class RijksarchiefBelgiePlugin extends ResearchBasePlugin {
