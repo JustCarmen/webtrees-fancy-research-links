@@ -14,9 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class int_ancestry_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class AncestryPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
 		return 'INT | Ancestry | $';
