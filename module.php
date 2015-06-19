@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace JustCarmen\WebtreesAddOns\Module;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 
 use Composer\Autoload\ClassLoader;
 use Fisharebest\Webtrees\Auth;
@@ -124,11 +124,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				<label>
 					<?php echo FunctionsEdit::checkbox('select-all') . I18N::translate('select all'); ?>
 				</label>
-				<?php // The datatable will be dynamically filled with images from the database.  ?>
 			</div>
 			<!-- RESEARCH LINKS -->
 			<div id="linklist" class="form-group">
-				<?php foreach ($this->getPluginList() as $plugin_label => $plugin): ?>
+				<?php foreach (ResearchBasePlugin::getPluginList() as $plugin_label => $plugin): ?>
 					<?php
 					if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
 						$value = $FRL_PLUGINS[$plugin_label];
@@ -175,7 +174,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	public function getSidebarContent() {
 		// code based on similar in function_print_list.php
 		global $controller;
-
+		
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/style.css');
 
@@ -190,7 +189,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$count = 0;
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="research_status" dir="ltr">';
-		foreach ($this->getPluginList() as $plugin_label => $plugin) {
+		foreach (ResearchBasePlugin::getPluginList() as $plugin_label => $plugin) {
 			if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
 				$value = $FRL_PLUGINS[$plugin_label];
 			}
@@ -247,25 +246,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$var = rawurlencode($var);
 		return $plus ? str_replace("%20", "+", $var) : $var;
 	}
-
-	// Scan the plugin folder for a list of plugins - see: app/Module.php - getActiveModulesByComponent
-	private function getPluginList() {
-		$array = array();
-		$dir = WT_MODULES_DIR . $this->getName() . '/plugins/';
-		$dir_handle = opendir($dir);
-		while ($file = readdir($dir_handle)) {
-			if (substr($file, -4) == '.php') {
-				require_once WT_MODULES_DIR . $this->getName() . '/plugins/' . $file;
-				$label = basename($file, ".php");
-				$class = __NAMESPACE__ . '\\' . $label . '_plugin';
-				$array[$label] = new $class;
-			}
-		}
-		closedir($dir_handle);
-		ksort($array);
-		return $array;
-	}
-
+	
 	// Based on function print_name_record() in /app/Controller/IndividualController.php
 	private function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();

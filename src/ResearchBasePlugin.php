@@ -20,7 +20,22 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 
-class ResearchBasePlugin {
+use Composer\Autoload\ClassLoader;
+
+class ResearchBasePlugin {	
+	
+	/**
+	 * Scan the plugin folder for a list of plugins
+	 */
+	static function getPluginList(){
+		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
+			$label = basename($file, ".php");
+			$class = __NAMESPACE__ . '\Plugin\\' . $label;
+			$plugin = new $class;
+			$array[$label] = new $class;
+		}		
+		return $array;
+	}
 
 	static function createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
