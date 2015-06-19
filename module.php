@@ -198,12 +198,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			}
 			if ($value == true) {
 				$primary = "";
-				$name = false; // only use the first fact with a NAME tag.
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
-					if ($fact == "NAME" && !$name) {
-						$primary = $this->getPrimaryName($value);
-						$name = true;
+					if ($fact == "NAME") {
+						$primary = ResearchBasePlugin::getPrimaryName($value);
+						break; // only use the first fact with a NAME tag found.
 					}
 				}
 				if ($primary) {
@@ -242,17 +241,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		return $html;
 	}	
 	
-	// Based on function print_name_record() in /app/Controller/IndividualController.php
-	private function getPrimaryName(Fact $event) {
-		$factrec = $event->getGedCom();
-		// Create a dummy record, so we can extract the formatted NAME value from the event.
-		$dummy = new Individual(
-			'xref', "0 @xref@ INDI\n1 DEAT Y\n" . $factrec, null, $event->getParent()->getTree()
-		);
-		$all_names = $dummy->getAllNames();
-		return $all_names[0];
-	}
-
 	private function includeCss($css) {
 		return
 			'<script>

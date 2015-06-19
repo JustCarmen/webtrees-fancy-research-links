@@ -20,6 +20,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 
+use Fisharebest\Webtrees\Fact;
+use Fisharebest\Webtrees\Individual;
+
 class ResearchBasePlugin {	
 	
 	/**
@@ -32,6 +35,19 @@ class ResearchBasePlugin {
 			$array[$label] = new $class;
 		}		
 		return $array;
+	}
+	
+	/*
+	 * Based on function print_name_record() in /app/Controller/IndividualController.php	 * 
+	 */
+	static function getPrimaryName(Fact $event) {
+		$factrec = $event->getGedCom();
+		// Create a dummy record, so we can extract the formatted NAME value from the event.
+		$dummy = new Individual(
+			'xref', "0 @xref@ INDI\n1 DEAT Y\n" . $factrec, null, $event->getParent()->getTree()
+		);
+		$all_names = $dummy->getAllNames();
+		return $all_names[0];
 	}
 	
 	/**
