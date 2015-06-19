@@ -28,7 +28,7 @@ class RogloPlugin extends ResearchBasePlugin {
 		return $link = 'http://roglo.eu/roglo?lang=' . WT_LOCALE . '&m=NG&n=' . $fullname . '&t=PN';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

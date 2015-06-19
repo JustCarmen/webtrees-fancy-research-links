@@ -28,7 +28,7 @@ class OnlineFamilieberichtenPlugin extends ResearchBasePlugin {
 		return $link = 'http://www.online-familieberichten.nl/zoeken.asp?sortpers=naam&voornaam=' . $givn . '&tussenvoegsel=' . $prefix . '&achternaam=' . $surn . '&command=zoekformres';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

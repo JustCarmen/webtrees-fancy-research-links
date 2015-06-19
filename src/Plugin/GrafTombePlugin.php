@@ -29,7 +29,7 @@ class GrafTombePlugin extends ResearchBasePlugin {
 		return $link = 'http://www.graftombe.nl/names/search?forename=' . $givn . '&surname=' . $surname . '&submit=Zoeken&r=names-search';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

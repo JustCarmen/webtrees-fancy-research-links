@@ -28,7 +28,7 @@ class GooglePlugin extends ResearchBasePlugin {
 		return $link = 'https://www.google.com/search?q="' . $fullname . '"';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

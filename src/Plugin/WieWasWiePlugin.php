@@ -28,7 +28,7 @@ class WieWasWiePlugin extends ResearchBasePlugin {
 		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/' . $fullname . '/type/documenten';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

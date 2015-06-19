@@ -20,8 +20,6 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 
-use Composer\Autoload\ClassLoader;
-
 class ResearchBasePlugin {	
 	
 	/**
@@ -31,18 +29,33 @@ class ResearchBasePlugin {
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
 			$label = basename($file, ".php");
 			$class = __NAMESPACE__ . '\Plugin\\' . $label;
-			$plugin = new $class;
 			$array[$label] = new $class;
 		}		
 		return $array;
+	}
+	
+	/**
+	 * Encode the url
+	 */
+	static function encodeUrl($url, $plus) {
+		if ($plus) {
+			return str_replace("%20", "+", rawurlencode($url));
+		} else {
+			return rawurlencode($url);
+		}
+	}
+	
+	/**
+	 * Encode the url without +
+	 */
+	static function encodePlus() {
+		return false;
 	}
 
 	static function createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
 
-	static function encode_plus() {
-		return false;
-	}
+	
 
 }

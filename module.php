@@ -208,13 +208,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				}
 				if ($primary) {
 					// create plugin vars
-					$givn = $this->encode($primary['givn'], $plugin->encode_plus()); // all given names
+					$givn = ResearchBasePlugin::encodeUrl($primary['givn'], $plugin->encodePlus()); // all given names
 					$given = explode(" ", $primary['givn']);
 					$first = $given[0]; // first given name
 					$middle = count($given) > 1 ? $given[1] : ""; // middle name (second given name)
-					$surn = $this->encode($primary['surn'], $plugin->encode_plus()); // surname without prefix
-					$surname = $this->encode($primary['surname'], $plugin->encode_plus()); // full surname (with prefix)
-					$fullname = $plugin->encode_plus() ? $givn . '+' . $surname : $givn . '%20' . $surname; // full name
+					$surn = ResearchBasePlugin::encodeUrl($primary['surn'], $plugin->encodePlus()); // surname without prefix
+					$surname = ResearchBasePlugin::encodeUrl($primary['surname'], $plugin->encodePlus()); // full surname (with prefix)
+					$fullname = $plugin->encodePlus() ? $givn . '+' . $surname : $givn . '%20' . $surname; // full name
 					$prefix = $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 3) : ""; // prefix
 
 					$link = $plugin->createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
@@ -240,12 +240,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			$html = I18N::translate('There are no research links available for this individual.');
 		}
 		return $html;
-	}
-
-	private function encode($var, $plus) {
-		$var = rawurlencode($var);
-		return $plus ? str_replace("%20", "+", $var) : $var;
-	}
+	}	
 	
 	// Based on function print_name_record() in /app/Controller/IndividualController.php
 	private function getPrimaryName(Fact $event) {

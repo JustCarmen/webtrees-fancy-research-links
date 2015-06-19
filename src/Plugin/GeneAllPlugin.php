@@ -46,7 +46,7 @@ class GeneAllPlugin extends ResearchBasePlugin {
 		return $link = 'http://www.geneall.net/' . $language . '/per_search.php?s=' . $fullname . '&s_type=per_search.php';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

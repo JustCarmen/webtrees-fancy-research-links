@@ -28,7 +28,7 @@ class DelpherPlugin extends ResearchBasePlugin {
 		return $link = 'http://kranten.delpher.nl/nl/results?query=' . urlencode('"') . $fullname . urlencode('"') . '&coll=ddd';
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 

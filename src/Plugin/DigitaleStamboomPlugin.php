@@ -28,7 +28,7 @@ class DigitaleStamboomPlugin extends ResearchBasePlugin {
 		return $link = 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $givn . urlencode('||') . $prefix . urlencode('|') . $surn;
 	}
 
-	static function encode_plus() {
+	static function encodePlus() {
 		return true;
 	}
 
