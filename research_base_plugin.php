@@ -20,7 +20,7 @@
  */
 namespace Fisharebest\Webtrees;
 
-class research_base_plugin {
+class ResearchBasePlugin {
 
 	static function createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
