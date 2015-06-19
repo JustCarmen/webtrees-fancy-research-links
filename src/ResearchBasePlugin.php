@@ -23,23 +23,24 @@ namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 
-class ResearchBasePlugin {	
-	
+class ResearchBasePlugin {
+
 	/**
 	 * Scan the plugin folder for a list of plugins
 	 */
-	static function getPluginList(){
+	static function getPluginList() {
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
 			$label = basename($file, ".php");
 			$class = __NAMESPACE__ . '\Plugin\\' . $label;
 			$array[$label] = new $class;
-		}		
+		}
 		return $array;
 	}
-	
+
 	/*
 	 * Based on function print_name_record() in /app/Controller/IndividualController.php	 * 
 	 */
+
 	static function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
@@ -49,7 +50,7 @@ class ResearchBasePlugin {
 		$all_names = $dummy->getAllNames();
 		return $all_names[0];
 	}
-	
+
 	/**
 	 * Encode the url
 	 */
@@ -60,7 +61,7 @@ class ResearchBasePlugin {
 			return rawurlencode($url);
 		}
 	}
-	
+
 	/**
 	 * Encode the url without +
 	 */
@@ -71,7 +72,5 @@ class ResearchBasePlugin {
 	static function createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
 		return false;
 	}
-
-	
 
 }
