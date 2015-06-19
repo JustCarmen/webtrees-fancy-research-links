@@ -16,6 +16,7 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module;
 
+use Composer\Autoload\ClassLoader;
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Controller\PageController;
 use Fisharebest\Webtrees\Database;
@@ -33,7 +34,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	public function __construct() {
 		parent::__construct('fancy_research_links');
-		require_once WT_MODULES_DIR . $this->getName() . '/research_base_plugin.php';
+		
+		// register the namespace
+		$loader = new ClassLoader();
+		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\Module\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
+		$loader->register();
 	}
 
 	// Extend WT_Module
