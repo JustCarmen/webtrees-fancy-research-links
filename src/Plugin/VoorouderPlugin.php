@@ -14,20 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class int_google_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class VoorouderPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'INT | Google';
+		return 'NL | Voorouder.nl';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'https://www.google.com/search?q="' . $fullname . '"';
-	}
-
-	static function encode_plus() {
-		return true;
+		return $link = 'http://www.voorouder.nl/genealogie/search.php?mybool=AND&nr=50&showdeath=yes&mylastname=' . $surname . '&lnqualify=equals&myfirstname=' . $givn . '&fnqualify=contains';
 	}
 
 }

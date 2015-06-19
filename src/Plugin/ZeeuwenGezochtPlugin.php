@@ -14,20 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class int_familytreeseeker_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class ZeeuwenGezochtPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'INT | Familytreeseeker';
+		return 'NL | Zeeuwen Gezocht';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://familytreeseeker.com/search.php?l=en&fn=' . $givn . '&sn=' . $surname . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Search';
-	}
-
-	static function encode_plus() {
-		return true;
+		return $link = 'http://www.zeeuwengezocht.nl/nl/zoeken?mivast=1539&miadt=239&mizig=862&miview=tbl&milang=nl&micols=1&mires=0&mip3='
+			. $surn . '&mip2=' . $prefix . '&mip1=' . $givn;
 	}
 
 }

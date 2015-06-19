@@ -14,17 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class nl_graftombe_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class DigitaleStamboomPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'NL | Graftombe';
+		return 'NL | Digitale Stamboom';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		$surname = $prefix ? $surn . ' ' . $prefix : $surn;
-		return $link = 'http://www.graftombe.nl/names/search?forename=' . $givn . '&surname=' . $surname . '&submit=Zoeken&r=names-search';
+		return $link = 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $givn . urlencode('||') . $prefix . urlencode('|') . $surn;
 	}
 
 	static function encode_plus() {

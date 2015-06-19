@@ -14,17 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class nl_online_begraafplaatsen_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class DelpherPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'NL | Online Begraafplaatsen';
+		return 'NL | Delpher Krantenarchief';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		// querystrings are not possible anymore due to changes in website functionality. Just present the link to the website.
-		return $link = 'http://www.online-begraafplaatsen.nl/zoeken.asp';
+		return $link = 'http://kranten.delpher.nl/nl/results?query=' . urlencode('"') . $fullname . urlencode('"') . '&coll=ddd';
+	}
+
+	static function encode_plus() {
+		return true;
 	}
 
 }

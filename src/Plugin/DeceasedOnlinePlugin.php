@@ -14,16 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class nl_voorouder_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class DeceasedOnlinePlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'NL | Voorouder.nl';
+		return 'UK | Deceased Online';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.voorouder.nl/genealogie/search.php?mybool=AND&nr=50&showdeath=yes&mylastname=' . $surname . '&lnqualify=equals&myfirstname=' . $givn . '&fnqualify=contains';
+		return $link = 'https://www.deceasedonline.com/servlet/GSDOSearch?' . 'GSDOInptSName=' . $surname . '&GSDOInptFName=' . $first;
 	}
 
 }

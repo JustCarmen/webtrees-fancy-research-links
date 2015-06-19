@@ -14,17 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class nl_wikipedia_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class FamilySearchPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'NL | Wikipedia';
+		return 'INT | Family Search';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		$language = substr(WT_LOCALE, 0, 2);
-		return $link = 'https://' . $language . '.wikipedia.org/wiki/' . $givn . '_' . $surname;
+		return $link = 'https://familysearch.org/search/record/results#count=20&query=%2Bgivenname%3A%22' . $givn . '%22~%20%2Bsurname%3A%22' . $surname . '%22~';
 	}
 
 }

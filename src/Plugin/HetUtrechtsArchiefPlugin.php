@@ -14,16 +14,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class uk_deceased_online_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class HetUtrechtsArchiefPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'UK | Deceased Online';
+		return 'NL | Het Utrechts Archief';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'https://www.deceasedonline.com/servlet/GSDOSearch?' . 'GSDOInptSName=' . $surname . '&GSDOInptFName=' . $first;
+		return $link = 'http://www.hetutrechtsarchief.nl/collectie/archiefbank/indexen/personen/' .
+			'zoekresultaat?mivast=39&miadt=39&mizig=100&miview=tbl&milang=nl&micols=1&mires=0' .
+			'&mip1=' . $surn . '&mip2=' . $prefix . '&mip3=' . $givn;
 	}
 
 }

@@ -14,38 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class int_geneall_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class WikipediaPlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'INT | Geneall | $';
+		return 'NL | Wikipedia';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		// this plugin needs refactoring. Multiple websites for multiple country categories. Not on a per language base. See: http://www.geneall.net/site/home.php
-		$languages = array(
-			'de'	 => 'D',
-			'en_GB'	 => 'U',
-			'en_US'	 => 'U',
-			'fr'	 => 'F',
-			'it'	 => 'I',
-			'es'	 => 'H',
-			'pt'	 => 'P',
-			'pt_BR'	 => 'P',
-		);
-
-		if (isset($languages[WT_LOCALE])) {
-			$language = $languages[WT_LOCALE];
-		} else {
-			$language = $languages['en_US'];
-		}
-
-		return $link = 'http://www.geneall.net/' . $language . '/per_search.php?s=' . $fullname . '&s_type=per_search.php';
-	}
-
-	static function encode_plus() {
-		return true;
+		$language = substr(WT_LOCALE, 0, 2);
+		return $link = 'https://' . $language . '.wikipedia.org/wiki/' . $givn . '_' . $surname;
 	}
 
 }

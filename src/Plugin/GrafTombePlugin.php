@@ -14,18 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace Fisharebest\Webtrees;
+namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-class nl_hetutrechtsarchief_plugin extends research_base_plugin {
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+
+class GrafTombePlugin extends ResearchBasePlugin {
 
 	static function getPluginName() {
-		return 'NL | Het Utrechts Archief';
+		return 'NL | Graftombe';
 	}
 
 	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.hetutrechtsarchief.nl/collectie/archiefbank/indexen/personen/' .
-			'zoekresultaat?mivast=39&miadt=39&mizig=100&miview=tbl&milang=nl&micols=1&mires=0' .
-			'&mip1=' . $surn . '&mip2=' . $prefix . '&mip3=' . $givn;
+		$surname = $prefix ? $surn . ' ' . $prefix : $surn;
+		return $link = 'http://www.graftombe.nl/names/search?forename=' . $givn . '&surname=' . $surname . '&submit=Zoeken&r=names-search';
+	}
+
+	static function encode_plus() {
+		return true;
 	}
 
 }
