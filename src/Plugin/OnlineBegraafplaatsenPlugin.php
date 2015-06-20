@@ -21,11 +21,10 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Online Begraafplaatsen';
+		return 'NL | Online Begraafplaatsen | Link only';
 	}
 
 	static function createLink($name) {
-		// querystrings are not possible anymore due to changes in website functionality. Just present the link to the website.
 		return 'http://www.online-begraafplaatsen.nl/zoeken.asp';
 	}
 

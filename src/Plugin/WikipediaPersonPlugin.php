@@ -25,7 +25,7 @@ class WikipediaPersonPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'https://toolserver.org/~apper/pd/person/' . $name['givn'] . '_' . $name['surname'];
+		return 'https://tools.wmflabs.org/persondata/index.php?name=' . $name['first'] . '* ' . $name['surname'];
 	}
 
 }

@@ -25,16 +25,15 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		// this plugin needs refactoring. Multiple websites for multiple country categories. Not on a per language base. See: http://www.geneall.net/site/home.php
 		$languages = array(
-			'de'	 => 'D',
-			'en_GB'	 => 'U',
-			'en_US'	 => 'U',
-			'fr'	 => 'F',
-			'it'	 => 'I',
-			'es'	 => 'H',
-			'pt'	 => 'P',
-			'pt_BR'	 => 'P',
+			'de'	 => 'de',
+			'en_GB'	 => 'en',
+			'en_US'	 => 'en',
+			'fr'	 => 'fr',
+			'it'	 => 'it',
+			'es'	 => 'es',
+			'pt'	 => 'pt',
+			'pt_BR'	 => 'pt',
 		);
 
 		if (isset($languages[WT_LOCALE])) {
@@ -43,7 +42,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 			$language = $languages['en_US'];
 		}
 
-		return 'http://www.geneall.net/' . $language . '/per_search.php?s=' . $name['fullname'] . '&s_type=per_search.php';
+		return 'http://www.geneall.net/' . $language . '/search/?s=' . $name['fullname'] . '&t=p';
 	}
 
 	static function encodePlus() {

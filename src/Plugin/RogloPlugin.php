@@ -25,7 +25,26 @@ class RogloPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://roglo.eu/roglo?lang=' . WT_LOCALE . '&m=NG&n=' . $name['fullname'] . '&t=PN';
+		$languages = array('af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh');
+		
+		switch (WT_LOCALE) {
+			case 'pt-BR':
+				$language = 'br';
+				break;
+			case 'fr-CA':
+				$language = 'fr';
+				break;
+			case 'zh-Hans':
+				$language = 'zh';
+			default:
+				$language = WT_LOCALE;
+		}
+		
+		if (!in_array($language, $languages)) {
+			$language = 'en';
+		}
+		
+		return 'http://roglo.eu/roglo?lang=' . $language . '&m=NG&n=' . $name['fullname'] . '&t=PN';
 	}
 
 	static function encodePlus() {

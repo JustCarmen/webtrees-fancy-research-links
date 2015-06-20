@@ -57,10 +57,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 					
 		$given = explode(" ", $primary['givn']);
 		$name['first'] = $given[0];					
-		if (count($given) > 1) {
-			$name['middle'] = $given[1];
-		}
-		
+				
 		if ($primary['surn'] !== $primary['surname']) {
 			$prefix = substr($primary['surname'], 0, strpos($primary['surname'], $primary['surn']) - 1);
 			$name['prefix'] = self::encodeUrl($prefix, $encodeplus);

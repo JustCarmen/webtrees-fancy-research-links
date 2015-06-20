@@ -16,7 +16,6 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use Fisharebest\Webtrees\I18N;
 use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
 class RijksarchiefBelgiePlugin extends FancyResearchLinksClass {
@@ -26,20 +25,6 @@ class RijksarchiefBelgiePlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return '#';
+		return 'http://search.arch.be/nl/zoeken-naar-personen/zoekresultaat/q/persoon_achternaam_t_0/' . $name['surname'] . '/q/persoon_voornaam_t_0/' . $name['givn'] . '/q/zoekwijze/s?M=0&V=0&O=0&persoon_0_periode_soort=&persoon_0_periode_geen=0';
 	}
-
-	static function createSublink($name) {
-		return array(
-			array(
-				'title'	 => I18N::translate('birth'),
-				'link'	 => 'http://search.arch.be/nl/zoeken-naar-personen/zoekresultaat/q/persoon_achternaam_t_0/' . $name['surname'] . '/q/persoon_voornaam_t_0/' . $name['givn'] . '/q/zoekwijze/s?M=0&amp;V=0&amp;O=1&amp;persoon_0_periode_soort=geboorte&persoon_0_periode_geen=0'
-			),
-			array(
-				'title'	 => I18N::translate('death'),
-				'link'	 => 'http://search.arch.be/nl/zoeken-naar-personen/zoekresultaat/q/persoon_achternaam_t_0/' . $name['surname'] . '/q/persoon_voornaam_t_0/' . $name['givn'] . '/q/zoekwijze/s?M=0&amp;V=0&amp;O=1&amp;persoon_0_periode_soort=overlijden&persoon_0_periode_geen=0'
-			)
-		);
-	}
-
 }

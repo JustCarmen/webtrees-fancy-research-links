@@ -25,7 +25,7 @@ class DelpherPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://kranten.delpher.nl/nl/results?query=' . urlencode('"') . $name['fullname'] . urlencode('"') . '&coll=ddd';
+		return 'http://www.delpher.nl/nl/kranten/results?query=' . urlencode('"') . $name['first'] . ' ' . $name['surname'] . urlencode('"') . '&coll=ddd';
 	}
 
 	static function encodePlus() {
