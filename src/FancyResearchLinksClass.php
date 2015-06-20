@@ -60,7 +60,14 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		if (count($given) > 1) {
 			$name['middle'] = $given[1];
 		}
-
+		
+		if ($primary['surn'] !== $primary['surname']) {
+			$prefix = substr($primary['surname'], 0, strpos($primary['surname'], $primary['surn']) - 1);
+			$name['prefix'] = self::encodeUrl($prefix, $encodeplus);
+		} else {
+			$name['prefix'] = "";
+		}
+				
 		$name['surn'] = self::encodeUrl($primary['surn'], $encodeplus);
 		$name['surname'] = self::encodeUrl($primary['surname'], $encodeplus);
 
@@ -68,13 +75,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			$name['fullname'] = $name['givn'] . '+' . $name['surname'];
 		} else {
 			$name['fullname'] = $name['givn'] . '%20' . $name['surname'];
-		}
-
-		if ($name['surn'] !== $name['surname']) {
-			$name['prefix'] = substr($name['surname'], 0, strpos($name['surname'], $name['surn']) - 3);
-		} else {
-			$name['prefix'] = "";
-		}
+		}		
 		
 		return $name;
 	}	
