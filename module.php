@@ -114,14 +114,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$count = 0;
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="research_status" dir="ltr">';
-		foreach (FancyResearchLinksClass::getPluginList() as $plugin_label => $plugin) {
-			if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
-				$value = $FRL_PLUGINS[$plugin_label];
+		foreach (FancyResearchLinksClass::getPluginList() as $label => $plugin) {
+			if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
+				$use = $FRL_PLUGINS[$label];
+			} else {
+				$use = '1';
 			}
-			if (!isset($value)) {
-				$value = '1';
-			}
-			if ($value == true) {
+			
+			if ($use == true) {
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
 					if ($fact == "NAME") {
@@ -132,12 +132,18 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 				if ($this->primary) {
 					$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
-					$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
+					$html .=
+						'<li>' .
+							'<i class="icon-research-link"></i>' .
+							'<a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . 
+								$plugin->getPluginName() . 
+							'</a>' .
+						'</li>';
 					$count++;
 				}
 			}
 		}
-		$html.= '</ul>';
+		$html .= '</ul>';
 
 		if ($count === 0) {
 			$html = I18N::translate('There are no research links available for this individual.');
