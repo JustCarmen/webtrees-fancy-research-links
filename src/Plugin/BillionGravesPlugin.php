@@ -16,16 +16,16 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class BillionGravesPlugin extends ResearchBasePlugin {
+class BillionGravesPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'INT | Billion Graves';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://billiongraves.com/pages/search/#given_names=' . $givn . '&family_names=' . $surname . '&birth_year=&death_year=&year_range=5&lim=0&num=10&action=search&exact=false&phonetic=true&record_type=0&country=0&state=0&county=0';
+	static function createLink($name) {
+		return 'http://billiongraves.com/pages/search/#given_names=' . $name['givn'] . '&family_names=' . $name['surname'] . '&birth_year=&death_year=&year_range=5&lim=0&num=10&action=search&exact=false&phonetic=true&record_type=0&country=0&state=0&county=0';
 	}
 
 }

@@ -23,7 +23,7 @@ namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 
-class ResearchBasePlugin extends FancyResearchLinksModule {
+class FancyResearchLinksClass extends FancyResearchLinksModule {
 	
 	/**
 	 * Scan the plugin folder for a list of plugins

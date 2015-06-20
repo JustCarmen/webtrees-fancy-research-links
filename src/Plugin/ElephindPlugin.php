@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class ElephindPlugin extends ResearchBasePlugin {
+class ElephindPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'INT | Elephind Newspapers';

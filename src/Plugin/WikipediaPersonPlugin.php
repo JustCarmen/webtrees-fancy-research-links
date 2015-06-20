@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class WikipediaPersonPlugin extends ResearchBasePlugin {
+class WikipediaPersonPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'DE | Wikipedia-Personensuche';  // uses German wikipedia

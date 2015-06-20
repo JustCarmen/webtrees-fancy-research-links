@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class FamilySearchPlugin extends ResearchBasePlugin {
+class FamilySearchPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'INT | Family Search';

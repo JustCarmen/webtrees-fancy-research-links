@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class OnlineBegraafplaatsenPlugin extends ResearchBasePlugin {
+class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'NL | Online Begraafplaatsen';

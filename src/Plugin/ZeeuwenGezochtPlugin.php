@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class ZeeuwenGezochtPlugin extends ResearchBasePlugin {
+class ZeeuwenGezochtPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'NL | Zeeuwen Gezocht';

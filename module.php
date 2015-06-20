@@ -128,7 +128,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			</div>
 			<!-- RESEARCH LINKS -->
 			<div id="linklist" class="form-group">
-				<?php foreach (ResearchBasePlugin::getPluginList() as $plugin_label => $plugin): ?>
+				<?php foreach (FancyResearchLinksClass::getPluginList() as $plugin_label => $plugin): ?>
 					<?php
 					if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
 						$value = $FRL_PLUGINS[$plugin_label];
@@ -190,7 +190,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$count = 0;
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="research_status" dir="ltr">';
-		foreach (ResearchBasePlugin::getPluginList() as $plugin_label => $plugin) {
+		foreach (FancyResearchLinksClass::getPluginList() as $plugin_label => $plugin) {
 			if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
 				$value = $FRL_PLUGINS[$plugin_label];
 			}
@@ -201,13 +201,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
 					if ($fact == "NAME") {
-						$this->primary = ResearchBasePlugin::getPrimaryName($value);
+						$this->primary = FancyResearchLinksClass::getPrimaryName($value);
 						break; // only use the first fact with a NAME tag found.
 					}
 				}				
 				
 				if ($this->primary) {
-					$link = $plugin->createLink(ResearchBasePlugin::getNames($this->primary, $plugin->encodePlus()));
+					$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
 					$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
 					$count++;
 				}

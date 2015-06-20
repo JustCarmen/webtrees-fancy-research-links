@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class FindMyPastPlugin extends ResearchBasePlugin {
+class FindMyPastPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'INT | Findmypast | $';

@@ -16,9 +16,9 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class VoorouderPlugin extends ResearchBasePlugin {
+class VoorouderPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'NL | Voorouder.nl';

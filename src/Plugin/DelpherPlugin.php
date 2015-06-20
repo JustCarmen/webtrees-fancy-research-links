@@ -16,15 +16,15 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class DelpherPlugin extends ResearchBasePlugin {
+class DelpherPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'NL | Delpher Krantenarchief';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($name) {
 		return $link = 'http://kranten.delpher.nl/nl/results?query=' . urlencode('"') . $fullname . urlencode('"') . '&coll=ddd';
 	}
 

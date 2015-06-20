@@ -16,16 +16,16 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class ArchievenPlugin extends ResearchBasePlugin {
+class ArchievenPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
 		return 'NL | Archieven.nl';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.archieven.nl/nl/zoeken?mivast=0&mizig=310&miadt=0&milang=nl&misort=dt|asc&miview=tbl&mip3=' . $surn . '&mip2=' . $prefix . '&mip1=' . $givn;
+	static function createLink($name) {
+		return 'http://www.archieven.nl/nl/zoeken?mivast=0&mizig=310&miadt=0&milang=nl&misort=dt|asc&miview=tbl&mip3=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
 	}
 
 }

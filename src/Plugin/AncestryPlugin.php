@@ -16,15 +16,15 @@
  */
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\ResearchBasePlugin;
+use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
-class AncestryPlugin extends ResearchBasePlugin {
+class AncestryPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
+	public function getPluginName() {
 		return 'INT | Ancestry | $';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	public function createLink($name) {
 		$domain = array(
 			// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
 			'de'	 => 'de', // German
@@ -41,8 +41,8 @@ class AncestryPlugin extends ResearchBasePlugin {
 		} else {
 			$ancestry_domain = $domain['en_US'];
 		}
-
-		return $link = 'http://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $givn . '&gsln=' . $surname . '&gl=ROOT_CATEGORY&rank=1';
+		
+		return 'http://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $name['givn'] . '&gsln=' . $name['surname'] . '&gl=ROOT_CATEGORY&rank=1';
 	}
 
 }
