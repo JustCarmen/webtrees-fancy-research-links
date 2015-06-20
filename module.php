@@ -29,13 +29,13 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
-	
+
 	/** @var array primary name */
-	var $primary;	
+	var $primary;
 
 	public function __construct() {
 		parent::__construct('fancy_research_links');
-		
+
 		// register the namespace
 		$loader = new ClassLoader();
 		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\Module\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
@@ -175,7 +175,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	public function getSidebarContent() {
 		// code based on similar in function_print_list.php
 		global $controller;
-		
+
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/style.css');
 
@@ -204,8 +204,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 						$this->primary = FancyResearchLinksClass::getPrimaryName($value);
 						break; // only use the first fact with a NAME tag found.
 					}
-				}				
-				
+				}
+
 				if ($this->primary) {
 					$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
 					$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
@@ -219,8 +219,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			$html = I18N::translate('There are no research links available for this individual.');
 		}
 		return $html;
-	}	
-	
+	}
+
 	private function includeCss($css) {
 		return
 			'<script>

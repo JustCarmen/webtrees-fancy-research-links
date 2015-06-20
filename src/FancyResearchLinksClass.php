@@ -24,7 +24,7 @@ use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 
 class FancyResearchLinksClass extends FancyResearchLinksModule {
-	
+
 	/**
 	 * Scan the plugin folder for a list of plugins
 	 */
@@ -50,21 +50,21 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		$all_names = $dummy->getAllNames();
 		return $all_names[0];
 	}
-	
+
 	static function getNames($primary, $encodeplus) {
 		$name = array();
 		$name['givn'] = self::encodeUrl($primary['givn'], $encodeplus);
-					
+
 		$given = explode(" ", $primary['givn']);
-		$name['first'] = $given[0];					
-				
+		$name['first'] = $given[0];
+
 		if ($primary['surn'] !== $primary['surname']) {
 			$prefix = substr($primary['surname'], 0, strpos($primary['surname'], $primary['surn']) - 1);
 			$name['prefix'] = self::encodeUrl($prefix, $encodeplus);
 		} else {
 			$name['prefix'] = "";
 		}
-				
+
 		$name['surn'] = self::encodeUrl($primary['surn'], $encodeplus);
 		$name['surname'] = self::encodeUrl($primary['surname'], $encodeplus);
 
@@ -72,10 +72,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			$name['fullname'] = $name['givn'] . '+' . $name['surname'];
 		} else {
 			$name['fullname'] = $name['givn'] . '%20' . $name['surname'];
-		}		
-		
+		}
+
 		return $name;
-	}	
+	}
 
 	/**
 	 * Encode the url without +
@@ -83,7 +83,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	static function encodePlus() {
 		return false;
 	}
-	
+
 	/**
 	 * Encode the url
 	 */

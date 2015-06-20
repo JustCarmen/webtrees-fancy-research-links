@@ -41,7 +41,7 @@ class AncestryPlugin extends FancyResearchLinksClass {
 		} else {
 			$ancestry_domain = $domain['en_US'];
 		}
-		
+
 		return 'http://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $name['givn'] . '&gsln=' . $name['surname'] . '&gl=ROOT_CATEGORY&rank=1';
 	}
 
