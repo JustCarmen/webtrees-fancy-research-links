@@ -23,8 +23,8 @@ namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Individual;
 
-class ResearchBasePlugin {
-
+class ResearchBasePlugin extends FancyResearchLinksModule {
+	
 	/**
 	 * Scan the plugin folder for a list of plugins
 	 */
@@ -50,17 +50,34 @@ class ResearchBasePlugin {
 		$all_names = $dummy->getAllNames();
 		return $all_names[0];
 	}
-
-	/**
-	 * Encode the url
-	 */
-	static function encodeUrl($url, $plus) {
-		if ($plus) {
-			return str_replace("%20", "+", rawurlencode($url));
-		} else {
-			return rawurlencode($url);
+	
+	static function getNames($primary, $encodeplus) {
+		$name = array();
+		$name['givn'] = self::encodeUrl($primary['givn'], $encodeplus);
+					
+		$given = explode(" ", $primary['givn']);
+		$name['first'] = $given[0];					
+		if (count($given) > 1) {
+			$name['middle'] = $given[1];
 		}
-	}
+
+		$name['surn'] = self::encodeUrl($primary['surn'], $encodeplus);
+		$name['surname'] = self::encodeUrl($primary['surname'], $encodeplus);
+
+		if ($encodeplus) {
+			$name['fullname'] = $name['givn'] . '+' . $name['surname'];
+		} else {
+			$name['fullname'] = $name['givn'] . '%20' . $name['surname'];
+		}
+
+		if ($name['surn'] !== $name['surname']) {
+			$name['prefix'] = substr($name['surname'], 0, strpos($name['surname'], $name['surn']) - 3);
+		} else {
+			$name['prefix'] = "";
+		}
+		
+		return $name;
+	}	
 
 	/**
 	 * Encode the url without +
@@ -68,9 +85,16 @@ class ResearchBasePlugin {
 	static function encodePlus() {
 		return false;
 	}
-
-	static function createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return false;
+	
+	/**
+	 * Encode the url
+	 */
+	static function encodeUrl($url, $encodeplus) {
+		if ($encodeplus) {
+			return str_replace("%20", "+", rawurlencode($url));
+		} else {
+			return rawurlencode($url);
+		}
 	}
 
 }

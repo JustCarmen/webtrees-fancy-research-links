@@ -20,17 +20,18 @@ use Composer\Autoload\ClassLoader;
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Controller\PageController;
 use Fisharebest\Webtrees\Database;
-use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\Filter;
 use Fisharebest\Webtrees\Functions\FunctionsEdit;
 use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Log;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
+	
+	/** @var array primary name */
+	var $primary;	
 
 	public function __construct() {
 		parent::__construct('fancy_research_links');
@@ -197,38 +198,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				$value = '1';
 			}
 			if ($value == true) {
-				$primary = "";
 				foreach ($controller->record->getFacts() as $value) {
 					$fact = $value->getTag();
 					if ($fact == "NAME") {
-						$primary = ResearchBasePlugin::getPrimaryName($value);
+						$this->primary = ResearchBasePlugin::getPrimaryName($value);
 						break; // only use the first fact with a NAME tag found.
 					}
-				}
-				if ($primary) {
-					// create plugin vars
-					$givn = ResearchBasePlugin::encodeUrl($primary['givn'], $plugin->encodePlus()); // all given names
-					$given = explode(" ", $primary['givn']);
-					$first = $given[0]; // first given name
-					$middle = count($given) > 1 ? $given[1] : ""; // middle name (second given name)
-					$surn = ResearchBasePlugin::encodeUrl($primary['surn'], $plugin->encodePlus()); // surname without prefix
-					$surname = ResearchBasePlugin::encodeUrl($primary['surname'], $plugin->encodePlus()); // full surname (with prefix)
-					$fullname = $plugin->encodePlus() ? $givn . '+' . $surname : $givn . '%20' . $surname; // full name
-					$prefix = $surn != $surname ? substr($surname, 0, strpos($surname, $surn) - 3) : ""; // prefix
-
-					$link = $plugin->createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
-					$sublinks = $plugin->createSublink($fullname, $givn, $first, $middle, $prefix, $surn, $surname);
-
-					if ($sublinks) {
-						$html.='<li><i class="icon-research-link"></i><a class="mainlink" href="' . Filter::escapeHtml($link) . '">' . $plugin->getPluginName() . '</a>';
-						$html .= '<ul class="sublinks">';
-						foreach ($sublinks as $sublink) {
-							$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($sublink['link']) . '" target="_blank">' . $sublink['title'] . '</a></li>';
-						}
-						$html .= '</ul></li>';
-					} else { // default
-						$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
-					}
+				}				
+				
+				if ($this->primary) {
+					$link = $plugin->createLink(ResearchBasePlugin::getNames($this->primary, $plugin->encodePlus()));
+					$html.='<li><i class="icon-research-link"></i><a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . $plugin->getPluginName() . '</a></li>';
 					$count++;
 				}
 			}
