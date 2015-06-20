@@ -24,8 +24,8 @@ class MilitieRegistersPlugin extends FancyResearchLinksClass {
 		return 'NL | Militieregisters | $';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://militieregisters.nl/zoek#?focus%3Dd00%26p04%3D' . $givn . '%26p05%3D' . $prefix . '%26p06%3D' . $surn;
+	static function createLink($name) {
+		return 'http://militieregisters.nl/zoek#?focus%3Dd00%26p04%3D' . $name['givn'] . '%26p05%3D' . $name['prefix'] . '%26p06%3D' . $name['surn'];
 	}
 
 	static function encodePlus() {

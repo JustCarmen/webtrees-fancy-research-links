@@ -24,8 +24,8 @@ class GooglePlugin extends FancyResearchLinksClass {
 		return 'INT | Google';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'https://www.google.com/search?q="' . $fullname . '"';
+	static function createLink($name) {
+		return 'https://www.google.com/search?q="' . $name['fullname'] . '"';
 	}
 
 	static function encodePlus() {

@@ -24,9 +24,9 @@ class GrafTombePlugin extends FancyResearchLinksClass {
 		return 'NL | Graftombe';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		$surname = $prefix ? $surn . ' ' . $prefix : $surn;
-		return $link = 'http://www.graftombe.nl/names/search?forename=' . $givn . '&surname=' . $surname . '&submit=Zoeken&r=names-search';
+	static function createLink($name) {
+		$name['surname'] = $name['prefix'] ? $name['surn'] . ' ' . $name['prefix'] : $name['surn'];
+		return 'http://www.graftombe.nl/names/search?forename=' . $name['givn'] . '&surname=' . $name['surname'] . '&submit=Zoeken&r=names-search';
 	}
 
 	static function encodePlus() {

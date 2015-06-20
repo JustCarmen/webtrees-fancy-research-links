@@ -24,8 +24,8 @@ class WikipediaPersonPlugin extends FancyResearchLinksClass {
 		return 'DE | Wikipedia-Personensuche';  // uses German wikipedia
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'https://toolserver.org/~apper/pd/person/' . $givn . '_' . $surname;
+	static function createLink($name) {
+		return 'https://toolserver.org/~apper/pd/person/' . $name['givn'] . '_' . $name['surname'];
 	}
 
 }

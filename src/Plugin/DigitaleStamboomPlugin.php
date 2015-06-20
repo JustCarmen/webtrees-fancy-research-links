@@ -24,8 +24,8 @@ class DigitaleStamboomPlugin extends FancyResearchLinksClass {
 		return 'NL | Digitale Stamboom';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $givn . urlencode('||') . $prefix . urlencode('|') . $surn;
+	static function createLink($name) {
+		return 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $name['givn'] . urlencode('||') . $name['prefix'] . urlencode('|') . $name['surn'];
 	}
 
 	static function encodePlus() {

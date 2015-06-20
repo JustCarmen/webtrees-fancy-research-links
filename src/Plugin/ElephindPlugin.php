@@ -24,8 +24,8 @@ class ElephindPlugin extends FancyResearchLinksClass {
 		return 'INT | Elephind Newspapers';
 	}
 
-	static function createLink($fullname, $givn, $first, $prefix, $surn, $surname) {
-		return $link = 'http://www.elephind.com/?a=q&hs=1&r=1&results=1&txq="' . $first . '+' . $surname . '"&txf=txINtxCO&o=10&dafyq=&dafmq=&dafdq=&datyq=&datmq=&datdq=&puqname=Search+all+titles...&puq=&lcq=&csq=&e=-------en-10--1--txt-txINtxCO----------';
+	static function createLink($name) {
+		return 'http://www.elephind.com/?a=q&hs=1&r=1&results=1&txq="' . $name['first'] . '+' . $name['surname'] . '"&txf=txINtxCO&o=10&dafyq=&dafmq=&dafdq=&datyq=&datmq=&datdq=&puqname=Search+all+titles...&puq=&lcq=&csq=&e=-------en-10--1--txt-txINtxCO----------';
 	}
 
 }

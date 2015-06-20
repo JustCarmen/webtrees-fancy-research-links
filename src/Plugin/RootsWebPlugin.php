@@ -24,8 +24,8 @@ class RootsWebPlugin extends FancyResearchLinksClass {
 		return 'INT | Rootsweb';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://worldconnect.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=Search&lang=en&surname=' . $surname . '&stype=Exact&given=' . $givn . '&brange=0&drange=0&mrange=0&period=All&submit.x=Search';
+	static function createLink($name) {
+		return 'http://worldconnect.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=Search&lang=en&surname=' . $name['surname'] . '&stype=Exact&given=' . $name['givn'] . '&brange=0&drange=0&mrange=0&period=All&submit.x=Search';
 	}
 
 	static function encodePlus() {

@@ -24,8 +24,8 @@ class VoorouderPlugin extends FancyResearchLinksClass {
 		return 'NL | Voorouder.nl';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.voorouder.nl/genealogie/search.php?mybool=AND&nr=50&showdeath=yes&mylastname=' . $surname . '&lnqualify=equals&myfirstname=' . $givn . '&fnqualify=contains';
+	static function createLink($name) {
+		return 'http://www.voorouder.nl/genealogie/search.php?mybool=AND&nr=50&showdeath=yes&mylastname=' . $name['surname'] . '&lnqualify=equals&myfirstname=' . $name['givn'] . '&fnqualify=contains';
 	}
 
 }

@@ -24,9 +24,9 @@ class WikipediaPlugin extends FancyResearchLinksClass {
 		return 'NL | Wikipedia';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($name) {
 		$language = substr(WT_LOCALE, 0, 2);
-		return $link = 'https://' . $language . '.wikipedia.org/wiki/' . $givn . '_' . $surname;
+		return 'https://' . $language . '.wikipedia.org/wiki/' . $name['givn'] . '_' . $name['surname'];
 	}
 
 }

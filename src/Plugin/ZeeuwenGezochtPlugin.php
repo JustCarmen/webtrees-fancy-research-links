@@ -24,9 +24,9 @@ class ZeeuwenGezochtPlugin extends FancyResearchLinksClass {
 		return 'NL | Zeeuwen Gezocht';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://www.zeeuwengezocht.nl/nl/zoeken?mivast=1539&miadt=239&mizig=862&miview=tbl&milang=nl&micols=1&mires=0&mip3='
-			. $surn . '&mip2=' . $prefix . '&mip1=' . $givn;
+	static function createLink($name) {
+		return 'http://www.zeeuwengezocht.nl/nl/zoeken?mivast=1539&miadt=239&mizig=862&miview=tbl&milang=nl&micols=1&mires=0&mip3='
+			. $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
 	}
 
 }

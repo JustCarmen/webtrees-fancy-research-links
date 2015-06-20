@@ -24,9 +24,9 @@ class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 		return 'NL | Online Begraafplaatsen';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($name) {
 		// querystrings are not possible anymore due to changes in website functionality. Just present the link to the website.
-		return $link = 'http://www.online-begraafplaatsen.nl/zoeken.asp';
+		return 'http://www.online-begraafplaatsen.nl/zoeken.asp';
 	}
 
 }

@@ -24,8 +24,8 @@ class WieWasWiePlugin extends FancyResearchLinksClass {
 		return 'NL | WieWasWie';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/' . $fullname . '/type/documenten';
+	static function createLink($name) {
+		return 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/' . $name['fullname'] . '/type/documenten';
 	}
 
 	static function encodePlus() {

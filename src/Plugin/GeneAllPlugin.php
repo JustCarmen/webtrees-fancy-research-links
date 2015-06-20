@@ -24,7 +24,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 		return 'INT | Geneall | $';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
+	static function createLink($name) {
 		// this plugin needs refactoring. Multiple websites for multiple country categories. Not on a per language base. See: http://www.geneall.net/site/home.php
 		$languages = array(
 			'de'	 => 'D',
@@ -43,7 +43,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 			$language = $languages['en_US'];
 		}
 
-		return $link = 'http://www.geneall.net/' . $language . '/per_search.php?s=' . $fullname . '&s_type=per_search.php';
+		return 'http://www.geneall.net/' . $language . '/per_search.php?s=' . $name['fullname'] . '&s_type=per_search.php';
 	}
 
 	static function encodePlus() {

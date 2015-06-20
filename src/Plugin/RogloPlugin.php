@@ -24,8 +24,8 @@ class RogloPlugin extends FancyResearchLinksClass {
 		return 'INT | Roglo';
 	}
 
-	static function createLink($fullname, $givn, $first, $middle, $prefix, $surn, $surname) {
-		return $link = 'http://roglo.eu/roglo?lang=' . WT_LOCALE . '&m=NG&n=' . $fullname . '&t=PN';
+	static function createLink($name) {
+		return 'http://roglo.eu/roglo?lang=' . WT_LOCALE . '&m=NG&n=' . $name['fullname'] . '&t=PN';
 	}
 
 	static function encodePlus() {
