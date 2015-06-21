@@ -21,6 +21,7 @@
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 
 use Fisharebest\Webtrees\Fact;
+use Fisharebest\Webtrees\Filter;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Stats;
@@ -117,5 +118,16 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	static function linkOnly(){
 		return false;
 	}
-
+	
+	static function countEnabledPlugins($plugins, $FRL_PLUGINS){
+		$count = 0;
+		foreach ($plugins as $label => $plugin) {
+			if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
+				$count += intval($FRL_PLUGINS[$label]);
+			} else {
+				$count += 1;
+			}
+		}
+		return $count;
+	}
 }

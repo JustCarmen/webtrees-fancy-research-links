@@ -92,7 +92,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	// Implement WT_Module_Sidebar
 	public function getSidebarAjaxContent() {
-		return false;
+		return true;
 	}
 
 	// Implement WT_Module_Sidebar
@@ -104,50 +104,59 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/style.css');
 
 		$controller->addInlineJavascript('
-			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
-			jQuery("#research_status a.mainlink").click(function(e){
-				e.preventDefault();
-				jQuery(this).parent().find(".sublinks").toggle();
+			jQuery("[id^=frl-collapse]").on("show.bs.collapse",function(){
+				jQuery(this).prev(".list-group-item").addClass("active");
+			});
+			jQuery("[id^=frl-collapse]").on("hide.bs.collapse",function(){
+				jQuery(this).prev(".list-group-item").removeClass("active");
 			});
 		');
-
-		$count = 0;
-		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
-		$html .= '<ul id="research_status" dir="ltr">';
+		
+		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));		
+		$html .= '<div id="fancy-research-links"><div class="panel list-group">';
+		$i = 0;
+		$total_enabled_plugins = 0;
 		foreach (FancyResearchLinksClass::getPluginList() as $area => $plugins) {
-			foreach ($plugins as $label => $plugin) {
-				if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
-					$enabled = $FRL_PLUGINS[$label];
-				} else {
-					$enabled = '1';
-				}
+			$enabled_plugins = FancyResearchLinksClass::countEnabledPlugins($plugins, $FRL_PLUGINS);
+			$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
+			if ($enabled_plugins > 0) {
+				$html .=
+					'<a href="#" class="list-group-item" data-toggle="collapse" data-target="#frl-collapse' . $i .'" data-parent="#fancy-research-links">' .
+					'<span class="badge">' . $enabled_plugins .'</span>' . $area .
+					'</a>' .
+					'<div id="frl-collapse' . $i .'" class="sublinks collapse">';
+				$i++;
+				foreach ($plugins as $label => $plugin) {
+					if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
+						$enabled = $FRL_PLUGINS[$label];
+					} else {
+						$enabled = '1';
+					}
 
-				if ($enabled) {
-					foreach ($controller->record->getFacts() as $fact) {
-						$tag = $fact->getTag();
-						if ($tag == "NAME") {
-							$this->primary = FancyResearchLinksClass::getPrimaryName($fact);
-							break; // only use the first fact with a NAME tag found.
+					if ($enabled) {
+						foreach ($controller->record->getFacts() as $fact) {
+							$tag = $fact->getTag();
+							if ($tag == "NAME") {
+								$this->primary = FancyResearchLinksClass::getPrimaryName($fact);
+								break; // only use the first fact with a NAME tag found.
+							}
+						}
+
+						if ($this->primary) {
+							$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
+							$html .=
+								'<a class="list-group-item" href="' . Filter::escapeHtml($link) . '" target="_blank">' .
+									$plugin->getPluginName() .
+								'</a>';
 						}
 					}
-
-					if ($this->primary) {
-						$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
-						$html .=
-							'<li>' .
-								'<i class="icon-research-link"></i>' .
-								'<a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . 
-									$plugin->getPluginName() . 
-								'</a>' .
-							'</li>';
-						$count++;
-					}
 				}
+				$html .= '</div>';
 			}
 		}
-		$html .= '</ul>';
+		$html .= '</div></div>';
 
-		if ($count === 0) {
+		if ($total_enabled_plugins === 0) {
 			$html = I18N::translate('There are no research links available for this individual.');
 		}
 		return $html;
