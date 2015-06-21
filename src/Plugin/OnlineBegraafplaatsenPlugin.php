@@ -23,12 +23,12 @@ class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Online Begraafplaatsen';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}
-	
-	static function linkOnly(){
+
+	static function linkOnly() {
 		return true;
 	}
 

@@ -23,7 +23,7 @@ class WikipediaPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Wikipedia';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

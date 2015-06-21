@@ -23,7 +23,7 @@ class RogloPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Roglo';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

@@ -23,7 +23,7 @@ class FamilySearchPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Family Search';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

@@ -23,7 +23,7 @@ class BillionGravesPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Billion Graves';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

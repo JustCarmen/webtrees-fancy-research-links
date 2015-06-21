@@ -23,7 +23,7 @@ class ArchievenPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Archieven.nl';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

@@ -23,7 +23,7 @@ class GooglePlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Google';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

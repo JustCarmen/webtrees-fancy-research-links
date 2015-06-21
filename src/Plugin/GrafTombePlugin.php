@@ -23,7 +23,7 @@ class GrafTombePlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Graftombe';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

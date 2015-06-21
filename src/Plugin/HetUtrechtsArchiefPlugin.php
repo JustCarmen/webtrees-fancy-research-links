@@ -23,7 +23,7 @@ class HetUtrechtsArchiefPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Het Utrechts Archief';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

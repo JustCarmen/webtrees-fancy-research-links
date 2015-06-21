@@ -103,7 +103,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/style.css');
 
-		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));		
+		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="fancy-research-links">';
 		$i = 0;
 		$total_enabled_plugins = 0;
@@ -136,7 +136,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 							$html .=
 								'<li>' .
 								'<a href="' . Filter::escapeHtml($link) . '" target="_blank">' .
-									$plugin->getPluginName() .
+								$plugin->getPluginName() .
 								'</a>' .
 								'</li>';
 						}

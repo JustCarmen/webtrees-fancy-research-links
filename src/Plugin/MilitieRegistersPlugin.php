@@ -23,7 +23,7 @@ class MilitieRegistersPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Militieregisters($)';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

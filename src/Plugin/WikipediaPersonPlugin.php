@@ -23,7 +23,7 @@ class WikipediaPersonPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Wikipedia-Personensuche';  // uses German wikipedia
 	}
-	
+
 	static function getSearchArea() {
 		return 'DEU';
 	}

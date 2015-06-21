@@ -23,7 +23,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Geneall($)';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

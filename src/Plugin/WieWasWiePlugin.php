@@ -23,7 +23,7 @@ class WieWasWiePlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'WieWasWie';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

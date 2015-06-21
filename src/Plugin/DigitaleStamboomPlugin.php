@@ -23,7 +23,7 @@ class DigitaleStamboomPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Digitale Stamboom';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

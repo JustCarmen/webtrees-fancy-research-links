@@ -19,11 +19,11 @@ namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
 class AncestryPlugin extends FancyResearchLinksClass {
-	
+
 	static function getPluginName() {
 		return 'Ancestry($)';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

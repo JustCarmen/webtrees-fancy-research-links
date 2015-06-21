@@ -23,7 +23,7 @@ class ElephindPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Elephind Newspapers';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

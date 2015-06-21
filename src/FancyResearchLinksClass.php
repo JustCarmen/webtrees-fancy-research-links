@@ -45,7 +45,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		$pluginlist = array_merge([$int => $plugins[$int]], $plugins);
 		return $pluginlist;
 	}
-	
+
 	static function getSearchAreaName($area) {
 		global $WT_TREE;
 		$stats = new Stats($WT_TREE);
@@ -61,6 +61,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	/*
 	 * Based on function print_name_record() in /app/Controller/IndividualController.php
 	 */
+
 	static function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
@@ -69,7 +70,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		);
 		$all_names = $dummy->getAllNames();
 		return $all_names[0];
-	}	
+	}
 
 	static function getNames($primary, $encodeplus) {
 		$name = array();
@@ -114,12 +115,12 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			return rawurlencode($url);
 		}
 	}
-	
-	static function linkOnly(){
+
+	static function linkOnly() {
 		return false;
 	}
-	
-	static function countEnabledPlugins($plugins, $FRL_PLUGINS){
+
+	static function countEnabledPlugins($plugins, $FRL_PLUGINS) {
 		$count = 0;
 		foreach ($plugins as $label => $plugin) {
 			if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
@@ -130,4 +131,5 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		}
 		return $count;
 	}
+
 }

@@ -23,7 +23,7 @@ class ZeeuwenGezochtPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Zeeuwen Gezocht';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

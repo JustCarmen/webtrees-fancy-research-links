@@ -23,7 +23,7 @@ class FindMyPastPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Findmypast($)';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

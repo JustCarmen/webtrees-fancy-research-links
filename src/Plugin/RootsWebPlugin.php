@@ -23,7 +23,7 @@ class RootsWebPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Rootsweb';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

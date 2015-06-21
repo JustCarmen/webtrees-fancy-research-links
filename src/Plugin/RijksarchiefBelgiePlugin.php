@@ -23,7 +23,7 @@ class RijksarchiefBelgiePlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Rijksarchief België';
 	}
-	
+
 	static function getSearchArea() {
 		return 'BEL';
 	}

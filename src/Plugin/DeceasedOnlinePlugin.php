@@ -23,7 +23,7 @@ class DeceasedOnlinePlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Deceased Online';
 	}
-	
+
 	static function getSearchArea() {
 		return 'GBR';
 	}

@@ -23,7 +23,7 @@ class StamboomZoekerPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Stamboomzoeker';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

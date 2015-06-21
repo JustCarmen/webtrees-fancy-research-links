@@ -23,7 +23,7 @@ class FindAGravePlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Find a Grave';
 	}
-	
+
 	static function getSearchArea() {
 		return 'INT';
 	}

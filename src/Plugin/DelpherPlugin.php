@@ -23,7 +23,7 @@ class DelpherPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Delpher Krantenarchief';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

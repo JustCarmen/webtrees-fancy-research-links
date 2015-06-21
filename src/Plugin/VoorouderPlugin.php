@@ -23,7 +23,7 @@ class VoorouderPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Voorouder.nl';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}

@@ -23,7 +23,7 @@ class OnlineFamilieberichtenPlugin extends FancyResearchLinksClass {
 	static function getPluginName() {
 		return 'Online Familieberichten';
 	}
-	
+
 	static function getSearchArea() {
 		return 'NLD';
 	}
