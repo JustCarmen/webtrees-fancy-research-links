@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links 1.5\n"
-"POT-Creation-Date: 2014-07-20 20:00+0100\n"
+"POT-Creation-Date: 2015-06-21 22:53+0100\n"
 "PO-Revision-Date: 2014-02-01 18:52+0200\n"
 "Last-Translator: Meliza <meliza@amitys.com>\n"
 "Language-Team: \n"
@@ -17,28 +17,38 @@ msgstr ""
 "X-Poedit-SearchPath-0: modules_v3\\fancy_research_links\n"
 
 #. I18N: Description of the module
-#: modules_v3\fancy_research_links/module.php:64
+#: modules_v3\fancy_research_links/module.php:54
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Sivupalkin työkalu tarjoaa nopeat yhteydet suosittuihin tutkimuskohde web-sivustoihin."
 
-#: modules_v3\fancy_research_links/module.php:113
+#: modules_v3\fancy_research_links/src/Template/AdminTemplate.php:65
 msgid "Check the plugins you want to use in the sidebar"
 msgstr "Valitse liitennäiset (plug-in) jotka haluat käyttää sivupalkissa"
 
 #. I18N: Name of the module
-#: modules_v3\fancy_research_links/module.php:55
-#: modules_v3\fancy_research_links/module.php:99
+#: modules_v3\fancy_research_links/module.php:45
+#: modules_v3\fancy_research_links/src/Template/AdminTemplate.php:39
 msgid "Fancy Research Links"
 msgstr "Hienot tutkimus linkit"
 
-#: modules_v3\fancy_research_links/module.php:59
+#: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:48
+#: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:64
+msgid "International"
+msgstr ""
+
+#: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:41
+#: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:49
+msgid "Other links"
+msgstr ""
+
+#: modules_v3\fancy_research_links/module.php:49
 msgid "Research links"
 msgstr "Tutkimus linkit"
 
-#: modules_v3\fancy_research_links/module.php:125
+#: modules_v3\fancy_research_links/src/Template/AdminTemplate.php:99
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "Asetukset palautetaan oletusarvoihin. Oletko varma, että haluat tehdä tämän?"
 
-#: modules_v3\fancy_research_links/module.php:215
+#: modules_v3\fancy_research_links/module.php:155
 msgid "There are no research links available for this individual."
 msgstr ""
