@@ -103,17 +103,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/style.css');
 
-		$controller->addInlineJavascript('
-			jQuery("[id^=frl-collapse]").on("show.bs.collapse",function(){
-				jQuery(this).prev(".list-group-item").addClass("active");
-			});
-			jQuery("[id^=frl-collapse]").on("hide.bs.collapse",function(){
-				jQuery(this).prev(".list-group-item").removeClass("active");
-			});
-		');
-		
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));		
-		$html .= '<div id="fancy-research-links"><div class="panel list-group">';
+		$html .= '<ul id="fancy-research-links">';
 		$i = 0;
 		$total_enabled_plugins = 0;
 		foreach (FancyResearchLinksClass::getPluginList() as $area => $plugins) {
@@ -121,10 +112,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
 			if ($enabled_plugins > 0) {
 				$html .=
-					'<a href="#" class="list-group-item" data-toggle="collapse" data-target="#frl-collapse' . $i .'" data-parent="#fancy-research-links">' .
-					'<span class="badge">' . $enabled_plugins .'</span>' . $area .
-					'</a>' .
-					'<div id="frl-collapse' . $i .'" class="sublinks collapse">';
+					'<li class="frl-area"><span class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</span>' .
+					'<ul class="frl-list">';
 				$i++;
 				foreach ($plugins as $label => $plugin) {
 					if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
@@ -145,16 +134,18 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 						if ($this->primary) {
 							$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
 							$html .=
-								'<a class="list-group-item" href="' . Filter::escapeHtml($link) . '" target="_blank">' .
+								'<li>' .
+								'<a href="' . Filter::escapeHtml($link) . '" target="_blank">' .
 									$plugin->getPluginName() .
-								'</a>';
+								'</a>' .
+								'</li>';
 						}
 					}
 				}
-				$html .= '</div>';
+				$html .= '</ul>';
 			}
 		}
-		$html .= '</div></div>';
+		$html .= '</ul>';
 
 		if ($total_enabled_plugins === 0) {
 			$html = I18N::translate('There are no research links available for this individual.');
