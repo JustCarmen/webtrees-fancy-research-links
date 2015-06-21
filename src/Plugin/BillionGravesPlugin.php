@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class BillionGravesPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Billion Graves';
+		return 'Billion Graves';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

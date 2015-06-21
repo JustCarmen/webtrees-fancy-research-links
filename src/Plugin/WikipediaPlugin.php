@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class WikipediaPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Wikipedia';
+		return 'Wikipedia';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

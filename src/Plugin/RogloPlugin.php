@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class RogloPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Roglo';
+		return 'Roglo';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class GrafTombePlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Graftombe';
+		return 'Graftombe';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

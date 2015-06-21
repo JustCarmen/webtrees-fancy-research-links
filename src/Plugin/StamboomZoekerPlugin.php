@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class StamboomZoekerPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Stamboomzoeker';
+		return 'Stamboomzoeker';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

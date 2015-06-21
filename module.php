@@ -114,32 +114,34 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$count = 0;
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="research_status" dir="ltr">';
-		foreach (FancyResearchLinksClass::getPluginList() as $label => $plugin) {
-			if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
-				$use = $FRL_PLUGINS[$label];
-			} else {
-				$use = '1';
-			}
-			
-			if ($use == true) {
-				foreach ($controller->record->getFacts() as $value) {
-					$fact = $value->getTag();
-					if ($fact == "NAME") {
-						$this->primary = FancyResearchLinksClass::getPrimaryName($value);
-						break; // only use the first fact with a NAME tag found.
-					}
+		foreach (FancyResearchLinksClass::getPluginList() as $area => $plugins) {
+			foreach ($plugins as $label => $plugin) {
+				if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
+					$enabled = $FRL_PLUGINS[$label];
+				} else {
+					$enabled = '1';
 				}
 
-				if ($this->primary) {
-					$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
-					$html .=
-						'<li>' .
-							'<i class="icon-research-link"></i>' .
-							'<a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . 
-								$plugin->getPluginName() . 
-							'</a>' .
-						'</li>';
-					$count++;
+				if ($enabled) {
+					foreach ($controller->record->getFacts() as $fact) {
+						$tag = $fact->getTag();
+						if ($tag == "NAME") {
+							$this->primary = FancyResearchLinksClass::getPrimaryName($fact);
+							break; // only use the first fact with a NAME tag found.
+						}
+					}
+
+					if ($this->primary) {
+						$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
+						$html .=
+							'<li>' .
+								'<i class="icon-research-link"></i>' .
+								'<a class="research_link" href="' . Filter::escapeHtml($link) . '" target="_blank">' . 
+									$plugin->getPluginName() . 
+								'</a>' .
+							'</li>';
+						$count++;
+					}
 				}
 			}
 		}

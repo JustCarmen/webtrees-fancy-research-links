@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class DeceasedOnlinePlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'UK | Deceased Online';
+		return 'Deceased Online';
+	}
+	
+	static function getSearchArea() {
+		return 'GBR';
 	}
 
 	static function createLink($name) {

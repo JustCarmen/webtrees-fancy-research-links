@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class WieWasWiePlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | WieWasWie';
+		return 'WieWasWie';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

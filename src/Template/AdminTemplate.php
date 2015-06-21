@@ -20,6 +20,7 @@ use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\Controller\PageController;
 use Fisharebest\Webtrees\Functions\FunctionsEdit;
 use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Stats;
 use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksModule;
 
@@ -41,10 +42,10 @@ class AdminTemplate extends FancyResearchLinksModule {
 				jQuery("head").append("<style>[dir=rtl] .checkbox-inline input[type=checkbox]{margin-left:-20px}</style>");
 				jQuery("input[name=select-all]").click(function(){
 					if (jQuery(this).is(":checked") == true) {
-						jQuery("#linklist").find(":checkbox").prop("checked", true).val(1);
+						jQuery(".checkbox-inline").find(":checkbox").prop("checked", true).val(1);
 						jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
 					} else {
-						jQuery("#linklist").find(":checkbox").prop("checked", false).val(0);
+						jQuery(".checkbox-inline").find(":checkbox").prop("checked", false).val(0);
 						jQuery("input[id^=NEW_FRL_PLUGINS]").val(0);
 					}
 					formChanged = true;
@@ -65,37 +66,42 @@ class AdminTemplate extends FancyResearchLinksModule {
 		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink(); ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
-			<div class="checkbox-inline">
+			<div class="form-group checkbox col-sm-12">
 				<label>
 					<?php echo FunctionsEdit::checkbox('select-all') . I18N::translate('select all'); ?>
 				</label>
 			</div>
 			<!-- RESEARCH LINKS -->
-			<div id="linklist" class="form-group">
-				<?php foreach (FancyResearchLinksClass::getPluginList() as $plugin_label => $plugin): ?>
-					<?php
-					if (is_array($FRL_PLUGINS) && array_key_exists($plugin_label, $FRL_PLUGINS)) {
-						$value = $FRL_PLUGINS[$plugin_label];
-					} if (!isset($value)) {
-						$value = '1';
-					}
-					?>
-					<div class="checkbox col-xs-4" dir="ltr">
-						<label class="checkbox-inline">
-							<?php echo FunctionsEdit::twoStateCheckbox('NEW_FRL_PLUGINS[' . $plugin_label . ']', $value) . ' ' . $plugin->getPluginName(); ?>
-						</label>
-					</div>
-				<?php endforeach; ?>
+			<?php foreach (FancyResearchLinksClass::getPluginList() as $area => $plugins): ?>				
+				<div class="form-group col-sm-12">
+					<h4><?php echo $area; ?></h4>
+					<?php foreach ($plugins as $label => $plugin): ?>
+						<?php
+						if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
+							$enabled = $FRL_PLUGINS[$label];
+						} else {
+							$enabled = '1';
+						}
+						?>
+						<div class="checkbox col-sm-4" dir="ltr">
+							<label class="checkbox-inline">
+								<?php echo FunctionsEdit::twoStateCheckbox('NEW_FRL_PLUGINS[' . $label . ']', $enabled) . ' ' . $plugin->getPluginName(); ?>
+							</label>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endforeach; ?>
+			<div class="form-group col-sm-12">
+				<button type="submit" class="btn btn-primary">
+					<i class="fa fa-check"></i>
+					<?php echo I18N::translate('Save'); ?>
+				</button>
+				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
+							window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
+					<i class="fa fa-recycle"></i>
+					<?php echo I18N::translate('Reset'); ?>
+				</button>
 			</div>
-			<button type="submit" class="btn btn-primary">
-				<i class="fa fa-check"></i>
-				<?php echo I18N::translate('Save'); ?>
-			</button>
-			<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
-						window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
-				<i class="fa fa-recycle"></i>
-				<?php echo I18N::translate('Reset'); ?>
-			</button>
 		</form>
 		<?php
 	}

@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class MilitieRegistersPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Militieregisters | $';
+		return 'Militieregisters($)';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

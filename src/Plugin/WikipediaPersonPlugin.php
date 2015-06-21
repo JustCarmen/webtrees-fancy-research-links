@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class WikipediaPersonPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'DE | Wikipedia-Personensuche';  // uses German wikipedia
+		return 'Wikipedia-Personensuche';  // uses German wikipedia
+	}
+	
+	static function getSearchArea() {
+		return 'DEU';
 	}
 
 	static function createLink($name) {

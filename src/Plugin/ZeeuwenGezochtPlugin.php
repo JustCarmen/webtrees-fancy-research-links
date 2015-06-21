@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class ZeeuwenGezochtPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Zeeuwen Gezocht';
+		return 'Zeeuwen Gezocht';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

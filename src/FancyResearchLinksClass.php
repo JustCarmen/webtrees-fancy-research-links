@@ -21,26 +21,45 @@
 namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
 
 use Fisharebest\Webtrees\Fact;
+use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\Stats;
 
 class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
-	 * Scan the plugin folder for a list of plugins
+	 * Scan the plugin folder for a list of plugins, sort them by searchArea but keep the International list on top.
 	 */
 	static function getPluginList() {
+		$plugins = array();
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
 			$label = basename($file, ".php");
 			$class = __NAMESPACE__ . '\Plugin\\' . $label;
-			$array[$label] = new $class;
+			$plugin = new $class;
+			$area = self::getSearchAreaName($plugin->getSearchArea());
+			$plugins[$area][$label] = $plugin;
 		}
-		return $array;
+		ksort($plugins);
+		$int = I18N::translate("International");
+		$pluginlist = array_merge([$int => $plugins[$int]], $plugins);
+		return $pluginlist;
+	}
+	
+	static function getSearchAreaName($area) {
+		global $WT_TREE;
+		$stats = new Stats($WT_TREE);
+		$countries = $stats->getAllCountries();
+		if (array_key_exists($area, $countries)) {
+			$area = $countries[$area];
+		} else {
+			$area = I18N::translate("International");
+		}
+		return $area;
 	}
 
 	/*
-	 * Based on function print_name_record() in /app/Controller/IndividualController.php	 * 
+	 * Based on function print_name_record() in /app/Controller/IndividualController.php
 	 */
-
 	static function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
@@ -49,7 +68,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		);
 		$all_names = $dummy->getAllNames();
 		return $all_names[0];
-	}
+	}	
 
 	static function getNames($primary, $encodeplus) {
 		$name = array();
@@ -93,6 +112,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		} else {
 			return rawurlencode($url);
 		}
+	}
+	
+	static function linkOnly(){
+		return false;
 	}
 
 }

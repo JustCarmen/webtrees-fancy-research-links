@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class GeneAllPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Geneall | $';
+		return 'Geneall($)';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

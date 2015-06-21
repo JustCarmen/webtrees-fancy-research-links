@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class ElephindPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Elephind Newspapers';
+		return 'Elephind Newspapers';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

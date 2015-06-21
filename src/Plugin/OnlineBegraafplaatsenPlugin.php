@@ -21,7 +21,15 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Online Begraafplaatsen | Link only';
+		return 'Online Begraafplaatsen';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
+	}
+	
+	static function linkOnly(){
+		return true;
 	}
 
 	static function createLink($name) {

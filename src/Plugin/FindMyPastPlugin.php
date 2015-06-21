@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class FindMyPastPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Findmypast | $';
+		return 'Findmypast($)';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

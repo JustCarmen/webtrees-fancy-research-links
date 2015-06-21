@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class RootsWebPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Rootsweb';
+		return 'Rootsweb';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

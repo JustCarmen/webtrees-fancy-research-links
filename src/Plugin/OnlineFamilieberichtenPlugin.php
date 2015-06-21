@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class OnlineFamilieberichtenPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Online Familieberichten';
+		return 'Online Familieberichten';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class DelpherPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Delpher Krantenarchief';
+		return 'Delpher Krantenarchief';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

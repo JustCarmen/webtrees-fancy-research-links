@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class ArchievenPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Archieven.nl';
+		return 'Archieven.nl';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

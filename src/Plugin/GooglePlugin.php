@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class GooglePlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Google';
+		return 'Google';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

@@ -19,12 +19,16 @@ namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 
 class AncestryPlugin extends FancyResearchLinksClass {
-
-	public function getPluginName() {
-		return 'INT | Ancestry | $';
+	
+	static function getPluginName() {
+		return 'Ancestry($)';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
-	public function createLink($name) {
+	static function createLink($name) {
 		$domain = array(
 			// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
 			'de'	 => 'de', // German

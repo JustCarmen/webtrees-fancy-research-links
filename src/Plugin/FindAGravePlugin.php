@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class FindAGravePlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Find a Grave';
+		return 'Find a Grave';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

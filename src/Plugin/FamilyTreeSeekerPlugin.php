@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class FamilyTreeSeekerPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'INT | Familytreeseeker';
+		return 'Familytreeseeker';
+	}
+	
+	static function getSearchArea() {
+		return 'INT';
 	}
 
 	static function createLink($name) {

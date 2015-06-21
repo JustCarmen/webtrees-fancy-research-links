@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class VoorouderPlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'NL | Voorouder.nl';
+		return 'Voorouder.nl';
+	}
+	
+	static function getSearchArea() {
+		return 'NLD';
 	}
 
 	static function createLink($name) {

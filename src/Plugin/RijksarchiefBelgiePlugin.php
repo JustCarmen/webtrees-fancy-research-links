@@ -21,7 +21,11 @@ use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
 class RijksarchiefBelgiePlugin extends FancyResearchLinksClass {
 
 	static function getPluginName() {
-		return 'BE | Rijksarchief België';
+		return 'Rijksarchief België';
+	}
+	
+	static function getSearchArea() {
+		return 'BEL';
 	}
 
 	static function createLink($name) {
