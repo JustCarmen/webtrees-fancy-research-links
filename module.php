@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks;
+namespace JustCarmen\WebtreesAddOns\FancyResearchLinks;
 
 use Composer\Autoload\ClassLoader;
 use Fisharebest\Webtrees\Database;
@@ -24,7 +24,7 @@ use Fisharebest\Webtrees\Log;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Template\AdminTemplate;
+use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
@@ -36,7 +36,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// register the namespace
 		$loader = new ClassLoader();
-		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\Module\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
+		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
 		$loader->register();
 	}
 

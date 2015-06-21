@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-namespace JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\Plugin;
+namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 
-use JustCarmen\WebtreesAddOns\Module\FancyResearchLinks\FancyResearchLinksClass;
+use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class ZeeuwenGezochtPlugin extends FancyResearchLinksClass {
 
