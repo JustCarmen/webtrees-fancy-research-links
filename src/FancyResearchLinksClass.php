@@ -37,15 +37,23 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			$label = basename($file, ".php");
 			$class = __NAMESPACE__ . '\Plugin\\' . $label;
 			$plugin = new $class;
-			$area = self::getSearchAreaName($plugin->getSearchArea());
+			if ($plugin->createLinkOnly()) {
+				$area = I18N::translate('Other links');
+			} else {
+				$area = self::getSearchAreaName($plugin->getSearchArea());
+			}
 			$plugins[$area][$label] = $plugin;
 		}
 		ksort($plugins);
 		$int = I18N::translate("International");
-		$pluginlist = array_merge([$int => $plugins[$int]], $plugins);
+		$ol = I18N::translate('Other links');
+		$pluginlist = array_merge([$int => $plugins[$int]], $plugins, [$ol => $plugins[$ol]]);
 		return $pluginlist;
 	}
 
+	/**
+	 * Get translatable country name for search area.
+	 */
 	static function getSearchAreaName($area) {
 		global $WT_TREE;
 		$stats = new Stats($WT_TREE);
@@ -58,10 +66,23 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		return $area;
 	}
 
-	/*
+	/**
+	 * Create link with name search. Default is none;
+	 */
+	static function createLink($name) {
+		return;
+	}
+
+	/**
+	 * Create link only function. Create link without name search. Default is none;
+	 */
+	static function createLinkOnly() {
+		return;
+	}
+
+	/**
 	 * Based on function print_name_record() in /app/Controller/IndividualController.php
 	 */
-
 	static function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
@@ -72,6 +93,9 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		return $all_names[0];
 	}
 
+	/**
+	 * Get name parts
+	 */
 	static function getNames($primary, $encodeplus) {
 		$name = array();
 		$name['givn'] = self::encodeUrl($primary['givn'], $encodeplus);
@@ -116,13 +140,12 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		}
 	}
 
-	static function linkOnly() {
-		return false;
-	}
-
+	/**
+	 * Count the enabled plugins
+	 */
 	static function countEnabledPlugins($plugins, $FRL_PLUGINS) {
 		$count = 0;
-		foreach ($plugins as $label => $plugin) {
+		foreach (array_keys($plugins) as $label) {
 			if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
 				$count += intval($FRL_PLUGINS[$label]);
 			} else {

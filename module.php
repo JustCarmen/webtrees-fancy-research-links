@@ -92,7 +92,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	// Implement WT_Module_Sidebar
 	public function getSidebarAjaxContent() {
-		return true;
+		return false;
 	}
 
 	// Implement WT_Module_Sidebar
@@ -132,7 +132,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 						}
 
 						if ($this->primary) {
-							$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
+							if ($plugin->createLinkOnly()) {
+								$link = $plugin->createLinkOnly();
+							} else {
+								$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
+							}
 							$html .=
 								'<li>' .
 								'<a href="' . Filter::escapeHtml($link) . '" target="_blank">' .
