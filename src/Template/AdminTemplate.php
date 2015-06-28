@@ -93,12 +93,12 @@ class AdminTemplate extends FancyResearchLinksModule {
 			<div class="form-group col-sm-12">
 				<button type="submit" class="btn btn-primary">
 					<i class="fa fa-check"></i>
-					<?php echo I18N::translate('Save'); ?>
+					<?php echo I18N::translate('save'); ?>
 				</button>
 				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?'); ?>'))
 							window.location.href = 'module.php?mod=<?php echo $this->getName(); ?>&amp;mod_action=admin_reset';">
 					<i class="fa fa-recycle"></i>
-					<?php echo I18N::translate('Reset'); ?>
+					<?php echo I18N::translate('reset'); ?>
 				</button>
 			</div>
 		</form>
