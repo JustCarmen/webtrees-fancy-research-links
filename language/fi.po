@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links 1.5\n"
 "POT-Creation-Date: 2015-06-21 22:53+0100\n"
-"PO-Revision-Date: 2014-02-01 18:52+0200\n"
+"PO-Revision-Date: 2015-06-28 22:17+0200\n"
 "Last-Translator: Meliza <meliza@amitys.com>\n"
 "Language-Team: \n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-Basepath: c:\\xampp\\htdocs\\webtrees_build\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -34,12 +34,12 @@ msgstr "Hienot tutkimus linkit"
 #: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:48
 #: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:64
 msgid "International"
-msgstr ""
+msgstr "Kansainväliset"
 
 #: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:41
 #: modules_v3\fancy_research_links/src/FancyResearchLinksClass.php:49
 msgid "Other links"
-msgstr ""
+msgstr "Muut linkit"
 
 #: modules_v3\fancy_research_links/module.php:49
 msgid "Research links"
@@ -51,4 +51,4 @@ msgstr "Asetukset palautetaan oletusarvoihin. Oletko varma, että haluat tehdä 
 
 #: modules_v3\fancy_research_links/module.php:155
 msgid "There are no research links available for this individual."
-msgstr ""
+msgstr "Tälle henkilölle ei ole tutkimus-linkkejä."
