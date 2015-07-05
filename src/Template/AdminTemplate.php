@@ -21,9 +21,8 @@ use Fisharebest\Webtrees\Controller\PageController;
 use Fisharebest\Webtrees\Functions\FunctionsEdit;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
-use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksModule;
 
-class AdminTemplate extends FancyResearchLinksModule {
+class AdminTemplate extends FancyResearchLinksClass {
 
 	public function pageContent() {
 		$controller = new PageController;
@@ -71,7 +70,7 @@ class AdminTemplate extends FancyResearchLinksModule {
 				</label>
 			</div>
 			<!-- RESEARCH LINKS -->
-			<?php foreach (FancyResearchLinksClass::getPluginList() as $area => $plugins): ?>				
+			<?php foreach ($this->getPluginList() as $area => $plugins): ?>				
 				<div class="form-group col-sm-12">
 					<h4><?php echo $area; ?></h4>
 					<?php foreach ($plugins as $label => $plugin): ?>

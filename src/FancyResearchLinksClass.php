@@ -30,7 +30,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	/**
 	 * Scan the plugin folder for a list of plugins, sort them by searchArea but keep the International list on top.
 	 */
-	static function getPluginList() {
+	protected function getPluginList() {
 		$plugins = array();
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
 			$label = basename($file, ".php");
@@ -82,7 +82,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	/**
 	 * Based on function print_name_record() in /app/Controller/IndividualController.php
 	 */
-	static function getPrimaryName(Fact $event) {
+	protected function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
 		$dummy = new Individual(
@@ -95,7 +95,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	/**
 	 * Get name parts
 	 */
-	static function getNames($primary, $encodeplus) {
+	protected function getNames($primary, $encodeplus) {
 		$name = array();
 		$name['givn'] = self::encodeUrl($primary['givn'], $encodeplus);
 

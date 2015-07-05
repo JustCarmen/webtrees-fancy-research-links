@@ -39,6 +39,15 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
 		$loader->register();
 	}
+	
+	/**
+	 * Get the module class.
+	 * 
+	 * Class functions are called with $this inside the source directory.
+	 */
+	private function module() {
+		return new FancyResearchLinksClass;
+	}
 
 	// Extend WT_Module
 	public function getTitle() {
@@ -111,8 +120,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$html .= '<ul id="fancy-research-links">';
 		$i = 0;
 		$total_enabled_plugins = 0;
-		foreach (FancyResearchLinksClass::getPluginList() as $area => $plugins) {
-			$enabled_plugins = FancyResearchLinksClass::countEnabledPlugins($plugins, $FRL_PLUGINS);
+		foreach ($this->module()->getPluginList() as $area => $plugins) {
+			$enabled_plugins = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
 			$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
 			if ($enabled_plugins > 0) {
 				$html .=
@@ -130,7 +139,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 						foreach ($controller->record->getFacts() as $fact) {
 							$tag = $fact->getTag();
 							if ($tag == "NAME") {
-								$this->primary = FancyResearchLinksClass::getPrimaryName($fact);
+								$this->primary = $this->module()->getPrimaryName($fact);
 								break; // only use the first fact with a NAME tag found.
 							}
 						}
@@ -139,7 +148,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 							if ($plugin->createLinkOnly()) {
 								$link = $plugin->createLinkOnly();
 							} else {
-								$link = $plugin->createLink(FancyResearchLinksClass::getNames($this->primary, $plugin->encodePlus()));
+								$link = $plugin->createLink($this->module()->getNames($this->primary, $plugin->encodePlus()));
 							}
 							$html .=
 								'<li>' .
