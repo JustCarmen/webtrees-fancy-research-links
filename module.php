@@ -102,6 +102,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css');
+		
+		$controller->addInlineJavascript('
+			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
+		');
 
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		$html .= '<ul id="fancy-research-links">';
