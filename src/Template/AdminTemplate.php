@@ -24,14 +24,14 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class AdminTemplate extends FancyResearchLinksClass {
 
-	public function pageContent() {
+	protected function pageContent() {
 		$controller = new PageController;
 		return
 			$this->pageHeader($controller) .
 			$this->pageBody($controller);
 	}
 
-	protected function pageHeader(PageController $controller) {
+	private function pageHeader(PageController $controller) {
 		$controller
 			->restrictAccess(Auth::isAdmin())
 			->setPageTitle(I18N::translate('Fancy Research Links'))
@@ -51,7 +51,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 			');
 	}
 
-	protected function pageBody(PageController $controller) {
+	private function pageBody(PageController $controller) {
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		?>
 		<ol class="breadcrumb small">
