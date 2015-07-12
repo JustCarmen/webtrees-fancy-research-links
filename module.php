@@ -114,10 +114,15 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
+			jQuery("#' . $this->getName() . '_content").on("click", ".frl-area-title", function(e){
+				e.preventDefault();
+				jQuery(this).next(".frl-list").slideToggle()
+				jQuery(this).parent().siblings().find(".frl-list").slideUp();	
+			});
 		');
 
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
-		$html .= '<ul id="fancy-research-links">';
+		$html .= '<ul id="fancy_research_links_content">';
 		$i = 0;
 		$total_enabled_plugins = 0;
 		foreach ($this->module()->getPluginList() as $area => $plugins) {
@@ -125,7 +130,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
 			if ($enabled_plugins > 0) {
 				$html .=
-					'<li class="frl-area"><span class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</span>' .
+					'<li class="frl-area"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
 					'<ul class="frl-list">';
 				$i++;
 				foreach ($plugins as $label => $plugin) {
