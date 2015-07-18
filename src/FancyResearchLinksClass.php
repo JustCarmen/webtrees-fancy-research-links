@@ -46,7 +46,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		ksort($plugins);
 		$int = I18N::translate("International");
 		$ol = I18N::translate('Other links');
-		$pluginlist = array_merge([$int => $plugins[$int]], $plugins, [$ol => $plugins[$ol]]);
+		$pluginlist = array_merge(array($int => $plugins[$int]), $plugins, array($ol => $plugins[$ol]));
 		return $pluginlist;
 	}
 
