@@ -31,6 +31,12 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	/** @var array primary name */
 	var $primary;
 
+	/**
+	 * @var array extra attributes to use in search queries
+	 * attribute must be a string
+	 */
+	var $attrs;
+
 	public function __construct() {
 		parent::__construct('fancy_research_links');
 
@@ -39,10 +45,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
 		$loader->register();
 	}
-	
+
 	/**
 	 * Get the module class.
-	 * 
+	 *
 	 * Class functions are called with $this inside the source directory.
 	 */
 	private function module() {
@@ -111,13 +117,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css');
-		
+
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
 			jQuery("#' . $this->getName() . '_content").on("click", ".frl-area-title", function(e){
 				e.preventDefault();
 				jQuery(this).next(".frl-list").slideToggle()
-				jQuery(this).parent().siblings().find(".frl-list").slideUp();	
+				jQuery(this).parent().siblings().find(".frl-list").slideUp();
 			});
 		');
 
@@ -153,7 +159,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 							if ($plugin->createLinkOnly()) {
 								$link = $plugin->createLinkOnly();
 							} else {
-								$link = $plugin->createLink($this->module()->getNames($this->primary, $plugin->encodePlus()));
+								$this->attrs = array(
+									'birthyear' => $controller->record->getBirthYear()
+								);
+								$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
 							}
 							$html .=
 								'<li>' .

@@ -3,17 +3,17 @@
  *  webtrees: Web based Family History software
  *  Copyright (C) 2015 webtrees development team.
  *  Copyright (C) 2015 JustCarmen.
- * 
+ *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
  *  as published by the Free Software Foundation; either version 2
  *  of the License, or (at your option) any later version.
- * 
+ *
  *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
- * 
+ *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
@@ -95,12 +95,17 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	/**
 	 * Get name parts
 	 */
-	protected function getNames($primary, $encodeplus) {
+	protected function getNames($primary, $attrs, $encodeplus) {
 		$name = array();
 		$name['givn'] = self::encodeUrl($primary['givn'], $encodeplus);
 
 		$given = explode(" ", $primary['givn']);
 		$name['first'] = $given[0];
+		if (count($given) > 1) {
+			$name['middle'] = $given[1];
+		} else {
+			$name['middle'] = '';
+		}
 
 		if ($primary['surn'] !== $primary['surname']) {
 			$prefix = substr($primary['surname'], 0, strpos($primary['surname'], $primary['surn']) - 1);
@@ -118,6 +123,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			$name['fullname'] = $name['givn'] . '%20' . $name['surname'];
 		}
 
+		foreach ($attrs as $attr => $value) {
+			$name[$attr] = $value;
+		}
+		
 		return $name;
 	}
 
