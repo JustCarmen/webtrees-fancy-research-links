@@ -160,7 +160,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 								$link = $plugin->createLinkOnly();
 							} else {
 								$this->attrs = array(
-									'birthyear' => $controller->record->getBirthYear()
+									'birthyear'	 => $controller->record->getBirthYear(),
+									'birthplace' => $controller->record->getBirthPlace(),
+									'deathyear'	 => $controller->record->getDeathYear(),
+									'deathplace' => $controller->record->getDeathPlace()
 								);
 								$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
 							}
