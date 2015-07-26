@@ -29,6 +29,8 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Scan the plugin folder for a list of plugins, sort them by searchArea but keep the International list on top.
+	 * 
+	 * @return array
 	 */
 	protected function getPluginList() {
 		$plugins = array();
@@ -51,7 +53,11 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	}
 
 	/**
-	 * Get translatable country name for search area.
+	 * Get the translatable country name for the search area.
+	 * 
+	 * @global type $WT_TREE
+	 * @param type $area
+	 * @return string
 	 */
 	static function getSearchAreaName($area) {
 		global $WT_TREE;
@@ -66,7 +72,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	}
 
 	/**
-	 * Create link with name search. Default is none;
+	 * Create link with name search
+	 * 
+	 * @param type $name
+	 * @return
 	 */
 	static function createLink($name) {
 		return;
@@ -74,6 +83,8 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Create link only function. Create link without name search. Default is none;
+	 * 
+	 * @return
 	 */
 	static function createLinkOnly() {
 		return;
@@ -81,6 +92,9 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Based on function print_name_record() in /app/Controller/IndividualController.php
+	 * 
+	 * @param Fact $event
+	 * @return array
 	 */
 	protected function getPrimaryName(Fact $event) {
 		$factrec = $event->getGedCom();
@@ -94,6 +108,11 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Get name parts
+	 * 
+	 * @param type $primary
+	 * @param type $attrs
+	 * @param type $encodeplus
+	 * @return array
 	 */
 	protected function getNames($primary, $attrs, $encodeplus) {
 		$name = array();
@@ -123,15 +142,17 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			$name['fullname'] = $name['givn'] . '%20' . $name['surname'];
 		}
 
+		// the attributes are not really 'name parts' but for simplicity we just grab them into the $name array.
 		foreach ($attrs as $attr => $value) {
 			$name[$attr] = $value;
 		}
-		
+
 		return $name;
 	}
 
 	/**
-	 * Encode the url without +
+	 * Encode the url without + (default)
+	 * @return boolean
 	 */
 	static function encodePlus() {
 		return false;
@@ -139,6 +160,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Encode the url
+	 * 
+	 * @param type $url
+	 * @param type $encodeplus
+	 * @return string
 	 */
 	static function encodeUrl($url, $encodeplus) {
 		if ($encodeplus) {
@@ -150,6 +175,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Count the enabled plugins
+	 * 
+	 * @param type $plugins
+	 * @param type $FRL_PLUGINS
+	 * @return int
 	 */
 	static function countEnabledPlugins($plugins, $FRL_PLUGINS) {
 		$count = 0;
