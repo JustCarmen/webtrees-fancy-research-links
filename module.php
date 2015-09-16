@@ -127,64 +127,69 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			});
 		');
 
-		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
-		$html .= '<ul id="fancy_research_links_content">';
-		$i = 0;
-		$total_enabled_plugins = 0;
-		foreach ($this->module()->getPluginList() as $area => $plugins) {
-			$enabled_plugins = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
-			$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
-			if ($enabled_plugins > 0) {
-				$html .=
-					'<li class="frl-area"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
-					'<ul class="frl-list">';
-				$i++;
-				foreach ($plugins as $label => $plugin) {
-					if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
-						$enabled = $FRL_PLUGINS[$label];
-					} else {
-						$enabled = '1';
-					}
-
-					if ($enabled) {
-						foreach ($controller->record->getFacts() as $fact) {
-							$tag = $fact->getTag();
-							if ($tag == "NAME") {
-								$this->primary = $this->module()->getPrimaryName($fact);
-								break; // only use the first fact with a NAME tag found.
-							}
+		try {
+			$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
+			$html .= '<ul id="fancy_research_links_content">';
+			$i = 0;
+			$total_enabled_plugins = 0;
+			foreach ($this->module()->getPluginList() as $area => $plugins) {
+				$enabled_plugins = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
+				$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
+				if ($enabled_plugins > 0) {
+					$html .=
+						'<li class="frl-area"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
+						'<ul class="frl-list">';
+					$i++;
+					foreach ($plugins as $label => $plugin) {
+						if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
+							$enabled = $FRL_PLUGINS[$label];
+						} else {
+							$enabled = '1';
 						}
 
-						if ($this->primary) {
-							if ($plugin->createLinkOnly()) {
-								$link = $plugin->createLinkOnly();
-							} else {
-								$this->attrs = array(
-									'birthyear'	 => $controller->record->getBirthYear(),
-									'birthplace' => $controller->record->getBirthPlace(),
-									'deathyear'	 => $controller->record->getDeathYear(),
-									'deathplace' => $controller->record->getDeathPlace()
-								);
-								$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
+						if ($enabled) {
+							foreach ($controller->record->getFacts() as $fact) {
+								$tag = $fact->getTag();
+								if ($tag == "NAME") {
+									$this->primary = $this->module()->getPrimaryName($fact);
+									break; // only use the first fact with a NAME tag found.
+								}
 							}
-							$html .=
-								'<li>' .
-								'<a href="' . Filter::escapeHtml($link) . '" target="_blank">' .
-								$plugin->getPluginName() .
-								'</a>' .
-								'</li>';
+
+							if ($this->primary) {
+								if ($plugin->createLinkOnly()) {
+									$link = $plugin->createLinkOnly();
+								} else {
+									$this->attrs = array(
+										'birthyear'	 => $controller->record->getBirthYear(),
+										'birthplace' => $controller->record->getBirthPlace(),
+										'deathyear'	 => $controller->record->getDeathYear(),
+										'deathplace' => $controller->record->getDeathPlace()
+									);
+									$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
+								}
+								$html .=
+									'<li>' .
+									'<a href="' . Filter::escapeHtml($link) . '" target="_blank">' .
+									$plugin->getPluginName() .
+									'</a>' .
+									'</li>';
+							}
 						}
 					}
+					$html .= '</ul>';
 				}
-				$html .= '</ul>';
 			}
-		}
-		$html .= '</ul>';
+			$html .= '</ul>';
 
-		if ($total_enabled_plugins === 0) {
-			$html = I18N::translate('There are no research links available for this individual.');
+			if ($total_enabled_plugins === 0) {
+				$html = I18N::translate('There are no research links available for this individual.');
+			}
+			return $html;
+		} catch (\ErrorException $ex) {
+			Log::addErrorLog('Fancy ResearchLinks: ' . $ex->getMessage());
+			return I18N::translate('There are no research links available for this individual.');
 		}
-		return $html;
 	}
 
 	private function includeCss($css) {
