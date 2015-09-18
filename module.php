@@ -170,7 +170,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 								}
 								$html .=
 									'<li>' .
-									'<a href="' . Filter::escapeHtml($link) . '" target="_blank">' .
+									'<a href="' . Filter::escapeHtml($link) . '">' .
 									$plugin->getPluginName() .
 									'</a>' .
 									'</li>';
