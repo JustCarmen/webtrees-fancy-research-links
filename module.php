@@ -37,8 +37,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	 */
 	var $attrs;
 
+	/** @var string location of the module files */
+	var $directory;
+	
 	public function __construct() {
 		parent::__construct('fancy_research_links');
+
+		$this->directory = WT_MODULES_DIR . $this->getName();
 
 		// register the namespace
 		$loader = new ClassLoader();
@@ -116,7 +121,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		global $controller;
 
 		// load the module stylesheet
-		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css');
+		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css') .
+				'<script src="' . WT_STATIC_URL . $this->directory . '/js/sidebar.js" defer="defer"></script>';
 
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
