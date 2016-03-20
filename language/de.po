@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2015-07-04 20:48+0200\n"
+"POT-Creation-Date: 2016-03-20 22:34+0100\n"
 "PO-Revision-Date: 2016-01-24 17:38+0100\n"
 "Last-Translator: bschwede <gummibando@gmx.net>\n"
 "Language-Team: \n"
@@ -15,35 +15,35 @@ msgstr ""
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
 
 #. I18N: Description of the module
-#: module.php:54
+#: module.php:76
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Stellt in der Navigationsleiste personenbezogene Verknüpfungen zu populären Ahnenforschungs-Webseiten bereit."
 
-#: src/Template/AdminTemplate.php:64
+#: src/Template/AdminTemplate.php:63
 msgid "Check the plugins you want to use in the sidebar"
 msgstr "Wählen Sie diejenige Plugins, die in der Seitenleiste verwendet werden sollen"
 
 #. I18N: Name of the module
-#: module.php:45 src/Template/AdminTemplate.php:38
+#: module.php:67 src/Template/AdminTemplate.php:37
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
-#: src/FancyResearchLinksClass.php:47 src/FancyResearchLinksClass.php:63
+#: src/FancyResearchLinksClass.php:49 src/FancyResearchLinksClass.php:69
 msgid "International"
 msgstr "International"
 
-#: src/FancyResearchLinksClass.php:40 src/FancyResearchLinksClass.php:48
+#: src/FancyResearchLinksClass.php:42 src/FancyResearchLinksClass.php:50
 msgid "Other links"
 msgstr "Andere Verknüpfungen"
 
-#: module.php:49
+#: module.php:71
 msgid "Research links"
 msgstr "Recherche-Verknüpfungen"
 
-#: src/Template/AdminTemplate.php:98
+#: src/Template/AdminTemplate.php:97
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "Die Einstellungen werden auf Standardwerte zurückgesetzt. Wollen Sie das wirklich?"
 
-#: module.php:155
+#: module.php:194 module.php:199
 msgid "There are no research links available for this individual."
 msgstr "Es stehen keine Recherche-Verknüpfungen für diese Person zur Verfügung."
