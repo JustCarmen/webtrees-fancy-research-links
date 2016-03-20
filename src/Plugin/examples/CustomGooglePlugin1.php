@@ -87,11 +87,11 @@ class CustomGooglePlugin1 extends FancyResearchLinksClass {
 		// Use an escape in case the deathplace is emtpy
 		if ($name['birthplace']) {
 			// $birthplace is the full placename e.g. "Palos Heights, Cook County, Illinois, USA"
-			$birthplace = ' ' . $name['birthplace'];
+			$birthplace		 = ' ' . $name['birthplace'];
 			// $shortbirthplace is a part of the placename e.g. "Palos Heights"
 			$shortbirthplace = ' ' . explode(", ", $name['birthplace'])[0];
 		} else {
-			$birthplace = '';
+			$birthplace		 = '';
 			$shortbirthplace = '';
 		}
 

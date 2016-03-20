@@ -33,15 +33,15 @@ class RogloPlugin extends FancyResearchLinksClass {
 
 		switch (WT_LOCALE) {
 			case 'pt-BR':
-				$language = 'br';
+				$language	 = 'br';
 				break;
 			case 'fr-CA':
-				$language = 'fr';
+				$language	 = 'fr';
 				break;
 			case 'zh-Hans':
-				$language = 'zh';
+				$language	 = 'zh';
 			default:
-				$language = WT_LOCALE;
+				$language	 = WT_LOCALE;
 		}
 
 		if (!in_array($language, $languages)) {

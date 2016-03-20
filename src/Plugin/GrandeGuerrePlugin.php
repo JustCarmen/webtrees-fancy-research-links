@@ -33,4 +33,3 @@ class GrandeGuerrePlugin extends FancyResearchLinksClass {
 	}
 
 }
-

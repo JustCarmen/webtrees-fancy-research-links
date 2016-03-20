@@ -32,7 +32,7 @@ class GeneanetPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://www.geneanet.org/fonds/individus/?go=1&nom=' . $name['surname'] .  '&prenom=' . $name['givn'] . '&prenom_operateur=or&with_variantes_nom=&with_variantes_nom_conjoint=&with_variantes_prenom=&with_variantes_prenom_conjoint=&size=10';
+		return 'http://www.geneanet.org/fonds/individus/?go=1&nom=' . $name['surname'] . '&prenom=' . $name['givn'] . '&prenom_operateur=or&with_variantes_nom=&with_variantes_nom_conjoint=&with_variantes_prenom=&with_variantes_prenom_conjoint=&size=10';
 	}
 
 	static function encodePlus() {

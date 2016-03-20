@@ -32,8 +32,8 @@ class Denkmalprojekt1Plugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		$values = array(strtoupper($name['surname']), ucfirst($name['first']));
-		$query = implode('+', array_filter($values, function($v){ return $v !== null && $v !== ''; }));
+		$values	 = array(strtoupper($name['surname']), ucfirst($name['first']));
+		$query	 = implode('+', array_filter($values, function($v) { return $v !== null && $v !== ''; }));
 
 		return "http://www.denkmalprojekt.org/search/search.pl?Match=0&Realm=All&Terms=%22$query%22";
 	}

@@ -35,9 +35,9 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	protected function getPluginList() {
 		$plugins = array();
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
-			$label = basename($file, ".php");
-			$class = __NAMESPACE__ . '\Plugin\\' . $label;
-			$plugin = new $class;
+			$label	 = basename($file, ".php");
+			$class	 = __NAMESPACE__ . '\Plugin\\' . $label;
+			$plugin	 = new $class;
 			if ($plugin->createLinkOnly()) {
 				$area = I18N::translate('Other links');
 			} else {
@@ -46,9 +46,9 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 			$plugins[$area][$label] = $plugin;
 		}
 		ksort($plugins);
-		$int = I18N::translate("International");
-		$ol = I18N::translate('Other links');
-		$pluginlist = array_merge(array($int => $plugins[$int]), $plugins, array($ol => $plugins[$ol]));
+		$int		 = I18N::translate("International");
+		$ol			 = I18N::translate('Other links');
+		$pluginlist	 = array_merge(array($int => $plugins[$int]), $plugins, array($ol => $plugins[$ol]));
 		return $pluginlist;
 	}
 
@@ -61,8 +61,8 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 */
 	static function getSearchAreaName($area) {
 		global $WT_TREE;
-		$stats = new Stats($WT_TREE);
-		$countries = $stats->getAllCountries();
+		$stats		 = new Stats($WT_TREE);
+		$countries	 = $stats->getAllCountries();
 		if (array_key_exists($area, $countries)) {
 			$area = $countries[$area];
 		} else {
@@ -97,12 +97,12 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 * @return array
 	 */
 	protected function getPrimaryName(Fact $event) {
-		$factrec = $event->getGedCom();
+		$factrec	 = $event->getGedCom();
 		// Create a dummy record, so we can extract the formatted NAME value from the event.
-		$dummy = new Individual(
+		$dummy		 = new Individual(
 			'xref', "0 @xref@ INDI\n1 DEAT Y\n" . $factrec, null, $event->getParent()->getTree()
 		);
-		$all_names = $dummy->getAllNames();
+		$all_names	 = $dummy->getAllNames();
 		return $all_names[0];
 	}
 
@@ -115,11 +115,11 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 * @return array
 	 */
 	protected function getNames($primary, $attrs, $encodeplus) {
-		$name = array();
-		$name['givn'] = self::encodeUrl($primary['givn'], $encodeplus);
+		$name			 = array();
+		$name['givn']	 = self::encodeUrl($primary['givn'], $encodeplus);
 
-		$given = explode(" ", $primary['givn']);
-		$name['first'] = $given[0];
+		$given			 = explode(" ", $primary['givn']);
+		$name['first']	 = $given[0];
 		if (count($given) > 1) {
 			$name['middle'] = $given[1];
 		} else {
@@ -127,13 +127,13 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		}
 
 		if ($primary['surn'] !== $primary['surname']) {
-			$prefix = substr($primary['surname'], 0, strpos($primary['surname'], $primary['surn']) - 1);
-			$name['prefix'] = self::encodeUrl($prefix, $encodeplus);
+			$prefix			 = substr($primary['surname'], 0, strpos($primary['surname'], $primary['surn']) - 1);
+			$name['prefix']	 = self::encodeUrl($prefix, $encodeplus);
 		} else {
 			$name['prefix'] = "";
 		}
 
-		$name['surn'] = self::encodeUrl($primary['surn'], $encodeplus);
+		$name['surn']	 = self::encodeUrl($primary['surn'], $encodeplus);
 		$name['surname'] = self::encodeUrl($primary['surname'], $encodeplus);
 
 		if ($encodeplus) {

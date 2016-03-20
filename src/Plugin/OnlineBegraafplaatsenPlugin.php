@@ -27,7 +27,7 @@ class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 	static function getSearchArea() {
 		return 'NLD';
 	}
-	
+
 	static function createLinkOnly() {
 		return 'http://www.online-begraafplaatsen.nl/zoeken.asp';
 	}
