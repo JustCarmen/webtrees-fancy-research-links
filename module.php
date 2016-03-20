@@ -26,6 +26,8 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
+define('FRL_VERSION', '1.7.4');
+
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
 	/** @var array primary name */
@@ -39,7 +41,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	/** @var string location of the module files */
 	var $directory;
-	
+
 	public function __construct() {
 		parent::__construct('fancy_research_links');
 
@@ -71,7 +73,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	// Extend WT_Module
 	public function getDescription() {
-		return /* I18N: Description of the module */ I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
+		return /* I18N: Description of the module */ I18N::translate('A sidebar tool to provide quick links to popular research web sites.') . '<br><span class="small text-muted">' . I18N::translate('Version') . ' ' . FRL_VERSION . ' | by JustCarmen | <a href="http://www.justcarmen.nl/fancy-modules/fancy-research-links/">' . I18N::translate('Show details') . '</a></span>';
 	}
 
 	// Extend WT_Module_Config
@@ -122,7 +124,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css') .
-				'<script src="' . WT_STATIC_URL . $this->directory . '/js/sidebar.js" defer="defer"></script>';
+			'<script src="' . WT_STATIC_URL . $this->directory . '/js/sidebar.js" defer="defer"></script>';
 
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
@@ -134,13 +136,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		');
 
 		try {
-			$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
+			$FRL_PLUGINS			 = unserialize($this->getSetting('FRL_PLUGINS'));
 			$html .= '<ul id="fancy_research_links_content">';
-			$i = 0;
-			$total_enabled_plugins = 0;
+			$i						 = 0;
+			$total_enabled_plugins	 = 0;
 			foreach ($this->module()->getPluginList() as $area => $plugins) {
-				$enabled_plugins = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
-				$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
+				$enabled_plugins		 = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
+				$total_enabled_plugins	 = $total_enabled_plugins + $enabled_plugins;
 				if ($enabled_plugins > 0) {
 					$html .=
 						'<li class="frl-area"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
@@ -172,7 +174,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 										'deathyear'	 => $controller->record->getDeathYear(),
 										'deathplace' => $controller->record->getDeathPlace()
 									);
-									$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
+									$link		 = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
 								}
 								$html .=
 									'<li>' .
