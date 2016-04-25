@@ -60,7 +60,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 			<li class="active"><?php echo $controller->getPageTitle() ?></li>
 		</ol>
 		<h2><?php echo $controller->getPageTitle() ?></h2>
-		<p class="small text-muted"><?php echo I18N::translate('Check the plugins you want to use in the sidebar') ?></p>
+		<p class="small text-muted"><?php echo I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
 		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink() ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
