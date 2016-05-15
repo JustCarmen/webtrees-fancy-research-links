@@ -26,7 +26,7 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
-define('FRL_VERSION', '1.7.4');
+define('FRL_VERSION', '1.7.5-dev');
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
@@ -49,7 +49,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// register the namespace
 		$loader = new ClassLoader();
-		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
+		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/app');
 		$loader->register();
 	}
 
