@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2016-03-20 22:34+0100\n"
+"POT-Creation-Date: 2016-05-14 09:23+0200\n"
 "PO-Revision-Date: 2016-04-24 10:18+0000\n"
 "Last-Translator: Martin Pannier <der@bauschaffen.de>\n"
 "Language-Team: German <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/de/>\n"
@@ -20,8 +20,8 @@ msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Stellt in der Navigationsleiste personenbezogene Verknüpfungen zu populären Ahnenforschungs-Webseiten bereit."
 
 #: src/Template/AdminTemplate.php:63
-msgid "Check the plugins you want to use in the sidebar"
-msgstr "Wählen Sie diejenige Plugins, die in der Seitenleiste verwendet werden sollen"
+msgid "Check the plugins you want to use in the sidebar."
+msgstr "Wählen Sie diejenige Plugins, die in der Seitenleiste verwendet werden sollen."
 
 #. I18N: Name of the module
 #: module.php:67 src/Template/AdminTemplate.php:37
