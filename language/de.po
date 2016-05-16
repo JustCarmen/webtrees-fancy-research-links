@@ -21,7 +21,7 @@ msgstr "Stellt in der Navigationsleiste personenbezogene Verknüpfungen zu popul
 
 #: src/Template/AdminTemplate.php:63
 msgid "Check the plugins you want to use in the sidebar."
-msgstr "Wählen Sie diejenige Plugins, die in der Seitenleiste verwendet werden sollen."
+msgstr "Wählen Sie die in der Seitenleiste zu verwendenden Plugins."
 
 #. I18N: Name of the module
 #: module.php:67 src/Template/AdminTemplate.php:37
