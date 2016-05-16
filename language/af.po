@@ -1,0 +1,51 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Fancy Research Links\n"
+"POT-Creation-Date: 2016-05-14 09:23+0200\n"
+"PO-Revision-Date: 2015-07-04 20:49+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. I18N: Description of the module
+#: module.php:76
+msgid "A sidebar tool to provide quick links to popular research web sites."
+msgstr ""
+
+#: src/Template/AdminTemplate.php:63
+msgid "Check the plugins you want to use in the sidebar."
+msgstr ""
+
+#. I18N: Name of the module
+#: module.php:67 src/Template/AdminTemplate.php:37
+msgid "Fancy Research Links"
+msgstr ""
+
+#: src/FancyResearchLinksClass.php:49 src/FancyResearchLinksClass.php:69
+msgid "International"
+msgstr ""
+
+#: src/FancyResearchLinksClass.php:42 src/FancyResearchLinksClass.php:50
+msgid "Other links"
+msgstr ""
+
+#: module.php:71
+msgid "Research links"
+msgstr ""
+
+#: src/Template/AdminTemplate.php:97
+msgid "The settings will be reset to default. Are you sure you want to do this?"
+msgstr ""
+
+#: module.php:194 module.php:199
+msgid "There are no research links available for this individual."
+msgstr ""
