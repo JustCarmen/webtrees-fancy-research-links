@@ -26,10 +26,11 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
-define('FRL_VERSION', '1.7.5-dev');
-
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
+	const CUSTOM_VERSION = '1.7.5-dev';
+	const CUSTOM_WEBSITE = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
+	
 	/** @var array primary name */
 	var $primary;
 
@@ -73,7 +74,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	// Extend WT_Module
 	public function getDescription() {
-		return /* I18N: Description of the module */ I18N::translate('A sidebar tool to provide quick links to popular research web sites.') . '<br><span class="small text-muted">' . I18N::translate('Version') . ' ' . FRL_VERSION . ' | by JustCarmen | <a href="http://www.justcarmen.nl/fancy-modules/fancy-research-links/">' . I18N::translate('Show details') . '</a></span>';
+		return /* I18N: Description of the module */ I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
 	}
 
 	// Extend WT_Module_Config
