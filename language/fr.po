@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2016-12-26 16:41+0100\n"
-"PO-Revision-Date: 2016-06-23 21:19+0000\n"
+"PO-Revision-Date: 2017-02-26 09:37+0000\n"
 "Last-Translator: Michael <mike_jpr@outlook.com>\n"
 "Language-Team: French <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/fr/>\n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.5\n"
+"X-Generator: Weblate 2.10\n"
 "X-Poedit-Basepath: .\n"
 
 #. I18N: Description of the module
@@ -29,7 +29,7 @@ msgstr "Fancy Research Links"
 
 #: app/Template/AdminTemplate.php:64
 msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
-msgstr ""
+msgstr "Appuyez sur le bouton radio en face d'un titre de zone de recherche pour définir cette zone de recherche par défaut. La zone de recherche choisie s'ouvrira dans la barre latérale."
 
 #: app/FancyResearchLinksClass.php:38 app/FancyResearchLinksClass.php:80
 msgid "International"
