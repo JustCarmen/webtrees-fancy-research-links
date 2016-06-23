@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2016-05-14 09:23+0200\n"
-"PO-Revision-Date: 2016-05-18 18:13+0000\n"
-"Last-Translator: Greg Roach <fisharebest@gmail.com>\n"
+"PO-Revision-Date: 2016-06-23 21:19+0000\n"
+"Last-Translator: Michael <mike_jpr@outlook.com>\n"
 "Language-Team: French <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,11 @@ msgstr ""
 #. I18N: Description of the module
 #: module.php:76
 msgid "A sidebar tool to provide quick links to popular research web sites."
-msgstr "Outil de la barre latérale pour fournir des liens rapides vers des sites de recherche web connus ."
+msgstr "Ajoute dans la barre latérale des liens vers des sites de recherche généalogique connus."
 
 #: src/Template/AdminTemplate.php:63
 msgid "Check the plugins you want to use in the sidebar."
-msgstr "Pointez les plugins que vous souhaitez utiliser dans la barre latérale."
+msgstr "Sélectionnez les plugins que vous souhaitez utiliser dans la barre latérale."
 
 #. I18N: Name of the module
 #: module.php:67 src/Template/AdminTemplate.php:37
@@ -41,7 +41,7 @@ msgstr "Liens de recherche"
 
 #: src/Template/AdminTemplate.php:97
 msgid "The settings will be reset to default. Are you sure you want to do this?"
-msgstr ""
+msgstr "Les paramètres seront réinitialisés aux valeurs par défaut. Êtes-vous sûr de vouloir faire ça ?"
 
 #: module.php:194 module.php:199
 msgid "There are no research links available for this individual."
