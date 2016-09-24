@@ -1,49 +1,49 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2015-07-04 20:48+0200\n"
-"PO-Revision-Date: 2015-07-04 20:57+0200\n"
-"Last-Translator: Meliza <meliza@amitys.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2016-07-08 09:30+0200\n"
+"PO-Revision-Date: 2016-05-02 20:07+0000\n"
+"Last-Translator: Meliza Amity <meliza@amitys.com>\n"
+"Language-Team: Hebrew <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
 
 #. I18N: Description of the module
-#: module.php:54
+#: module.php:77
 msgid "A sidebar tool to provide quick links to popular research web sites."
-msgstr "כלי צידי שמספק קישורים מהירים אל אתרי מחקר פופולריים באינטרנט."
+msgstr "כלי צדי שמספק קישורים מהירים אל אתרי מחקר פופולריים באינטרנט."
 
-#: src/Template/AdminTemplate.php:64
-msgid "Check the plugins you want to use in the sidebar"
-msgstr "בחר את התוסף שברצונך להשתמש בסרגל הצדדי"
+#: app/Template/AdminTemplate.php:63
+msgid "Check the plugins you want to use in the sidebar."
+msgstr "בחר את התוסף שברצונך להשתמש בסרגל הצדדי."
 
 #. I18N: Name of the module
-#: module.php:45 src/Template/AdminTemplate.php:38
+#: app/Template/AdminTemplate.php:37 module.php:68
 msgid "Fancy Research Links"
-msgstr "קישורי מחקר מפוארים"
+msgstr "קישורי מחקר מהודרים"
 
-#: src/FancyResearchLinksClass.php:47 src/FancyResearchLinksClass.php:63
+#: app/FancyResearchLinksClass.php:49 app/FancyResearchLinksClass.php:69
 msgid "International"
 msgstr "בינלאומיים"
 
-#: src/FancyResearchLinksClass.php:40 src/FancyResearchLinksClass.php:48
+#: app/FancyResearchLinksClass.php:42 app/FancyResearchLinksClass.php:50
 msgid "Other links"
 msgstr "קישורים אחרים"
 
-#: module.php:49
+#: module.php:72
 msgid "Research links"
 msgstr "קישורי מחקר"
 
-#: src/Template/AdminTemplate.php:98
+#: app/Template/AdminTemplate.php:97
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "ההגדרות תאופסנה לברירת המחדל. אתה בטוח שאתה רוצה לעשות את זה?"
 
-#: module.php:155
+#: module.php:195 module.php:200
 msgid "There are no research links available for this individual."
 msgstr "אין קישורי מחקר זמינים עבור האדם הזה."

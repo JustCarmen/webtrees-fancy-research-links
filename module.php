@@ -1,8 +1,8 @@
 <?php
 /**
  * webtrees: online genealogy
- * Copyright (C) 2015 webtrees development team
- * Copyright (C) 2015 JustCarmen
+ * Copyright (C) 2016 webtrees development team
+ * Copyright (C) 2016 JustCarmen
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -28,6 +28,9 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
+	const CUSTOM_VERSION = '1.7.7-dev';
+	const CUSTOM_WEBSITE = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
+	
 	/** @var array primary name */
 	var $primary;
 
@@ -39,7 +42,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 	/** @var string location of the module files */
 	var $directory;
-	
+
 	public function __construct() {
 		parent::__construct('fancy_research_links');
 
@@ -47,7 +50,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// register the namespace
 		$loader = new ClassLoader();
-		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/src');
+		$loader->addPsr4('JustCarmen\\WebtreesAddOns\\FancyResearchLinks\\', WT_MODULES_DIR . $this->getName() . '/app');
 		$loader->register();
 	}
 
@@ -122,7 +125,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		// load the module stylesheet
 		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css') .
-				'<script src="' . WT_STATIC_URL . $this->directory . '/js/sidebar.js" defer="defer"></script>';
+			'<script src="' . WT_STATIC_URL . $this->directory . '/js/sidebar.js" defer="defer"></script>';
 
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
@@ -134,13 +137,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		');
 
 		try {
-			$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
+			$FRL_PLUGINS			 = unserialize($this->getSetting('FRL_PLUGINS'));
 			$html .= '<ul id="fancy_research_links_content">';
-			$i = 0;
-			$total_enabled_plugins = 0;
+			$i						 = 0;
+			$total_enabled_plugins	 = 0;
 			foreach ($this->module()->getPluginList() as $area => $plugins) {
-				$enabled_plugins = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
-				$total_enabled_plugins = $total_enabled_plugins + $enabled_plugins;
+				$enabled_plugins		 = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
+				$total_enabled_plugins	 = $total_enabled_plugins + $enabled_plugins;
 				if ($enabled_plugins > 0) {
 					$html .=
 						'<li class="frl-area"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
@@ -172,7 +175,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 										'deathyear'	 => $controller->record->getDeathYear(),
 										'deathplace' => $controller->record->getDeathPlace()
 									);
-									$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
+									$link		 = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
 								}
 								$html .=
 									'<li>' .

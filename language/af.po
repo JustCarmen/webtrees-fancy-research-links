@@ -2,48 +2,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
 "POT-Creation-Date: 2016-07-08 09:30+0200\n"
-"PO-Revision-Date: 2015-07-04 20:56+0200\n"
-"Last-Translator: Meliza <meliza@amitys.com>\n"
-"Language-Team: \n"
-"Language: fi\n"
+"PO-Revision-Date: 2016-05-16 17:07+0000\n"
+"Last-Translator: Chris Theron <tronsmit@gmail.com>\n"
+"Language-Team: Afrikaans <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/af/>\n"
+"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #. I18N: Description of the module
 #: module.php:77
 msgid "A sidebar tool to provide quick links to popular research web sites."
-msgstr "Sivupalkin työkalu tarjoaa nopeat yhteydet suosittuihin tutkimuskohde web-sivustoihin."
+msgstr "’n Sypaneel met vinnige skakels na gewilde navorsingswebwerwe."
 
 #: app/Template/AdminTemplate.php:63
 msgid "Check the plugins you want to use in the sidebar."
-msgstr "Valitse liitennäiset (plug-in) jotka haluat käyttää sivupalkissa."
+msgstr "Ontsper die inproppe wat jy in die sypaneel wil gebruik."
 
 #. I18N: Name of the module
 #: app/Template/AdminTemplate.php:37 module.php:68
 msgid "Fancy Research Links"
-msgstr "Hienot tutkimus linkit"
+msgstr "Fancy Research Links"
 
 #: app/FancyResearchLinksClass.php:49 app/FancyResearchLinksClass.php:69
 msgid "International"
-msgstr "Kansainväliset"
+msgstr "Internasionaal"
 
 #: app/FancyResearchLinksClass.php:42 app/FancyResearchLinksClass.php:50
 msgid "Other links"
-msgstr "Muut linkit"
+msgstr "Ander skakels"
 
 #: module.php:72
 msgid "Research links"
-msgstr "Tutkimus linkit"
+msgstr "Navorsingskakels"
 
 #: app/Template/AdminTemplate.php:97
 msgid "The settings will be reset to default. Are you sure you want to do this?"
-msgstr "Asetukset palautetaan oletusarvoihin. Oletko varma, että haluat tehdä tämän?"
+msgstr "Die verstekinstellings sal herstel word. Is jy seker dat jy dit wil doen?"
 
 #: module.php:195 module.php:200
 msgid "There are no research links available for this individual."
-msgstr "Tälle henkilölle ei ole tutkimus-linkkejä."
+msgstr "Daar is geen navorsingskakels beskikbaar vir hierdie persoon nie."
