@@ -29,32 +29,43 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Scan the plugin folder for a list of plugins, sort them by searchArea but keep the International list on top.
-	 * 
+	 *
 	 * @return array
 	 */
 	protected function getPluginList() {
-		$plugins = array();
+		$plugins	 = array();
+		$lang_ols	 = I18N::translate('Other links');
+		$lang_int	 = I18N::translate('International');
+
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
 			$label	 = basename($file, ".php");
 			$class	 = __NAMESPACE__ . '\Plugin\\' . $label;
 			$plugin	 = new $class;
 			if ($plugin->createLinkOnly()) {
-				$area = I18N::translate('Other links');
+				$area = $lang_ols;
 			} else {
 				$area = self::getSearchAreaName($plugin->getSearchArea());
 			}
 			$plugins[$area][$label] = $plugin;
 		}
 		ksort($plugins);
-		$int		 = I18N::translate("International");
-		$ol			 = I18N::translate('Other links');
-		$pluginlist	 = array_merge(array($int => $plugins[$int]), $plugins, array($ol => $plugins[$ol]));
-		return $pluginlist;
+
+		$plugins_int = array();
+		if (array_key_exists($lang_int, $plugins)) {
+			$plugins_int = array($lang_int => $plugins[$lang_int]);
+		}
+
+		$plugins_ols = array();
+		if (array_key_exists($lang_ols, $plugins)) {
+			$plugins_ols = array($lang_ols => $plugins[$lang_ols]);
+		}
+
+		return array_filter(array_merge($plugins_int, $plugins, $plugins_ols));
 	}
 
 	/**
 	 * Get the translatable country name for the search area.
-	 * 
+	 *
 	 * @global type $WT_TREE
 	 * @param type $area
 	 * @return string
@@ -73,7 +84,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Create link with name search
-	 * 
+	 *
 	 * @param type $name
 	 * @return
 	 */
@@ -83,7 +94,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Create link only function. Create link without name search. Default is none;
-	 * 
+	 *
 	 * @return
 	 */
 	static function createLinkOnly() {
@@ -92,7 +103,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Based on function print_name_record() in /app/Controller/IndividualController.php
-	 * 
+	 *
 	 * @param Fact $event
 	 * @return array
 	 */
@@ -108,7 +119,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Get name parts
-	 * 
+	 *
 	 * @param type $primary
 	 * @param type $attrs
 	 * @param type $encodeplus
@@ -160,7 +171,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Encode the url
-	 * 
+	 *
 	 * @param type $url
 	 * @param type $encodeplus
 	 * @return string
@@ -175,7 +186,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 
 	/**
 	 * Count the enabled plugins
-	 * 
+	 *
 	 * @param type $plugins
 	 * @param type $FRL_PLUGINS
 	 * @return int
