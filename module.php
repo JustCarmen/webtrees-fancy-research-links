@@ -83,6 +83,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			case 'admin_config':
 				if (Filter::postBool('save')) {
 					$this->setSetting('FRL_PLUGINS', serialize(Filter::post('NEW_FRL_PLUGINS')));
+					$this->setSetting('FRL_DEFAULT_AREA', Filter::post('FRL_DEFAULT_AREA'));
 					Log::addConfigurationLog($this->getTitle() . ' config updated');
 				}
 				$template = new AdminTemplate;
@@ -128,6 +129,15 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
+				
+			// expand the default search area
+			jQuery(".frl-area").each(function(){
+				if (jQuery(this).data("area") === "' . $this->getSetting('FRL_DEFAULT_AREA') . '") {
+					console.log(jQuery(this).data("area"));
+					jQuery(this).find(".frl-list").css("display", "block");
+				}
+			});
+			
 			jQuery("#' . $this->getName() . '_content").on("click", ".frl-area-title", function(e){
 				e.preventDefault();
 				jQuery(this).next(".frl-list").slideToggle()
@@ -169,8 +179,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				$enabled_plugins		 = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
 				$total_enabled_plugins	 = $total_enabled_plugins + $enabled_plugins;
 				if ($enabled_plugins > 0) {
+					// reset returns the first value in an array
+					// we take the area code from the first plugin in this area
+					$area_code = reset($plugins)->getSearchArea();
 					$html .=
-						'<li class="frl-area"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
+						'<li class="frl-area" data-area="' . $area_code . '"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
 						'<ul class="frl-list">';
 					$i++;
 					foreach ($plugins as $label => $plugin) {

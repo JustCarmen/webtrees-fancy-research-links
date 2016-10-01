@@ -61,6 +61,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 		</ol>
 		<h2><?php echo $controller->getPageTitle() ?></h2>
 		<p class="small text-muted"><?php echo I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
+		<p class="small text-muted"><?php echo I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
 		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink() ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
@@ -72,7 +73,24 @@ class AdminTemplate extends FancyResearchLinksClass {
 			<!-- RESEARCH LINKS -->
 			<?php foreach ($this->getPluginList() as $area => $plugins): ?>				
 				<div class="form-group col-sm-12">
-					<h4><?php echo $area ?></h4>
+					<div class="radio">
+						<label class="radio">
+							<?php
+							// reset returns the first value in an array
+							// we take the area code from the first plugin in this area
+							$area_code = reset($plugins)->getSearchArea();
+							?>
+							<input 
+								type="radio" 
+								name="FRL_DEFAULT_AREA" 
+								value="<?php echo $area_code ?>"
+								<?php if ($this->getSetting('FRL_DEFAULT_AREA') === $area_code): ?>
+									checked="checked"
+								<?php endif; ?>
+								>
+							<span class="h4"><?php echo $area ?></span>
+						</label>
+					</div>
 					<?php foreach ($plugins as $label => $plugin): ?>
 						<?php
 						if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
@@ -95,7 +113,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 					<?php echo I18N::translate('save') ?>
 				</button>
 				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?') ?>'))
-							window.location.href = 'module.php?mod=<?php echo $this->getName() ?>&amp;mod_action=admin_reset';">
+									window.location.href = 'module.php?mod=<?php echo $this->getName() ?>&amp;mod_action=admin_reset';">
 					<i class="fa fa-recycle"></i>
 					<?php echo I18N::translate('reset') ?>
 				</button>
