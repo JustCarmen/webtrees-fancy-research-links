@@ -28,8 +28,15 @@ class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 		return 'NLD';
 	}
 
-	static function createLinkOnly() {
-		return 'http://www.online-begraafplaatsen.nl/zoeken.asp';
+	static function createLink($name) {
+		// This is a post form, so it will be send with Javascript
+		$url	 = 'http://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekform';
+		$params	 = array(
+			'achternaam' => $name['surn'],
+			'voornaam'	 => $name['first'] . '*'
+		);
+
+		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
 	}
 
 }

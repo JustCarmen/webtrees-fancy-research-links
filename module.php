@@ -28,9 +28,9 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
-	const CUSTOM_VERSION = '1.7.7-dev';
-	const CUSTOM_WEBSITE = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
-	
+	const CUSTOM_VERSION	 = '1.7.7-dev';
+	const CUSTOM_WEBSITE	 = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
+
 	/** @var array primary name */
 	var $primary;
 
@@ -124,8 +124,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		global $controller;
 
 		// load the module stylesheet
-		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css') .
-			'<script src="' . WT_STATIC_URL . $this->directory . '/js/sidebar.js" defer="defer"></script>';
+		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css');
 
 		$controller->addInlineJavascript('
 			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
@@ -134,6 +133,31 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				jQuery(this).next(".frl-list").slideToggle()
 				jQuery(this).parent().siblings().find(".frl-list").slideUp();
 			});
+				
+			// function for use by research links which need a javascript form submit
+			// source: see http://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit
+			// usage: see OnlineBegraafplaatsen plugin and MetaGenealogy plugin
+			function postresearchform(url, params) {
+				
+				var form = document.createElement("form");
+				form.setAttribute("method", "post");
+				form.setAttribute("action", url);
+				form.setAttribute("target", "_blank");
+				
+				for(var key in params) {
+					if(params.hasOwnProperty(key)) {
+						var hiddenField = document.createElement("input");
+						hiddenField.setAttribute("type", "hidden");
+						hiddenField.setAttribute("name", key);
+						hiddenField.setAttribute("value", params[key]);
+						
+						form.appendChild(hiddenField);
+					 }
+				}
+				
+				document.body.appendChild(form);
+				form.submit();
+			}
 		');
 
 		try {

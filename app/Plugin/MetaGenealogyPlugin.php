@@ -29,19 +29,20 @@ class MetaGenealogyPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		/*
-		$place = '';
-		if ($name['birthplace']) {
-			//$name['birthplace']: Doesn't make sense, if the value contains a hierarchic location.
-			$places = explode(',', $name['birthplace']);
-			$place = trim($places[0]);
-		}
-		return "javascript: postform('http://meta.genealogy.net/search/index', { lastname: '" . $name['surname'] . "', placename: '" . $place . "', partner1:'on', partner2:'on', partner3:'on', partner4:'on', partner6:'on', partner8:'on', partner9:'on', partner11:'on', partner12:'on', partner13:'on', partner15:'on', partner16:'on', partner17:'on', partner18:'on', partner19:'on'}, false, true)";
-		*/
 		// Often it's better to run the search just with the surname.
 		// It's a post form, so it will be send by javascript in a new window.
-		return "javascript: postform('http://meta.genealogy.net/search/index', { lastname: '" . $name['surname'] . "', placename: '', partner1:'on', partner2:'on', partner3:'on', partner4:'on', partner6:'on', partner8:'on', partner9:'on', partner11:'on', partner12:'on', partner13:'on', partner15:'on', partner16:'on', partner17:'on', partner18:'on', partner19:'on'}, false, true)";
-		//
+		$url = 'http://meta.genealogy.net/search/index';
+
+		$params = array(
+			'lastname'	 => $name['surname'],
+			'placename'	 => ''
+		);
+
+		for ($i = 1; $i <= 19; $i++) {
+			$params['partner' . $i] = 'on';
+		}
+
+		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
 	}
 
 }
