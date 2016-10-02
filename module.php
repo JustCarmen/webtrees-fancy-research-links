@@ -133,7 +133,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			// expand the default search area
 			jQuery(".frl-area").each(function(){
 				if (jQuery(this).data("area") === "' . $this->getSetting('FRL_DEFAULT_AREA') . '") {
-					console.log(jQuery(this).data("area"));
 					jQuery(this).find(".frl-list").css("display", "block");
 				}
 			});
