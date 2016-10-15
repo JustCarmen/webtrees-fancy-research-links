@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2016-07-08 09:30+0200\n"
+"POT-Creation-Date: 2016-10-15 15:22+0200\n"
 "PO-Revision-Date: 2016-04-24 10:18+0000\n"
 "Last-Translator: Martin Pannier <der@bauschaffen.de>\n"
 "Language-Team: German <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/de/>\n"
@@ -28,11 +28,15 @@ msgstr "Wählen Sie die in der Seitenleiste zu verwendenden Plugins."
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
-#: app/FancyResearchLinksClass.php:49 app/FancyResearchLinksClass.php:69
+#: app/Template/AdminTemplate.php:64
+msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
+msgstr ""
+
+#: app/FancyResearchLinksClass.php:38 app/FancyResearchLinksClass.php:80
 msgid "International"
 msgstr "International"
 
-#: app/FancyResearchLinksClass.php:42 app/FancyResearchLinksClass.php:50
+#: app/FancyResearchLinksClass.php:37
 msgid "Other links"
 msgstr "Andere Verknüpfungen"
 
@@ -40,10 +44,10 @@ msgstr "Andere Verknüpfungen"
 msgid "Research links"
 msgstr "Recherche-Verknüpfungen"
 
-#: app/Template/AdminTemplate.php:97
+#: app/Template/AdminTemplate.php:115
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "Die Einstellungen werden auf die Standardwerte zurückgesetzt. Sind Sie sicher, dass Sie dies tun wollen?"
 
-#: module.php:195 module.php:200
+#: module.php:231 module.php:236
 msgid "There are no research links available for this individual."
 msgstr "Es stehen keine Recherche-Verknüpfungen für diese Person zur Verfügung."
