@@ -113,7 +113,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 					<?php echo I18N::translate('save') ?>
 				</button>
 				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?') ?>'))
-									window.location.href = 'module.php?mod=<?php echo $this->getName() ?>&amp;mod_action=admin_reset';">
+							window.location.href = 'module.php?mod=<?php echo $this->getName() ?>&amp;mod_action=admin_reset';">
 					<i class="fa fa-recycle"></i>
 					<?php echo I18N::translate('reset') ?>
 				</button>
