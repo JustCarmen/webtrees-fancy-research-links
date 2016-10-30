@@ -28,7 +28,7 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
 
-	const CUSTOM_VERSION	 = '1.7.7-dev';
+	const CUSTOM_VERSION	 = '1.7.8';
 	const CUSTOM_WEBSITE	 = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
 
 	/** @var array primary name */
