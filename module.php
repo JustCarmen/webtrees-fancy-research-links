@@ -141,6 +141,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				e.preventDefault();
 				jQuery(this).next(".frl-list").slideToggle()
 				jQuery(this).parent().siblings().find(".frl-list").slideUp();
+				jQuery("a[rel=external]").attr("target", "_blank");
 			});
 				
 			// function for use by research links which need a javascript form submit
@@ -182,7 +183,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 					// we take the area code from the first plugin in this area
 					$area_code = reset($plugins)->getSearchArea();
 					$html .=
-						'<li class="frl-area" data-area="' . $area_code . '"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
+						'<li class="frl-area" data-area="' . $area_code . '"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title" rel="external">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
 						'<ul class="frl-list">';
 					$i++;
 					foreach ($plugins as $label => $plugin) {
