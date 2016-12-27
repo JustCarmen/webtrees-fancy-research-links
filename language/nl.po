@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2016-10-15 15:22+0200\n"
+"POT-Creation-Date: 2016-12-26 16:41+0100\n"
 "PO-Revision-Date: 2016-10-15 13:52+0000\n"
 "Last-Translator: Carmen Pijpers <carmen@justcarmen.nl>\n"
 "Language-Team: Dutch <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/nl/>\n"
@@ -48,6 +48,6 @@ msgstr "Onderzoekskoppelingen"
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "De standaardinstellingen worden teruggezet. Weet u zeker dat u dit wilt?"
 
-#: module.php:231 module.php:236
+#: module.php:232 module.php:237
 msgid "There are no research links available for this individual."
 msgstr "Voor deze persoon zijn geen onderzoekskoppelingen beschikbaar."

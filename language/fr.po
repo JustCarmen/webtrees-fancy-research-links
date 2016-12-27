@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-10-15 15:22+0200\n"
+"POT-Creation-Date: 2016-12-26 16:41+0100\n"
 "PO-Revision-Date: 2016-06-23 21:19+0000\n"
 "Last-Translator: Michael <mike_jpr@outlook.com>\n"
 "Language-Team: French <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/fr/>\n"
@@ -47,6 +47,6 @@ msgstr "Liens de recherche"
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "Les paramètres seront réinitialisés aux valeurs par défaut. Êtes-vous sûr de vouloir faire ça ?"
 
-#: module.php:231 module.php:236
+#: module.php:232 module.php:237
 msgid "There are no research links available for this individual."
 msgstr "Il n'y a pas de liens de recherche disponibles pour cet individu."
