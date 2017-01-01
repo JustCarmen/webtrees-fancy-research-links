@@ -1,8 +1,8 @@
 <?php
-/*
+/**
  *  webtrees: Web based Family History software
- *  Copyright (C) 2016 webtrees development team.
- *  Copyright (C) 2016 JustCarmen.
+ *  Copyright (C) 2017 webtrees development team.
+ *  Copyright (C) 2017 JustCarmen.
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
