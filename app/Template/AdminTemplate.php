@@ -60,8 +60,13 @@ class AdminTemplate extends FancyResearchLinksClass {
 			<li class="active"><?php echo $controller->getPageTitle() ?></li>
 		</ol>
 		<h2><?php echo $controller->getPageTitle() ?></h2>
-		<p class="small text-muted"><?php echo I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
-		<p class="small text-muted"><?php echo I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
+		<div class="alert alert-info alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="' . I18N::translate('close') . '">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<p class="small"><?php echo I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
+			<p class="small"><?php echo I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
+		</div>
 		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink() ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
