@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
 "POT-Creation-Date: 2016-12-26 16:41+0100\n"
-"PO-Revision-Date: 2017-02-21 19:49+0000\n"
-"Last-Translator: Patrick Kongshammer <patrickkongshammer@gmail.com>\n"
+"PO-Revision-Date: 2017-02-22 03:57+0000\n"
+"Last-Translator: Jamie Jaconelli <jamie@jaconelli.dk>\n"
 "Language-Team: Danish <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Markér de moduler du vil have i sidepanelet."
 #. I18N: Name of the module
 #: app/Template/AdminTemplate.php:37 module.php:68
 msgid "Fancy Research Links"
-msgstr "Fancy Research Links"
+msgstr "Fancy Forskningslinks"
 
 #: app/Template/AdminTemplate.php:64
 msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
