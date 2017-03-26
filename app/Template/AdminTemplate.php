@@ -55,24 +55,24 @@ class AdminTemplate extends FancyResearchLinksClass {
 		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
 		?>
 		<ol class="breadcrumb small">
-			<li><a href="admin.php"><?php echo I18N::translate('Control panel') ?></a></li>
-			<li><a href="admin_modules.php"><?php echo I18N::translate('Module administration') ?></a></li>
-			<li class="active"><?php echo $controller->getPageTitle() ?></li>
+			<li><a href="admin.php"><?= I18N::translate('Control panel') ?></a></li>
+			<li><a href="admin_modules.php"><?= I18N::translate('Module administration') ?></a></li>
+			<li class="active"><?= $controller->getPageTitle() ?></li>
 		</ol>
-		<h2><?php echo $controller->getPageTitle() ?></h2>
+		<h2><?= $controller->getPageTitle() ?></h2>
 		<div class="alert alert-info alert-dismissible" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="' . I18N::translate('close') . '">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			<p class="small"><?php echo I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
-			<p class="small"><?php echo I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
+			<p class="small"><?= I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
+			<p class="small"><?= I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
 		</div>
-		<form class="form-horizontal" method="post" name="configform" action="<?php echo $this->getConfigLink() ?>">
+		<form class="form-horizontal" method="post" name="configform" action="<?= $this->getConfigLink() ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
 			<div class="form-group checkbox col-sm-12">
 				<label>
-					<?php echo FunctionsEdit::checkbox('select-all') . I18N::translate('select all') ?>
+					<?= FunctionsEdit::checkbox('select-all') . I18N::translate('select all') ?>
 				</label>
 			</div>
 			<!-- RESEARCH LINKS -->
@@ -88,12 +88,12 @@ class AdminTemplate extends FancyResearchLinksClass {
 							<input 
 								type="radio" 
 								name="FRL_DEFAULT_AREA" 
-								value="<?php echo $area_code ?>"
+								value="<?= $area_code ?>"
 								<?php if ($this->getSetting('FRL_DEFAULT_AREA') === $area_code): ?>
 									checked="checked"
 								<?php endif; ?>
 								>
-							<span class="h4"><?php echo $area ?></span>
+							<span class="h4"><?= $area ?></span>
 						</label>
 					</div>
 					<?php foreach ($plugins as $label => $plugin): ?>
@@ -106,7 +106,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 						?>
 						<div class="checkbox col-sm-4" dir="ltr">
 							<label class="checkbox-inline">
-								<?php echo FunctionsEdit::twoStateCheckbox('NEW_FRL_PLUGINS[' . $label . ']', $enabled) . ' ' . $plugin->getPluginName() ?>
+								<?= FunctionsEdit::twoStateCheckbox('NEW_FRL_PLUGINS[' . $label . ']', $enabled) . ' ' . $plugin->getPluginName() ?>
 							</label>
 						</div>
 					<?php endforeach; ?>
@@ -115,12 +115,12 @@ class AdminTemplate extends FancyResearchLinksClass {
 			<div class="form-group col-sm-12">
 				<button type="submit" class="btn btn-primary">
 					<i class="fa fa-check"></i>
-					<?php echo I18N::translate('save') ?>
+					<?= I18N::translate('save') ?>
 				</button>
-				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?php echo I18N::translate('The settings will be reset to default. Are you sure you want to do this?') ?>'))
-							window.location.href = 'module.php?mod=<?php echo $this->getName() ?>&amp;mod_action=admin_reset';">
+				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?= I18N::translate('The settings will be reset to default. Are you sure you want to do this?') ?>'))
+							window.location.href = 'module.php?mod=<?= $this->getName() ?>&amp;mod_action=admin_reset';">
 					<i class="fa fa-recycle"></i>
-					<?php echo I18N::translate('reset') ?>
+					<?= I18N::translate('reset') ?>
 				</button>
 			</div>
 		</form>
