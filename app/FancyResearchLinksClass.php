@@ -33,7 +33,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 * @return array
 	 */
 	protected function getPluginList() {
-		$plugins	 = array();
+		$plugins	 = [];
 		$lang_ols	 = I18N::translate('Other links');
 		$lang_int	 = I18N::translate('International');
 
@@ -50,14 +50,14 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		}
 		ksort($plugins);
 
-		$plugins_int = array();
+		$plugins_int = [];
 		if (array_key_exists($lang_int, $plugins)) {
-			$plugins_int = array($lang_int => $plugins[$lang_int]);
+			$plugins_int = [$lang_int => $plugins[$lang_int]];
 		}
 
-		$plugins_ols = array();
+		$plugins_ols = [];
 		if (array_key_exists($lang_ols, $plugins)) {
-			$plugins_ols = array($lang_ols => $plugins[$lang_ols]);
+			$plugins_ols = [$lang_ols => $plugins[$lang_ols]];
 		}
 
 		return array_filter(array_merge($plugins_int, $plugins, $plugins_ols));
@@ -126,7 +126,7 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 * @return array
 	 */
 	protected function getNames($primary, $attrs, $encodeplus) {
-		$name			 = array();
+		$name			 = [];
 		$name['givn']	 = self::encodeUrl($primary['givn'], $encodeplus);
 
 		$given			 = explode(" ", $primary['givn']);

@@ -32,7 +32,7 @@ class DeutscheNationalbibliothekPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		$values	 = array($name['surname'], $name['first']);
+		$values	 = [$name['surname'], $name['first']];
 		$query	 = implode('+', array_filter($values, function($v) { return $v !== null && $v !== ''; }));
 		return 'https://portal.dnb.de/opac.htm?query=' . $query . '&method=simpleSearch';
 	}

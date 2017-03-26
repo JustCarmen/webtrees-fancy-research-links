@@ -31,11 +31,11 @@ class FreeBMDPlugin extends FancyResearchLinksClass {
 	static function createLink($name) {
 		// This is a post form, so it will be send with Javascript
 		$url	 = 'http://www.freebmd.org.uk/cgi/search.pl';
-		$params	 = array(
+		$params	 = [
 			'type'		=> 'All Types',
 			'surname'	=> $name['surn'],
 			'given'		=> $name['first'],
-		);
+		];
 
 		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
 	}

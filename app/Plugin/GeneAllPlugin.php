@@ -29,7 +29,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		$languages = array(
+		$languages = [
 			'de'	 => 'de',
 			'en_GB'	 => 'en',
 			'en_US'	 => 'en',
@@ -38,7 +38,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 			'es'	 => 'es',
 			'pt'	 => 'pt',
 			'pt_BR'	 => 'pt',
-		);
+		];
 
 		if (isset($languages[WT_LOCALE])) {
 			$language = $languages[WT_LOCALE];

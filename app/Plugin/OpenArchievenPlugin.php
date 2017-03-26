@@ -29,7 +29,7 @@ class OpenArchievenPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		$languages = array('de', 'en', 'fr', 'nl');
+		$languages = ['de', 'en', 'fr', 'nl'];
 
 		$language = WT_LOCALE;
 		if (!in_array($language, $languages)) {

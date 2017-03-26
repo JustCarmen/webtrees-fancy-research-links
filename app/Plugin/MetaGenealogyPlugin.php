@@ -33,10 +33,10 @@ class MetaGenealogyPlugin extends FancyResearchLinksClass {
 		// It's a post form, so it will be send by javascript in a new window.
 		$url = 'http://meta.genealogy.net/search/index';
 
-		$params = array(
+		$params = [
 			'lastname'	 => $name['surname'],
 			'placename'	 => ''
-		);
+		];
 
 		for ($i = 1; $i <= 19; $i++) {
 			$params['partner' . $i] = 'on';

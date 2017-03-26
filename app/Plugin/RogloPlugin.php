@@ -29,7 +29,7 @@ class RogloPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		$languages = array('af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh');
+		$languages = ['af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh'];
 
 		switch (WT_LOCALE) {
 			case 'pt-BR':

@@ -29,7 +29,7 @@ class AncestryPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		$domain = array(
+		$domain = [
 			// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
 			'de'	 => 'de', // German
 			'en_GB'	 => 'co.uk',
@@ -38,7 +38,7 @@ class AncestryPlugin extends FancyResearchLinksClass {
 			'fr'	 => 'fr',
 			'it'	 => 'it',
 			'sv'	 => 'se', // Swedish
-		);
+		];
 		// ancestry supports Canada in English and French versions, too; but webtrees doesn't support these language versions
 		if (isset($domain[WT_LOCALE])) {
 			$ancestry_domain = $domain[WT_LOCALE];
