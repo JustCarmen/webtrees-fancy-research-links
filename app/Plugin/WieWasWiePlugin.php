@@ -29,11 +29,7 @@ class WieWasWiePlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'https://www.wiewaswie.nl/personen-zoeken/zoeken/q/' . $name['fullname'] . '/type/documenten';
-	}
-
-	static function encodePlus() {
-		return true;
+		return 'https://www.wiewaswie.nl/nl/zoeken?q=' . $name['fullname'];
 	}
 
 }
