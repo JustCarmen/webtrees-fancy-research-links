@@ -29,7 +29,6 @@ class BillionGravesPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://billiongraves.com/pages/search/#given_names=' . $name['first'] . '&family_names=' . $name['surn'] . '&birth_year=&death_year=&year_range=5&lim=0&num=10&action=search&exact=true&phonetic=false&record_type=0&country=0&state=null&county=null';
+		return 'https://billiongraves.com/search/results?given_names=' . $name['first'] . '&family_names=' . $name['surn'] . '&action=search&exact=true#/';
 	}
-
 }
