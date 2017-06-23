@@ -16,6 +16,7 @@
 namespace JustCarmen\WebtreesAddOns\FancyResearchLinks;
 
 use Composer\Autoload\ClassLoader;
+use Fisharebest\Webtrees\Controller\BaseController;
 use Fisharebest\Webtrees\Database;
 use Fisharebest\Webtrees\Filter;
 use Fisharebest\Webtrees\I18N;
@@ -80,10 +81,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	public function modAction($mod_action) {
 		switch ($mod_action) {
 			case 'admin_config':
-				if (Filter::postBool('save')) {
-					$this->setSetting('FRL_PLUGINS', serialize(Filter::post('NEW_FRL_PLUGINS')));
-					$this->setSetting('FRL_DEFAULT_AREA', Filter::post('FRL_DEFAULT_AREA'));
-					$this->setSetting('FRL_TARGET_BLANK', Filter::post('FRL_TARGET_BLANK'));
+				if (Filter::post('action') == 'save' && Filter::checkCsrf()) {
+					$this->setPreference('FRL_PLUGINS', implode(',', Filter::postArray('NEW_FRL_PLUGINS')));
+					$this->setPreference('FRL_DEFAULT_AREA', Filter::post('FRL_DEFAULT_AREA'));
+					$this->setPreference('FRL_TARGET_BLANK', Filter::post('FRL_TARGET_BLANK'));
 					Log::addConfigurationLog($this->getTitle() . ' config updated');
 				}
 				$template = new AdminTemplate;
@@ -124,15 +125,21 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		// code based on similar in function_print_list.php
 		global $controller;
 
-		// load the module stylesheet
-		$html = $this->includeCss(WT_MODULES_DIR . $this->getName() . '/css/style.css');
+		// load the stylesheet
+		$controller->addInlineJavascript('
+			if (document.createStyleSheet) {
+				document.createStyleSheet("' . $this->css() . '"); // For Internet Explorer
+			} else {
+				$("head").append(\'<link rel="stylesheet" type="text/css" href="' . $this->css() . '">\');
+			}
+
+			jQuery("#sidebar-header-' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
+		', BaseController::JS_PRIORITY_HIGH);
 
 		$controller->addInlineJavascript('
-			jQuery("#' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
-				
 			// expand the default search area
 			jQuery(".frl-area").each(function(){
-				if (jQuery(this).data("area") === "' . $this->getSetting('FRL_DEFAULT_AREA') . '") {
+				if (jQuery(this).data("area") === "' . $this->getPreference('FRL_DEFAULT_AREA') . '") {
 					jQuery(this).find(".frl-list").css("display", "block");
 				}
 			});
@@ -141,7 +148,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				e.preventDefault();
 				jQuery(this).next(".frl-list").slideToggle()
 				jQuery(this).parent().siblings().find(".frl-list").slideUp();
-				jQuery("a[rel=external]").attr("target", "_blank");
+				jQuery("a[rel^=external]").attr("target", "_blank");
 			});
 				
 			// function for use by research links which need a javascript form submit
@@ -171,29 +178,33 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		');
 
 		try {
-			$FRL_PLUGINS			 = unserialize($this->getSetting('FRL_PLUGINS'));
-			$html .= '<ul id="fancy_research_links_content">';
-			$i						 = 0;
+			$html = '<ul id="fancy_research_links_content" class="fa-ul">';
+			
+			$i = 0;
 			$total_enabled_plugins	 = 0;
+
 			foreach ($this->module()->getPluginList() as $area => $plugins) {
-				$enabled_plugins		 = $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
-				$total_enabled_plugins	 = $total_enabled_plugins + $enabled_plugins;
-				if ($enabled_plugins > 0) {
+
+				$FRL_PLUGINS = $this->module()->getEnabledPlugins($plugins);
+				
+				// count enabled plugins in this area
+				$count_enabled_plugins	= $this->module()->countEnabledPlugins($plugins, $FRL_PLUGINS);
+
+				// count enabled plugins in all areas
+				$total_enabled_plugins	= $total_enabled_plugins + $count_enabled_plugins;
+
+				if ($count_enabled_plugins > 0) {
 					// reset returns the first value in an array
 					// we take the area code from the first plugin in this area
 					$area_code = reset($plugins)->getSearchArea();
 					$html .=
-						'<li class="frl-area" data-area="' . $area_code . '"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><a href="#" class="frl-area-title" rel="external">' . $area . ' (' . $enabled_plugins . ')' . '</a>' .
-						'<ul class="frl-list">';
+						'<li class="frl-area" data-area="' . $area_code . '">' .
+						'<i class="fa-li fa fa-caret-right"></i>' .
+						'<a href="#" class="frl-area-title h5">' . $area . ' (' . $count_enabled_plugins . ')' . '</a>' .
+						'<ul class="frl-list fa-ul">';
 					$i++;
 					foreach ($plugins as $label => $plugin) {
-						if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
-							$enabled = $FRL_PLUGINS[$label];
-						} else {
-							$enabled = '1';
-						}
-
-						if ($enabled) {
+						if (in_array($label, $FRL_PLUGINS)) {
 							foreach ($controller->record->getFacts() as $fact) {
 								$tag = $fact->getTag();
 								if ($tag == "NAME") {
@@ -218,8 +229,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 								}
 								
 								$html .=
-									'<li>' .
-									'<a href="' . Filter::escapeHtml($link) . '" ' . $target . ' >' .
+									'<li><i class="fa-li fa fa-external-link"></i>' .
+									'<a href="' . Filter::escapeHtml($link) . '" ' . $target . ' rel="external nofollow">' .
 									$plugin->getPluginName() .
 									'</a>' .
 									'</li>';
@@ -235,25 +246,19 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				$html = I18N::translate('There are no research links available for this individual.');
 			}
 			return $html;
-		} catch (\ErrorException $ex) {
+		} catch (ErrorException $ex) {
 			Log::addErrorLog('Fancy ResearchLinks: ' . $ex->getMessage());
 			return I18N::translate('There are no research links available for this individual.');
 		}
 	}
 
-	private function includeCss($css) {
-		return
-			'<script>
-				if (document.createStyleSheet) {
-					document.createStyleSheet("' . $css . '"); // For Internet Explorer
-				} else {
-					var newSheet=document.createElement("link");
-					newSheet.setAttribute("href","' . $css . '");
-					newSheet.setAttribute("type","text/css");
-					newSheet.setAttribute("rel","stylesheet");
-					document.getElementsByTagName("head")[0].appendChild(newSheet);
-				}
-			</script>';
+	/**
+	 * URL for our style sheet.
+	 *
+	 * @return string
+	 */
+	public function css() {
+		return WT_STATIC_URL . WT_MODULES_DIR . $this->getName() . '/css/style.css';
 	}
 
 }

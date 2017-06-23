@@ -12,18 +12,23 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-.frl-area .fa {
-  color: inherit;
-}
-.frl-area .fa-li {
-  top: .25rem;
-}
-.frl-list {
-  display: none;
-  margin: .15rem 0 .5rem -0.4rem;
-}
-.frl-list .fa-li {
-  position: initial;
-}
 
-/*# sourceMappingURL=style.css.map */
+// Research links sidebar tab
+.frl-area {
+	.fa {
+		color: inherit;
+
+		&-li {
+			top: .25rem; // fontawesome correction
+		}
+	}
+
+	@at-root .frl-list {
+		display: none;
+		margin: .15rem 0 .5rem -0.4rem;
+
+		.fa-li {
+			position: initial; // neccesary for slide toggle (doesn't work on absolute positioned elements)
+		}
+	}
+}

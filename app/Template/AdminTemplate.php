@@ -16,8 +16,9 @@
 namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Template;
 
 use Fisharebest\Webtrees\Auth;
+use Fisharebest\Webtrees\Bootstrap4;
 use Fisharebest\Webtrees\Controller\PageController;
-use Fisharebest\Webtrees\Functions\FunctionsEdit;
+use Fisharebest\Webtrees\Filter;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
@@ -36,29 +37,25 @@ class AdminTemplate extends FancyResearchLinksClass {
 			->setPageTitle(I18N::translate('Fancy Research Links'))
 			->pageHeader()
 			->addInlineJavascript('
-				jQuery("head").append("<style>[dir=rtl] .checkbox-inline input[type=checkbox]{margin-left:-20px}</style>");
-				jQuery("input[name=select-all]").click(function(){
+				jQuery("[name=select-all]").click(function(){
 					if (jQuery(this).is(":checked") == true) {
-						jQuery(".checkbox-inline").find(":checkbox[name^=NEW_FRL_PLUGINS]").prop("checked", true).val(1);
-						jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
+						jQuery("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", true);
 					} else {
-						jQuery(".checkbox-inline").find(":checkbox[name^=NEW_FRL_PLUGINS]").prop("checked", false).val(0);
-						jQuery("input[id^=NEW_FRL_PLUGINS]").val(0);
+						jQuery("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", false);
 					}
-					formChanged = true;
 				});
 			');
 	}
 
 	private function pageBody(PageController $controller) {
-		$FRL_PLUGINS = unserialize($this->getSetting('FRL_PLUGINS'));
+
+		echo Bootstrap4::breadcrumbs([
+			'admin.php'			 => I18N::translate('Control panel'),
+			'admin_modules.php'	 => I18N::translate('Module administration'),
+			], $controller->getPageTitle());
 		?>
-		<ol class="breadcrumb small">
-			<li><a href="admin.php"><?= I18N::translate('Control panel') ?></a></li>
-			<li><a href="admin_modules.php"><?= I18N::translate('Module administration') ?></a></li>
-			<li class="active"><?= $controller->getPageTitle() ?></li>
-		</ol>
-		<h2><?= $controller->getPageTitle() ?></h2>
+
+		<h1><?= $controller->getPageTitle() ?></h1>
 		<div class="alert alert-info alert-dismissible" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="' . I18N::translate('close') . '">
 				<span aria-hidden="true">&times;</span>
@@ -67,59 +64,55 @@ class AdminTemplate extends FancyResearchLinksClass {
 			<p class="small"><?= I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
 		</div>
 		<form class="form-horizontal" method="post" name="configform" action="<?= $this->getConfigLink() ?>">
-			<input type="hidden" name="save" value="1">
+			<input type="hidden" name="action" value="save"><?= Filter::getCsrf() ?>
 			<!-- SELECT ALL -->
 			<div class="form-group checkbox col-sm-6">
-				<label>
-					<?= FunctionsEdit::checkbox('select-all') . I18N::translate('select all') ?>
-				</label>
+				<?= Bootstrap4::checkbox(I18N::translate('select all'), true, ['name' => 'select-all']) ?>
+			</div>
 			</div>
 			<!-- OPEN LINKS IN NEW TAB -->
-			<div class="form-group col-sm-6 text-right pull-right">
-				<label class="checkbox-inline">
-					<?php
-						if ($this->getSetting('FRL_TARGET_BLANK') === '1') {
-							$blank_enabled = '1';
-						} else {
-							$blank_enabled = '0';
-						}
-					?>
-					<?= FunctionsEdit::twoStateCheckbox('FRL_TARGET_BLANK', $blank_enabled) ?> <?= I18N::translate('Open links in a new tab') ?>
-				</label>
-			  <p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
+			<div class="form-group col-sm-6 text-right">
+				<?php
+					if ($this->getSetting('FRL_TARGET_BLANK') === '1') {
+						$blank_enabled = '1';
+					} else {
+						$blank_enabled = '0';
+					}
+				?>
+				<?= Bootstrap4::checkbox(I18N::translate('Open links in a new tab'), $blank_enabled, ['name' => 'FRL_TARGET_BLANK']) ?>
+				<p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
 			</div>
 			<!-- RESEARCH LINKS -->
-			<?php foreach ($this->getPluginList() as $area => $plugins): ?>				
-				<div class="form-group col-sm-12">
-					<div class="radio">
-						<label class="radio">
-							<?php
-							// reset returns the first value in an array
-							// we take the area code from the first plugin in this area
-							$area_code = reset($plugins)->getSearchArea();
-							?>
-							<input 
-								type="radio" 
-								name="FRL_DEFAULT_AREA" 
-								value="<?= $area_code ?>"
-								<?php if ($this->getSetting('FRL_DEFAULT_AREA') === $area_code): ?>
-									checked="checked"
-								<?php endif; ?>
-								>
-							<span class="h4"><?= $area ?></span>
-						</label>
-					</div>
-					<?php foreach ($plugins as $label => $plugin): ?>
+			<?php foreach ($this->getPluginList() as $area => $plugins): ?>
+				<div class="form-group form-check">
+					<label class="form-check-label">
 						<?php
-						if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
-							$enabled = $FRL_PLUGINS[$label];
-						} else {
-							$enabled = '1';
-						}
+						// reset returns the first value in an array
+						// we take the area code from the first plugin in this area
+						$area_code = reset($plugins)->getSearchArea();
 						?>
-						<div class="checkbox col-sm-4" dir="ltr">
-							<label class="checkbox-inline">
-								<?= FunctionsEdit::twoStateCheckbox('NEW_FRL_PLUGINS[' . $label . ']', $enabled) . ' ' . $plugin->getPluginName() ?>
+						<input
+							class="form-check-input"
+							type="radio"
+							name="FRL_DEFAULT_AREA"
+							value="<?= $area_code ?>"
+							<?php if ($this->getPreference('FRL_DEFAULT_AREA') === $area_code): ?>
+								checked="checked"
+							<?php endif; ?>
+							>
+						<span class="h4"><?= $area ?></span>
+					</label>
+				</div>
+
+				<div class="row form-group col-sm-12">
+					<?php
+					$FRL_PLUGINS = $this->getEnabledPlugins($plugins);
+					foreach ($plugins as $label => $plugin):
+						?>
+						<div class="col-sm-4 checkbox" dir="ltr">
+							<label>
+								<input type="checkbox" name="NEW_FRL_PLUGINS[]" value="<?= $label ?>"<?= in_array($label, $FRL_PLUGINS) ? ' checked' : '' ?>>
+								<?= $plugin->getPluginName() ?>
 							</label>
 						</div>
 					<?php endforeach; ?>
@@ -131,7 +124,7 @@ class AdminTemplate extends FancyResearchLinksClass {
 					<?= I18N::translate('save') ?>
 				</button>
 				<button type="reset" class="btn btn-primary" onclick="if (confirm('<?= I18N::translate('The settings will be reset to default. Are you sure you want to do this?') ?>'))
-							window.location.href = 'module.php?mod=<?= $this->getName() ?>&amp;mod_action=admin_reset';">
+									window.location.href = 'module.php?mod=<?= $this->getName() ?>&amp;mod_action=admin_reset';">
 					<i class="fa fa-recycle"></i>
 					<?= I18N::translate('reset') ?>
 				</button>

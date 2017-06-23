@@ -15,6 +15,7 @@
  */
 namespace JustCarmen\WebtreesAddOns\FancyResearchLinks;
 
+use Fisharebest\Webtrees\Database;
 use Fisharebest\Webtrees\Fact;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Individual;
@@ -54,6 +55,43 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		}
 
 		return array_filter(array_merge($plugins_int, $plugins, $plugins_ols));
+	}
+
+	/**
+	 * Get the enabled plugins set in configuration panel and saved into the database
+	 * If the database setting is empty then return all plugins
+	 *
+	 * @return array
+	 */
+	Protected function getEnabledPlugins($plugins) {
+		$count_module_settings  = (int) Database::prepare(
+			"SELECT COUNT(*) FROM `##module_setting` WHERE module_name = ?"
+		)->execute([$this->getName()])->fetchOne();
+
+		if ($count_module_settings > 0) {
+			$enabled_plugins = explode(',', $this->getPreference('FRL_PLUGINS'));
+		} else {
+			$enabled_plugins = array_keys($plugins);
+		}
+		
+		return $enabled_plugins;
+	}
+
+	/**
+	 * Count the enabled plugins
+	 *
+	 * @param type $plugins
+	 * @param type $enabled_plugins
+	 * @return int
+	 */
+	protected function countEnabledPlugins($plugins, $enabled_plugins) {
+		$count = 0;
+		foreach (array_keys($plugins) as $label) {
+			if (in_array($label, $enabled_plugins)) {
+				$count += 1;
+			}
+		}
+		return $count;
 	}
 
 	/**
@@ -169,25 +207,6 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		} else {
 			return rawurlencode($url);
 		}
-	}
-
-	/**
-	 * Count the enabled plugins
-	 *
-	 * @param type $plugins
-	 * @param type $FRL_PLUGINS
-	 * @return int
-	 */
-	static function countEnabledPlugins($plugins, $FRL_PLUGINS) {
-		$count = 0;
-		foreach (array_keys($plugins) as $label) {
-			if (is_array($FRL_PLUGINS) && array_key_exists($label, $FRL_PLUGINS)) {
-				$count += intval($FRL_PLUGINS[$label]);
-			} else {
-				$count += 1;
-			}
-		}
-		return $count;
 	}
 
 }
