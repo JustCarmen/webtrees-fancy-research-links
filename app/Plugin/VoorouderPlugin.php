@@ -19,16 +19,16 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class VoorouderPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Voorouder.nl';
-	}
+  static function getPluginName() {
+    return 'Voorouder.nl';
+  }
 
-	static function getSearchArea() {
-		return 'NLD';
-	}
+  static function getSearchArea() {
+    return 'NLD';
+  }
 
-	static function createLink($name) {
-		return 'https://genealogie.voorouder.nl/search.php?mybool=AND&nr=50&showdeath=yes&showspouse=yes&mylastname=' . $name['surname'] . '&lnqualify=equals&myfirstname=' . $name['givn'] . '&fnqualify=contains';
-	}
+  static function createLink($name) {
+    return 'https://genealogie.voorouder.nl/search.php?mybool=AND&nr=50&showdeath=yes&showspouse=yes&mylastname=' . $name['surname'] . '&lnqualify=equals&myfirstname=' . $name['givn'] . '&fnqualify=contains';
+  }
 
 }

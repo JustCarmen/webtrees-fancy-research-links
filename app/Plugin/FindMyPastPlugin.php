@@ -19,16 +19,16 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class FindMyPastPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Findmypast($)';
-	}
+  static function getPluginName() {
+    return 'Findmypast($)';
+  }
 
-	static function getSearchArea() {
-		return 'INT';
-	}
+  static function getSearchArea() {
+    return 'INT';
+  }
 
-	static function createLink($name) {
-		return 'https://search.findmypast.com/search/world-records?firstname=' . $name['givn'] . '&firstname_variants=true&lastname=' . $name['surname'];
-	}
+  static function createLink($name) {
+    return 'https://search.findmypast.com/search/world-records?firstname=' . $name['givn'] . '&firstname_variants=true&lastname=' . $name['surname'];
+  }
 
 }

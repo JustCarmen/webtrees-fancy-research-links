@@ -19,18 +19,18 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class HetUtrechtsArchiefPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Het Utrechts Archief';
-	}
+  static function getPluginName() {
+    return 'Het Utrechts Archief';
+  }
 
-	static function getSearchArea() {
-		return 'NLD';
-	}
+  static function getSearchArea() {
+    return 'NLD';
+  }
 
-	static function createLink($name) {
-		return 'https://www.hetutrechtsarchief.nl/collectie/archiefbank/indexen/personen/' .
-			'zoekresultaat?mivast=39&miadt=39&mizig=100&miview=tbl&milang=nl&micols=1&mires=0' .
-			'&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];
-	}
+  static function createLink($name) {
+    return 'https://www.hetutrechtsarchief.nl/collectie/archiefbank/indexen/personen/' .
+        'zoekresultaat?mivast=39&miadt=39&mizig=100&miview=tbl&milang=nl&micols=1&mires=0' .
+        '&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];
+  }
 
 }

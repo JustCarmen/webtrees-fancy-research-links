@@ -15,20 +15,20 @@
 
 // Research links sidebar tab
 .frl-area {
-	.fa {
-		color: inherit;
+  .fa {
+    color: inherit;
 
-		&-li {
-			top: .25rem; // fontawesome correction
-		}
-	}
+    &-li {
+      top: .25rem; // fontawesome correction
+    }
+  }
 
-	@at-root .frl-list {
-		display: none;
-		margin: .15rem 0 .5rem -0.4rem;
+  @at-root .frl-list {
+    display: none;
+    margin: .15rem 0 .5rem -0.4rem;
 
-		.fa-li {
-			position: initial; // neccesary for slide toggle (doesn't work on absolute positioned elements)
-		}
-	}
+    .fa-li {
+      position: initial; // neccesary for slide toggle (doesn't work on absolute positioned elements)
+    }
+  }
 }

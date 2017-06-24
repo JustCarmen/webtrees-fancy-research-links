@@ -19,20 +19,20 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class DigitaleStamboomPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Digitale Stamboom';
-	}
+  static function getPluginName() {
+    return 'Digitale Stamboom';
+  }
 
-	static function getSearchArea() {
-		return 'NLD';
-	}
+  static function getSearchArea() {
+    return 'NLD';
+  }
 
-	static function createLink($name) {
-		return 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $name['givn'] . urlencode('||') . $name['prefix'] . urlencode('|') . $name['surn'];
-	}
+  static function createLink($name) {
+    return 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $name['givn'] . urlencode('||') . $name['prefix'] . urlencode('|') . $name['surn'];
+  }
 
-	static function encodePlus() {
-		return true;
-	}
+  static function encodePlus() {
+    return true;
+  }
 
 }

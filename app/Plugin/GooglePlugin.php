@@ -19,20 +19,20 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class GooglePlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Google';
-	}
+  static function getPluginName() {
+    return 'Google';
+  }
 
-	static function getSearchArea() {
-		return 'INT';
-	}
+  static function getSearchArea() {
+    return 'INT';
+  }
 
-	static function createLink($name) {
-		return 'https://www.google.com/search?q="' . $name['fullname'] . '"';
-	}
+  static function createLink($name) {
+    return 'https://www.google.com/search?q="' . $name['fullname'] . '"';
+  }
 
-	static function encodePlus() {
-		return true;
-	}
+  static function encodePlus() {
+    return true;
+  }
 
 }

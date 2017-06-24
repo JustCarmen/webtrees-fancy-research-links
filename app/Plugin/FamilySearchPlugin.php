@@ -19,16 +19,16 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class FamilySearchPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Family Search';
-	}
+  static function getPluginName() {
+    return 'Family Search';
+  }
 
-	static function getSearchArea() {
-		return 'INT';
-	}
+  static function getSearchArea() {
+    return 'INT';
+  }
 
-	static function createLink($name) {
-		return 'https://familysearch.org/search/record/results#count=20&query=%2Bgivenname%3A%22' . $name['givn'] . '%22~%20%2Bsurname%3A%22' . $name['surname'] . '%22~';
-	}
+  static function createLink($name) {
+    return 'https://familysearch.org/search/record/results#count=20&query=%2Bgivenname%3A%22' . $name['givn'] . '%22~%20%2Bsurname%3A%22' . $name['surname'] . '%22~';
+  }
 
 }

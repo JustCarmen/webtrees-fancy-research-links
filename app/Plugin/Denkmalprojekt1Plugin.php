@@ -22,23 +22,23 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class Denkmalprojekt1Plugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Denkmalprojekt (eigene Suche)';
-	}
+  static function getPluginName() {
+    return 'Denkmalprojekt (eigene Suche)';
+  }
 
-	static function getSearchArea() {
-		return 'DEU';
-	}
+  static function getSearchArea() {
+    return 'DEU';
+  }
 
-	static function createLink($name) {
-		$values	 = [strtoupper($name['surname']), ucfirst($name['first'])];
-		$query	 = implode('+', array_filter($values, function($v) { return $v !== null && $v !== ''; }));
+  static function createLink($name) {
+    $values = [strtoupper($name['surname']), ucfirst($name['first'])];
+    $query  = implode('+', array_filter($values, function($v) { return $v !== null && $v !== ''; }));
 
-		return "http://www.denkmalprojekt.org/search/search.pl?Match=0&Realm=All&Terms=%22$query%22";
-	}
+    return "http://www.denkmalprojekt.org/search/search.pl?Match=0&Realm=All&Terms=%22$query%22";
+  }
 
-	static function encodePlus() {
-		return false;
-	}
+  static function encodePlus() {
+    return false;
+  }
 
 }

@@ -19,21 +19,21 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class GrafTombePlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Graftombe';
-	}
+  static function getPluginName() {
+    return 'Graftombe';
+  }
 
-	static function getSearchArea() {
-		return 'NLD';
-	}
+  static function getSearchArea() {
+    return 'NLD';
+  }
 
-	static function createLink($name) {
-		$name['surname'] = $name['prefix'] ? $name['surn'] . ' ' . $name['prefix'] : $name['surn'];
-		return 'https://www.graftombe.nl/names/search?forename=' . $name['givn'] . '&surname=' . $name['surname'] . '&submit=Zoeken&r=names-search';
-	}
+  static function createLink($name) {
+    $name['surname'] = $name['prefix'] ? $name['surn'] . ' ' . $name['prefix'] : $name['surn'];
+    return 'https://www.graftombe.nl/names/search?forename=' . $name['givn'] . '&surname=' . $name['surname'] . '&submit=Zoeken&r=names-search';
+  }
 
-	static function encodePlus() {
-		return true;
-	}
+  static function encodePlus() {
+    return true;
+  }
 
 }

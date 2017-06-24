@@ -19,16 +19,16 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class WikipediaPersonPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Wikipedia-Personensuche';  // uses German wikipedia
-	}
+  static function getPluginName() {
+    return 'Wikipedia-Personensuche';  // uses German wikipedia
+  }
 
-	static function getSearchArea() {
-		return 'DEU';
-	}
+  static function getSearchArea() {
+    return 'DEU';
+  }
 
-	static function createLink($name) {
-		return 'https://tools.wmflabs.org/persondata/index.php?name=' . $name['first'] . '* ' . $name['surname'];
-	}
+  static function createLink($name) {
+    return 'https://tools.wmflabs.org/persondata/index.php?name=' . $name['first'] . '* ' . $name['surname'];
+  }
 
 }

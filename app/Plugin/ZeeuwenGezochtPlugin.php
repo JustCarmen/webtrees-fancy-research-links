@@ -19,17 +19,17 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class ZeeuwenGezochtPlugin extends FancyResearchLinksClass {
 
-	static function getPluginName() {
-		return 'Zeeuwen Gezocht';
-	}
+  static function getPluginName() {
+    return 'Zeeuwen Gezocht';
+  }
 
-	static function getSearchArea() {
-		return 'NLD';
-	}
+  static function getSearchArea() {
+    return 'NLD';
+  }
 
-	static function createLink($name) {
-		return 'http://www.zeeuwengezocht.nl/nl/zoeken?mivast=1539&miadt=239&mizig=862&miview=tbl&milang=nl&micols=1&mires=0&mip3='
-			. $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
-	}
+  static function createLink($name) {
+    return 'http://www.zeeuwengezocht.nl/nl/zoeken?mivast=1539&miadt=239&mizig=862&miview=tbl&milang=nl&micols=1&mires=0&mip3='
+        . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
+  }
 
 }
