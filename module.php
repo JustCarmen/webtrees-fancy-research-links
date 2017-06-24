@@ -133,22 +133,22 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				$("head").append(\'<link rel="stylesheet" type="text/css" href="' . $this->css() . '">\');
 			}
 
-			jQuery("#sidebar-header-' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
+			$("#sidebar-header-' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
 		', BaseController::JS_PRIORITY_HIGH);
 
     $controller->addInlineJavascript('
 			// expand the default search area
-			jQuery(".frl-area").each(function(){
-				if (jQuery(this).data("area") === "' . $this->getPreference('FRL_DEFAULT_AREA') . '") {
-					jQuery(this).find(".frl-list").css("display", "block");
+			$(".frl-area").each(function(){
+				if ($(this).data("area") === "' . $this->getPreference('FRL_DEFAULT_AREA') . '") {
+					$(this).find(".frl-list").css("display", "block");
 				}
 			});
 			
-			jQuery("#' . $this->getName() . '_content").on("click", ".frl-area-title", function(e){
+			$("#' . $this->getName() . '_content").on("click", ".frl-area-title", function(e){
 				e.preventDefault();
-				jQuery(this).next(".frl-list").slideToggle()
-				jQuery(this).parent().siblings().find(".frl-list").slideUp();
-				jQuery("a[rel^=external]").attr("target", "_blank");
+				$(this).next(".frl-list").slideToggle()
+				$(this).parent().siblings().find(".frl-list").slideUp();
+				$("a[rel^=external]").attr("target", "_blank");
 			});
 				
 			// function for use by research links which need a javascript form submit

@@ -37,11 +37,11 @@ class AdminTemplate extends FancyResearchLinksClass {
         ->setPageTitle(I18N::translate('Fancy Research Links'))
         ->pageHeader()
         ->addInlineJavascript('
-				jQuery("[name=select-all]").click(function(){
-					if (jQuery(this).is(":checked") == true) {
-						jQuery("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", true);
+				$("[name=select-all]").click(function(){
+					if ($(this).is(":checked") == true) {
+						$("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", true);
 					} else {
-						jQuery("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", false);
+						$("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", false);
 					}
 				});
 			');
