@@ -243,7 +243,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
     }
   }
 
-	 // Implement ModuleMenuInterface
+  // Implement ModuleMenuInterface
   public function defaultMenuOrder() {
     return 999;
   }
@@ -251,31 +251,31 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
   // Implement ModuleMenuInterface
   public function getMenu() {
     // We don't actually have a menu - this is just a convenient "hook" to execute code at the right time during page execution
-		// We need it to load the stylesheet at the right time. If we use this method in the sidebar funcion the stylesheet loads before
+    // We need it to load the stylesheet at the right time. If we use this method in the sidebar funcion the stylesheet loads before
     // the other stylesheets. This might give problems.
 
-		if (WT_SCRIPT_NAME === 'individual.php') {
-			echo $this->includeCss();
-		}
-		return null;
-	}
+    if (WT_SCRIPT_NAME === 'individual.php') {
+      echo $this->includeCss();
+    }
+    return null;
+  }
 
   /**
-	 * Default Fancy script used in all Fancy modules with css
-	 *
-	 * Use plain javascript to include the stylesheet(s) in the header and set the theme class on the body
-	 * Use a theme class on the body to simply reference it by css
-	 *
-	 * The code to place the stylesheet in the header renders quicker than the default webtrees solution
-	 * because we do not have to wait until the page is fully loaded
-	 *
-	 * Replace all classnames on the body to prevent double theme classes set by multiple fancy modules
-	 *
-	 * @return javascript
-	 */
-	protected function includeCss() {
-		return
-			'<script>
+   * Default Fancy script used in all Fancy modules with css
+   *
+   * Use plain javascript to include the stylesheet(s) in the header and set the theme class on the body
+   * Use a theme class on the body to simply reference it by css
+   *
+   * The code to place the stylesheet in the header renders quicker than the default webtrees solution
+   * because we do not have to wait until the page is fully loaded
+   *
+   * Replace all classnames on the body to prevent double theme classes set by multiple fancy modules
+   *
+   * @return javascript
+   */
+  protected function includeCss() {
+    return
+        '<script>
 				var newSheet=document.createElement("link");
 				newSheet.setAttribute("rel","stylesheet");
 				newSheet.setAttribute("type","text/css");
@@ -286,7 +286,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 						document.body.className = "wt-global theme-' . Theme::theme()->themeId() . '";
 				}, false);
 			</script>';
-	}
+  }
 
 }
 
