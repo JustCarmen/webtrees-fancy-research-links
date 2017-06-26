@@ -23,10 +23,12 @@ use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Log;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
+use Fisharebest\Webtrees\Module\ModuleMenuInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
+use Fisharebest\Webtrees\Theme;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
-class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface {
+class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface, ModuleMenuInterface {
 
   const CUSTOM_VERSION = '1.8.0-dev';
   const CUSTOM_WEBSITE = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
@@ -81,7 +83,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
   public function modAction($mod_action) {
     switch ($mod_action) {
       case 'admin_config':
-        if (Filter::post('action') == 'save' && Filter::checkCsrf()) {
+        if (Filter::post('action') === 'save' && Filter::checkCsrf()) {
           $this->setPreference('FRL_PLUGINS', implode(',', Filter::postArray('NEW_FRL_PLUGINS')));
           $this->setPreference('FRL_DEFAULT_AREA', Filter::post('FRL_DEFAULT_AREA'));
           $this->setPreference('FRL_TARGET_BLANK', Filter::post('FRL_TARGET_BLANK'));
@@ -125,14 +127,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
     // code based on similar in function_print_list.php
     global $controller;
 
-    // load the stylesheet
     $controller->addInlineJavascript('
-			if (document.createStyleSheet) {
-				document.createStyleSheet("' . $this->css() . '"); // For Internet Explorer
-			} else {
-				$("head").append(\'<link rel="stylesheet" type="text/css" href="' . $this->css() . '">\');
-			}
-
 			$("#sidebar-header-' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
 		', BaseController::JS_PRIORITY_HIGH);
 
@@ -248,14 +243,50 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
     }
   }
 
-  /**
-   * URL for our style sheet.
-   *
-   * @return string
-   */
-  public function css() {
-    return WT_STATIC_URL . WT_MODULES_DIR . $this->getName() . '/css/style.css';
+	 // Implement ModuleMenuInterface
+  public function defaultMenuOrder() {
+    return 999;
   }
+
+  // Implement ModuleMenuInterface
+  public function getMenu() {
+    // We don't actually have a menu - this is just a convenient "hook" to execute code at the right time during page execution
+		// We need it to load the stylesheet at the right time. If we use this method in the sidebar funcion the stylesheet loads before
+    // the other stylesheets. This might give problems.
+
+		if (WT_SCRIPT_NAME === 'individual.php') {
+			echo $this->includeCss();
+		}
+		return null;
+	}
+
+  /**
+	 * Default Fancy script used in all Fancy modules with css
+	 *
+	 * Use plain javascript to include the stylesheet(s) in the header and set the theme class on the body
+	 * Use a theme class on the body to simply reference it by css
+	 *
+	 * The code to place the stylesheet in the header renders quicker than the default webtrees solution
+	 * because we do not have to wait until the page is fully loaded
+	 *
+	 * Replace all classnames on the body to prevent double theme classes set by multiple fancy modules
+	 *
+	 * @return javascript
+	 */
+	protected function includeCss() {
+		return
+			'<script>
+				var newSheet=document.createElement("link");
+				newSheet.setAttribute("rel","stylesheet");
+				newSheet.setAttribute("type","text/css");
+				newSheet.setAttribute("href","' . $this->directory . '/css/style.css");				
+				document.getElementsByTagName("head")[0].appendChild(newSheet);
+
+				window.addEventListener("load", function () {
+						document.body.className = "wt-global theme-' . Theme::theme()->themeId() . '";
+				}, false);
+			</script>';
+	}
 
 }
 
