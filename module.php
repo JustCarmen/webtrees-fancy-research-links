@@ -48,7 +48,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
   public function __construct() {
     parent::__construct('fancy_research_links');
 
-    $this->directory = WT_MODULES_DIR . $this->getName();
+    $this->directory = WT_STATIC_URL . WT_MODULES_DIR . $this->getName();
 
     // register the namespace
     $loader = new ClassLoader();
