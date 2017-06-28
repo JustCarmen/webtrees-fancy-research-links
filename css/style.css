@@ -12,17 +12,17 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-.frl-area .fa {
+.fancy-research-links .frl-area .fa {
   color: inherit;
 }
-.frl-area .fa-li {
+.fancy-research-links .frl-area .fa-li {
   top: .25rem;
 }
-.frl-list {
+.fancy-research-links .frl-area .frl-list {
   display: none;
   margin: .15rem 0 .5rem -0.4rem;
 }
-.frl-list .fa-li {
+.fancy-research-links .frl-area .frl-list .fa-li {
   position: initial;
 }
 

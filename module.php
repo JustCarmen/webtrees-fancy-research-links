@@ -132,19 +132,22 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		', BaseController::JS_PRIORITY_HIGH);
 
     $controller->addInlineJavascript('
-			// expand the default search area
-			$(".frl-area").each(function(){
-				if ($(this).data("area") === "' . $this->getPreference('FRL_DEFAULT_AREA') . '") {
-					$(this).find(".frl-list").css("display", "block");
-				}
-			});
-			
-			$("#' . $this->getName() . '_content").on("click", ".frl-area-title", function(e){
-				e.preventDefault();
-				$(this).next(".frl-list").slideToggle()
-				$(this).parent().siblings().find(".frl-list").slideUp();
-				$("a[rel^=external]").attr("target", "_blank");
-			});
+
+      $(".fancy-research-links").each(function() {
+        // expand the default search area
+        $(this).find(".frl-area").each(function(){
+          if ($(this).data("area") === "' . $this->getPreference('FRL_DEFAULT_AREA') . '") {
+            $(this).find(".frl-list").css("display", "block");
+          }
+        });
+
+        $(this).on("click", ".frl-area-title", function(e){
+          e.preventDefault();
+          $(this).next(".frl-list").slideToggle()
+          $(this).parent().siblings().find(".frl-list").slideUp();
+          $("a[rel^=external]").attr("target", "_blank");
+        });
+       });
 				
 			// function for use by research links which need a javascript form submit
 			// source: see http://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit
@@ -173,7 +176,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 		');
 
     try {
-      $html = '<ul id="fancy_research_links_content" class="fa-ul">';
+      $html = '<div class="fancy-research-links">';
+      $html .= '<ul class="fa-ul">';
 
       $i                     = 0;
       $total_enabled_plugins = 0;
@@ -236,6 +240,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
       if ($total_enabled_plugins === 0) {
         $html = I18N::translate('There are no research links available for this individual.');
       }
+      $html .= '</div>';
+
       return $html;
     } catch (ErrorException $ex) {
       Log::addErrorLog('Fancy ResearchLinks: ' . $ex->getMessage());
@@ -261,15 +267,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
   }
 
   /**
-   * Default Fancy script used in all Fancy modules with css
-   *
-   * Use plain javascript to include the stylesheet(s) in the header and set the theme class on the body
-   * Use a theme class on the body to simply reference it by css
+   * Default Fancy script to load a module stylesheet
    *
    * The code to place the stylesheet in the header renders quicker than the default webtrees solution
    * because we do not have to wait until the page is fully loaded
-   *
-   * Replace all classnames on the body to prevent double theme classes set by multiple fancy modules
    *
    * @return javascript
    */
@@ -281,10 +282,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				newSheet.setAttribute("type","text/css");
 				newSheet.setAttribute("href","' . $this->directory . '/css/style.css");				
 				document.getElementsByTagName("head")[0].appendChild(newSheet);
-
-				window.addEventListener("load", function () {
-						document.body.className = "wt-global theme-' . Theme::theme()->themeId() . '";
-				}, false);
 			</script>';
   }
 
