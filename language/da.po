@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
 "POT-Creation-Date: 2016-12-26 16:41+0100\n"
-"PO-Revision-Date: 2017-02-22 03:57+0000\n"
-"Last-Translator: Jamie Jaconelli <jamie@jaconelli.dk>\n"
+"PO-Revision-Date: 2017-07-21 14:18+0000\n"
+"Last-Translator: Finn Christensen <fc@winmagic.dk>\n"
 "Language-Team: Danish <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Forsknings-links"
 
 #: app/Template/AdminTemplate.php:115
 msgid "The settings will be reset to default. Are you sure you want to do this?"
-msgstr "Indstillingerne vil blive fabriksnulstillet. Er du sikker på du vil gøre dette?"
+msgstr "Indstillingerne resettes til default. Er du sikker på du vil gøre dette?"
 
 #: module.php:232 module.php:237
 msgid "There are no research links available for this individual."
