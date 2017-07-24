@@ -19,13 +19,13 @@ use Composer\Autoload\ClassLoader;
 use Fisharebest\Webtrees\Controller\BaseController;
 use Fisharebest\Webtrees\Database;
 use Fisharebest\Webtrees\Filter;
+use Fisharebest\Webtrees\Html;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Log;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleMenuInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
-use Fisharebest\Webtrees\Theme;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface, ModuleMenuInterface {
@@ -225,7 +225,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
                   $target = '';
                 }
                 $html .= '<li><i class="fa-li fa fa-external-link"></i>' .
-                    '<a href="' . Filter::escapeHtml($link) . '" ' . $target . ' rel="external nofollow">' .
+                    '<a href="' . Html::escape($link) . '" ' . $target . ' rel="external nofollow">' .
                     $plugin->getPluginName() .
                     '</a>' .
                     '</li>';
