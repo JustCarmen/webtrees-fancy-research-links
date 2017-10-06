@@ -30,7 +30,7 @@ use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface, ModuleMenuInterface {
 
-  const CUSTOM_VERSION = '1.8.0-dev';
+  const CUSTOM_VERSION = '2.0.0-dev';
   const CUSTOM_WEBSITE = 'http://www.justcarmen.nl/fancy-modules/fancy-research-links/';
 
   /** @var array primary name */
