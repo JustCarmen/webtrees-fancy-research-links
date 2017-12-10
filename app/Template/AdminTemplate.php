@@ -23,20 +23,19 @@ use Fisharebest\Webtrees\I18N;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class AdminTemplate extends FancyResearchLinksClass {
+	protected function pageContent() {
+		$controller = new PageController;
+		return
+		$this->pageHeader($controller) .
+		$this->pageBody($controller);
+	}
 
-  protected function pageContent() {
-    $controller = new PageController;
-    return
-        $this->pageHeader($controller) .
-        $this->pageBody($controller);
-  }
-
-  private function pageHeader(PageController $controller) {
-    $controller
-        ->restrictAccess(Auth::isAdmin())
-        ->setPageTitle(I18N::translate('Fancy Research Links'))
-        ->pageHeader()
-        ->addInlineJavascript('
+	private function pageHeader(PageController $controller) {
+		$controller
+		->restrictAccess(Auth::isAdmin())
+		->setPageTitle(I18N::translate('Fancy Research Links'))
+		->pageHeader()
+		->addInlineJavascript('
 				$("[name=select-all]").click(function(){
 					if ($(this).is(":checked") == true) {
 						$("form").find("[type=checkbox][name^=NEW_FRL_PLUGINS]").prop("checked", true);
@@ -45,15 +44,13 @@ class AdminTemplate extends FancyResearchLinksClass {
 					}
 				});
 			');
-  }
+	}
 
-  private function pageBody(PageController $controller) {
-
-    echo Bootstrap4::breadcrumbs([
-        'admin.php'         => I18N::translate('Control panel'),
-        'admin_modules.php' => I18N::translate('Module administration'),
-        ], $controller->getPageTitle());
-    ?>
+	private function pageBody(PageController $controller) {
+		echo Bootstrap4::breadcrumbs([
+		'admin.php'         => I18N::translate('Control panel'),
+		'admin_modules.php' => I18N::translate('Module administration'),
+		], $controller->getPageTitle()); ?>
 
     <h1><?= $controller->getPageTitle() ?></h1>
     <div class="alert alert-info alert-dismissible" role="alert">
@@ -86,10 +83,9 @@ class AdminTemplate extends FancyResearchLinksClass {
         <div class="form-group form-check">
           <label class="form-check-label">
             <?php
-            // reset returns the first value in an array
-            // we take the area code from the first plugin in this area
-            $area_code = reset($plugins)->getSearchArea();
-            ?>
+			// reset returns the first value in an array
+			// we take the area code from the first plugin in this area
+			$area_code = reset($plugins)->getSearchArea(); ?>
             <input
               class="form-check-input"
               type="radio"
@@ -105,9 +101,9 @@ class AdminTemplate extends FancyResearchLinksClass {
 
         <div class="row form-group col-sm-12">
           <?php
-          $FRL_PLUGINS = $this->getEnabledPlugins($plugins);
-          foreach ($plugins as $label => $plugin):
-            ?>
+		  $FRL_PLUGINS = $this->getEnabledPlugins($plugins);
+		foreach ($plugins as $label => $plugin):
+			?>
             <div class="col-sm-4 checkbox" dir="ltr">
               <label>
                 <input type="checkbox" name="NEW_FRL_PLUGINS[]" value="<?= $label ?>"<?= in_array($label, $FRL_PLUGINS) ? ' checked' : '' ?>>
@@ -130,6 +126,5 @@ class AdminTemplate extends FancyResearchLinksClass {
       </div>
     </form>
     <?php
-  }
-
+	}
 }

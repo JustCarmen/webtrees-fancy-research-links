@@ -18,21 +18,19 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class StamboomZoekerPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Stamboomzoeker';
+	}
 
-  static function getPluginName() {
-    return 'Stamboomzoeker';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
+	public static function createLink($name) {
+		return 'https://stamboomzoeker.nl/search.php?l=nl&fn=' . strtolower($name['givn']) . '&sn=' . strtolower($name['surname']) . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Zoeken';
+	}
 
-  static function createLink($name) {
-    return 'https://stamboomzoeker.nl/search.php?l=nl&fn=' . strtolower($name['givn']) . '&sn=' . strtolower($name['surname']) . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Zoeken';
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

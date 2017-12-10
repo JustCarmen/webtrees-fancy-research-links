@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class DeceasedOnlinePlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Deceased Online';
+	}
 
-  static function getPluginName() {
-    return 'Deceased Online';
-  }
+	public static function getSearchArea() {
+		return 'GBR';
+	}
 
-  static function getSearchArea() {
-    return 'GBR';
-  }
-
-  static function createLink($name) {
-    return 'https://www.deceasedonline.com/servlet/GSDOSearch?' . 'GSDOInptSName=' . $name['surname'] . '&GSDOInptFName=' . $name['first'];
-  }
-
+	public static function createLink($name) {
+		return 'https://www.deceasedonline.com/servlet/GSDOSearch?' . 'GSDOInptSName=' . $name['surname'] . '&GSDOInptFName=' . $name['first'];
+	}
 }

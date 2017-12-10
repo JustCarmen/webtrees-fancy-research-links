@@ -18,40 +18,39 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class RogloPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Roglo';
+	}
 
-  static function getPluginName() {
-    return 'Roglo';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
+	public static function createLink($name) {
+		$languages = ['af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh'];
 
-  static function createLink($name) {
-    $languages = ['af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh'];
+		switch (WT_LOCALE) {
+	  case 'pt-BR':
+		$language = 'br';
+		break;
+	  case 'fr-CA':
+		$language = 'fr';
+		break;
+	  case 'zh-Hans':
+		$language = 'zh';
+		// no break
+	  default:
+		$language = WT_LOCALE;
+	}
 
-    switch (WT_LOCALE) {
-      case 'pt-BR':
-        $language = 'br';
-        break;
-      case 'fr-CA':
-        $language = 'fr';
-        break;
-      case 'zh-Hans':
-        $language = 'zh';
-      default:
-        $language = WT_LOCALE;
-    }
+		if (!in_array($language, $languages)) {
+			$language = 'en';
+		}
 
-    if (!in_array($language, $languages)) {
-      $language = 'en';
-    }
+		return 'http://roglo.eu/roglo?lang=' . $language . '&m=NG&n=' . $name['fullname'] . '&t=PN';
+	}
 
-    return 'http://roglo.eu/roglo?lang=' . $language . '&m=NG&n=' . $name['fullname'] . '&t=PN';
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

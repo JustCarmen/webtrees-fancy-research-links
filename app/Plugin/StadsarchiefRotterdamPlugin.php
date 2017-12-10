@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class StadsarchiefRotterdamPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Stadsarchief Rotterdam';
+	}
 
-  static function getPluginName() {
-    return 'Stadsarchief Rotterdam';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
-
-  static function createLink($name) {
-    return 'http://www.stadsarchief.rotterdam.nl/archieven?mivast=184&miadt=184&mizig=100&miview=tbl&milang=nl&micols=1&misort=dt|asc&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];
-  }
-
+	public static function createLink($name) {
+		return 'http://www.stadsarchief.rotterdam.nl/archieven?mivast=184&miadt=184&mizig=100&miview=tbl&milang=nl&micols=1&misort=dt|asc&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];
+	}
 }

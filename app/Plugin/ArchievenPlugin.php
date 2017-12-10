@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class ArchievenPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Archieven.nl';
+	}
 
-  static function getPluginName() {
-    return 'Archieven.nl';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
-
-  static function createLink($name) {
-	return 'https://www.archieven.nl/nl/zoeken?mivast=0&mizig=310&miadt=0&milang=nl&misort=dt|asc&miview=tbl&mip3=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
-  }
-
+	public static function createLink($name) {
+		return 'https://www.archieven.nl/nl/zoeken?mivast=0&mizig=310&miadt=0&milang=nl&misort=dt|asc&miview=tbl&mip3=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
+	}
 }

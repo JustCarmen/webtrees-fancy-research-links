@@ -18,21 +18,19 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class ElephindPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Elephind Newspapers';
+	}
 
-  static function getPluginName() {
-    return 'Elephind Newspapers';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
+	public static function createLink($name) {
+		return 'https://www.elephind.com/?a=q&hs=1&r=1&results=1&txq=' . $name['first'] . '+' . $name['surname'] . '&txf=txINtxCO&o=10&dafyq=&dafmq=&dafdq=&datyq=&datmq=&datdq=&puqname=Search+all+titles...&puq=&lcq=&csq=&e=-------en-10--1--txt-txINtxCO----------';
+	}
 
-  static function createLink($name) {
-    return 'https://www.elephind.com/?a=q&hs=1&r=1&results=1&txq=' . $name['first'] . '+' . $name['surname'] . '&txf=txINtxCO&o=10&dafyq=&dafmq=&dafdq=&datyq=&datmq=&datdq=&puqname=Search+all+titles...&puq=&lcq=&csq=&e=-------en-10--1--txt-txINtxCO----------';
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

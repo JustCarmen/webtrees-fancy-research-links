@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class MensenlinqPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Mensenlinq';
+	}
 
-  static function getPluginName() {
-    return 'Mensenlinq';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
-
-  static function createLink($name) {
-    return 'https://www.mensenlinq.nl/site/advertentie/overzicht?advzoek_vandag=01&advzoek_vanmaand=01&advzoek_vanjaar=2006&advzoek_totdag=' . date("d") . '&advzoek_totmaand=' . date("m") . '&advzoek_totjaar=' . date("Y") . '&advzoek_dag=' . date("d") . '&advzoek_maand=' . date("m") . '&advzoek_jaar=' . date("Y") . '&advzoek_provincie=&advzoek_titel=&advzoek_zoek=' . $name['surname'] . '&advzoek_plaats=&advzoek_voornaam=' . $name['first'] . '&advzoek_geboorteplaats=';
-  }
-
+	public static function createLink($name) {
+		return 'https://www.mensenlinq.nl/site/advertentie/overzicht?advzoek_vandag=01&advzoek_vanmaand=01&advzoek_vanjaar=2006&advzoek_totdag=' . date("d") . '&advzoek_totmaand=' . date("m") . '&advzoek_totjaar=' . date("Y") . '&advzoek_dag=' . date("d") . '&advzoek_maand=' . date("m") . '&advzoek_jaar=' . date("Y") . '&advzoek_provincie=&advzoek_titel=&advzoek_zoek=' . $name['surname'] . '&advzoek_plaats=&advzoek_voornaam=' . $name['first'] . '&advzoek_geboorteplaats=';
+	}
 }

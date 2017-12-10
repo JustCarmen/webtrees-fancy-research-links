@@ -18,24 +18,22 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Online Begraafplaatsen';
+	}
 
-  static function getPluginName() {
-    return 'Online Begraafplaatsen';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
+	public static function createLink($name) {
+		// This is a post form, so it will be send with Javascript
+		$url    = 'https://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekform';
+		$params = [
+		'achternaam' => $name['surn'],
+		'voornaam'   => $name['first'] . '*'
+	];
 
-  static function createLink($name) {
-    // This is a post form, so it will be send with Javascript
-    $url    = 'https://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekform';
-    $params = [
-        'achternaam' => $name['surn'],
-        'voornaam'   => $name['first'] . '*'
-    ];
-
-    return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
-  }
-
+		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
+	}
 }

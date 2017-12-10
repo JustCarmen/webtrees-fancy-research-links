@@ -18,18 +18,16 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class WikipediaPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Wikipedia';
+	}
 
-  static function getPluginName() {
-    return 'Wikipedia';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
-
-  static function createLink($name) {
-    $language = substr(WT_LOCALE, 0, 2);
+	public static function createLink($name) {
+		$language = substr(WT_LOCALE, 0, 2);
 		return 'https://' . $language . '.wikipedia.org/wiki/' . $name['first'] . '_' . $name['surname'];
-  }
-
+	}
 }

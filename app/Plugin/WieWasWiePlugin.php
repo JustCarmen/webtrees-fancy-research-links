@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class WieWasWiePlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'WieWasWie';
+	}
 
-  static function getPluginName() {
-    return 'WieWasWie';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
-
-  static function createLink($name) {
-    return 'https://www.wiewaswie.nl/nl/zoeken?q=' . $name['fullname'];
-  }
-
+	public static function createLink($name) {
+		return 'https://www.wiewaswie.nl/nl/zoeken?q=' . $name['fullname'];
+	}
 }

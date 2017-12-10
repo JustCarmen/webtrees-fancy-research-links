@@ -18,21 +18,19 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class OnlineFamilieberichtenPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Online Familieberichten';
+	}
 
-  static function getPluginName() {
-    return 'Online Familieberichten';
-  }
+	public static function getSearchArea() {
+		return 'NLD';
+	}
 
-  static function getSearchArea() {
-    return 'NLD';
-  }
+	public static function createLink($name) {
+		return 'https://www.online-familieberichten.nl/zoeken.asp?sortpers=naam&command=zoekformres&achternaam=' . $name['surn'] . '&tussenvoegsel=' . $name['prefix'] . '&voornaam=' . $name['first'];
+	}
 
-  static function createLink($name) {
-    return 'https://www.online-familieberichten.nl/zoeken.asp?sortpers=naam&command=zoekformres&achternaam=' . $name['surn'] . '&tussenvoegsel=' . $name['prefix'] . '&voornaam=' . $name['first'];
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

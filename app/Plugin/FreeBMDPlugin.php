@@ -19,25 +19,23 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class FreeBMDPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'FreeBMD';
+	}
 
-  static function getPluginName() {
-    return 'FreeBMD';
-  }
+	public static function getSearchArea() {
+		return 'GBR';
+	}
 
-  static function getSearchArea() {
-    return 'GBR';
-  }
+	public static function createLink($name) {
+		// This is a post form, so it will be send with Javascript
+		$url    = 'https://www.freebmd.org.uk/cgi/search.pl';
+		$params = [
+		'type'    => 'All Types',
+		'surname' => $name['surn'],
+		'given'   => $name['first'],
+	];
 
-  static function createLink($name) {
-    // This is a post form, so it will be send with Javascript
-    $url    = 'https://www.freebmd.org.uk/cgi/search.pl';
-    $params = [
-        'type'    => 'All Types',
-        'surname' => $name['surn'],
-        'given'   => $name['first'],
-    ];
-
-    return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
-  }
-
+		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
+	}
 }

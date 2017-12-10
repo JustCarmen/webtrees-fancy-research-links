@@ -21,23 +21,23 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class DeutscheNationalbibliothekPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Deutsche Nationalbibliothek';
+	}
 
-  static function getPluginName() {
-    return 'Deutsche Nationalbibliothek';
-  }
+	public static function getSearchArea() {
+		return 'DEU';
+	}
 
-  static function getSearchArea() {
-    return 'DEU';
-  }
+	public static function createLink($name) {
+		$values = [$name['surname'], $name['first']];
+		$query  = implode('+', array_filter($values, function ($v) {
+			return $v !== null && $v !== '';
+		}));
+		return 'https://portal.dnb.de/opac.htm?query=' . $query . '&method=simpleSearch';
+	}
 
-  static function createLink($name) {
-    $values = [$name['surname'], $name['first']];
-    $query  = implode('+', array_filter($values, function($v) { return $v !== null && $v !== ''; }));
-    return 'https://portal.dnb.de/opac.htm?query=' . $query . '&method=simpleSearch';
-  }
-
-  static function encodePlus() {
-    return false;
-  }
-
+	public static function encodePlus() {
+		return false;
+	}
 }

@@ -18,21 +18,19 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class GooglePlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Google';
+	}
 
-  static function getPluginName() {
-    return 'Google';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
+	public static function createLink($name) {
+		return 'https://www.google.com/search?q="' . $name['fullname'] . '"';
+	}
 
-  static function createLink($name) {
-    return 'https://www.google.com/search?q="' . $name['fullname'] . '"';
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

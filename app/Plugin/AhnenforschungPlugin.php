@@ -21,21 +21,19 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class AhnenforschungPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Ahnenforschung.net';
+	}
 
-  static function getPluginName() {
-    return 'Ahnenforschung.net';
-  }
+	public static function getSearchArea() {
+		return 'DEU';
+	}
 
-  static function getSearchArea() {
-    return 'DEU';
-  }
+	public static function createLink($name) {
+		return 'http://ahnenforschung.net/metasuche.php?query=' . $name['surname'];
+	}
 
-  static function createLink($name) {
-    return 'http://ahnenforschung.net/metasuche.php?query=' . $name['surname'];
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

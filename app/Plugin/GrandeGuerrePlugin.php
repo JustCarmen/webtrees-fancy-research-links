@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class GrandeGuerrePlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Prisoners of the First World War';
+	}
 
-  static function getPluginName() {
-    return 'Prisoners of the First World War';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
-
-  static function createLink($name) {
-    return 'https://grandeguerre.icrc.org/en/File/Search#/3/2/107/0/British%20and%20Commonwealth/Military/' . $name['surn'];
-  }
-
+	public static function createLink($name) {
+		return 'https://grandeguerre.icrc.org/en/File/Search#/3/2/107/0/British%20and%20Commonwealth/Military/' . $name['surn'];
+	}
 }

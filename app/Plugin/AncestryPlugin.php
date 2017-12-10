@@ -18,34 +18,32 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class AncestryPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Ancestry($)';
+	}
 
-  static function getPluginName() {
-    return 'Ancestry($)';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
+	public static function createLink($name) {
+		$domain = [
+		// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
+		'de'     => 'de', // German
+		'en_GB'  => 'co.uk',
+		'en_US'  => 'com',
+		'en_AUS' => 'com.au', // not used by webtrees
+		'fr'     => 'fr',
+		'it'     => 'it',
+		'sv'     => 'se', // Swedish
+	];
+		// ancestry supports Canada in English and French versions, too; but webtrees doesn't support these language versions
+		if (isset($domain[WT_LOCALE])) {
+			$ancestry_domain = $domain[WT_LOCALE];
+		} else {
+			$ancestry_domain = $domain['en_US'];
+		}
 
-  static function createLink($name) {
-    $domain = [
-        // these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
-        'de'     => 'de', // German
-        'en_GB'  => 'co.uk',
-        'en_US'  => 'com',
-        'en_AUS' => 'com.au', // not used by webtrees
-        'fr'     => 'fr',
-        'it'     => 'it',
-        'sv'     => 'se', // Swedish
-    ];
-    // ancestry supports Canada in English and French versions, too; but webtrees doesn't support these language versions
-    if (isset($domain[WT_LOCALE])) {
-      $ancestry_domain = $domain[WT_LOCALE];
-    } else {
-      $ancestry_domain = $domain['en_US'];
-    }
-
-	return 'https://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $name['givn'] . '&gsln=' . $name['surname'] . '&gl=ROOT_CATEGORY&rank=1';
-  }
-
+		return 'https://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $name['givn'] . '&gsln=' . $name['surname'] . '&gl=ROOT_CATEGORY&rank=1';
+	}
 }

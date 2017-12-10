@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class WikipediaPersonPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Wikipedia-Personensuche';  // uses German wikipedia
+	}
 
-  static function getPluginName() {
-    return 'Wikipedia-Personensuche';  // uses German wikipedia
-  }
+	public static function getSearchArea() {
+		return 'DEU';
+	}
 
-  static function getSearchArea() {
-    return 'DEU';
-  }
-
-  static function createLink($name) {
-    return 'https://tools.wmflabs.org/persondata/index.php?name=' . $name['first'] . '* ' . $name['surname'];
-  }
-
+	public static function createLink($name) {
+		return 'https://tools.wmflabs.org/persondata/index.php?name=' . $name['first'] . '* ' . $name['surname'];
+	}
 }

@@ -18,38 +18,36 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class GeneAllPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Geneall($)';
+	}
 
-  static function getPluginName() {
-    return 'Geneall($)';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
+	public static function createLink($name) {
+		$languages = [
+		'de'    => 'de',
+		'en_GB' => 'en',
+		'en_US' => 'en',
+		'fr'    => 'fr',
+		'it'    => 'it',
+		'es'    => 'es',
+		'pt'    => 'pt',
+		'pt_BR' => 'pt',
+	];
 
-  static function createLink($name) {
-    $languages = [
-        'de'    => 'de',
-        'en_GB' => 'en',
-        'en_US' => 'en',
-        'fr'    => 'fr',
-        'it'    => 'it',
-        'es'    => 'es',
-        'pt'    => 'pt',
-        'pt_BR' => 'pt',
-    ];
-
-    if (isset($languages[WT_LOCALE])) {
-      $language = $languages[WT_LOCALE];
-    } else {
-      $language = $languages['en_US'];
-    }
+		if (isset($languages[WT_LOCALE])) {
+			$language = $languages[WT_LOCALE];
+		} else {
+			$language = $languages['en_US'];
+		}
 
 		return 'https://www.geneall.net/' . $language . '/search/?s=' . $name['first'] . ' ' . $name['surname'] . '&t=p';
-  }
+	}
 
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

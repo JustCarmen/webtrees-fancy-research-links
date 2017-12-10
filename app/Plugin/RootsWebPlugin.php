@@ -18,21 +18,19 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class RootsWebPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Rootsweb';
+	}
 
-  static function getPluginName() {
-    return 'Rootsweb';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
+	public static function createLink($name) {
+		return 'https://worldconnect.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=Search&lang=en&surname=' . $name['surname'] . '&stype=Exact&given=' . $name['givn'] . '&brange=0&drange=0&mrange=0&period=All&submit.x=Search';
+	}
 
-  static function createLink($name) {
-    return 'https://worldconnect.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=Search&lang=en&surname=' . $name['surname'] . '&stype=Exact&given=' . $name['givn'] . '&brange=0&drange=0&mrange=0&period=All&submit.x=Search';
-  }
-
-  static function encodePlus() {
-    return true;
-  }
-
+	public static function encodePlus() {
+		return true;
+	}
 }

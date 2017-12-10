@@ -18,17 +18,15 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class BillionGravesPlugin extends FancyResearchLinksClass {
+	public static function getPluginName() {
+		return 'Billion Graves';
+	}
 
-  static function getPluginName() {
-    return 'Billion Graves';
-  }
+	public static function getSearchArea() {
+		return 'INT';
+	}
 
-  static function getSearchArea() {
-    return 'INT';
-  }
-
-  static function createLink($name) {
-    return 'https://billiongraves.com/search/results?given_names=' . $name['first'] . '&family_names=' . $name['surn'] . '&action=search&exact=true#/';
-  }
-
+	public static function createLink($name) {
+		return 'https://billiongraves.com/search/results?given_names=' . $name['first'] . '&family_names=' . $name['surn'] . '&action=search&exact=true#/';
+	}
 }
