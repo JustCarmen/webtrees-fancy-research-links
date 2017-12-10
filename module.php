@@ -101,9 +101,12 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 	}
 
-	// Implement WT_Module_Config
+	/** {@inheritdoc} */
 	public function getConfigLink() {
-		return 'module.php?mod=' . $this->getName() . '&mod_action=admin_config';
+		return Html::url('module.php', [
+			'mod'        => $this->getName(),
+			'mod_action' => 'admin_config',
+		]);
 	}
 
 	// Implement WT_Module_Sidebar
