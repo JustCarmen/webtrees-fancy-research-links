@@ -18,12 +18,11 @@ namespace JustCarmen\WebtreesAddOns\FancyResearchLinks\Plugin;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\FancyResearchLinksClass;
 
 class StadsarchiefAmsterdamPlugin extends FancyResearchLinksClass {
-
-	static function getPluginName() {
+	public static function getPluginName() {
 		return 'Stadsarchief Amsterdam';
 	}
 
-	static function getSearchArea() {
+	public static function getSearchArea() {
 		return 'NLD';
 	}
 
@@ -36,7 +35,7 @@ class StadsarchiefAmsterdamPlugin extends FancyResearchLinksClass {
 	 * The url is the link to the first index in the list, but all indexes will be listed
 	 *
 	 */
-	static function createLink($name) {
+	public static function createLink($name) {
 		return 'https://archief.amsterdam/indexen/archiefkaarten_1939-1994/zoek/query.nl.pl?i1=1&v1=' . $name['givn'] . '&a1=' . $name['surn'] . '&x=0&z=b';
 	}
 }
