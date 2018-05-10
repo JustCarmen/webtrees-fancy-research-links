@@ -84,6 +84,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 				if (Filter::postBool('save')) {
 					$this->setSetting('FRL_PLUGINS', serialize(Filter::post('NEW_FRL_PLUGINS')));
 					$this->setSetting('FRL_DEFAULT_AREA', Filter::post('FRL_DEFAULT_AREA'));
+					$this->setSetting('FRL_DEFAULT_BLANK', Filter::post('FRL_DEFAULT_BLANK'));
 					Log::addConfigurationLog($this->getTitle() . ' config updated');
 				}
 				$template = new AdminTemplate;
@@ -214,9 +215,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 									];
 									$link		 = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
 								}
+								if ($this->getSetting('FRL_DEFAULT_BLANK') === '1') {
+									$target = 'target="_blank"';
+								} else {
+									$target = '';
+								}
 								$html .=
 									'<li>' .
-									'<a href="' . Filter::escapeHtml($link) . '">' .
+									'<a ' . $target . ' href="' . Filter::escapeHtml($link) . '">' .
 									$plugin->getPluginName() .
 									'</a>' .
 									'</li>';
