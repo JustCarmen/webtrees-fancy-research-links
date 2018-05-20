@@ -128,7 +128,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	// Implement WT_Module_Sidebar
 	public function getSidebarContent(Individual $individual) {
 		// code based on similar in function_print_list.php
-		global $controller;
+		global $controller, $WT_TREE;
 
 		$controller->addInlineJavascript('
 			$("#sidebar-header-' . $this->getName() . ' a").text("' . $this->getSidebarTitle() . '");
@@ -185,6 +185,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 			$i                     = 0;
 			$total_enabled_plugins = 0;
 
+			$record = Individual::getInstance(Filter::get('xref'), $WT_TREE, Filter::get('ged'));
+
 			foreach ($this->module()->getPluginList() as $area => $plugins) {
 				$FRL_PLUGINS = $this->module()->getEnabledPlugins($plugins);
 
@@ -205,7 +207,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 					$i++;
 					foreach ($plugins as $label => $plugin) {
 						if (in_array($label, $FRL_PLUGINS)) {
-							foreach ($controller->record->getFacts() as $fact) {
+							foreach ($record->getFacts() as $fact) {
 								$tag = $fact->getTag();
 								if ($tag == "NAME") {
 									$this->primary = $this->module()->getPrimaryName($fact);
@@ -215,10 +217,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 
 							if ($this->primary) {
 								$this->attrs = [
-									'birthyear'  => $controller->record->getBirthYear(),
-									'birthplace' => $controller->record->getBirthPlace(),
-									'deathyear'  => $controller->record->getDeathYear(),
-									'deathplace' => $controller->record->getDeathPlace()
+									'birthyear'  => $record->getBirthYear(),
+									'birthplace' => $record->getBirthPlace(),
+									'deathyear'  => $record->getDeathYear(),
+									'deathplace' => $record->getDeathPlace()
 								];
 								$link = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
 								if ($this->getSetting('FRL_TARGET_BLANK') === '1') {
