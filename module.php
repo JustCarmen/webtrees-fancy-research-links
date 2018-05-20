@@ -21,6 +21,7 @@ use Fisharebest\Webtrees\Database;
 use Fisharebest\Webtrees\Filter;
 use Fisharebest\Webtrees\Html;
 use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Log;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
@@ -115,7 +116,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Implement WT_Module_Sidebar
-	public function hasSidebarContent() {
+	public function hasSidebarContent(Individual $individual) {
 		return true;
 	}
 
@@ -125,7 +126,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Implement WT_Module_Sidebar
-	public function getSidebarContent() {
+	public function getSidebarContent(Individual $individual) {
 		// code based on similar in function_print_list.php
 		global $controller;
 
