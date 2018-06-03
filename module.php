@@ -27,6 +27,7 @@ use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleMenuInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
+use Fisharebest\Webtrees\Tree;
 use JustCarmen\WebtreesAddOns\FancyResearchLinks\Template\AdminTemplate;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInterface, ModuleSidebarInterface, ModuleMenuInterface {
@@ -259,7 +260,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Implement ModuleMenuInterface
-	public function getMenu() {
+	public function getMenu(Tree $tree) {
 		// We don't actually have a menu - this is just a convenient "hook" to execute code at the right time during page execution
 		// We need it to load the stylesheet at the right time. If we use this method in the sidebar funcion the stylesheet loads before
 		// the other stylesheets. This might give problems.
