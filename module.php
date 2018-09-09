@@ -67,7 +67,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Extend WT_Module
-	public function getTitle() {
+	public function getTitle(): string {
 		return /* I18N: Name of the module */ I18N::translate('Fancy Research Links');
 	}
 
@@ -76,7 +76,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Extend WT_Module
-	public function getDescription() {
+	public function getDescription(): string {
 		return /* I18N: Description of the module */ I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
 	}
 
@@ -104,7 +104,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	/** {@inheritdoc} */
-	public function getConfigLink() {
+	public function getConfigLink(): string {
 		return Html::url('module.php', [
 			'mod'        => $this->getName(),
 			'mod_action' => 'admin_config',
@@ -112,12 +112,12 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Implement WT_Module_Sidebar
-	public function defaultSidebarOrder() {
+	public function defaultSidebarOrder(): int {
 		return 9;
 	}
 
 	// Implement WT_Module_Sidebar
-	public function hasSidebarContent(Individual $individual) {
+	public function hasSidebarContent(Individual $individual): bool {
 		return true;
 	}
 
@@ -127,7 +127,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Implement WT_Module_Sidebar
-	public function getSidebarContent(Individual $individual) {
+	public function getSidebarContent(Individual $individual): string {
 		// code based on similar in function_print_list.php
 		global $controller, $WT_TREE;
 
@@ -255,7 +255,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 	}
 
 	// Implement ModuleMenuInterface
-	public function defaultMenuOrder() {
+	public function defaultMenuOrder(): int {
 		return 999;
 	}
 
