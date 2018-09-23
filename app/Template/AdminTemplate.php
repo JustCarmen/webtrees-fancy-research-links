@@ -40,10 +40,10 @@ class AdminTemplate extends FancyResearchLinksClass {
 				jQuery("head").append("<style>[dir=rtl] .checkbox-inline input[type=checkbox]{margin-left:-20px}</style>");
 				jQuery("input[name=select-all]").click(function(){
 					if (jQuery(this).is(":checked") == true) {
-						jQuery(".checkbox-inline").find(":checkbox").prop("checked", true).val(1);
+						jQuery(".checkbox-inline").find(":checkbox[name^=NEW_FRL_PLUGINS]").prop("checked", true).val(1);
 						jQuery("input[id^=NEW_FRL_PLUGINS]").val(1);
 					} else {
-						jQuery(".checkbox-inline").find(":checkbox").prop("checked", false).val(0);
+						jQuery(".checkbox-inline").find(":checkbox[name^=NEW_FRL_PLUGINS]").prop("checked", false).val(0);
 						jQuery("input[id^=NEW_FRL_PLUGINS]").val(0);
 					}
 					formChanged = true;
@@ -70,10 +70,24 @@ class AdminTemplate extends FancyResearchLinksClass {
 		<form class="form-horizontal" method="post" name="configform" action="<?= $this->getConfigLink() ?>">
 			<input type="hidden" name="save" value="1">
 			<!-- SELECT ALL -->
-			<div class="form-group checkbox col-sm-12">
+			<div class="form-group checkbox col-sm-6">
 				<label>
 					<?= FunctionsEdit::checkbox('select-all') . I18N::translate('select all') ?>
 				</label>
+			</div>
+			<!-- OPEN LINKS IN NEW TAB -->
+			<div class="form-group col-sm-6 text-right pull-right">
+				<label class="checkbox-inline">
+					<?php
+						if ($this->getSetting('FRL_TARGET_BLANK') === '1') {
+							$blank_enabled = '1';
+						} else {
+							$blank_enabled = '0';
+						}
+					?>
+					<?= FunctionsEdit::twoStateCheckbox('FRL_TARGET_BLANK', $blank_enabled) ?> <?= I18N::translate('Open links in a new tab') ?>
+				</label>
+			  <p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
 			</div>
 			<!-- RESEARCH LINKS -->
 			<?php foreach ($this->getPluginList() as $area => $plugins): ?>				
