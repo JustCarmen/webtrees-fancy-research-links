@@ -28,7 +28,7 @@ class OnlineFamilieberichtenPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://www.online-familieberichten.nl/zoeken.asp?sortpers=naam&voornaam=' . $name['givn'] . '&tussenvoegsel=' . $name['prefix'] . '&achternaam=' . $name['surn'] . '&command=zoekformres';
+		return 'https://www.online-familieberichten.nl/zoeken.asp?sortpers=naam&command=zoekformres&achternaam=' . $name['surn'] . '&tussenvoegsel=' . $name['prefix'] . '&voornaam=' . $name['first'];
 	}
 
 	static function encodePlus() {
