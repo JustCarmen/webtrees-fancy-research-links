@@ -34,30 +34,28 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 */
 	protected function getPluginList() {
 		$plugins	 = [];
-		$lang_ols	 = I18N::translate('Other links');
 		$lang_int	 = I18N::translate('International');
+		$lang_ols	 = I18N::translate('Other links');
 
 		foreach (glob(__DIR__ . '/Plugin/*.php') as $file) {
-			$label	 = basename($file, ".php");
-			$class	 = __NAMESPACE__ . '\Plugin\\' . $label;
-			$plugin	 = new $class;
-			if ($plugin->createLinkOnly()) {
-				$area = $lang_ols;
-			} else {
-				$area = self::getSearchAreaName($plugin->getSearchArea());
-			}
-			$plugins[$area][$label] = $plugin;
+			$label					 = basename($file, ".php");
+			$class					 = __NAMESPACE__ . '\Plugin\\' . $label;
+			$plugin					 = new $class;
+			$area					 = self::getSearchAreaName($plugin->getSearchArea());
+			$plugins[$area][$label]	 = $plugin;
 		}
 		ksort($plugins);
 
 		$plugins_int = [];
 		if (array_key_exists($lang_int, $plugins)) {
 			$plugins_int = [$lang_int => $plugins[$lang_int]];
+			unset($plugins[$lang_int]);
 		}
 
 		$plugins_ols = [];
 		if (array_key_exists($lang_ols, $plugins)) {
 			$plugins_ols = [$lang_ols => $plugins[$lang_ols]];
+			unset($plugins[$lang_ols]);
 		}
 
 		return array_filter(array_merge($plugins_int, $plugins, $plugins_ols));
@@ -74,7 +72,10 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 		global $WT_TREE;
 		$stats		 = new Stats($WT_TREE);
 		$countries	 = $stats->getAllCountries();
-		if (array_key_exists($area, $countries)) {
+
+		if ($area === '') {
+			$area = I18N::translate("Other links");
+		} elseif (array_key_exists($area, $countries)) {
 			$area = $countries[$area];
 		} else {
 			$area = I18N::translate("International");
@@ -89,15 +90,6 @@ class FancyResearchLinksClass extends FancyResearchLinksModule {
 	 * @return
 	 */
 	static function createLink($name) {
-		return;
-	}
-
-	/**
-	 * Create link only function. Create link without name search. Default is none;
-	 *
-	 * @return
-	 */
-	static function createLinkOnly() {
 		return;
 	}
 

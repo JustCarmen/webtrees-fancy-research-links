@@ -204,22 +204,20 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleConfigInt
 							}
 
 							if ($this->primary) {
-								if ($plugin->createLinkOnly()) {
-									$link = $plugin->createLinkOnly();
-								} else {
-									$this->attrs = [
-										'birthyear'	 => $controller->record->getBirthYear(),
-										'birthplace' => $controller->record->getBirthPlace(),
-										'deathyear'	 => $controller->record->getDeathYear(),
-										'deathplace' => $controller->record->getDeathPlace()
-									];
-									$link		 = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
-								}
+								$this->attrs = [
+									'birthyear'	 => $controller->record->getBirthYear(),
+									'birthplace' => $controller->record->getBirthPlace(),
+									'deathyear'	 => $controller->record->getDeathYear(),
+									'deathplace' => $controller->record->getDeathPlace()
+								];
+								$link		 = $plugin->createLink($this->module()->getNames($this->primary, $this->attrs, $plugin->encodePlus()));
+
 								if ($this->getSetting('FRL_TARGET_BLANK') === '1') {
 									$target = 'target="_blank"';
 								} else {
 									$target = '';
 								}
+								
 								$html .=
 									'<li>' .
 									'<a href="' . Filter::escapeHtml($link) . '" ' . $target . ' >' .

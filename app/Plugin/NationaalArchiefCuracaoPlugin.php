@@ -28,10 +28,10 @@ class NationaalArchiefCuracaoPlugin extends FancyResearchLinksClass {
 	}
 
 	static function getSearchArea() {
-		return 'NLD';
+		return '';
 	}
 
-	static function createLinkOnly() {
+	static function createLink($name) {
 		return 'https://www.nationaalarchief.cw/api/picturae/genealogie/persons';
 	}
 }

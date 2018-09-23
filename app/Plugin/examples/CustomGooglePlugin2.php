@@ -36,6 +36,7 @@ class CustomGooglePlugin2 extends FancyResearchLinksClass {
 	 * Determine the search area of the plugin, using the official 3 letter country code
 	 * Look in App/Stats.php => public function getAllCountries for the complete list of available codes.
 	 * Use 'INT' for 'International'
+	 * Leave empty to list the plugin in the category 'Other links'.
 	 * 
 	 * @return string
 	 */
