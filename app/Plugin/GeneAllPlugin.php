@@ -45,7 +45,7 @@ class GeneAllPlugin extends FancyResearchLinksClass {
 			$language = $languages['en_US'];
 		}
 
-		return 'http://www.geneall.net/' . $language . '/search/?s=' . $name['fullname'] . '&t=p';
+		return 'https://www.geneall.net/' . $language . '/search/?s=' . $name['first'] . ' ' . $name['surname'] . '&t=p';
 	}
 
 	static function encodePlus() {

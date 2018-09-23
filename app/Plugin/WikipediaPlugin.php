@@ -29,7 +29,7 @@ class WikipediaPlugin extends FancyResearchLinksClass {
 
 	static function createLink($name) {
 		$language = substr(WT_LOCALE, 0, 2);
-		return 'https://' . $language . '.wikipedia.org/wiki/' . $name['givn'] . '_' . $name['surname'];
+		return 'https://' . $language . '.wikipedia.org/wiki/' . $name['first'] . '_' . $name['surname'];
 	}
 
 }
