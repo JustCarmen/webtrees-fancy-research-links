@@ -126,20 +126,6 @@ class AdminTemplate extends FancyResearchLinksClass {
 				</div>
 			<?php endforeach; ?>
 			<div class="form-group col-sm-12">
-				<span class="h3"><?= I18N::translate('Open links') ?></span> <br>
-				<label class="checkbox-inline">
-					<?php 
-						if ($this->getSetting('FRL_DEFAULT_BLANK') === '1') {
-							$blank_enabled = '1';
-						} else {
-							$blank_enabled = '0';
-						}
-					?>
-					<?= FunctionsEdit::twoStateCheckbox('FRL_DEFAULT_BLANK', $blank_enabled) ?> <?= I18N::translate('In a new tab') ?>
-				</label>
-				<p class="small"><?= I18N::translate('Open the researchlinks in a new tab(target="blank")?') ?></p>
-			</div>	
-			<div class="form-group col-sm-12">
 				<button type="submit" class="btn btn-primary">
 					<i class="fa fa-check"></i>
 					<?= I18N::translate('save') ?>
