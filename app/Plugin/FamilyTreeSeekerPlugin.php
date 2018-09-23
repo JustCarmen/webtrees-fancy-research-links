@@ -28,7 +28,7 @@ class FamilyTreeSeekerPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://familytreeseeker.com/search.php?l=en&fn=' . strtolower($name['givn']) . '&sn=' . strtolower($name['surname']) . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Search';
+		return 'https://familytreeseeker.com/search.php?l=en&fn=' . strtolower($name['givn']) . '&sn=' . strtolower($name['surname']) . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Search';
 	}
 
 	static function encodePlus() {

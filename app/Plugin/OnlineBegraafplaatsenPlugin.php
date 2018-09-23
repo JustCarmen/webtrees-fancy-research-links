@@ -29,7 +29,7 @@ class OnlineBegraafplaatsenPlugin extends FancyResearchLinksClass {
 
 	static function createLink($name) {
 		// This is a post form, so it will be send with Javascript
-		$url	 = 'http://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekform';
+		$url	 = 'https://www.online-begraafplaatsen.nl/zoeken.asp?command=zoekform';
 		$params	 = [
 			'achternaam' => $name['surn'],
 			'voornaam'	 => $name['first'] . '*'

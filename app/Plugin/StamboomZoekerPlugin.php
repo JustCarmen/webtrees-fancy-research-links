@@ -28,7 +28,7 @@ class StamboomZoekerPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://stamboomzoeker.nl/search.php?l=nl&fn=' . strtolower($name['givn']) . '&sn=' . strtolower($name['surname']) . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Zoeken';
+		return 'https://stamboomzoeker.nl/search.php?l=nl&fn=' . strtolower($name['givn']) . '&sn=' . strtolower($name['surname']) . '&m=1&bd1=0&bd2=0&bp=&t=1&submit=Zoeken';
 	}
 
 	static function encodePlus() {

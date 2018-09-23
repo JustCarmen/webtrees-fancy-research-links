@@ -28,7 +28,7 @@ class GrandeGuerrePlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://grandeguerre.icrc.org/en/File/Search#/3/2/107/0/British%20and%20Commonwealth/Military/' . $name['surn'];
+		return 'https://grandeguerre.icrc.org/en/File/Search#/3/2/107/0/British%20and%20Commonwealth/Military/' . $name['surn'];
 	}
 
 }

@@ -28,7 +28,7 @@ class FindMyPastPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'http://search.findmypast.com/search/world-records?firstname=' . $name['givn'] . '&firstname_variants=true&lastname=' . $name['surname'];
+		return 'https://search.findmypast.com/search/world-records?firstname=' . $name['givn'] . '&firstname_variants=true&lastname=' . $name['surname'];
 	}
 
 }
