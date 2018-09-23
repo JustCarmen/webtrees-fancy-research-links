@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2016-12-26 16:41+0100\n"
+"POT-Creation-Date: 2018-09-23 14:02+0200\n"
 "PO-Revision-Date: 2017-07-21 14:18+0000\n"
 "Last-Translator: Finn Christensen <fc@winmagic.dk>\n"
 "Language-Team: Danish <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/da/>\n"
@@ -17,39 +17,47 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #. I18N: Description of the module
-#: module.php:77
+#: module.php:76
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Et sidepanelsværktøj for hurtig adgang til links til populære forsknings-hjemmesider."
 
-#: app/Template/AdminTemplate.php:63
+#: app/Template/AdminTemplate.php:66
 msgid "Check the plugins you want to use in the sidebar."
 msgstr "Markér de moduler du vil have i sidepanelet."
 
+#: app/Template/AdminTemplate.php:89
+msgid "Enabling this will change the default behavior of the browser."
+msgstr ""
+
 #. I18N: Name of the module
-#: app/Template/AdminTemplate.php:37 module.php:68
+#: app/Template/AdminTemplate.php:36 module.php:67
 msgid "Fancy Research Links"
 msgstr "Fancy Forskningslinks"
 
-#: app/Template/AdminTemplate.php:64
+#: app/Template/AdminTemplate.php:67
 msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Marker knappen ud for et forskningsområdes overskrift for at vælge dette område som standard. Det valgte område vil blive vist åbnet i sidepanelet."
 
-#: app/FancyResearchLinksClass.php:38 app/FancyResearchLinksClass.php:80
+#: app/FancyResearchLinksClass.php:32 app/FancyResearchLinksClass.php:76
 msgid "International"
 msgstr "International"
 
-#: app/FancyResearchLinksClass.php:37
+#: app/Template/AdminTemplate.php:87
+msgid "Open links in a new tab"
+msgstr ""
+
+#: app/FancyResearchLinksClass.php:33 app/FancyResearchLinksClass.php:72
 msgid "Other links"
 msgstr "Andre links"
 
-#: module.php:72
+#: module.php:71
 msgid "Research links"
 msgstr "Forsknings-links"
 
-#: app/Template/AdminTemplate.php:115
+#: app/Template/AdminTemplate.php:133
 msgid "The settings will be reset to default. Are you sure you want to do this?"
 msgstr "Indstillingerne resettes til default. Er du sikker på du vil gøre dette?"
 
-#: module.php:232 module.php:237
+#: module.php:235 module.php:240
 msgid "There are no research links available for this individual."
 msgstr "Der er ingen forsknings-links tilgængelige for dette individ."
