@@ -34,7 +34,7 @@ class OpenArchievenPlugin extends FancyResearchLinksClass {
 		if (!in_array($language, $languages)) {
 			$language = 'en';
 		}
-		return 'https://www.openarch.nl/search.php?lang=' . $language . '&name=' . $name['fullname'] . '&number_show=10&sort=1';
+		return 'https://www.openarch.nl/search.php?lang=' . $language . '&name=' . $name['fullname'] . ' ' . $name['birthyear'] . '-' . $name['deathyear'] . '&number_show=10&sort=4';
 	}
 
 	static function encodePlus() {
