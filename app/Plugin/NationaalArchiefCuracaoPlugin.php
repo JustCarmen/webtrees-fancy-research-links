@@ -31,6 +31,6 @@ class NationaalArchiefCuracaoPlugin extends FancyResearchLinksClass {
 	}
 
 	static function createLink($name) {
-		return 'https://www.nationaalarchief.cw/api/picturae/genealogie/persons';
+		return 'https://www.nationaalarchief.cw/api/picturae/genealogie';
 	}
 }
