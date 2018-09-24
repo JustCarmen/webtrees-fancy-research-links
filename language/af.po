@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
 "POT-Creation-Date: 2018-09-23 14:02+0200\n"
-"PO-Revision-Date: 2016-10-16 17:48+0000\n"
+"PO-Revision-Date: 2018-09-24 08:21+0000\n"
 "Last-Translator: Chris Theron <tronsmit@gmail.com>\n"
 "Language-Team: Afrikaans <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/af/>\n"
 "Language: af\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.10\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
@@ -27,7 +27,7 @@ msgstr "Ontsper die inproppe wat jy in die sypaneel wil gebruik."
 
 #: app/Template/AdminTemplate.php:89
 msgid "Enabling this will change the default behavior of the browser."
-msgstr ""
+msgstr "Hierdie instelling sal die verstek gedrag van die blaaier verander."
 
 #. I18N: Name of the module
 #: app/Template/AdminTemplate.php:36 module.php:67
@@ -44,7 +44,7 @@ msgstr "Internasionaal"
 
 #: app/Template/AdminTemplate.php:87
 msgid "Open links in a new tab"
-msgstr ""
+msgstr "Maak skakels in 'n nuwe oortjie oop"
 
 #: app/FancyResearchLinksClass.php:33 app/FancyResearchLinksClass.php:72
 msgid "Other links"
