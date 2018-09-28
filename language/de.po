@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
 "POT-Creation-Date: 2018-09-23 14:02+0200\n"
-"PO-Revision-Date: 2016-10-15 18:41+0000\n"
+"PO-Revision-Date: 2018-09-28 09:55+0000\n"
 "Last-Translator: Martin Pannier <der@bauschaffen.de>\n"
 "Language-Team: German <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/de/>\n"
 "Language: de\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
 
@@ -25,7 +25,7 @@ msgstr "Wählen Sie die in der seitlichen Navigationsleiste zu verwendenden Ahne
 
 #: app/Template/AdminTemplate.php:89
 msgid "Enabling this will change the default behavior of the browser."
-msgstr ""
+msgstr "Die Aktivierung wird das Standardverhalten des Browsers ändern."
 
 #. I18N: Name of the module
 #: app/Template/AdminTemplate.php:36 module.php:67
@@ -42,7 +42,7 @@ msgstr "International"
 
 #: app/Template/AdminTemplate.php:87
 msgid "Open links in a new tab"
-msgstr ""
+msgstr "Verknüpfungen in einem neuen Reiter öffenen"
 
 #: app/FancyResearchLinksClass.php:33 app/FancyResearchLinksClass.php:72
 msgid "Other links"
