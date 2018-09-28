@@ -42,7 +42,7 @@ msgstr "International"
 
 #: app/Template/AdminTemplate.php:87
 msgid "Open links in a new tab"
-msgstr "Verknüpfungen in einem neuen Reiter öffenen"
+msgstr "Verknüpfungen in einem neuen Reiter öffnen"
 
 #: app/FancyResearchLinksClass.php:33 app/FancyResearchLinksClass.php:72
 msgid "Other links"
