@@ -1,0 +1,92 @@
+<?php
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
+
+?>
+
+<?= view('components/breadcrumbs', ['links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
+
+<h1><?= $title ?></h1>
+
+<form method="post">
+    <?= csrf_field() ?>
+    <input type="hidden" name="save" id="save" value="1">
+    <!-- TREE LIST -->
+    <div class="row form-group">
+        <label class="col-sm-3 col-form-label for=" tree"><?= I18N::translate('Family tree') ?></label>
+        <div class="col-sm-9">
+            <select class="form-control" id="tree" name="tree-id" type="text" required>
+                <option value=""><?= I18N::translate('&lt;select&gt;') ?></option>
+                <?php foreach ($all_trees as $tree) : ?>
+                    <?php if($tree->id() === (int)$tree_id) : ?>
+                    <option value="<?= $tree->id() ?>" selected="selected">
+                        <?= $tree->title() ?>
+                    </option>
+                    <?php else : ?>
+                    <option value="<?= $tree->id() ?>">
+                        <?= $tree->title() ?>
+                    </option>
+                    <?php endif; ?>
+                <?php endforeach ?>
+            </select>
+        </div>
+    </div>
+    <!-- MEDIA FOLDER LIST -->
+    <div class="row form-group">
+        <label class="col-sm-3 col-form-label" for="media-folder">
+            <?= I18N::translate('Media folder') ?>
+        </label>
+        <div class="col-sm-9">
+            <?= view('components/select', ['name' => 'media-folder', 'selected' => $media_folder, 'options' => $media_folders]) ?>
+            <div class="mx-1 mt-2">
+                <?= view('components/checkbox-inline', ['label' => /* I18N: Label for check-box */ I18N::translate('Include subfolders'), 'name' => 'subfolders', 'checked' => (int)$subfolders]) ?>
+            </div>
+        </div>
+    </div>
+    <!-- MEDIA TYPE LIST -->
+    <div class="row form-group">
+        <label class="col-sm-3 col-form-label" for="media-type">
+            <?= I18N::translate('Media type') ?>
+        </label>
+        <div class="col-sm-9">
+            <?= view('components/select', ['name' => 'media-type', 'selected' => $media_type, 'options' => $media_types]) ?>
+        </div>
+    </div>
+    <!-- HEIGHT OF THE IMAGE BAR -->
+    <div class="row form-group">
+        <label class="col-form-label col-sm-3">
+            <?= I18N::translate('Height of the Fancy Imagebar') ?>
+        </label>
+        <div class="col-sm-1">
+            <input class="form-control" type="text" name="canvas-height" size="3" value="<?= $canvas_height ?>" required>
+        </div>
+        <div class="form-control-static align-self-center">px</div>
+    </div>
+    <!-- CROP THUMBNAILS TO SQUARE -->
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-3">
+                <?= I18N::translate('Crop thumbnails to square') ?>
+            </legend>
+            <div class="col-sm-9">
+                <?= view('components/radios-inline', ['name' => 'square-thumbs', 'options' => [I18N::translate('no'), I18N::translate('yes')], 'selected' => (int)$square_thumbs]) ?>
+            </div>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">
+        <?= view('icons/save') ?>
+        <?= I18N::translate('save') ?>
+    </button>
+</form>
+
+<?php View::push('javascript') ?>
+<script>
+    $('#tree').on('change', function() {
+        $('#save').val('0');
+        $('form').submit();
+        return false;
+    });
+</script>
+<?php View::endpush() ?>
