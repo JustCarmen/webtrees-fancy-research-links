@@ -1,0 +1,19 @@
+<div id="sb_fancy_research_links">
+    <!-- RESEARCH LINKS -->
+    <?php foreach ($plugins as $area => $plugins_by_area): ?>
+        <?php
+        $expanded = (bool) true; // $tree->getPreference('EXPAND_SOURCES');
+        $id = '';
+        ?>
+        <a href="#<?= e($id) ?>" role="button" data-toggle="collapse" aria-controls="<?= e($id) ?>" aria-expanded="<?= $expanded ? 'true' : 'false' ?>">
+            <?= view('icons/expand') ?>
+            <?= view('icons/collapse') ?>
+        </a>
+        <span><?= $area ?></span>
+        <ul>
+        <?php foreach ($plugins_by_area as $plugin): ?>
+            <li><a href="<?= $plugin->researchLink($name, $birth, $death) ?>"><?= $plugin->pluginLabel() ?></a></li>
+        <?php endforeach; ?>
+        </ul>
+    <?php endforeach; ?>
+</div>

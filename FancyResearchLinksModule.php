@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
+use Throwable;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
+use Illuminate\Support\Collection;
+use Fisharebest\Webtrees\Individual;
+use Fisharebest\Webtrees\FlashMessages;
 use Psr\Http\Message\ResponseInterface;
 use Fisharebest\Localization\Translation;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,13 +17,18 @@ use Fisharebest\Webtrees\Services\TreeService;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
+use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 
-class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface
+use function str_replace;
+
+class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
     use ModuleCustomTrait;
     use ModuleConfigTrait;
+    use ModuleSidebarTrait;
 
     /** @var TreeService */
     private $tree_service;
@@ -121,16 +130,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     }
 
     /**
-     * Where does this module store its plugins
-     *
-     * @return string
-     */
-    public function pluginsFolder(): string
-    {
-        return $this->resourcesFolder() . 'plugins/';
-    }
-
-    /**
      * @param ServerRequestInterface $request
      *
      * @return ResponseInterface
@@ -139,8 +138,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $this->layout = 'layouts/administration';
 
-        return $this->viewResponse($this->name() . '::settings', [
+        $request    = app(ServerRequestInterface::class);
+        $tree       = $request->getAttribute('tree');
 
+        return $this->viewResponse($this->name() . '::settings', [
+            'title' => $this->title(),
+            'target_blank' => $this->getPreference('target-blank'),
+            'plugins' => $this->getPluginsByArea()
         ]);
     }
 
@@ -155,15 +159,79 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $params = (array) $request->getParsedBody();
 
-        // store the preferences in the database
-        $all_trees = $this->tree_service->all();
-
         if ($params['save'] === '1') {
+            $this->setPreference('target-blank', $params['target-blank']);
 
+            $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
+            FlashMessages::addMessage($message, 'success');
         }
 
         return redirect($this->getConfigLink());
     }
+
+    /**
+     * The text that appears on the sidebar's title.
+     *
+     * @return string
+     */
+    public function sidebarTitle(): string
+    {
+        return I18N::translate('Research links');
+    }
+
+    /**
+     * The default position for this sidebar.  It can be changed in the control panel.
+     *
+     * @return int
+     */
+    public function defaultSidebarOrder(): int
+    {
+        return 1;
+    }
+
+    /**
+     * Does this sidebar have anything to display for this individual?
+     *
+     * @param Individual $individual
+     *
+     * @return bool
+     */
+    public function hasSidebarContent(Individual $individual): bool {
+        return true;
+    }
+
+    /**
+     * Load this sidebar synchronously.
+     *
+     * @param Individual $individual
+     *
+     * @return string
+     */
+    public function getSidebarContent(Individual $individual): string
+    {
+        $names  = $individual->getAllNames();
+        $name   = $names[0];
+
+        $first_name	= explode(" ", $name['givn'])[0];
+        $name['first'] = $first_name;
+
+        $pf_name = str_replace($name['surn'], '', $name['surname']);
+        $name['prefix'] = trim($pf_name);
+
+        $birth['year'] = $individual->getBirthYear();
+        $birth['place'] = $individual->getBirthPlace();
+        $death['year'] = $individual->getDeathYear();
+        $death['place'] = $individual->getDeathPlace();
+
+        return view($this->name() . '::sidebar', [
+            'plugins'    => $this->getPluginsByArea(),
+            'tree'       => $individual->tree(),
+            'name'       => $name,
+            'birth'     => $birth,
+            'death'     => $death
+        ]);
+    }
+
 
     /**
      * Additional/updated translations.
@@ -182,4 +250,39 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             return [];
         }
     }
+
+     /**
+     * Collect all plugins from the plugins folder
+     *
+     * @return Collection<ModuleCustomInterface>
+     */
+    private function getPlugins(): Collection
+    {
+        $pattern   = __DIR__ . '/plugins/*Plugin.php';
+        $filenames = glob($pattern, GLOB_NOSORT);
+
+        return Collection::make($filenames)
+            ->map(static function (string $filename) {
+                try {
+                    $path_parts = pathinfo($filename);
+                    $plugin = app(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    return $plugin;
+                } catch (Throwable $ex) {
+                    FlashMessages::addMessage(I18N::translate('There was an error loading the plugin ' . $path_parts['filename'] . '.') . '<br>' . e($ex->getMessage()), 'danger');
+                    throw $ex;
+                }
+            });
+    }
+
+    private function getPluginsByArea(): Collection
+    {
+        $plugins = $this->getPlugins();
+
+        $pluginlist = $plugins->mapToGroups(static function ($plugin) {
+            return [$plugin->researchArea() => $plugin];
+        });
+
+        return $pluginlist->sortkeys();
+    }
+
 };
