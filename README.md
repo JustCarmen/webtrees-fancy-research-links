@@ -1,16 +1,17 @@
-Fancy Research Links
-====================
+Fancy Research Links for webtrees
+=================================
 
-Fancy Research Links Module for webtrees.
+[![Latest Release](https://img.shields.io/github/release/JustCarmen/webtrees-fancy-research-links.svg)][1]
+[![webtrees major version](https://img.shields.io/badge/webtrees-v2.x-green)][2]
+[![Downloads](https://img.shields.io/github/downloads/JustCarmen/webtrees-fancy-research-links/total.svg)]()
 
-This module requires [webtrees 1.7.11](https://github.com/fisharebest/webtrees). Download the latest stable release of this module [here](https://github.com/JustCarmen/fancy_research_links/releases/latest).
-The development version (master branch) only works with webtrees 1.8.0-dev.
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XPBC2W85M38AS&item_name=webtrees%20modules%20by%20JustCarmen&currency_code=EUR)
 
-Description
+Introduction
 -----------
 A sidebar module that provides quick links to popular research web sites, using the individuals name as the search reference. There is a base stylesheet added to the module which should work with any theme.
 
-[Here](http://www.justcarmen.nl/fancy-research-links-link-list/) you can get a quick overview of the plugins (search links) available. The plugins are grouped by search area.
+Look in the plugin folder to get a quick overview of the plugins (research links) available.
 
 You can extend the list of possible research sites by making your own plugin. Look in the src/Plugin folder of the module for examples.
 
@@ -30,13 +31,17 @@ On the Fancy Research Links configuration page you can select the plugins you wa
 
 Translations
 ------------
-You can help to translate this module. Updates to translations should be made at https://translate.webtrees.net/projects/justcarmen/. Changes made there will be pushed to the git repository periodically and will be available on the development version of the module. They will be included in the next release of this module.
+You can help to translate this module. Use a local editor, like poeditor or notepad++ to make the translations and send them back to me. You can do this via a pull request (if you know how) or by e-mail. Updated translations will be included in the next release of this module.
 
 Installation & upgrading
 ------------------------
-For more information about these subjects go to the JustCarmen help pages: http://www.justcarmen.nl/help
+Unpack the zip file and place the folder jc-fancy-research-links in the modules_v4 folder of webtrees. Upload the newly added folder to your server. It is activated by default. Go to the control panel to set some options.
 
 Bugs and feature requests
 -------------------------
-If you experience any bugs or have a feature request for this module you can [create a new issue](https://github.com/JustCarmen/fancy_research_links/issues?state=open) or [use the webtrees subforum 'customising'](http://www.webtrees.net/index.php/en/forum/4-customising) to contact me.
+If you experience any bugs or have a feature request for this module you can [create a new issue on GitHub][4].
+
+ [1]: https://github.com/JustCarmen/webtrees-fancy-research-links/releases/latest
+ [2]: https://webtrees.github.io/download/
+ [4]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
 
