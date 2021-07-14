@@ -7,13 +7,12 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
-class DigitaleStamboomPlugin extends FancyResearchLinksModule
+class ZeeuwsArchiefPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Digitale Stamboom';
+		return 'Zeeuws archief';
 	}
-
 
 	public static function pluginName(): string
 	{
@@ -27,10 +26,7 @@ class DigitaleStamboomPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		return 'http://www.digitalestamboom.nl/search.aspx?lang=nl&verder=' . $name['givn'] . urlencode('||') . $name['prefix'] . urlencode('|') . $name['surn'];
-	}
-
-	public static function encodePlus() {
-		return true;
+		return 'https://www.zeeuwsarchief.nl/onderzoek-het-zelf/archief/?mivast=239&miadt=239&mizig=862&miview=tbl&milang=nl' .
+		'&micols=1&mip3=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
 	}
 }
