@@ -11,7 +11,7 @@ class AncestryPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
 	{
-		return 'Ancestry($)';
+		return 'Ancestry ($)';
 	}
 
 	public static function pluginName(): string

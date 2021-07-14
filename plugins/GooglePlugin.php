@@ -26,10 +26,6 @@ class GooglePlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		return 'https://www.google.com/search?q="' . $name['fullNN'] . '"';
-	}
-
-	public static function encodePlus() {
-		return true;
+		return 'https://www.google.com/search?q="' . $name['fullNN'] . '" ~' . I18N::translate('genealogy');
 	}
 }

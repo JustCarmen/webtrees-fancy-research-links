@@ -26,14 +26,10 @@ class DeutscheNationalbibliothekPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		$values = [$name['surname'], $name['first']];
+		$values = [$name['surn'], $name['first']];
 		$query  = implode('+', array_filter($values, function ($v) {
 			return $v !== null && $v !== '';
 		}));
-		return 'https://portal.dnb.de/opac.htm?query=' . $query . '&method=simpleSearch';
-	}
-
-	public static function encodePlus() {
-		return false;
+		return 'https://portal.dnb.de/opac/simpleSearch?query=' . e($query);
 	}
 }

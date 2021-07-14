@@ -11,7 +11,7 @@ class GeneAllPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Geneall($)';
+		return 'Geneall ($)';
 	}
 
 	public static function pluginName(): string
@@ -45,9 +45,5 @@ class GeneAllPlugin extends FancyResearchLinksModule
 		}
 
 		return 'https://www.geneall.net/' . $language . '/search/?s=' . $name['first'] . ' ' . $name['surname'] . '&t=p';
-	}
-
-	public static function encodePlus() {
-		return true;
 	}
 }

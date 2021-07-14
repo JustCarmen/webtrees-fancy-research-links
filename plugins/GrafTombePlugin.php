@@ -26,11 +26,9 @@ class GrafTombePlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
+		// for a correct search the prefix should be put after the surname (surn)
 		$name['surname'] = $name['prefix'] ? $name['surn'] . ' ' . $name['prefix'] : $name['surn'];
-		return 'https://www.graftombe.nl/names/search?forename=' . $name['givn'] . '&surname=' . $name['surname'] . '&submit=Zoeken&r=names-search';
-	}
 
-	public static function encodePlus() {
-		return true;
+		return 'https://www.graftombe.nl/names/search?forename=' . $name['givn'] . '&surname=' . $name['surname'] . '&submit=Zoeken&r=names-search';
 	}
 }

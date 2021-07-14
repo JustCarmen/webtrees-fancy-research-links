@@ -11,7 +11,7 @@ class FindMyPastPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Findmypast($)';
+		return 'Findmypast ($)';
 	}
 
 	public static function pluginName(): string

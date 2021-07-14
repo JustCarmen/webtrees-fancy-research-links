@@ -26,6 +26,6 @@ class FamilySearchPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		return 'https://familysearch.org/search/record/results#count=20&query=%2Bgivenname%3A%22' . $name['givn'] . '%22~%20%2Bsurname%3A%22' . $name['surname'] . '%22~';
+		return 'https://www.familysearch.org/search/record/results?q.givenName=' . $name['givn'] . '&q.surname=' . $name['surname'];
 	}
 }

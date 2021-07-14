@@ -26,6 +26,7 @@ class MensenlinqPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		return 'https://www.mensenlinq.nl/site/advertentie/overzicht?advzoek_vandag=01&advzoek_vanmaand=01&advzoek_vanjaar=2006&advzoek_totdag=' . date("d") . '&advzoek_totmaand=' . date("m") . '&advzoek_totjaar=' . date("Y") . '&advzoek_dag=' . date("d") . '&advzoek_maand=' . date("m") . '&advzoek_jaar=' . date("Y") . '&advzoek_provincie=&advzoek_titel=&advzoek_zoek=' . $name['surname'] . '&advzoek_plaats=&advzoek_voornaam=' . $name['first'] . '&advzoek_geboorteplaats=';
+		return 'https://mensenlinq.nl/overlijdensberichten/?passed_at_from=1970-01-01&passed_at_until=' .
+		date('Y-m-d') . '&lastname=' . $name['surname'] . '&firstname=' . $name['first'] . '&advanced=1&filtered=true';
 	}
 }

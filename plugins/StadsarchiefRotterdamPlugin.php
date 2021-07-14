@@ -26,6 +26,7 @@ class StadsarchiefRotterdamPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		return 'http://www.stadsarchief.rotterdam.nl/archieven?mivast=184&miadt=184&mizig=100&miview=tbl&milang=nl&micols=1&misort=dt|asc&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];
+		return 'https://stadsarchief.rotterdam.nl/zoek-en-ontdek/stamboom/zoeken-op-personen/?mivast=184&miadt=184' .
+		'&mizig=100&miview=tbl&milang=nl&micols=1&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];
 	}
 }

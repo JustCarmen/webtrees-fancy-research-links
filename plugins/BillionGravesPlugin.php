@@ -24,8 +24,10 @@ class BillionGravesPlugin extends FancyResearchLinksModule
 		return I18N::translate('International');
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($name, $birth, $death): string
     {
-		return 'https://billiongraves.com/search/results?given_names=' . $name['first'] . '&family_names=' . $name['surn'] . '&action=search&exact=true#/';
+		return 'https://billiongraves.com/search/results?given_names=' .
+		$name['givn'] . '&family_names=' . $name['surname'] . '&birth_year=' . $birth['year'] .
+		'&death_year=' . $death['year'] . '&year_range=5';
 	}
 }
