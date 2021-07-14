@@ -28,8 +28,4 @@ class AhnenforschungPlugin extends FancyResearchLinksModule
 	{
 		return 'http://ahnenforschung.net/metasuche.php?query=' . $name['surname'];
 	}
-
-	public static function encodePlus() {
-		return true;
-	}
 }

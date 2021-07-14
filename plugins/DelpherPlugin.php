@@ -28,8 +28,4 @@ class DelpherPlugin extends FancyResearchLinksModule
     {
 		return 'https://www.delpher.nl/nl/kranten/results?query=' . urlencode('"') . $name['first'] . ' ' . $name['surname'] . urlencode('"') . '&coll=ddd';
 	}
-
-	public static function encodePlus() {
-		return true;
-	}
 }

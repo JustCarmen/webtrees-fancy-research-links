@@ -49,8 +49,4 @@ class RogloPlugin extends FancyResearchLinksModule
 
 		return 'http://roglo.eu/roglo?lang=' . $language . '&m=NG&n=' . $name['fullNN'] . '&t=PN';
 	}
-
-	public static function encodePlus() {
-		return true;
-	}
 }

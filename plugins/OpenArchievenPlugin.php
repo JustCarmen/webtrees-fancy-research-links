@@ -34,8 +34,4 @@ class OpenArchievenPlugin extends FancyResearchLinksModule
 		}
 		return 'https://www.openarch.nl/search.php?lang=' . $language . '&name=' . $name['fullNN'] . ' ' . $birth['year'] . '-' . $death['year'] . '&number_show=10&sort=4';
 	}
-
-	public static function encodePlus() {
-		return true;
-	}
 }

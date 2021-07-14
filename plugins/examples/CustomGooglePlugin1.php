@@ -93,14 +93,4 @@ class CustomGooglePlugin1 extends FancyResearchLinksModule
 		// The dots are used to concatenate the variables with the previous part.
 		return 'https://www.google.com/search?q="' . $fullNN . '"' . $birthyear . $birthplace . ' ~genealogy ~ancestry';
 	}
-
-	/**
-	 * Whether or not the url should be escaped with a '+'. Default is %20
-	 * The boolean 'true' is neccessary in this example
-	 *
-	 * @return boolean
-	 */
-	public static function encodePlus() {
-		return true;
-	}
 }
