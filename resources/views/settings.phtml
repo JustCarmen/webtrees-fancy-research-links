@@ -65,6 +65,13 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 
 <?php View::push('javascript') ?>
 <script>
+    $('#select-all-1').change(function(e) {
+        if (e.currentTarget.checked) {
+            $('.form-group .row').find('input[type="checkbox"]').prop('checked', true);
+        } else {
+            $('.form-group .row').find('input[type="checkbox"]').prop('checked', false);
+        }
+    });
     $('#tree').on('change', function() {
         $('#save').val('0');
         $('form').submit();
