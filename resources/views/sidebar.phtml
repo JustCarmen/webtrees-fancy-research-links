@@ -1,19 +1,29 @@
+<?php
+
+use Ramsey\Uuid\Uuid;
+
+?>
+
 <div id="sb_fancy_research_links">
-    <!-- RESEARCH LINKS -->
+    <!-- FANCY RESEARCH LINKS -->
     <?php foreach ($plugins as $area => $plugins_by_area): ?>
         <?php
         $expanded = (bool) true; // $tree->getPreference('EXPAND_SOURCES');
-        $id = '';
+        $id = 'collapse-' . Uuid::uuid4()->toString()
         ?>
-        <a href="#<?= e($id) ?>" role="button" data-toggle="collapse" aria-controls="<?= e($id) ?>" aria-expanded="<?= $expanded ? 'true' : 'false' ?>">
-            <?= view('icons/expand') ?>
-            <?= view('icons/collapse') ?>
-        </a>
-        <span><?= $area ?></span>
-        <ul>
-        <?php foreach ($plugins_by_area as $plugin): ?>
-            <li><a href="<?= e($plugin->researchLink($name, $birth, $death)) ?>"><?= $plugin->pluginLabel() ?></a></li>
-        <?php endforeach; ?>
-        </ul>
+        <div class="fancy-research-link-area mb-3">
+            <div>
+                <a href="#<?= e($id) ?>" role="button" data-toggle="collapse" aria-controls="<?= e($id) ?>" aria-expanded="<?= $expanded ? 'true' : 'false' ?>">
+                    <?= view('icons/expand') ?>
+                    <?= view('icons/collapse') ?>
+                </a>
+                <span class="text-uppercase font-weight-bold"><?= $area ?></span>
+            </div>
+            <ul class="collapse show" id="<?= e($id) ?>">
+            <?php foreach ($plugins_by_area as $plugin): ?>
+                <li class="pb-1"><a href="<?= e($plugin->researchLink($name, $birth, $death)) ?>"><?= $plugin->pluginLabel() ?></a></li>
+            <?php endforeach; ?>
+            </ul>
+            </div>
     <?php endforeach; ?>
 </div>
