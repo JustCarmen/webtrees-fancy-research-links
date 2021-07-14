@@ -23,7 +23,7 @@ class FreeBMDPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'FreeBMD';
+		return 'FreeBMD (' . I18N::translate('link only') . ')';
 	}
 
 	public static function pluginName(): string
@@ -38,14 +38,6 @@ class FreeBMDPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		// This is a post form, so it will be send with Javascript
-		$url    = 'https://www.freebmd.org.uk/cgi/search.pl';
-		$params = [
-		'type'    => 'All Types',
-		'surname' => $name['surn'],
-		'given'   => $name['first'],
-	];
-
-		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
+		return 'https://www.freebmd.org.uk/cgi/search.pl';
 	}
 }

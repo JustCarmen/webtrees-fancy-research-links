@@ -12,7 +12,7 @@ class NationaalArchiefCuracaoPlugin extends FancyResearchLinksModule
 
 	public static function pluginLabel(): string
 	{
-		return 'Nationaal Archief Curacao';
+		return 'Nationaal Archief Curacao (' . I18N::translate('link only') . ')';
 	}
 
 	public static function pluginName(): string
@@ -27,6 +27,7 @@ class NationaalArchiefCuracaoPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
 	{
+		// link only
 		return 'https://www.nationaalarchief.cw/api/picturae/genealogie';
 	}
 }

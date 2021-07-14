@@ -11,7 +11,7 @@ class OnlineFamilieberichtenPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Online Familieberichten';
+		return 'Online Familieberichten (' . I18N::translate('link only') . ')';
 	}
 
 	public static function pluginName(): string
@@ -26,10 +26,6 @@ class OnlineFamilieberichtenPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		return 'https://www.online-familieberichten.nl/zoeken.asp?sortpers=naam&command=zoekformres&achternaam=' . $name['surn'] . '&tussenvoegsel=' . $name['prefix'] . '&voornaam=' . $name['first'];
-	}
-
-	public static function encodePlus() {
-		return true;
+		return 'https://www.online-familieberichten.nl/zoeken.asp';
 	}
 }

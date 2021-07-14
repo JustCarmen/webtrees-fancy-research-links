@@ -11,7 +11,7 @@ class MetaGenealogyPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Genealogy.net Meta Search';
+		return 'Genealogy.net Meta Search (' . I18N::translate('link only') . ')';
 	}
 
 	public static function pluginName(): string
@@ -26,19 +26,6 @@ class MetaGenealogyPlugin extends FancyResearchLinksModule
 
 	public static function researchLink($name): string
     {
-		// Often it's better to run the search just with the surname.
-		// It's a post form, so it will be send by javascript in a new window.
-		$url = 'http://meta.genealogy.net/search/index';
-
-		$params = [
-		'lastname'  => $name['surname'],
-		'placename' => ''
-	];
-
-		for ($i = 1; $i <= 19; $i++) {
-			$params['partner' . $i] = 'on';
-		}
-
-		return "javascript: postresearchform('" . $url . "'," . json_encode($params) . ")";
+		return "https://meta.genealogy.net";
 	}
 }

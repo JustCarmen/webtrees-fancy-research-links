@@ -12,7 +12,7 @@ class NationalArchivesOfAustraliaPlugin extends FancyResearchLinksModule
 
 	public static function pluginLabel(): string
 	{
-		return 'National Archives of Australia';
+		return 'National Archives of Australia (' . I18N::translate('link only') . ')';
 	}
 
 	public static function pluginName(): string

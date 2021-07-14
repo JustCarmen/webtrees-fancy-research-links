@@ -11,7 +11,7 @@ class RootsWebPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Rootsweb';
+		return 'Rootsweb (link only)';
 	}
 
 	public static function pluginName(): string
@@ -24,12 +24,8 @@ class RootsWebPlugin extends FancyResearchLinksModule
 		return I18N::translate('International');
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink(): string
     {
-		return 'https://worldconnect.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=Search&lang=en&surname=' . $name['surname'] . '&stype=Exact&given=' . $name['givn'] . '&brange=0&drange=0&mrange=0&period=All&submit.x=Search';
-	}
-
-	public static function encodePlus() {
-		return true;
+		return 'https://wc.rootsweb.com/search';
 	}
 }
