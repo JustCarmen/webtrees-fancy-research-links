@@ -12,7 +12,7 @@
         <span><?= $area ?></span>
         <ul>
         <?php foreach ($plugins_by_area as $plugin): ?>
-            <li><a href="<?= $plugin->researchLink($name, $birth, $death) ?>"><?= $plugin->pluginLabel() ?></a></li>
+            <li><a href="<?= e($plugin->researchLink($name, $birth, $death)) ?>"><?= $plugin->pluginLabel() ?></a></li>
         <?php endforeach; ?>
         </ul>
     <?php endforeach; ?>
