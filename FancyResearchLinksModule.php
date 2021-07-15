@@ -142,9 +142,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $tree       = $request->getAttribute('tree');
 
         return $this->viewResponse($this->name() . '::settings', [
-            'title' => $this->title(),
-            'target_blank' => $this->getPreference('target-blank'),
-            'plugins' => $this->getPluginsByArea()
+            'enabled_plugins'   => collect(unserialize($this->getPreference('enabled-plugins'))),
+            'expanded_area'     => $this->getPreference('expanded-area'),
+            'plugins'           => $this->getPluginsByArea(),
+            'target_blank'      => $this->getPreference('target-blank'),
+            'title'             => $this->title()
         ]);
     }
 
@@ -160,6 +162,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $params = (array) $request->getParsedBody();
 
         if ($params['save'] === '1') {
+            $this->setPreference('expanded-area', $params['expanded-area']);
+            $this->setPreference('enabled-plugins', serialize($params['enabled-plugins']));
             $this->setPreference('target-blank', $params['target-blank']);
 
             $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
@@ -196,7 +200,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      *
      * @return bool
      */
-    public function hasSidebarContent(Individual $individual): bool {
+    public function hasSidebarContent(Individual $individual): bool
+    {
         return true;
     }
 
@@ -212,7 +217,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $names  = $individual->getAllNames();
         $name   = $names[0];
 
-        $first_name	= explode(" ", $name['givn'])[0];
+        $first_name    = explode(" ", $name['givn'])[0];
         $name['first'] = $first_name;
 
         $pf_name = str_replace($name['surn'], '', $name['surname']);
@@ -224,11 +229,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $death['place'] = $individual->getDeathPlace();
 
         return view($this->name() . '::sidebar', [
-            'plugins'    => $this->getPluginsByArea(),
-            'tree'       => $individual->tree(),
-            'name'       => $name,
-            'birth'     => $birth,
-            'death'     => $death
+            'birth'         => $birth,
+            'death'         => $death,
+            'expanded_area' => $this->getPreference('expanded-area'),
+            'name'          => $name,
+            'plugins'       => $this->getPluginsByArea(),
+            'target_blank'  => $this->getPreference('target-blank'),
+            'tree'          => $individual->tree()
         ]);
     }
 
@@ -251,7 +258,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         }
     }
 
-     /**
+    /**
      * Collect all plugins from the plugins folder
      *
      * @return Collection<ModuleCustomInterface>
@@ -284,5 +291,4 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         return $pluginlist->sortkeys();
     }
-
 };

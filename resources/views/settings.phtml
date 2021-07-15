@@ -36,20 +36,21 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                     <label class="radio">
                         <input
                             type="radio"
-                            name="FRL_DEFAULT_AREA"
+                            name="expanded-area"
                             value="<?= $area ?>"
-                            <?php // if ($this->getSetting('FRL_DEFAULT_AREA') === $area): ?>
-                                checked="checked"
-                            <?php //endif; ?>
+                            <?php if ($expanded_area === $area): ?>
+                                checked="checked";
+                            <?php endif; ?>
                             >
                         <span class="h4"><?= $area ?></span>
                     </label>
                 </div>
                 <div class="row">
                 <?php foreach ($plugins_by_area as $plugin): ?>
+                    <?php $checked = (bool) $enabled_plugins->has($plugin->pluginName()) ?>
                     <div class="checkbox col-sm-4" dir="ltr">
                         <label class="checkbox-inline">
-                            <?= view('components/checkbox-inline', ['label' => $plugin->pluginLabel(), 'name' => $plugin->pluginName(), 'checked' => '']) ?>
+                            <?= view('components/checkbox-inline', ['label' => $plugin->pluginLabel(), 'name' => 'enabled-plugins[' . $plugin->pluginName() . ']', 'checked' => $checked]) ?>
                         </label>
                     </div>
                 <?php endforeach; ?>
