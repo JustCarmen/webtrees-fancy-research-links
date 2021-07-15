@@ -15,21 +15,33 @@ use Ramsey\Uuid\Uuid;
                 $expanded = "false";
                 $show = "";
             }
-            $id = 'collapse-' . Uuid::uuid4()->toString()
+            $id = 'collapse-' . Uuid::uuid4()->toString();
+
+            $count = 0;
+            foreach ($plugins_by_area as $plugin) {
+                if ($enabled_plugins->has($plugin->pluginName())) {
+                    $count = $count + 1;
+                }
+            }
         ?>
         <div class="fancy-research-link-area mb-3">
-            <div>
-                <a href="#<?= e($id) ?>" role="button" data-toggle="collapse" aria-controls="<?= e($id) ?>" aria-expanded="<?= $expanded ?>">
-                    <?= view('icons/expand') ?>
-                    <?= view('icons/collapse') ?>
-                </a>
-                <span class="text-uppercase font-weight-bold"><?= $area ?></span>
-            </div>
-            <ul class="collapse<?= $show ?>" id="<?= e($id) ?>">
-            <?php foreach ($plugins_by_area as $plugin): ?>
-                <li class="pb-1"><a href="<?= e($plugin->researchLink($name, $birth, $death)) ?>"><?= $plugin->pluginLabel() ?></a></li>
-            <?php endforeach; ?>
-            </ul>
-            </div>
+            <?php if ($count > 0) : ?>
+                <div>
+                    <a href="#<?= e($id) ?>" role="button" data-toggle="collapse" aria-controls="<?= e($id) ?>" aria-expanded="<?= $expanded ?>">
+                        <?= view('icons/expand') ?>
+                        <?= view('icons/collapse') ?>
+                        <span class="text-uppercase font-weight-bold"><?= $area ?></span>
+                    </a>
+                    <span class="badge badge-dark"><?= $count ?></span>
+                </div>
+                <ul class="collapse<?= $show ?>" id="<?= e($id) ?>">
+                <?php foreach ($plugins_by_area as $plugin): ?>
+                    <?php if ($enabled_plugins->has($plugin->pluginName())) : ?>
+                        <li class="pb-1"><a href="<?= e($plugin->researchLink($name, $birth, $death)) ?>" target=<?= $target_blank ? "_blank" : "" ?>><?= $plugin->pluginLabel() ?></a></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
     <?php endforeach; ?>
 </div>

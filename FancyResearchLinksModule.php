@@ -229,13 +229,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $death['place'] = $individual->getDeathPlace();
 
         return view($this->name() . '::sidebar', [
-            'birth'         => $birth,
-            'death'         => $death,
-            'expanded_area' => $this->getPreference('expanded-area'),
-            'name'          => $name,
-            'plugins'       => $this->getPluginsByArea(),
-            'target_blank'  => $this->getPreference('target-blank'),
-            'tree'          => $individual->tree()
+            'birth'             => $birth,
+            'death'             => $death,
+            'enabled_plugins'   => collect(unserialize($this->getPreference('enabled-plugins'))),
+            'expanded_area'     => $this->getPreference('expanded-area'),
+            'name'              => $name,
+            'plugins'           => $this->getPluginsByArea(),
+            'target_blank'      => $this->getPreference('target-blank'),
+            'tree'              => $individual->tree()
         ]);
     }
 
