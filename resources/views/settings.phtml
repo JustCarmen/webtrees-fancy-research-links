@@ -11,15 +11,17 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 <h1><?= $title ?></h1>
 
 <div class="jc-fancy-research-links mb-5">
-    <p><?= I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
-    <p><?= I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
-    <hr class="border-top border-secondary w-100">
+
+    <div class="alert alert-primary my-3">
+        <p class="font-weight-bold mb-1"><?= I18N::translate('Check the plugins you want to use in the sidebar.') ?></p>
+        <p><?= I18N::translate('Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar.') ?></p>
+    </div>
 
     <form method="post">
         <?= csrf_field() ?>
         <input type="hidden" name="save" id="save" value="1">
         <!-- SELECT ALL -->
-        <div class="row form-group justify-content-between">
+        <div class="row form-group justify-content-between m-0">
             <div class="col">
                 <?= view('components/checkbox', ['label' => 'select-all', 'name' => 'select-all']) ?>
             </div>
@@ -30,7 +32,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             </div>
         </div>
         <!-- RESEARCH LINKS -->
-        <?php foreach ($plugins as $area => $plugins_by_area): ?>
+        <?php foreach ($plugins as $area => $plugins_by_area) : ?>
             <div class="form-group col-sm-12">
                 <div class="radio">
                     <label class="radio">
@@ -46,14 +48,14 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                     </label>
                 </div>
                 <div class="row">
-                <?php foreach ($plugins_by_area as $plugin): ?>
-                    <?php $checked = (bool) $enabled_plugins->has($plugin->pluginName()) ?>
-                    <div class="checkbox col-sm-4" dir="ltr">
-                        <label class="checkbox-inline">
-                            <?= view('components/checkbox-inline', ['label' => $plugin->pluginLabel(), 'name' => 'enabled-plugins[' . $plugin->pluginName() . ']', 'checked' => $checked]) ?>
-                        </label>
-                    </div>
-                <?php endforeach; ?>
+                    <?php foreach ($plugins_by_area as $plugin) : ?>
+                        <?php $checked = (bool) $enabled_plugins->has($plugin->pluginName()) ?>
+                        <div class="checkbox col-sm-4" dir="ltr">
+                            <label class="checkbox-inline">
+                                <?= view('components/checkbox-inline', ['label' => $plugin->pluginLabel(), 'name' => 'enabled-plugins[' . $plugin->pluginName() . ']', 'checked' => $checked]) ?>
+                            </label>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         <?php endforeach; ?>
