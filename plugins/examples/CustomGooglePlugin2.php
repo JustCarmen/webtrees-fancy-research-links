@@ -40,7 +40,6 @@ class CustomGooglePlugin2 extends FancyResearchLinksModule
 	 * - Full name = $name[‘fullNN’] eg "John Michael van den Burgh"
 	 * - Full given name = $name[‘givn’] e.g. "John Michael"
 	 * - First name = $name[‘first’] e.g. "John"
-	 * - Middle name = $name[‘middle’] e.g. "Michael"
 	 * - Last name with prefix = $name[‘surname’] e.g. "van den Burgh"
 	 * - Last name without prefix = $name[‘surn’] e.g. "Burgh"
 	 * - Prefix = $name[‘prefix’] e.g. "van den"
@@ -51,7 +50,7 @@ class CustomGooglePlugin2 extends FancyResearchLinksModule
 	 *
 	 * @return string
 	 */
-	public static function researchLink($name): string
+	public static function researchLink($name, $birth, $death): string
     {
 		// "Last First M" YOB
 		$fullNN = $name['surname'] . ' ' . $name['first'];
@@ -64,8 +63,8 @@ class CustomGooglePlugin2 extends FancyResearchLinksModule
 		}
 
 		// Use an escape in case the deathyear is empty
-		if ($name['deathyear']) {
-			$deathyear = ' ' . $name['deathyear'];
+		if ($death['year']) {
+			$deathyear = ' ' . $death['year'];
 		} else {
 			$deathyear = '';
 		}
@@ -73,11 +72,11 @@ class CustomGooglePlugin2 extends FancyResearchLinksModule
 		// Use the full deathplace or a short version.
 		// [0] is the first part of the full placename, [1] is the second part etc.
 		// Use an escape in case the deathplace is emtpy
-		if ($name['deathplace']) {
+		if ($death['place']) {
 			// $deathplace is the full placename e.g. "Palos Heights, Cook County, Illinois, USA"
-			$deathplace = ' ' . $name['deathplace'];
+			$deathplace = ' ' . $$death['place'];
 			// $shortdeathplace is a part of the placename e.g. "Palos Heights"
-			$shortdeathplace = ' ' . explode(", ", $name['deathplace'])[0];
+			$shortdeathplace = ' ' . explode(", ", $death['place'])[0];
 		} else {
 			$deathplace      = '';
 			$shortdeathplace = '';
