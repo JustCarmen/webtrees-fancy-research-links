@@ -74,18 +74,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
     /**
      * {@inheritDoc}
-     * @see \Fisharebest\Webtrees\Module\ModuleCustomInterface::customModuleVersion()
-     *
-     * We use a system where the version number is equal to the latest version of webtrees
-     * Interim versions get an extra sub number
-     *
-     * The dev version is always one step above the latest stable version of this module
-     * The subsequent stable version depends on the version number of the latest stable version of webtrees
-     *
+     * @see \Fisharebest\Webtrees\Module\ModuleCustomInterface::customModuleVersion()     *
      */
     public function customModuleVersion(): string
     {
-        return '2.0.11-dev';
+        return '2.0.0-dev';
     }
 
     /**
