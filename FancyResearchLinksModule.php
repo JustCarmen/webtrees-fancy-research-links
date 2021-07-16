@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
 use Throwable;
+use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Illuminate\Support\Collection;
@@ -137,6 +138,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return $this->viewResponse($this->name() . '::settings', [
             'enabled_plugins'   => collect(unserialize($this->getPreference('enabled-plugins'))),
             'expanded_area'     => $this->getPreference('expanded-area'),
+            'expand_sidebar'    => $this->getPreference('expand-sidebar'),
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
             'title'             => $this->title()
@@ -155,8 +157,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $params = (array) $request->getParsedBody();
 
         if ($params['save'] === '1') {
-            $this->setPreference('expanded-area', $params['expanded-area']);
             $this->setPreference('enabled-plugins', serialize($params['enabled-plugins']));
+            $this->setPreference('expanded-area', $params['expanded-area']);
+            $this->setPreference('expand-sidebar',$params['expand-sidebar']);
             $this->setPreference('target-blank', $params['target-blank']);
 
             $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
@@ -221,11 +224,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $death['year'] = $individual->getDeathYear();
         $death['place'] = $individual->getDeathPlace();
 
+        $expand_sidebar = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
+
         return view($this->name() . '::sidebar', [
             'birth'             => $birth,
             'death'             => $death,
             'enabled_plugins'   => collect(unserialize($this->getPreference('enabled-plugins'))),
             'expanded_area'     => $this->getPreference('expanded-area'),
+            'expand_sidebar'    => $expand_sidebar,
             'name'              => $name,
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),

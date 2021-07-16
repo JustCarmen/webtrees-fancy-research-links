@@ -20,15 +20,22 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
     <form method="post">
         <?= csrf_field() ?>
         <input type="hidden" name="save" id="save" value="1">
-        <!-- SELECT ALL -->
         <div class="row form-group justify-content-between m-0">
+            <!-- EXPAND THE SIDEBAR CONTENT -->
             <div class="col">
-                <?= view('components/checkbox', ['label' => 'select-all', 'name' => 'select-all']) ?>
+                <?= view('components/checkbox', ['label' => 'Expand sidebar content', 'name' => 'expand-sidebar', 'checked' => (bool) $expand_sidebar]) ?>
+                <p class="small text-muted"><?= I18N::translate('If checked, the sidebar content will expand for editors') ?></p>
             </div>
             <!-- OPEN LINKS IN NEW TAB -->
             <div class="col text-right">
                 <?= view('components/checkbox', ['label' => 'Open links in a new tab', 'name' => 'target-blank', 'checked' => (bool) $target_blank]) ?>
                 <p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
+            </div>
+        </div>
+        <div class="row form-group mx-0">
+            <!-- SELECT ALL -->
+            <div class="col">
+                <?= view('components/checkbox', ['label' => 'select-all', 'name' => 'select-all']) ?>
             </div>
         </div>
         <!-- RESEARCH LINKS -->

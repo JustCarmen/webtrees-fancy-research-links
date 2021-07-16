@@ -1,6 +1,7 @@
 <?php
 
 use Ramsey\Uuid\Uuid;
+use Fisharebest\Webtrees\View;
 
 ?>
 
@@ -45,3 +46,12 @@ use Ramsey\Uuid\Uuid;
         </div>
     <?php endforeach; ?>
 </div>
+
+<?php if ($expand_sidebar) : ?>
+<?php View::push('javascript') ?>
+<script>
+    $("#sidebar-content-family_nav").removeClass("show");
+    $("#sidebar-content-_jc-fancy-research-links_").addClass("show");
+</script>
+<?php View::endpush() ?>
+<?php endif; ?>
