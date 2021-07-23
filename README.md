@@ -31,7 +31,7 @@ On the Fancy Research Links configuration page you can select the plugins you wa
 
 Translations
 ------------
-You can help to translate this module. Use a local editor, like poeditor or notepad++ to make the translations and send them back to me. You can do this via a pull request (if you know how) or by e-mail. Updated translations will be included in the next release of this module.
+You can help to translate this module. The language files are at [POEditor][3] where you can update them. Or use a local editor, like poeditor or notepad++ to make the translations and send them back to me. You can do this via a pull request (if you know how) or by e-mail. Updated translations will be included in the next release of this module.
 
 Installation & upgrading
 ------------------------
@@ -43,5 +43,6 @@ If you experience any bugs or have a feature request for this module you can [cr
 
  [1]: https://github.com/JustCarmen/webtrees-fancy-research-links/releases/latest
  [2]: https://webtrees.github.io/download/
+ [3]: https://poeditor.com/join/project?hash=VLrxy3AG3A
  [4]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
 
