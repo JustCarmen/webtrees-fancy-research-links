@@ -20,7 +20,7 @@ use Fisharebest\Webtrees\View;
 
             $count = 0;
             foreach ($plugins_by_area as $plugin) {
-                if ($enabled_plugins->has($plugin->pluginName())) {
+                if ($enabled_plugins->contains($plugin->pluginName())) {
                     $count = $count + 1;
                 }
             }
@@ -37,7 +37,7 @@ use Fisharebest\Webtrees\View;
                 </div>
                 <ul class="collapse<?= $show ?>" id="<?= e($id) ?>">
                 <?php foreach ($plugins_by_area as $plugin): ?>
-                    <?php if ($enabled_plugins->has($plugin->pluginName())) : ?>
+                    <?php if ($enabled_plugins->contains($plugin->pluginName())) : ?>
                         <li class="pb-1"><a href="<?= e($plugin->researchLink($name, $birth, $death)) ?>" target=<?= $target_blank ? "_blank" : "" ?>><?= $plugin->pluginLabel() ?></a></li>
                     <?php endif; ?>
                 <?php endforeach; ?>

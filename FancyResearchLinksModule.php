@@ -132,12 +132,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $this->layout = 'layouts/administration';
 
-        $request    = app(ServerRequestInterface::class);
-        $tree       = $request->getAttribute('tree');
-
         return $this->viewResponse($this->name() . '::settings', [
-            'enabled_plugins'   => collect(unserialize($this->getPreference('enabled-plugins'))),
-            'expanded_area'     => $this->getPreference('expanded-area'),
+            'enabled_plugins'   => collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', ')))),
+            'expanded_area'     => $this->getPreference('expanded-area', I18N::translate('International')),
             'expand_sidebar'    => $this->getPreference('expand-sidebar'),
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
@@ -156,11 +153,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $params = (array) $request->getParsedBody();
 
+        if (isset($params['enabled-plugins'])) {
+            $enabled_plugins = (string) implode(', ', array_keys($params['enabled-plugins']));
+        } else {
+            $enabled_plugins = (string) $this->getPluginsByName()->join(', ');
+        }
+
         if ($params['save'] === '1') {
-            $this->setPreference('enabled-plugins', serialize($params['enabled-plugins']));
-            $this->setPreference('expanded-area', $params['expanded-area']);
-            $this->setPreference('expand-sidebar',$params['expand-sidebar']);
-            $this->setPreference('target-blank', $params['target-blank']);
+            $this->setPreference('enabled-plugins', $enabled_plugins);
+            $this->setPreference('expanded-area', $params['expanded-area'] ?? I18N::translate('International'));
+            $this->setPreference('expand-sidebar',$params['expand-sidebar'] ?? '0');
+            $this->setPreference('target-blank', $params['target-blank'] ?? '0');
 
             $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
             FlashMessages::addMessage($message, 'success');
@@ -224,13 +227,15 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $death['year'] = $individual->getDeathYear();
         $death['place'] = $individual->getDeathPlace();
 
-        $expand_sidebar = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
+        $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
+        $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
+        $expanded_area      = $this->getPreference('expanded-area', I18N::translate('International'));
 
         return view($this->name() . '::sidebar', [
             'birth'             => $birth,
             'death'             => $death,
-            'enabled_plugins'   => collect(unserialize($this->getPreference('enabled-plugins'))),
-            'expanded_area'     => $this->getPreference('expanded-area'),
+            'enabled_plugins'   => $enabled_plugins,
+            'expanded_area'     => $expanded_area,
             'expand_sidebar'    => $expand_sidebar,
             'name'              => $name,
             'plugins'           => $this->getPluginsByArea(),
@@ -290,5 +295,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         });
 
         return $pluginlist->sortkeys();
+    }
+
+    private function getPluginsByName(): Collection
+    {
+        $plugins = $this->getPlugins();
+
+        $pluginlist = new Collection();
+        foreach ($plugins as $plugin) {
+            $pluginlist->push($plugin->pluginName());
+        };
+
+        return $pluginlist;
     }
 };

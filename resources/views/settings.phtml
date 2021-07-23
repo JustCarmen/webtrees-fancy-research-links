@@ -56,7 +56,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                 </div>
                 <div class="row">
                     <?php foreach ($plugins_by_area as $plugin) : ?>
-                        <?php $checked = (bool) $enabled_plugins->has($plugin->pluginName()) ?>
+                        <?php $checked = (bool) $enabled_plugins->contains($plugin->pluginName()) ?>
                         <div class="checkbox col-sm-4" dir="ltr">
                             <label class="checkbox-inline">
                                 <?= view('components/checkbox-inline', ['label' => $plugin->pluginLabel(), 'name' => 'enabled-plugins[' . $plugin->pluginName() . ']', 'checked' => $checked]) ?>
@@ -81,11 +81,6 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         } else {
             $('.form-group .row').find('input[type="checkbox"]').prop('checked', false);
         }
-    });
-    $('#tree').on('change', function() {
-        $('#save').val('0');
-        $('form').submit();
-        return false;
     });
 </script>
 <?php View::endpush() ?>
