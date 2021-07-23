@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2018-09-23 14:02+0200\n"
+"POT-Creation-Date: 2021-07-23 23:23+0200\n"
 "PO-Revision-Date: 2016-10-15 13:47+0000\n"
 "Last-Translator: Carmen Pijpers <carmen@justcarmen.nl>\n"
 "Language-Team: English (United States) <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/en-US/>\n"
@@ -14,48 +14,91 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
 
-#. I18N: Description of the module
-#: module.php:76
+#: FancyResearchLinksModule.php:64
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "A sidebar tool to provide quick links to popular research web sites."
 
-#: app/Template/AdminTemplate.php:66
-msgid "Check the plugins you want to use in the sidebar."
-msgstr "Check the plugins you want to use in the sidebar."
+#: resources/views/settings.phtml:16
+msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
+msgstr ""
 
-#: app/Template/AdminTemplate.php:89
+#: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
 msgstr ""
 
-#. I18N: Name of the module
-#: app/Template/AdminTemplate.php:36 module.php:67
+#: resources/views/settings.phtml:26
+msgid "Expand the sidebar content with the Fancy Research Links"
+msgstr ""
+
+#: FancyResearchLinksModule.php:54
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
-#: app/Template/AdminTemplate.php:67
-msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
-msgstr "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
+#: resources/views/settings.phtml:17
+msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
+msgstr ""
 
-#: app/FancyResearchLinksClass.php:32 app/FancyResearchLinksClass.php:76
+#: resources/views/settings.phtml:27
+msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
+msgstr ""
+
+#: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
+#: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
+#: plugins/BillionGravesPlugin.php:24 plugins/ElephindPlugin.php:24
+#: plugins/FamilySearchPlugin.php:24 plugins/FindAGravePlugin.php:24
+#: plugins/FindMyPastPlugin.php:24 plugins/GeneAllPlugin.php:24
+#: plugins/GeneanetPlugin.php:24 plugins/GooglePlugin.php:24
+#: plugins/GrandeGuerrePlugin.php:35
+#: plugins/NationaalArchiefCuracaoPlugin.php:25 plugins/RogloPlugin.php:24
+#: plugins/RootsWebPlugin.php:24 plugins/WikipediaPlugin.php:24
+#: plugins/examples/CustomGooglePlugin1.php:33
+#: plugins/examples/CustomGooglePlugin2.php:33
 msgid "International"
 msgstr "International"
 
-#: app/Template/AdminTemplate.php:87
+#: resources/views/settings.phtml:31
 msgid "Open links in a new tab"
 msgstr ""
 
-#: app/FancyResearchLinksClass.php:33 app/FancyResearchLinksClass.php:72
-msgid "Other links"
-msgstr "Other links"
-
-#: module.php:71
+#: FancyResearchLinksModule.php:182
 msgid "Research links"
 msgstr "Research links"
 
-#: app/Template/AdminTemplate.php:133
-msgid "The settings will be reset to default. Are you sure you want to do this?"
-msgstr "The settings will be reset to default. Are you sure you want to do this?"
+#: resources/views/settings.phtml:38
+msgid "Select/unselect all"
+msgstr ""
 
-#: module.php:235 module.php:240
-msgid "There are no research links available for this individual."
-msgstr "There are no research links available for this individual."
+#: FancyResearchLinksModule.php:283
+msgid "There was an error loading the plugin "
+msgstr ""
+
+#: resources/views/settings.phtml:39
+msgid "Toggle this checkbox to select all research links at once."
+msgstr ""
+
+#: plugins/GooglePlugin.php:29
+msgid "genealogy"
+msgstr ""
+
+#: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
+#: plugins/NationaalArchiefCuracaoPlugin.php:15
+#: plugins/NationalArchivesOfAustraliaPlugin.php:15
+#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/OnlineFamilieberichtenPlugin.php:14
+msgid "link only"
+msgstr ""
+
+#~ msgid "Check the plugins you want to use in the sidebar."
+#~ msgstr "Check the plugins you want to use in the sidebar."
+
+#~ msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
+#~ msgstr "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
+
+#~ msgid "Other links"
+#~ msgstr "Other links"
+
+#~ msgid "The settings will be reset to default. Are you sure you want to do this?"
+#~ msgstr "The settings will be reset to default. Are you sure you want to do this?"
+
+#~ msgid "There are no research links available for this individual."
+#~ msgstr "There are no research links available for this individual."
