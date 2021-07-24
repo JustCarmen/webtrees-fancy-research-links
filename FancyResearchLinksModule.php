@@ -14,7 +14,6 @@ use Fisharebest\Webtrees\FlashMessages;
 use Psr\Http\Message\ResponseInterface;
 use Fisharebest\Localization\Translation;
 use Psr\Http\Message\ServerRequestInterface;
-use Fisharebest\Webtrees\Services\TreeService;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
@@ -22,6 +21,7 @@ use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
+use Fisharebest\Webtrees\Statistics\Service\CountryService;
 
 use function str_replace;
 
@@ -31,17 +31,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     use ModuleConfigTrait;
     use ModuleSidebarTrait;
 
-    /** @var TreeService */
-    private $tree_service;
+    /** @var CountryService */
+    private $country_service;
 
     /**
      * FancyResearchLinks constructor.
      *
-     * @param TreeService       $tree_service
+     * @param CountryService    $country_service
      */
-    public function __construct(TreeService $tree_service)
+    public function __construct(CountryService $country_service)
     {
-        $this->tree_service = $tree_service;
+        $this->country_service = $country_service;
     }
 
     /**
@@ -134,7 +134,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         return $this->viewResponse($this->name() . '::settings', [
             'enabled_plugins'   => collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', ')))),
-            'expanded_area'     => $this->getPreference('expanded-area', I18N::translate('International')),
+            'expanded_area'     => $this->getPreference('expanded-area', $this->getCountryList()['INT']),
             'expand_sidebar'    => $this->getPreference('expand-sidebar'),
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
@@ -161,7 +161,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         if ($params['save'] === '1') {
             $this->setPreference('enabled-plugins', $enabled_plugins);
-            $this->setPreference('expanded-area', $params['expanded-area'] ?? I18N::translate('International'));
+            $this->setPreference('expanded-area', $params['expanded-area'] ?? $this->getCountryList()['INT']);
             $this->setPreference('expand-sidebar',$params['expand-sidebar'] ?? '0');
             $this->setPreference('target-blank', $params['target-blank'] ?? '0');
 
@@ -229,7 +229,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
         $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
-        $expanded_area      = $this->getPreference('expanded-area', I18N::translate('International'));
+        $expanded_area      = $this->getPreference('expanded-area', $this->getCountryList()['INT']);
 
         return view($this->name() . '::sidebar', [
             'birth'             => $birth,
@@ -243,7 +243,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'tree'              => $individual->tree()
         ]);
     }
-
 
     /**
      * Additional/updated translations.
@@ -290,8 +289,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $plugins = $this->getPlugins();
 
-        $pluginlist = $plugins->mapToGroups(static function ($plugin) {
-            return [$plugin->researchArea() => $plugin];
+        $pluginlist = $plugins->mapToGroups(function ($plugin) {
+            $area = $plugin->researchArea();
+            $area_fullname = $this->getCountryList()[$area];
+            return [$area_fullname => $plugin];
         });
 
         return $pluginlist->sortkeys();
@@ -307,5 +308,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         };
 
         return $pluginlist;
+    }
+
+    private function getCountryList(): array
+    {
+        // Add our 'International' area to the list of countries
+        $countries = $this->country_service->getAllCountries();
+        $countries['INT'] = I18N::translate('International');
+
+        return $countries;
     }
 };

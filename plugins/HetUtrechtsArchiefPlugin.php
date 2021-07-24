@@ -21,7 +21,7 @@ class HetUtrechtsArchiefPlugin extends FancyResearchLinksModule
 
 	public static function researchArea(): string
     {
-		return I18N::translate('Netherlands');;
+		return 'NLD';;
 	}
 
 	public static function researchLink($name): string

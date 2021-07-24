@@ -21,7 +21,7 @@ class StadsarchiefAmsterdamPlugin extends FancyResearchLinksModule
 
 	public static function researchArea(): string
     {
-		return I18N::translate('Netherlands');;
+		return 'NLD';;
 	}
 
 	/**

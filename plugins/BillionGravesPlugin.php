@@ -21,7 +21,7 @@ class BillionGravesPlugin extends FancyResearchLinksModule
 
 	public static function researchArea(): string
     {
-		return I18N::translate('International');
+		return 'INT';
 	}
 
 	public static function researchLink($name, $birth, $death): string

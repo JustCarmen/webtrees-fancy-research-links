@@ -21,7 +21,7 @@ class AustCemeteriesPlugin extends FancyResearchLinksModule
 
     public static function researchArea(): string
     {
-        return I18N::translate('Australia');
+        return 'AUS';
     }
 
     public static function researchLink($name): string

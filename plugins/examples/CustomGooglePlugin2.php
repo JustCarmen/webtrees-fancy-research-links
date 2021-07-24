@@ -21,16 +21,15 @@ class CustomGooglePlugin2 extends FancyResearchLinksModule
 	}
 
 	/**
-	 * Determine the search area of the plugin, using the official 3 letter country code
-	 * Look in App/Stats.php => public function getAllCountries for the complete list of available codes.
+	 * Set the search area of the plugin with the official 3 letter country code.
+	 * Look at the function getAllCountries in app\Statistics\Service\CountryService.php for the complete list of available codes.
 	 * Use 'INT' for 'International'
-	 * Leave empty to list the plugin in the category 'Other links'.
 	 *
 	 * @return string
 	 */
 	public static function researchArea(): string
     {
-		return I18N::translate('International');
+		return 'INT';
 	}
 
 	/**

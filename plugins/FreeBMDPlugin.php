@@ -33,7 +33,7 @@ class FreeBMDPlugin extends FancyResearchLinksModule
 
 	public static function researchArea(): string
     {
-		return I18N::translate('United Kingdom');
+		return 'GBR';
 	}
 
 	public static function researchLink($name): string

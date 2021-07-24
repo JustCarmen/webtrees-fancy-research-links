@@ -21,7 +21,7 @@ class Denkmalprojekt1Plugin extends FancyResearchLinksModule
 
 	public static function researchArea(): string
     {
-		return I18N::translate('Germany');;
+		return 'DEU';
 	}
 
 	public static function researchLink($name): string
