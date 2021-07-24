@@ -1,18 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2021-07-23 23:23+0200\n"
-"PO-Revision-Date: 2016-10-15 13:47+0000\n"
-"Last-Translator: Carmen Pijpers <carmen@justcarmen.nl>\n"
-"Language-Team: English (United States) <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/en-US/>\n"
-"Language: en-US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: en-us\n"
 
 #: FancyResearchLinksModule.php:64
 msgid "A sidebar tool to provide quick links to popular research web sites."
@@ -20,15 +13,15 @@ msgstr "A sidebar tool to provide quick links to popular research web sites."
 
 #: resources/views/settings.phtml:16
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
-msgstr ""
+msgstr "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 
 #: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
-msgstr ""
+msgstr "Enabling this will change the default behavior of the browser."
 
 #: resources/views/settings.phtml:26
 msgid "Expand the sidebar content with the Fancy Research Links"
-msgstr ""
+msgstr "Expand the sidebar content with the Fancy Research Links"
 
 #: FancyResearchLinksModule.php:54
 msgid "Fancy Research Links"
@@ -36,11 +29,11 @@ msgstr "Fancy Research Links"
 
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
-msgstr ""
+msgstr "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 
 #: resources/views/settings.phtml:27
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
-msgstr ""
+msgstr "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 
 #: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
 #: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
@@ -58,7 +51,7 @@ msgstr "International"
 
 #: resources/views/settings.phtml:31
 msgid "Open links in a new tab"
-msgstr ""
+msgstr "Open links in a new tab"
 
 #: FancyResearchLinksModule.php:182
 msgid "Research links"
@@ -66,19 +59,19 @@ msgstr "Research links"
 
 #: resources/views/settings.phtml:38
 msgid "Select/unselect all"
-msgstr ""
+msgstr "Select/unselect all"
 
 #: FancyResearchLinksModule.php:283
 msgid "There was an error loading the plugin "
-msgstr ""
+msgstr "There was an error loading the plugin "
 
 #: resources/views/settings.phtml:39
 msgid "Toggle this checkbox to select all research links at once."
-msgstr ""
+msgstr "Toggle this checkbox to select all research links at once."
 
 #: plugins/GooglePlugin.php:29
 msgid "genealogy"
-msgstr ""
+msgstr "genealogy"
 
 #: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
@@ -86,19 +79,5 @@ msgstr ""
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14
 msgid "link only"
-msgstr ""
+msgstr "link only"
 
-#~ msgid "Check the plugins you want to use in the sidebar."
-#~ msgstr "Check the plugins you want to use in the sidebar."
-
-#~ msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
-#~ msgstr "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
-
-#~ msgid "Other links"
-#~ msgstr "Other links"
-
-#~ msgid "The settings will be reset to default. Are you sure you want to do this?"
-#~ msgstr "The settings will be reset to default. Are you sure you want to do this?"
-
-#~ msgid "There are no research links available for this individual."
-#~ msgstr "There are no research links available for this individual."
