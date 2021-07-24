@@ -79,7 +79,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function customModuleVersion(): string
     {
-        return '2.0.0-dev';
+        return '2.0.0';
     }
 
     /**
