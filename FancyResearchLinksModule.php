@@ -295,6 +295,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             return [$area_fullname => $plugin];
         });
 
+        // return localized sorted list
         return $pluginlist->sortkeys();
     }
 
