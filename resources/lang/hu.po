@@ -1,20 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2021-07-23 23:23+0200\n"
-"PO-Revision-Date: 2016-12-09 21:16+0000\n"
-"Last-Translator: Gyönyör János <gyj@centrum.sk>\n"
-"Language-Team: Hungarian <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/hu/>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: hu\n"
 
 #: FancyResearchLinksModule.php:64
 msgid "A sidebar tool to provide quick links to popular research web sites."
@@ -22,15 +13,15 @@ msgstr "Oldalpaneltár a népszerű családkutató weboldalak gyors-hivatkozáso
 
 #: resources/views/settings.phtml:16
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
-msgstr ""
+msgstr "Ellenőrizze a használni kívánt bővítményeket az oldalsávban. Törölje a nem szükséges bővítmények jelölését."
 
 #: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
-msgstr ""
+msgstr "Ennek engedélyezése megváltoztatja a böngésző alapértelmezett viselkedését."
 
 #: resources/views/settings.phtml:26
 msgid "Expand the sidebar content with the Fancy Research Links"
-msgstr ""
+msgstr "Bővítse az oldalsáv tartalmát a Fancy Research Linkekkel"
 
 #: FancyResearchLinksModule.php:54
 msgid "Fancy Research Links"
@@ -38,11 +29,11 @@ msgstr "Fancy kutatáshivatkozások"
 
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
-msgstr ""
+msgstr "Nyomja meg a cím előtti rádiógombot a kutatási terület alapértelmezettként való beállításához. A kiválasztott kutatási terület kibontva fog megnyílni az oldalsávban."
 
 #: resources/views/settings.phtml:27
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
-msgstr ""
+msgstr "Ha be van jelölve, az oldalsáv tartalma a Szép kutatási linkekkel kibővül, míg az oldalsáv Családi navigátor összecsukódik, ha a felhasználó szerkesztői vagy magasabb szerepkörrel rendelkezik."
 
 #: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
 #: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
@@ -60,7 +51,7 @@ msgstr "Nemzetközi"
 
 #: resources/views/settings.phtml:31
 msgid "Open links in a new tab"
-msgstr ""
+msgstr "Linkek megnyitása új lapon"
 
 #: FancyResearchLinksModule.php:182
 msgid "Research links"
@@ -68,19 +59,19 @@ msgstr "Kutatóoldal hivatkozások"
 
 #: resources/views/settings.phtml:38
 msgid "Select/unselect all"
-msgstr ""
+msgstr "Minden kiválasztása/levonása"
 
 #: FancyResearchLinksModule.php:283
 msgid "There was an error loading the plugin "
-msgstr ""
+msgstr "Hiba történt a plugin betöltése "
 
 #: resources/views/settings.phtml:39
 msgid "Toggle this checkbox to select all research links at once."
-msgstr ""
+msgstr "Kapcsolja be ezt a jelölőnégyzetet az összes kutatási hivatkozás egyszerre történő kiválasztásához."
 
 #: plugins/GooglePlugin.php:29
 msgid "genealogy"
-msgstr ""
+msgstr "genealógia"
 
 #: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
@@ -88,19 +79,5 @@ msgstr ""
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14
 msgid "link only"
-msgstr ""
+msgstr "csak link"
 
-#~ msgid "Check the plugins you want to use in the sidebar."
-#~ msgstr "Válassza ki az oldalpanelen megjelenő bővítményeket."
-
-#~ msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
-#~ msgstr "A kutatóoldalakat a név előtti kiválasztógomb segítségével válogathatjuk össze. A megjelölt oldalak szétbontható csoportokban lesznek az oldalpanelen elérhetők."
-
-#~ msgid "Other links"
-#~ msgstr "Egyéb hivatkozások"
-
-#~ msgid "The settings will be reset to default. Are you sure you want to do this?"
-#~ msgstr "A beállítások alapértékeinek visszaállítása. Biztos benne, hogy ezt akarja?"
-
-#~ msgid "There are no research links available for this individual."
-#~ msgstr "Nincs elérhető kutatóoldal hivatkozás e személy részére."
