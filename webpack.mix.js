@@ -49,7 +49,7 @@ mix
         onEnd: {
           archive: [{
             source: './dist',
-            destination: 'dist/fancy-researchlinks-2.0.10.zip'
+            destination: 'dist/fancy-researchlinks-2.0.0.zip'
           }]
         }
       })
