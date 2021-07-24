@@ -1,18 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2021-07-23 23:23+0200\n"
-"PO-Revision-Date: 2018-09-28 09:55+0000\n"
-"Last-Translator: Martin Pannier <der@bauschaffen.de>\n"
-"Language-Team: German <https://translate.webtrees.net/projects/justcarmen/fancy-research-links/de/>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: de\n"
 
 #: FancyResearchLinksModule.php:64
 msgid "A sidebar tool to provide quick links to popular research web sites."
@@ -20,7 +13,7 @@ msgstr "Stellt in der seitlichen Navigationsleiste personenbezogene Verknüpfung
 
 #: resources/views/settings.phtml:16
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
-msgstr ""
+msgstr "Markieren Sie die Plugins, die Sie in der Seitenleiste verwenden möchten. Deaktivieren Sie die Plugins, die Sie nicht benötigen."
 
 #: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
@@ -28,7 +21,7 @@ msgstr "Die Aktivierung wird das Standardverhalten des Browsers ändern."
 
 #: resources/views/settings.phtml:26
 msgid "Expand the sidebar content with the Fancy Research Links"
-msgstr ""
+msgstr "Erweitern Sie den Inhalt der Seitenleiste mit den Fancy Research Links"
 
 #: FancyResearchLinksModule.php:54
 msgid "Fancy Research Links"
@@ -36,11 +29,11 @@ msgstr "Fancy Research Links"
 
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
-msgstr ""
+msgstr "Drücken Sie das Optionsfeld vor einem Titel, um einen Recherchebereich als Standard festzulegen. Der gewählte Recherchebereich wird ausgeklappt in der Seitenleiste geöffnet."
 
 #: resources/views/settings.phtml:27
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
-msgstr ""
+msgstr "Wenn diese Option aktiviert ist, wird der Inhalt der Seitenleiste mit den Fancy Research Links erweitert, während der Familiennavigator in der Seitenleiste eingeklappt wird, wenn der Benutzer die Rolle eines Redakteurs oder höher hat."
 
 #: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
 #: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
@@ -66,19 +59,19 @@ msgstr "Forschungsverknüpfungen"
 
 #: resources/views/settings.phtml:38
 msgid "Select/unselect all"
-msgstr ""
+msgstr "Alle auswählen/abwählen"
 
 #: FancyResearchLinksModule.php:283
 msgid "There was an error loading the plugin "
-msgstr ""
+msgstr "Es gab einen Fehler beim Laden des Plugins "
 
 #: resources/views/settings.phtml:39
 msgid "Toggle this checkbox to select all research links at once."
-msgstr ""
+msgstr "Aktivieren Sie dieses Kontrollkästchen, um alle Recherche-Links auf einmal auszuwählen."
 
 #: plugins/GooglePlugin.php:29
 msgid "genealogy"
-msgstr ""
+msgstr "Genealogie"
 
 #: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
@@ -86,19 +79,5 @@ msgstr ""
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14
 msgid "link only"
-msgstr ""
+msgstr "nur Link"
 
-#~ msgid "Check the plugins you want to use in the sidebar."
-#~ msgstr "Wählen Sie die in der seitlichen Navigationsleiste zu verwendenden Ahnenforschungsportale."
-
-#~ msgid "Hit the radio button in front of an research area title to set that research area as default. The chosen research area will open unfolded in the sidebar."
-#~ msgstr "Wählen Sie das Optionsfeld vor dem Titel des Forschungsbereiches aus, der als Standard gesetzt werden soll. Der gewählte Forschungsbereich wird ausgeklappt in der seitlichen Navigationsleiste geöffnet."
-
-#~ msgid "Other links"
-#~ msgstr "Andere Verknüpfungen"
-
-#~ msgid "The settings will be reset to default. Are you sure you want to do this?"
-#~ msgstr "Die Einstellungen werden auf die Standardwerte zurückgesetzt. Sind Sie sicher, dass Sie dies tun wollen?"
-
-#~ msgid "There are no research links available for this individual."
-#~ msgstr "Es stehen keine Forschungsverknüpfungen für diese Person zur Verfügung."
