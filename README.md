@@ -38,11 +38,12 @@ Unpack the zip file and place the folder jc-fancy-research-links in the modules_
 Configuration
 ------------------------
 All links are listed on the Fancy Research Links configuration page, where you have the following options:
-'- Select the plugins you want to use in the sidebar (default = all);
-'- Select the area you want to be expanded (default = 'International');
-'- Select whether or not the Fancy Research Links sidebar should be expanded (default = collapsed);
+- Select the plugins you want to use in the sidebar (default = all).
+- Select the area you want to be expanded (default = 'International').
+- Select whether or not the Fancy Research Links sidebar should be expanded (default = collapsed).
+
    _Webtrees sets the Family Navigator expanded by default, while all other sidebar sections are collapsed. When doing research as an editor or higher, it could be handy to have the Fancy Research section expanded._
-'- Select whether or not the links should open in a new tab (default = links open in the same tab).
+- Select whether or not the links should open in a new tab (default = links open in the same tab).
 
 Bugs and feature requests
 -------------------------
