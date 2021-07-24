@@ -26,6 +26,6 @@ class ArolsenArchivesPlugin extends FancyResearchLinksModule
 
     public static function researchLink($name): string
     {
-        return 'https://collections./en/search/?s=' . $name['surn'];
+        return 'https://collections.arolsen-archives.org/en/search/?s=' . $name['surn'];
     }
 }
