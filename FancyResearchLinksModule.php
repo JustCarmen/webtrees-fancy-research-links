@@ -223,9 +223,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $name['prefix'] = trim($pf_name);
 
         $birth['year'] = $individual->getBirthYear();
-        $birth['place'] = $individual->getBirthPlace();
+        $birth['place'] = strip_tags($individual->getBirthPlace()->placeName());
         $death['year'] = $individual->getDeathYear();
-        $death['place'] = $individual->getDeathPlace();
+        $death['place'] = strip_tags($individual->getDeathPlace()->placeName());
 
         $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
         $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
