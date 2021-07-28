@@ -26,6 +26,6 @@ class StalinMemoPlugin extends FancyResearchLinksModule
 
     public static function researchLink($name): string
     {
-        return 'https://stalin.memo.ru/search/#lastname=' . $name['surn'] . '&firstname=' . $name['givn'] . '&s=&y=&r=';
+        return 'https://stalin.memo.ru/search/#lastname=' . $name['surn'] . '&firstname=' . $name['givn'];
     }
 }
