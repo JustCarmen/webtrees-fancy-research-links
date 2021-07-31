@@ -7,7 +7,7 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
-class CustomGooglePlugin1 extends FancyResearchLinksModule
+class CustomGooglePlugin extends FancyResearchLinksModule
 {
 
   /**
