@@ -216,16 +216,12 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $names  = $individual->getAllNames();
         $name   = $names[0];
 
-        $first_name    = explode(" ", $name['givn'])[0];
-        $name['first'] = $first_name;
-
-        $pf_name = str_replace($name['surn'], '', $name['surname']);
-        $name['prefix'] = trim($pf_name);
-
-        $birth['year'] = $individual->getBirthYear();
-        $birth['place'] = strip_tags($individual->getBirthPlace()->placeName());
-        $death['year'] = $individual->getDeathYear();
-        $death['place'] = strip_tags($individual->getDeathPlace()->placeName());
+        $name['first']      = explode(" ", $name['givn'])[0];
+        $name['prefix']     = trim(str_replace($name['surn'], '', $name['surname']));
+        $birth['year']      = $individual->getBirthYear();
+        $birth['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getBirthPlace()->placeName()));
+        $death['year']      = $individual->getDeathYear();
+        $death['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getDeathPlace()->placeName()));
 
         $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
         $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
