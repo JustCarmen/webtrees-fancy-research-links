@@ -7,7 +7,7 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
-class DSDresdenGrabstättenЫowjetischerBürgerPlugin extends FancyResearchLinksModule
+class DSDresdenGrabstattenSowjetischerBurgerPlugin extends FancyResearchLinksModule
 {
     public static function pluginLabel(): string
     {
