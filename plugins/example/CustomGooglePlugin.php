@@ -47,9 +47,9 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 * - Last name without prefix = $name[‘surn’] e.g. "Burgh"
 	 * - Prefix = $name[‘prefix’] e.g. "van den"
 	 * - Birth year = $birth[‘year’] e.g. "1800"
-	 * - Birth place = $birth[‘place’] e.g. "Chigaco"
+	 * - Birth place = $birth[‘place’] e.g. "Chicago"
 	 * - Death year = $death[‘year’] e.g. "1880"
-	 * - Death place = $death[‘place’] e.g. "Chigaco"
+	 * - Death place = $death[‘place’] e.g. "Chicago"
 	 *
 	 * @return string
 	 */
