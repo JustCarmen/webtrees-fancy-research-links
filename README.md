@@ -17,13 +17,23 @@ You can extend the list of possible research sites by making your own plugin. Yo
 
 A quick guide to add your own plugin:
 
-1. Take a copy of one of the existing files from the plugins folder and rename it. Note: not all plugin files are exactly the same. Some use more variables than others. This depends on the research site the link points to.
-
-2. In the new file, change the classname to match the file name and change the name and label of the link to something suitable.
-
-3. Go to the research site you want to make a link to. Perform a simple name only search and note the URL the search generates. Use this URL to make a dynamic link in your new plugin file. Enter the link at the 'createLink' section, taking careful notes where the variables need to be inserted.
-
-4. If you made a plugin that could be interesting for other users you can do a pull request or send me a copy.
+1. Take a copy of one of the existing files from the plugins folder and rename it. Note: not all plugin files are exactly the same. Some use more variables than others. This depends on the research site the link points to. Open different plugins to see how they are configured.
+2. In the new file, change the class name to match the file name and change the name and label of the link to something suitable.
+3. Go to the research site you want to make a link to. Perform a simple name only search and note the URL the search generates. Use this URL to make a dynamic link in your new plugin file. Enter the link at the ‘createLink’ section, taking careful notes where the variables need to be inserted.
+4. The variables below are available to use in your own plugin:
+   * Full name = $name[‘fullNN’] eg “John Michael van den Burgh”
+   * Full given name = $name[‘givn’] e.g. “John Michael”
+   * First name = $name[‘first’] e.g. “John”
+   * Last name with prefix = $name[‘surname’] e.g. “van den Burgh”
+   * Last name without prefix = $name[‘surn’] e.g. “Burgh”
+   * Prefix = $name[‘prefix’] e.g. “van den”
+   * Birth year = $birth[‘year’] e.g. “1800”
+   * Birth place = $birth[‘place’] e.g. “Chicago”
+   * Death year = $death[‘year’] e.g. “1880”
+   * Death place = $death[‘place’] e.g. “Chicago”
+5. In the Plugin folder you will find an extra ‘Examples’ folder which contains an example plugin for a Google search using special name parts and using the birth/death year and the birth or death place.
+6. If you want to use this example plugin (modified or as is), just copy it to the Plugin folder.
+7. If you made a plugin that could be interesting for other users you can do a pull request or send me a copy.
 
 If you have trouble creating your own link, you can open a new issue and request that a link be created for you.
 
