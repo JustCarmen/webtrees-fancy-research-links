@@ -7,11 +7,11 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
-class OpenArchievenPlugin extends FancyResearchLinksModule
+class OpenArchievenStandaardPlugin extends FancyResearchLinksModule
 {
 	public static function pluginLabel(): string
     {
-		return 'Open Archieven';
+		return 'Open Archieven (standaard zoeken)';
 	}
 
 	public static function pluginName(): string
