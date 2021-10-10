@@ -218,6 +218,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         $name['first']      = explode(" ", $name['givn'])[0];
         $name['prefix']     = trim(str_replace($name['surn'], '', $name['surname']));
+        $name['fullNN']     = trim(strip_tags(str_replace('@N.N.', '', $name['fullNN'])));
         $birth['year']      = $individual->getBirthYear();
         $birth['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getBirthPlace()->placeName()));
         $death['year']      = $individual->getDeathYear();
