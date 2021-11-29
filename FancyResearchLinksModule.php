@@ -277,7 +277,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     private function getPlugins(): Collection
     {
         $pattern   = __DIR__ . '/plugins/*Plugin.php';
-        $filenames = glob($pattern, GLOB_NOSORT);
+        $filenames = glob($pattern);
 
         return Collection::make($filenames)
             ->map(static function (string $filename) {
