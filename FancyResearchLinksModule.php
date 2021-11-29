@@ -31,6 +31,16 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     use ModuleConfigTrait;
     use ModuleSidebarTrait;
 
+    /**
+     * @var string
+     */
+    public const CUSTOM_AUTHOR = 'JustCarmen';
+
+    /**
+     * @var string
+     */
+    public const CUSTOM_VERSION = '2.0.2-dev';
+
     /** @var CountryService */
     private $country_service;
 
@@ -70,7 +80,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function customModuleAuthorName(): string
     {
-        return 'JustCarmen';
+        return self::CUSTOM_AUTHOR;
     }
 
     /**
@@ -79,7 +89,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function customModuleVersion(): string
     {
-        return '2.0.1';
+        return self::CUSTOM_VERSION;
     }
 
     /**
@@ -98,7 +108,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function customModuleSupportUrl(): string
     {
-        return 'https://github.com/justcarmen/webtrees-fancy-research-links/issues';
+        return 'https://justcarmen.nl/modules-webtrees-2/fancy-research-links/';
     }
 
     /**
