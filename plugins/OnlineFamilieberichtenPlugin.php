@@ -24,7 +24,7 @@ class OnlineFamilieberichtenPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
 		return 'https://www.online-familieberichten.nl/zoeken.asp';
 	}

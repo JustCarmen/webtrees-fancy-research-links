@@ -24,17 +24,10 @@ class StadsarchiefDelftPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	/**
-	 *
-	 * @param type $name
-	 * @return type
-	 *
-	 * Searching through all indexes of the archives of Amsterdam.
-	 * The url is the link to the first index in the list, but all indexes will be listed
-	 *
-	 */
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://zoeken.stadsarchiefdelft.nl/zoeken/groep=Personen/Voornaam=' . $name['first'] .
         '/Tussenvoegsel=' . $name['prefix'] . '/Achternaam=' . $name['surn'];
 	}

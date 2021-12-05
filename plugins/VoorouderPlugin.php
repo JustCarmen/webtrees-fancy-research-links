@@ -24,8 +24,10 @@ class VoorouderPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://genealogie.voorouder.nl/search.php?mybool=AND&nr=50&showdeath=yes&showspouse=yes&mylastname=' . $name['surname'] . '&lnqualify=equals&myfirstname=' . $name['givn'] . '&fnqualify=contains';
 	}
 }

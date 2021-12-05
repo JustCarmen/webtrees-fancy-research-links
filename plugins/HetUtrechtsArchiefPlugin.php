@@ -24,8 +24,10 @@ class HetUtrechtsArchiefPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.hetutrechtsarchief.nl/collectie/archiefbank/indexen/personen/' .
 		'zoekresultaat?mivast=39&miadt=39&mizig=100&miview=tbl&milang=nl&micols=1&mires=0' .
 		'&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'];

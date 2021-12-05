@@ -25,9 +25,8 @@ class NationaalArchiefCuracaoPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
 	{
-		// link only
 		return 'https://www.nationaalarchief.cw/api/picturae/genealogie';
 	}
 }

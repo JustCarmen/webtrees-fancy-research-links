@@ -21,12 +21,14 @@ class AezelPlugin extends FancyResearchLinksModule
 
 	public static function researchArea(): string
     {
-		return 'NLD';;
+		return 'NLD';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
 
     {
-		return 'https://aezel.eu/onderzoeken/personen?naam1=' . $name['surname'] . '&pagina=1&sort=datum&order=1&voornamen1=' . $name['givn'] . '';
+		$name = $attributes['NAME'];
+
+		return 'https://aezel.eu/onderzoeken/personen?naam1=' .$name['surname'] . '&pagina=1&sort=datum&order=1&voornamen1=' . $name['givn'] . '';
 	}
 }

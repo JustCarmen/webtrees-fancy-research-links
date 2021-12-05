@@ -97,6 +97,8 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 		// The single quotes are used to escape the variables in the string. Use spaces in the string where appropriate.
 		// The dots are used to concatenate the variables with the previous part.
 		// Of course, birth year/place of birth and death year/place of death are replaceable in this example.
+		$name = $attributes['NAME'];
+
 		return 'https://www.google.com/search?q="' . $searchname . '"' . $year . $place . ' ~genealogy ~ancestry';
 	}
 }

@@ -24,8 +24,10 @@ class DSDresdenOpferSowjetischerVerfolgungPlugin extends FancyResearchLinksModul
         return 'DEU';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://www.stsg.de/cms/dokstelle/rehabilitierung/datenbank-rehabilitierte-verurteilte?suchwort=' . $name['surn'] . '&teil=Datenbank+durchsuchen';
+        $name = $attributes['NAME'];
+
+		return 'https://www.stsg.de/cms/dokstelle/rehabilitierung/datenbank-rehabilitierte-verurteilte?suchwort=' . $name['surn'] . '&teil=Datenbank+durchsuchen';
     }
 }

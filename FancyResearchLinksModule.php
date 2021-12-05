@@ -224,60 +224,18 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function getSidebarContent(Individual $individual): string
     {
-        $names  = $individual->getAllNames();
-        $name   = $names[0];
-
-        $name['first']      = explode(" ", $name['givn'])[0];
-        $name['prefix']     = trim(str_replace($name['surn'], '', $name['surname']));
-        $name['fullNN']     = trim(strip_tags(str_replace('@N.N.', '', $name['fullNN'])));
-
-        // $birth[] and $death[] are deprecated and will be removed in a future version.
-        $birth['year']      = $individual->getBirthDate()->minimumDate()->format('%Y');
-        $birth['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getBirthPlace()->placeName()));
-        $death['year']      = $individual->getDeathDate()->minimumDate()->format('%Y');
-        $death['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getDeathPlace()->placeName()));
-
-        // support all birth (birt, chr, bapm) and death events (deat, buri, crem)
-        $gedcom_events = array_merge(Gedcom::BIRTH_EVENTS, Gedcom::DEATH_EVENTS);
-
-        foreach ($gedcom_events as $event) {
-
-            $year[$event] = '';
-            $place[$event] = '';
-
-            $edates = $individual->getAllEventDates([$event]);
-
-            if ($edates !== []) {
-                foreach ($edates as $edate) {
-                    $year[$event] = $edate->minimumDate()->format('%Y');
-                }
-            }
-
-            $eplaces = $individual->getAllEventPlaces([$event]);
-
-            if ($eplaces !== []) {
-                foreach($eplaces as $eplace) {
-                    $place[$event] = strip_tags($eplace->placeName());
-                }
-            }
-        }
-
         $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
         $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
         $expanded_area      = $this->getPreference('expanded-area', $this->getCountryList()['INT']);
 
         return view($this->name() . '::sidebar', [
-            'birth'             => $birth,
-            'death'             => $death,
+            'attributes'        => $this->getAttributes($individual),
             'enabled_plugins'   => $enabled_plugins,
             'expanded_area'     => $expanded_area,
             'expand_sidebar'    => $expand_sidebar,
-            'name'              => $name,
-            'place'             => $place,
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
             'tree'              => $individual->tree(),
-            'year'              => $year,
         ]);
     }
 
@@ -355,5 +313,56 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $countries['INT'] = I18N::translate('International');
 
         return $countries;
+    }
+
+    public function getAttributes(Individual $individual): array
+    {
+        $names  = $individual->getAllNames();
+        $name   = $names[0];
+
+        $name['first']      = explode(" ", $name['givn'])[0];
+        $name['prefix']     = trim(str_replace($name['surn'], '', $name['surname']));
+        $name['fullNN']     = trim(strip_tags(str_replace('@N.N.', '', $name['fullNN'])));
+
+        // $birth[] and $death[] are deprecated and will be removed in a future version.
+        $birth['year']      = $individual->getBirthDate()->minimumDate()->format('%Y');
+        $birth['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getBirthPlace()->placeName()));
+        $death['year']      = $individual->getDeathDate()->minimumDate()->format('%Y');
+        $death['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getDeathPlace()->placeName()));
+
+        // support all birth (birt, chr, bapm) and death events (deat, buri, crem)
+        $gedcom_events = array_merge(Gedcom::BIRTH_EVENTS, Gedcom::DEATH_EVENTS);
+
+        foreach ($gedcom_events as $event) {
+
+            $year[$event] = '';
+            $place[$event] = '';
+
+            $edates = $individual->getAllEventDates([$event]);
+
+            if ($edates !== []) {
+                foreach ($edates as $edate) {
+                    $year[$event] = $edate->minimumDate()->format('%Y');
+                }
+            }
+
+            $eplaces = $individual->getAllEventPlaces([$event]);
+
+            if ($eplaces !== []) {
+                foreach($eplaces as $eplace) {
+                    $place[$event] = strip_tags($eplace->placeName());
+                }
+            }
+        }
+
+        $attributes = array(
+            'NAME'  => $name,
+            'YEAR'  => $year,
+            'PLACE' => $place,
+            'BIRTH' => $birth,
+            'DEATH' => $death
+        );
+
+        return $attributes;
     }
 };

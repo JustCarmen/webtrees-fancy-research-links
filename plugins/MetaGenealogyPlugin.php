@@ -24,7 +24,7 @@ class MetaGenealogyPlugin extends FancyResearchLinksModule
 		return 'DEU';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
 		return "https://meta.genealogy.net";
 	}

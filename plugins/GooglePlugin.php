@@ -24,8 +24,10 @@ class GooglePlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.google.com/search?q="' . $name['fullNN'] . '" ~' . I18N::translate('genealogy');
 	}
 }

@@ -24,8 +24,10 @@ class GrandeGuerrePlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://grandeguerre.icrc.org/en/File/Search#/3/2/107/0/British%20and%20Commonwealth/Military/' . $name['surn'];
 	}
 }

@@ -24,8 +24,10 @@ class DeceasedOnlinePlugin extends FancyResearchLinksModule
 		return 'GBR';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+		
 		return 'https://www.deceasedonline.com/servlet/GSDOSearch?' . 'GSDOInptSName=' . $name['surname'] . '&GSDOInptFName=' . $name['first'];
 	}
 }

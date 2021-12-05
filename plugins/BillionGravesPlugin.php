@@ -24,8 +24,11 @@ class BillionGravesPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name, $year): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+		$year = $attributes['YEAR'];
+
 		return 'https://billiongraves.com/search/results?given_names=' .
 		$name['givn'] . '&family_names=' . $name['surname'] . '&birth_year=' . $year['BIRT'] .
 		'&death_year=' . $year['DEAT'] . '&year_range=5';

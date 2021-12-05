@@ -24,8 +24,10 @@ class DelpherPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+		
 		return 'https://www.delpher.nl/nl/kranten/results?query=' . urlencode('"') . $name['first'] . ' ' . $name['surname'] . urlencode('"') . '&coll=ddd';
 	}
 }

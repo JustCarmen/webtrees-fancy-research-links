@@ -24,8 +24,10 @@ class GrafTombePlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		// for a correct search the prefix should be put after the surname (surn)
 		$name['surname'] = $name['prefix'] ? $name['surn'] . ' ' . $name['prefix'] : $name['surn'];
 

@@ -24,8 +24,10 @@ class GwarPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://gwar.mil.ru/heroes/?last_name=' . $name['surn'] . '&first_name=' . $name['givn'];
+        $name = $attributes['NAME'];
+
+		return 'https://gwar.mil.ru/heroes/?last_name=' . $name['surn'] . '&first_name=' . $name['givn'];
     }
 }

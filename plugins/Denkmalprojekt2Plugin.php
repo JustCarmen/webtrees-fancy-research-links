@@ -24,8 +24,10 @@ class Denkmalprojekt2Plugin extends FancyResearchLinksModule
 		return 'DEU';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.google.de/search?hl=de&as_q=' . $name['surname'] . '&as_epq=&as_oq=' . $name['givn'] . '&as_eq=&as_nlo=&as_nhi=&lr=&cr=&as_qdr=all&as_sitesearch=denkmalprojekt.org&as_occt=any&safe=images&as_filetype=&as_rights=';
 	}
 }

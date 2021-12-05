@@ -24,8 +24,10 @@ class FamilySearchPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.familysearch.org/search/record/results?q.givenName=' . $name['givn'] . '&q.surname=' . $name['surname'];
 	}
 }

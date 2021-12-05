@@ -24,8 +24,10 @@ class AhnenforschungPlugin extends FancyResearchLinksModule
 		return 'DEU';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
 	{
+		$name = $attributes['NAME'];
+
 		return 'http://ahnenforschung.net/metasuche.php?query=' . $name['surname'];
 	}
 }

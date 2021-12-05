@@ -24,8 +24,10 @@ class MensenlinqPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://mensenlinq.nl/overlijdensberichten/?passed_at_from=1970-01-01&passed_at_until=' .
 		date('Y-m-d') . '&lastname=' . $name['surname'] . '&firstname=' . $name['first'] . '&advanced=1&filtered=true';
 	}

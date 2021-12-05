@@ -24,8 +24,10 @@ class AustCemeteriesPlugin extends FancyResearchLinksModule
         return 'AUS';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'http://www.austcemindex.com/?given_names=' . $name['givn'] . '&family_name=' . $name['surn'];
+        $name = $attributes['NAME'];
+
+		return 'http://www.austcemindex.com/?given_names=' . $name['givn'] . '&family_name=' . $name['surn'];
     }
 }

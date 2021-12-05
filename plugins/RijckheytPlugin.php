@@ -24,8 +24,11 @@ class RijckheytPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name, $year): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+		$year = $attributes['YEAR'];
+
 		return 'https://www.rijckheyt.nl/archief/resultaat?mivast=62&miadt=62&mizig=100&miview=tbl&milang=nl&micols=1&mip1=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip3=' . $name['givn'] . '&mibj=' . $year['BIRT'];
 	}
 }

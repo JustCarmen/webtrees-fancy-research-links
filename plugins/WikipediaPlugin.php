@@ -24,9 +24,11 @@ class WikipediaPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
 		$language = substr(I18N::languageTag(), 0, 2);
+		$name = $attributes['NAME'];
+
 		return 'https://' . $language . '.wikipedia.org/wiki/' . $name['first'] . '_' . $name['surname'];
 	}
 }

@@ -24,8 +24,10 @@ class ArolsenArchivesPlugin extends FancyResearchLinksModule
         return 'INT';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://collections.arolsen-archives.org/en/search/?s=' . $name['first'] . ' ' . $name['surn'];
+        $name = $attributes['NAME'];
+
+		return 'https://collections.arolsen-archives.org/en/search/?s=' . $name['first'] . ' ' . $name['surn'];
     }
 }

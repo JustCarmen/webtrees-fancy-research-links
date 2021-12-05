@@ -24,8 +24,10 @@ class RijksarchiefBelgiePlugin extends FancyResearchLinksModule
 		return 'BEL';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'http://search.arch.be/nl/zoeken-naar-personen/zoekresultaat/q/persoon_achternaam_t_0/' . $name['surname'] . '/q/persoon_voornaam_t_0/' . $name['givn'] . '/q/zoekwijze/s?M=0&V=0&O=0&persoon_0_periode_soort=&persoon_0_periode_geen=0';
 	}
 }

@@ -24,8 +24,10 @@ class ReabitPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'http://www.reabit.org.ua/nbr/?st=4&region=&ss=&logic=or&f1_type=begins&f1_str=' . $name['surn'] . '&f2_type=begins&f2_str=' . $name['givn'];
+        $name = $attributes['NAME'];
+
+		return 'http://www.reabit.org.ua/nbr/?st=4&region=&ss=&logic=or&f1_type=begins&f1_str=' . $name['surn'] . '&f2_type=begins&f2_str=' . $name['givn'];
     }
 }

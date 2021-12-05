@@ -24,8 +24,10 @@ class DSDresdenGefangeneKonzentrationslagerPlugin extends FancyResearchLinksModu
         return 'DEU';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://www.stsg.de/cms/dokstelle/auskuenfte/fruehe-ns-kz-sachsen-1933-1937/datenbank-fruehe-ns-kz-sachsen-1933-1937?suchwort=' . $name['surn'] . '&teil=Datenbank+durchsuchen';
+        $name = $attributes['NAME'];
+
+		return 'https://www.stsg.de/cms/dokstelle/auskuenfte/fruehe-ns-kz-sachsen-1933-1937/datenbank-fruehe-ns-kz-sachsen-1933-1937?suchwort=' . $name['surn'] . '&teil=Datenbank+durchsuchen';
     }
 }

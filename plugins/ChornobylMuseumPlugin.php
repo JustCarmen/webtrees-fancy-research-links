@@ -24,8 +24,8 @@ class ChornobylMuseumPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'http://memory.chornobylmuseum.kiev.ua/searchform.php';
+		return 'http://memory.chornobylmuseum.kiev.ua/searchform.php';
     }
 }

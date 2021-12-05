@@ -24,8 +24,10 @@ class ObdMemorialPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://obd-memorial.ru/html/search.htm?f=' . $name['surn'] . '&n=' . $name['givn'] . '&s=&y=&r=';
+        $name = $attributes['NAME'];
+
+		return 'https://obd-memorial.ru/html/search.htm?f=' . $name['surn'] . '&n=' . $name['givn'] . '&s=&y=&r=';
     }
 }

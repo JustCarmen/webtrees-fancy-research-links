@@ -24,8 +24,10 @@ class WikipediaPersonPlugin extends FancyResearchLinksModule
 		return 'DEU';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://tools.wmflabs.org/persondata/index.php?name=' . $name['first'] . '* ' . $name['surname'];
 	}
 }

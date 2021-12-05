@@ -24,8 +24,10 @@ class DSDresdenVerurteilteSowjetischerMilitaertribunalePlugin extends FancyResea
         return 'DEU';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://www.stsg.de/cms/dokstelle/auskuenfte/verurteilte-sowjetischer-militaertribunale-smt/todesurteile-sowjetischer?suchwort=' . $name['givn'] . '&beginn=Name+beginnt+mit';
+        $name = $attributes['NAME'];
+
+		return 'https://www.stsg.de/cms/dokstelle/auskuenfte/verurteilte-sowjetischer-militaertribunale-smt/todesurteile-sowjetischer?suchwort=' . $name['givn'] . '&beginn=Name+beginnt+mit';
     }
 }

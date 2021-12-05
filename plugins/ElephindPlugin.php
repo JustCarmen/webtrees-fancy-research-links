@@ -24,8 +24,10 @@ class ElephindPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.elephind.com/?a=q&hs=1&r=1&results=1&txq=' . $name['first'] . '+' . $name['surname'] . '&txf=txINtxCO&o=10&dafyq=&dafmq=&dafdq=&datyq=&datmq=&datdq=&puqname=Search+all+titles...&puq=&lcq=&csq=&e=-------en-10--1--txt-txINtxCO----------';
 	}
 }

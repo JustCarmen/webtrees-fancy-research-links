@@ -24,8 +24,10 @@ class ZeeuwsArchiefPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.zeeuwsarchief.nl/onderzoek-het-zelf/archief/?mivast=239&miadt=239&mizig=862&miview=tbl&milang=nl' .
 		'&micols=1&mip3=' . $name['surn'] . '&mip2=' . $name['prefix'] . '&mip1=' . $name['givn'];
 	}

@@ -24,8 +24,10 @@ class RodovidPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://cse.google.com/cse?cx=partner-pub-7138679064258925:9991898506&ie=UTF-8&q=' . $name['fullNN'] . '&sa=Search';
 	}
 }

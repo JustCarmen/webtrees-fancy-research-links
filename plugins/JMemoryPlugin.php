@@ -24,8 +24,10 @@ class JMemoryPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'http://jmemory.org/page1.php?family=' . $name['surn'] . '&letters=&send=ПОИСК';
+        $name = $attributes['NAME'];
+
+		return 'http://jmemory.org/page1.php?family=' . $name['surn'] . '&letters=&send=ПОИСК';
     }
 }

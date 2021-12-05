@@ -11,7 +11,7 @@ class SzukajWArchiwachPlugin extends FancyResearchLinksModule
 {
     public static function pluginLabel(): string
     {
-        return 'Szukaj w Archiwach (tylko link)'; 
+        return 'Szukaj w Archiwach (tylko link)';
     }
 
     public static function pluginName(): string
@@ -24,8 +24,8 @@ class SzukajWArchiwachPlugin extends FancyResearchLinksModule
         return 'POL';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://www.szukajwarchiwach.gov.pl/';
+		return 'https://www.szukajwarchiwach.gov.pl/';
     }
 }

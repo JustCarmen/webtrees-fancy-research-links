@@ -24,8 +24,10 @@ class NKVDMemoPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://nkvd.memo.ru/index.php?search=' . $name['surn'] . '+' . $name['givn'];
+        $name = $attributes['NAME'];
+
+		return 'https://nkvd.memo.ru/index.php?search=' . $name['surn'] . '+' . $name['givn'];
     }
 }

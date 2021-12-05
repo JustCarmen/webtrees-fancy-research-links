@@ -24,8 +24,10 @@ class RidniPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://ridni.org/karta/' . $name['surn'];
+        $name = $attributes['NAME'];
+
+		return 'https://ridni.org/karta/' . $name['surn'];
     }
 }

@@ -24,7 +24,7 @@ class OpenArchievenTranscriptiesPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name, $year, $place): string
+	public static function researchLink($attributes): string
     {
 		$languages = ['de', 'en', 'fr', 'nl'];
 
@@ -32,6 +32,9 @@ class OpenArchievenTranscriptiesPlugin extends FancyResearchLinksModule
 		if (!in_array($language, $languages)) {
 			$language = 'en';
 		}
+		
+		$name = $attributes['NAME'];
+
 		return 'https://www.openarch.nl/htr/search.php?q="' . $name['first'] . ' ' . $name['surname'] . '"&lang=' . $language;
 	}
 }

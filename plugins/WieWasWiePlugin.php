@@ -24,8 +24,10 @@ class WieWasWiePlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.wiewaswie.nl/nl/zoeken?q=' . $name['fullNN'];
 	}
 }

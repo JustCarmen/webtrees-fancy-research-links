@@ -24,8 +24,10 @@ class FindAGravePlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://www.findagrave.com/cgi-bin/fg.cgi?page=gsr&GSfn=' . $name['first'] . '&GSmn=&GSln=' . $name['surname'] . '&GSbyrel=all&GSby=&GSdyrel=all&GSdy=&GScntry=0&GSst=0&GSgrid=&df=all&GSob=n';
 	}
 }

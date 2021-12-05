@@ -24,7 +24,7 @@ class AncestryPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
 	{
 		$domain = [
 		// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
@@ -43,6 +43,8 @@ class AncestryPlugin extends FancyResearchLinksModule
 		} else {
 			$ancestry_domain = $domain['en_US'];
 		}
+
+		$name = $attributes['NAME'];
 
 		return 'https://search.ancestry.' . $ancestry_domain . '/cgi-bin/sse.dll?new=1&gsfn=' . $name['givn'] . '&gsln=' . $name['surname'] . '&gl=ROOT_CATEGORY&rank=1';
 	}

@@ -24,8 +24,10 @@ class DSDresdenDresdnerJudenPlugin extends FancyResearchLinksModule
         return 'DEU';
     }
 
-    public static function researchLink($name): string
+    public static function researchLink($attributes): string
     {
-        return 'https://www.stsg.de/cms/dresdner-juden?suchwort=' . $name['surn'] . '&beginn=Beginn+des+Namens';
+        $name = $attributes['NAME'];
+
+		return 'https://www.stsg.de/cms/dresdner-juden?suchwort=' . $name['surn'] . '&beginn=Beginn+des+Namens';
     }
 }

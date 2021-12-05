@@ -24,9 +24,10 @@ class ErfgoedEnschedePlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name, $birth): string
-
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://collecties.erfgoedenschede.nl/zoeken/groep=Personen%2C%20Akten%20en%20registers/Achternaam=' . $name['surn'] . '/Voornaam=' . $name['givn'] . '/aantalpp=12/?nav_id=0-0';
 	}
 }

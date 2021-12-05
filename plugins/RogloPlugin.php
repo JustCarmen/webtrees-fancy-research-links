@@ -24,7 +24,7 @@ class RogloPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
 		$languages = ['af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh'];
 
@@ -46,6 +46,8 @@ class RogloPlugin extends FancyResearchLinksModule
 		if (!in_array($language, $languages)) {
 			$language = 'en';
 		}
+
+		$name = $attributes['NAME'];
 
 		return 'http://roglo.eu/roglo?lang=' . $language . '&m=NG&n=' . $name['fullNN'] . '&t=PN';
 	}

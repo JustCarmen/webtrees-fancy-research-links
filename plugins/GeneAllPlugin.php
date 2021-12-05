@@ -24,7 +24,7 @@ class GeneAllPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
 		$languages = [
 			'de'    => 'de',
@@ -43,6 +43,8 @@ class GeneAllPlugin extends FancyResearchLinksModule
 		} else {
 			$language = $languages['en_US'];
 		}
+
+		$name = $attributes['NAME'];
 
 		return 'https://www.geneall.net/' . $language . '/search/?s=' . $name['first'] . ' ' . $name['surname'] . '&t=p';
 	}

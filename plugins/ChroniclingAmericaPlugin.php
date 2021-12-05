@@ -24,9 +24,12 @@ class ChroniclingAmericaPlugin extends FancyResearchLinksModule
 		return 'USA';;
 	}
 
-	public static function researchLink($name, $year): string
+	public static function researchLink($attributes): string
 
     {
+		$name = $attributes['NAME'];
+		$year = $attributes['YEAR'];
+
 		return 'https://chroniclingamerica.loc.gov/search/pages/results/?state=&date1=' . $year['BIRT'] . '&date2=1963&proxtext=' . $name['first'] . '+' . $name['surname'] . '&x=23&y=17&dateFilterType=yearRange&rows=20&searchType=basic&sort=date';
 	}
 }

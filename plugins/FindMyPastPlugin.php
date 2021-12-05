@@ -24,8 +24,10 @@ class FindMyPastPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public static function researchLink($name): string
+	public static function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+
 		return 'https://search.findmypast.com/search/world-records?firstname=' . $name['givn'] . '&firstname_variants=true&lastname=' . $name['surname'];
 	}
 }
