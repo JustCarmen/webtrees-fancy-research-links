@@ -14,7 +14,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
    *
    * @return string
    */
-	public static function pluginLabel(): string
+	public function pluginLabel(): string
     {
 		return 'Google custom search';
 	}
@@ -24,7 +24,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
    *
    * @return string
    */
-	public static function pluginName(): string
+	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
@@ -36,7 +36,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 *
 	 * @return string
 	 */
-	public static function researchArea(): string
+	public function researchArea(): string
     {
 		return 'INT';
 	}
@@ -62,7 +62,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 *
 	 * @return string
 	 */
-	public static function researchLink($name, $year, $place): string
+	public function researchLink($name, $year, $place): string
     {
 		// "First M Last" YOB
 		$searchname = $name['first'];

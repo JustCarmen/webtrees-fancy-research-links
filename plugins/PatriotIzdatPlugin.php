@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class PatriotIzdatPlugin extends FancyResearchLinksModule
 {
-    public static function pluginLabel(): string
+    public function pluginLabel(): string
     {
         return 'Книга памяти. Списки погибших в период и после 1945 года, 1923-1940, 1946-1982 (ссылка)';
     }
 
-    public static function pluginName(): string
+    public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-    public static function researchArea(): string
+    public function researchArea(): string
     {
         return 'RUS';
     }
 
-    public static function researchLink($attributes): string
+    public function researchLink($attributes): string
     {
 		return 'http://www.patriot-izdat.ru/memory/memorybook/';
     }

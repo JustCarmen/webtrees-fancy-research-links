@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class RootsWebPlugin extends FancyResearchLinksModule
 {
-	public static function pluginLabel(): string
+	public function pluginLabel(): string
     {
 		return 'Rootsweb (link only)';
 	}
 
-	public static function pluginName(): string
+	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-	public static function researchArea(): string
+	public function researchArea(): string
     {
 		return 'INT';
 	}
 
-	public static function researchLink(): string
+	public function researchLink(): string
     {
 		return 'https://wc.rootsweb.com/search';
 	}

@@ -9,25 +9,25 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class DeceasedOnlinePlugin extends FancyResearchLinksModule
 {
-	public static function pluginLabel(): string
+	public function pluginLabel(): string
     {
 		return 'Deceased Online';
 	}
 
-	public static function pluginName(): string
+	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-	public static function researchArea(): string
+	public function researchArea(): string
     {
 		return 'GBR';
 	}
 
-	public static function researchLink($attributes): string
+	public function researchLink($attributes): string
     {
 		$name = $attributes['NAME'];
-		
+
 		return 'https://www.deceasedonline.com/servlet/GSDOSearch?' . 'GSDOInptSName=' . $name['surname'] . '&GSDOInptFName=' . $name['first'];
 	}
 }

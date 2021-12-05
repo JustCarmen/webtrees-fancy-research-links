@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class SzukajWArchiwachPlugin extends FancyResearchLinksModule
 {
-    public static function pluginLabel(): string
+    public function pluginLabel(): string
     {
         return 'Szukaj w Archiwach (tylko link)';
     }
 
-    public static function pluginName(): string
+    public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-    public static function researchArea(): string
+    public function researchArea(): string
     {
         return 'POL';
     }
 
-    public static function researchLink($attributes): string
+    public function researchLink($attributes): string
     {
 		return 'https://www.szukajwarchiwach.gov.pl/';
     }

@@ -10,22 +10,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 class NationalArchivesOfAustraliaPlugin extends FancyResearchLinksModule
 {
 
-	public static function pluginLabel(): string
+	public function pluginLabel(): string
 	{
 		return 'National Archives of Australia (' . I18N::translate('link only') . ')';
 	}
 
-	public static function pluginName(): string
+	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-	public static function researchArea(): string
+	public function researchArea(): string
 	{
 		return 'AUS';
 	}
 
-	public static function researchLink($attributes): string
+	public function researchLink($attributes): string
     {
 		return "https://recordsearch.naa.gov.au";
 	}

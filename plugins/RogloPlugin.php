@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class RogloPlugin extends FancyResearchLinksModule
 {
-	public static function pluginLabel(): string
+	public function pluginLabel(): string
     {
 		return 'Roglo';
 	}
 
-	public static function pluginName(): string
+	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-	public static function researchArea(): string
+	public function researchArea(): string
     {
 		return 'INT';
 	}
 
-	public static function researchLink($attributes): string
+	public function researchLink($attributes): string
     {
 		$languages = ['af', 'bg', 'br', 'ca', 'cs', 'da', 'de', 'es', 'et', 'fi', 'fr', 'he', 'is', 'it', 'lv', 'nl', 'pl', 'pt', 'ro', 'ru', 'sl', 'sv', 'zh'];
 

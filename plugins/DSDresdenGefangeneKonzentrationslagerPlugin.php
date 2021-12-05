@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class DSDresdenGefangeneKonzentrationslagerPlugin extends FancyResearchLinksModule
 {
-    public static function pluginLabel(): string
+    public function pluginLabel(): string
     {
         return 'Dokumentationsstelle Dresden - Gefangene früher NS-Konzentrationslager in Sachsen (1933-1937)';
     }
 
-    public static function pluginName(): string
+    public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-    public static function researchArea(): string
+    public function researchArea(): string
     {
         return 'DEU';
     }
 
-    public static function researchLink($attributes): string
+    public function researchLink($attributes): string
     {
         $name = $attributes['NAME'];
 

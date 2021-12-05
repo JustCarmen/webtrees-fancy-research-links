@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class Denkmalprojekt2Plugin extends FancyResearchLinksModule
 {
-	public static function pluginLabel(): string
+	public function pluginLabel(): string
     {
 		return 'Denkmalprojekt (Google)';
 	}
 
-	public static function pluginName(): string
+	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-	public static function researchArea(): string
+	public function researchArea(): string
     {
 		return 'DEU';
 	}
 
-	public static function researchLink($attributes): string
+	public function researchLink($attributes): string
     {
 		$name = $attributes['NAME'];
 

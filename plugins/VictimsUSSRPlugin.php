@@ -9,22 +9,22 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class VictimsUSSRPlugin extends FancyResearchLinksModule
 {
-    public static function pluginLabel(): string
+    public function pluginLabel(): string
     {
         return 'Жертвы политического террора в СССР (ссылка)';
     }
 
-    public static function pluginName(): string
+    public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
 	}
 
-    public static function researchArea(): string
+    public function researchArea(): string
     {
         return 'RUS';
     }
 
-    public static function researchLink($attributes): string
+    public function researchLink($attributes): string
     {
 		return 'http://lists.memo.ru/';
     }
