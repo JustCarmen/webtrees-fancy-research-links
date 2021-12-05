@@ -10,7 +10,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 {
 
   /**
-   * The plugin name is used in the sidebar
+   * The plugin label is used in the sidebar
    *
    * @return string
    */
@@ -19,6 +19,11 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 		return 'Google custom search';
 	}
 
+	/**
+   * The plugin name is the internal name and is generated automatically
+   *
+   * @return string
+   */
 	public static function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
@@ -38,22 +43,26 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 
 	/**
 	 *
-	 * @param array $name
+	 * @param array $name, $year, $place
 	 *
-	 * - Full name = $name[‘fullNN’] eg "John Michael van den Burgh"
-	 * - Full given name = $name[‘givn’] e.g. "John Michael"
-	 * - First name = $name[‘first’] e.g. "John"
-	 * - Last name with prefix = $name[‘surname’] e.g. "van den Burgh"
-	 * - Last name without prefix = $name[‘surn’] e.g. "Burgh"
-	 * - Prefix = $name[‘prefix’] e.g. "van den"
-	 * - Birth year = $birth[‘year’] e.g. "1800"
-	 * - Birth place = $birth[‘place’] e.g. "Chicago"
-	 * - Death year = $death[‘year’] e.g. "1880"
-	 * - Death place = $death[‘place’] e.g. "Chicago"
+	 * - Full name 					= $name[‘fullNN’] 	e.g. "John Michael van den Burgh"
+	 * - Full given name 			= $name[‘givn’] 	e.g. "John Michael"
+	 * - First name 				= $name[‘first’] 	e.g. "John"
+	 * - Last name with prefix 		= $name[‘surname’] 	e.g. "van den Burgh"
+	 * - Last name without prefix 	= $name[‘surn’] 	e.g. "Burgh"
+	 * - Prefix 					= $name[‘prefix’] 	e.g. "van den"
+	 *
+	 * - Birth year/place		= $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago"
+	 * - Christening year/place	= $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago"
+	 * - Baptism year/place		= $year['BAPM]	e.g. "1800" / $place['BAPM]	e.g. "Chicago"
+	 *
+	 * - Death year/place		= $year['DEAT'] e.g. "1880" / $place['DEAT]	e.g. "New York"
+	 * - Burial year/place		= $year['BURI]	e.g. "1880" / $place['BURI]	e.g. "New York"
+	 * - Cremation year/place	= $year['CREM]	e.g. "1880" / $place['CREM]	e.g. "New York"
 	 *
 	 * @return string
 	 */
-	public static function researchLink($name, $birth, $death): string
+	public static function researchLink($name, $year, $place): string
     {
 		// "First M Last" YOB
 		$searchname = $name['first'];
@@ -68,15 +77,16 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 		// Concatenate the surname to the variable $searchname that already holds the string "First M"
 		$searchname .= ' ' . $name['surname'];
 
-		// The variable birth['year']/birth['place] (or death['year']/death['place']) returns an empty string when the date/place
-		// is unknown so it is not neccessary to use an escape, but if the string is empty we do not need the preceding space.
+		// The variable $year[]/$place[] returns an empty string when the date/place is unknown so it is not neccessary
+		// to use an escape, but if the string is empty we do not need the preceding space.
 		// This might not be a problem in a googlesearch but it can be a problem with other research websites.
-		// In this case it is better to add the space to the variable. You can replace $birth with $death in this example.
-		$year = $birth['year'];
+		// In this case it is better to add the space to the variable. You can replace the 'BIRT'-event in this example
+		// with the event you need.
+		$year = $year['BIRT'];
 		if ($year <> '') { // if $year is not empty
 			$year = ' ' . $year;
 		}
-		$place = $birth['place'];
+		$place = $place['BIRT'];
 		if ($place <> '') { // if $place is not empty
 			$place = ' ' . $place;
 		}

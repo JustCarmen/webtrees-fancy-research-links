@@ -24,9 +24,9 @@ class ChroniclingAmericaPlugin extends FancyResearchLinksModule
 		return 'USA';;
 	}
 
-	public static function researchLink($name, $birth): string
+	public static function researchLink($name, $year): string
 
     {
-		return 'https://chroniclingamerica.loc.gov/search/pages/results/?state=&date1=' . $birth['year'] . '&date2=1963&proxtext=' . $name['first'] . '+' . $name['surname'] . '&x=23&y=17&dateFilterType=yearRange&rows=20&searchType=basic&sort=date';
+		return 'https://chroniclingamerica.loc.gov/search/pages/results/?state=&date1=' . $year['BIRT'] . '&date2=1963&proxtext=' . $name['first'] . '+' . $name['surname'] . '&x=23&y=17&dateFilterType=yearRange&rows=20&searchType=basic&sort=date';
 	}
 }

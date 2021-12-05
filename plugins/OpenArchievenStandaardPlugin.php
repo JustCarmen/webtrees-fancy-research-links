@@ -24,7 +24,7 @@ class OpenArchievenStandaardPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name, $birth, $death): string
+	public static function researchLink($name, $year, $place): string
     {
 		$languages = ['de', 'en', 'fr', 'nl'];
 
@@ -32,6 +32,6 @@ class OpenArchievenStandaardPlugin extends FancyResearchLinksModule
 		if (!in_array($language, $languages)) {
 			$language = 'en';
 		}
-		return 'https://www.openarch.nl/search.php?lang=' . $language . '&name=' . $name['fullNN'] . ' ' . $birth['year'] . '-' . $death['year'] . '&number_show=10&sort=4';
+		return 'https://www.openarch.nl/search.php?lang=' . $language . '&name=' . $name['fullNN'] . ' ' . $year['BIRT'] . '-' . $year['DEAT'] . '&number_show=10&sort=4';
 	}
 }

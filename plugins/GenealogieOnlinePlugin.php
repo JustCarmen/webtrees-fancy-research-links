@@ -24,8 +24,8 @@ class GenealogieOnlinePlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name, $birth): string
+	public static function researchLink($name, $year, $place): string
     {
-		return 'https://www.genealogieonline.nl/zoeken/?q=' . $name['surname'] . '&vn=' . $name['givn'] . '&pn=' . $birth['place'];
+		return 'https://www.genealogieonline.nl/zoeken/?q=' . $name['surname'] . '&vn=' . $name['givn'] . '&pn=' . $place['BIRT'];
 	}
 }

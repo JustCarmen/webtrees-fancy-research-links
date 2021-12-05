@@ -24,7 +24,7 @@ class OpenArchievenTranscriptiesPlugin extends FancyResearchLinksModule
 		return 'NLD';;
 	}
 
-	public static function researchLink($name, $birth, $death): string
+	public static function researchLink($name, $year, $place): string
     {
 		$languages = ['de', 'en', 'fr', 'nl'];
 

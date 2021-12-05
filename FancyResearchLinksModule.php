@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
 use Throwable;
+use function str_replace;
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Gedcom;
 use Illuminate\Support\Collection;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
@@ -20,10 +22,9 @@ use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use Fisharebest\Webtrees\Statistics\Service\CountryService;
-
-use function str_replace;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
@@ -229,10 +230,37 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $name['first']      = explode(" ", $name['givn'])[0];
         $name['prefix']     = trim(str_replace($name['surn'], '', $name['surname']));
         $name['fullNN']     = trim(strip_tags(str_replace('@N.N.', '', $name['fullNN'])));
+
+        // $birth[] and $death[] are deprecated and will be removed in a future version.
         $birth['year']      = $individual->getBirthDate()->minimumDate()->format('%Y');
         $birth['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getBirthPlace()->placeName()));
         $death['year']      = $individual->getDeathDate()->minimumDate()->format('%Y');
         $death['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getDeathPlace()->placeName()));
+
+        // support all birth (birt, chr, bapm) and death events (deat, buri, crem)
+        $gedcom_events = array_merge(Gedcom::BIRTH_EVENTS, Gedcom::DEATH_EVENTS);
+
+        foreach ($gedcom_events as $event) {
+
+            $year[$event] = '';
+            $place[$event] = '';
+
+            $edates = $individual->getAllEventDates([$event]);
+
+            if ($edates !== []) {
+                foreach ($edates as $edate) {
+                    $year[$event] = $edate->minimumDate()->format('%Y');
+                }
+            }
+
+            $eplaces = $individual->getAllEventPlaces([$event]);
+
+            if ($eplaces !== []) {
+                foreach($eplaces as $eplace) {
+                    $place[$event] = strip_tags($eplace->placeName());
+                }
+            }
+        }
 
         $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
         $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
@@ -245,9 +273,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'expanded_area'     => $expanded_area,
             'expand_sidebar'    => $expand_sidebar,
             'name'              => $name,
+            'place'             => $place,
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
-            'tree'              => $individual->tree()
+            'tree'              => $individual->tree(),
+            'year'              => $year,
         ]);
     }
 
