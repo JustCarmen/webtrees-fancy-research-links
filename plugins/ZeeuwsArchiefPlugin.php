@@ -21,7 +21,7 @@ class ZeeuwsArchiefPlugin extends FancyResearchLinksModule
 
 	public function researchArea(): string
     {
-		return 'NLD';;
+		return 'NLD';
 	}
 
 	public function researchLink($attributes): string
