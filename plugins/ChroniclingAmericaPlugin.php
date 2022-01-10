@@ -21,7 +21,7 @@ class ChroniclingAmericaPlugin extends FancyResearchLinksModule
 
 	public function researchArea(): string
     {
-		return 'USA';;
+		return 'USA';
 	}
 
 	public function researchLink($attributes): string
