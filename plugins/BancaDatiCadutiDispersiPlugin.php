@@ -24,7 +24,7 @@ class BancaDatiCadutiDispersiPlugin extends FancyResearchLinksModule
 		return 'ITA';
 	}
 
-	public static function researchLink($name, $birth): string
+	public static function researchLink($attributes): string
     {
         return 'https://www.difesa.it/Il_Ministro/CadutiInGuerra/Pagine/default.aspx';
 
