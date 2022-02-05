@@ -43,7 +43,11 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 
 	/**
 	 *
-	 * @param array $name, $year, $place
+	 * @param array $attributes
+	 *
+	 * $name = $attributes['NAME'];
+	 * $year = $attributes['YEAR'];
+	 * $place = $attributes['PLACE'];
 	 *
 	 * - Full name 					= $name[‘fullNN’] 	e.g. "John Michael van den Burgh"
 	 * - Full given name 			= $name[‘givn’] 	e.g. "John Michael"
@@ -62,8 +66,12 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 *
 	 * @return string
 	 */
-	public function researchLink($name, $year, $place): string
+	public function researchLink($attributes): string
     {
+		$name = $attributes['NAME'];
+		$year = $attributes['YEAR'];
+		$place = $attributes['PLACE'];
+
 		// "First M Last" YOB
 		$searchname = $name['first'];
 
