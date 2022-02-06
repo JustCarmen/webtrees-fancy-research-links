@@ -55,6 +55,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 * - Last name with prefix 		= $name[‘surname’] 	e.g. "van den Burgh"
 	 * - Last name without prefix 	= $name[‘surn’] 	e.g. "Burgh"
 	 * - Prefix 					= $name[‘prefix’] 	e.g. "van den"
+	 * - Married name				= $name['msurname'] e.g. "de Vries"
 	 *
 	 * - Birth year/place		= $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago"
 	 * - Christening year/place	= $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago"

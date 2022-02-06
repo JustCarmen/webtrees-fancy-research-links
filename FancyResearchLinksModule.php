@@ -317,12 +317,24 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
     public function getAttributes(Individual $individual): array
     {
-        $names  = $individual->getAllNames();
-        $name   = $names[0];
+        $all_names  = $individual->getAllNames();
+        $name       = $all_names[0];
 
-        $name['first']      = explode(" ", $name['givn'])[0];
-        $name['prefix']     = trim(str_replace($name['surn'], '', $name['surname']));
-        $name['fullNN']     = trim(strip_tags(str_replace('@N.N.', '', $name['fullNN'])));
+        // add some custom name attributes
+        $name['first']  = explode(" ", $name['givn'])[0];
+        $name['prefix'] = trim(str_replace($name['surn'], '', $name['surname']));
+        $name['fullNN'] = trim(strip_tags(str_replace('@N.N.', '', $name['fullNN'])));
+
+        // extract the Marriage name
+        $name['msurname'] = '';
+        if (count($all_names) > 1) {
+            foreach ($all_names as $names) {
+                if ($names['type'] === '_MARNM') {
+                    $name['msurname'] = $names['surname'];
+                    break;
+                }
+            }
+        }
 
         // $birth[] and $death[] are deprecated and will be removed in a future version.
         $birth['year']      = $individual->getBirthDate()->minimumDate()->format('%Y');
