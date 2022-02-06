@@ -1,39 +1,43 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"Language: ru\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: FancyResearchLinksModule.php:64
 msgid "A sidebar tool to provide quick links to popular research web sites."
-msgstr "Инструмент боковой панели для предоставления быстрых ссылок на популярные исследовательские веб-сайты."
+msgstr "Инструмент в боковой панели для быстрого перехода на поисковые сайты."
 
 #: resources/views/settings.phtml:16
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
-msgstr "Отметьте плагины, которые вы хотите использовать, на боковой панели. Снимите флажки с ненужных плагинов."
+msgstr "Отметьте плагины, которые вы хотите видеть в боковой панели. Уберите ненужные Вам плагины."
 
 #: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
-msgstr "Включение этого изменит поведение браузера по умолчанию."
+msgstr "Включение этого параметра изменит поведение браузера по умолчанию."
 
 #: resources/views/settings.phtml:26
 msgid "Expand the sidebar content with the Fancy Research Links"
-msgstr "Расширьте содержимое боковой панели с помощью необычных исследовательских ссылок"
+msgstr "Расширьте содержимое боковой панели с помощью Fancy Research Links"
 
 #: FancyResearchLinksModule.php:54
 msgid "Fancy Research Links"
-msgstr "Необычные исследовательские ссылки"
+msgstr "Fancy Research Links"
 
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
-msgstr "Нажмите переключатель перед заголовком, чтобы установить область исследования по умолчанию. Выбранная область исследования откроется в развернутом виде на боковой панели."
+msgstr "Нажмите переключатель перед заголовком, чтобы установить область исследования по умолчанию. Выбранная область исследования откроется развернутой на боковой панели."
 
 #: resources/views/settings.phtml:27
-msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
-msgstr "Если этот флажок установлен, содержимое боковой панели с Fancy Research Links будет расширяться, в то время как навигатор по семействам боковой панели свернется, если у пользователя есть роль редактора или выше."
+msgid "If checked, the sidebar content with the Fancy Research Links will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
+msgstr "Если флажок установлен, содержимое боковой панели с Fancy Research Links будет раскрыто, а Семейный навигатор в боковой панели свернётся, если пользователь имеет права редактора или выше."
 
 #: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
 #: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
@@ -55,19 +59,19 @@ msgstr "Открывать ссылки в новой вкладке"
 
 #: FancyResearchLinksModule.php:182
 msgid "Research links"
-msgstr "Ссылки на исследования"
+msgstr "Поисковые ссылки"
 
 #: resources/views/settings.phtml:38
 msgid "Select/unselect all"
-msgstr "Выбрать все / отменить выбор"
+msgstr "Все выделить или снять выделение со всех"
 
 #: FancyResearchLinksModule.php:283
 msgid "There was an error loading the plugin "
-msgstr "При загрузке плагина произошла ошибка "
+msgstr "Ошибка загрузки плагина "
 
 #: resources/views/settings.phtml:39
 msgid "Toggle this checkbox to select all research links at once."
-msgstr "Установите этот флажок, чтобы выбрать сразу все ссылки на исследования."
+msgstr "Отметить тут, чтобы выбрать все поисковые ссылки разом."
 
 #: plugins/GooglePlugin.php:29
 msgid "genealogy"
@@ -80,4 +84,3 @@ msgstr "генеалогия"
 #: plugins/OnlineFamilieberichtenPlugin.php:14
 msgid "link only"
 msgstr "только ссылка"
-
