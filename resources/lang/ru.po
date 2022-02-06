@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: ru\n"
+
+#: FancyResearchLinksModule.php:64
+msgid "A sidebar tool to provide quick links to popular research web sites."
+msgstr "Инструмент боковой панели для предоставления быстрых ссылок на популярные исследовательские веб-сайты."
+
+#: resources/views/settings.phtml:16
+msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
+msgstr "Отметьте плагины, которые вы хотите использовать, на боковой панели. Снимите флажки с ненужных плагинов."
+
+#: resources/views/settings.phtml:32
+msgid "Enabling this will change the default behavior of the browser."
+msgstr "Включение этого изменит поведение браузера по умолчанию."
+
+#: resources/views/settings.phtml:26
+msgid "Expand the sidebar content with the Fancy Research Links"
+msgstr "Расширьте содержимое боковой панели с помощью необычных исследовательских ссылок"
+
+#: FancyResearchLinksModule.php:54
+msgid "Fancy Research Links"
+msgstr "Необычные исследовательские ссылки"
+
+#: resources/views/settings.phtml:17
+msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
+msgstr "Нажмите переключатель перед заголовком, чтобы установить область исследования по умолчанию. Выбранная область исследования откроется в развернутом виде на боковой панели."
+
+#: resources/views/settings.phtml:27
+msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
+msgstr "Если этот флажок установлен, содержимое боковой панели с Fancy Research Links будет расширяться, в то время как навигатор по семействам боковой панели свернется, если у пользователя есть роль редактора или выше."
+
+#: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
+#: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
+#: plugins/BillionGravesPlugin.php:24 plugins/ElephindPlugin.php:24
+#: plugins/FamilySearchPlugin.php:24 plugins/FindAGravePlugin.php:24
+#: plugins/FindMyPastPlugin.php:24 plugins/GeneAllPlugin.php:24
+#: plugins/GeneanetPlugin.php:24 plugins/GooglePlugin.php:24
+#: plugins/GrandeGuerrePlugin.php:35
+#: plugins/NationaalArchiefCuracaoPlugin.php:25 plugins/RogloPlugin.php:24
+#: plugins/RootsWebPlugin.php:24 plugins/WikipediaPlugin.php:24
+#: plugins/examples/CustomGooglePlugin1.php:33
+#: plugins/examples/CustomGooglePlugin2.php:33
+msgid "International"
+msgstr "Международный"
+
+#: resources/views/settings.phtml:31
+msgid "Open links in a new tab"
+msgstr "Открывать ссылки в новой вкладке"
+
+#: FancyResearchLinksModule.php:182
+msgid "Research links"
+msgstr "Ссылки на исследования"
+
+#: resources/views/settings.phtml:38
+msgid "Select/unselect all"
+msgstr "Выбрать все / отменить выбор"
+
+#: FancyResearchLinksModule.php:283
+msgid "There was an error loading the plugin "
+msgstr "При загрузке плагина произошла ошибка "
+
+#: resources/views/settings.phtml:39
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Установите этот флажок, чтобы выбрать сразу все ссылки на исследования."
+
+#: plugins/GooglePlugin.php:29
+msgid "genealogy"
+msgstr "генеалогия"
+
+#: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
+#: plugins/NationaalArchiefCuracaoPlugin.php:15
+#: plugins/NationalArchivesOfAustraliaPlugin.php:15
+#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/OnlineFamilieberichtenPlugin.php:14
+msgid "link only"
+msgstr "только ссылка"
+
