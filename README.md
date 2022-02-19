@@ -9,58 +9,70 @@ Fancy Research Links for webtrees
 
 Introduction
 -----------
-A sidebar module that provides quick links to popular research web sites, using the individuals name as the search reference.
+A sidebar module that provides shortcuts to popular research websites, using the individual data as a search reference.
 
-Look in the plugins folder to get a quick overview of the plugins (research links) available.
+Look in [the plugins folder][3] to get a quick overview of the available plugins (research links).
 
-You can extend the list of possible research sites by making your own plugin. You can use an existing plugin from the plugins folder as starting point.
+You can expand the list of possible research sites by creating your own plugin. To get started you can use an existing plugin from the plugins folder or take [the empty plugin template][4] from the examples folder.
 
-A quick guide to add your own plugin:
+A guide to add your own plugin:
 
-1. Take a copy of one of the existing files from the plugins folder and rename it. Note: not all plugin files are exactly the same. Some use more variables than others. This depends on the research site the link points to. Open different plugins to see how they are configured.
-2. In the new file, change the class name to match the file name and change the name and label of the link to something suitable.
-3. Go to the research site you want to make a link to. Perform a simple name only search and note the URL the search generates. Use this URL to make a dynamic link in your new plugin file. Enter the link at the ‘createLink’ section, taking careful notes where the variables need to be inserted.
-4. The variables below are available to use in your own plugin:
-   * Full name = $name[‘fullNN’] eg “John Michael van den Burgh”
-   * Full given name = $name[‘givn’] e.g. “John Michael”
-   * First name = $name[‘first’] e.g. “John”
-   * Last name with prefix = $name[‘surname’] e.g. “van den Burgh”
-   * Last name without prefix = $name[‘surn’] e.g. “Burgh”
-   * Prefix = $name[‘prefix’] e.g. “van den”
-   * Birth year = $birth[‘year’] e.g. “1800”
-   * Birth place = $birth[‘place’] e.g. “Chicago”
-   * Death year = $death[‘year’] e.g. “1880”
-   * Death place = $death[‘place’] e.g. “Chicago”
-5. In the Plugin folder you will find an extra ‘Examples’ folder which contains an example plugin for a Google search using special name parts and using the birth/death year and the birth or death place.
-6. If you want to use this example plugin (modified or as is), just copy it to the Plugin folder.
-7. If you made a plugin that could be interesting for other users you can do a pull request or send me a copy.
+1. Take a copy of one of the existing files from the plugins folder or copy the empty plugin from the examples folder and rename it. Give it a recognizable name. Note that not all plugin files are exactly the same. Some use more variables than others. This depends on the research site to which the link refers. Open several plugins to see how they are configured.
+2. In the new file, change the class name to match the file name and change the plugin label to something appropriate. The plugin label is the text used in the research links lists.
+3. If a search site is limited to a particular country, set the plugin's research area with the official 3 letter country code. Look in [the webtrees function getAllCountries][5] for a list of available codes. Use 'INT' for 'International' in case of an international search site.
+3. Go to the research site you want to make a link to. Perform your search and note the URL the search generates. Use this URL to create a dynamic link in your new plugin file. Enter the link in the ‘researchLink’ section, carefully noting where to insert the variables.
+4. The $attributes collection is the parameter used in the researchLinks function. This $attributes collection contain 3 sub collections:
+- $name  = $attributes['NAME'];
+- $year  = $attributes['YEAR'];
+- $place = $attributes['PLACE'];
 
-If you have trouble creating your own link, you can open a new issue and request that a link be created for you.
+With one or more of those variables declared you have the following list of variables available to use in your own plugin:
+- Full name = $name[‘fullNN’] e.g. "John Michael van den Burgh"
+- Full given name = $name[‘givn’] e.g. "John Michael"
+- First name = $name[‘first’] e.g. "John"
+- Last name with prefix = $name[‘surname’] e.g. "van den Burgh"
+- Last name without prefix = $name[‘surn’] e.g. "Burgh"
+- Prefix = $name[‘prefix’] e.g. "van den"
+- Married name	= $name['msurname'] e.g. "de Vries"
+- Birth year/place = $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago"
+- Christening year/place = $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago"
+- Baptism year/place	= $year['BAPM]	e.g. "1800" / $place['BAPM]	e.g. "Chicago"
+- Death year/place = $year['DEAT'] e.g. "1880" / $place['DEAT]	e.g. "New York"
+- Burial year/place = $year['BURI] e.g. "1880" / $place['BURI]	e.g. "New York"
+- Cremation year/place = $year['CREM] e.g. "1880" / $place['CREM]	e.g. "New York"
+5. The Examples folder contains a sample plugin for a Google search that uses special name parts and uses the year of birth/death and the place of birth/death in the search with explanation.
+6. If you want to use this example plugin (modified or as is), just copy it to the root of the Plugins folder.
+7. If you have created a plugin that may be of interest to other users you can make a pull request or send me a copy.
+
+If you have problems creating your own link, you can open a new issue and request that a link be created for you.
 
 Translations
 ------------
-You can help to translate this module. The language files are at [POEditor][3] where you can update them. Or use a local editor, like poeditor or notepad++ to make the translations and send them back to me. You can do this via a pull request (if you know how) or by e-mail. Updated translations will be included in the next release of this module.
+You can help to translate this module. The language files are on [POEditor][6] where you can update them. Or use a local editor, like poeditor or notepad++ to make the translations and send them back to me. You can do this via a pull request or via [email][7]. Updated translations will be included in the next version of this module.
 
 Installation & upgrading
 ------------------------
-Unpack the zip file and place the folder jc-fancy-research-links in the modules_v4 folder of webtrees. Upload the newly added folder to your server. It is activated by default. Go to the control panel to set some options. You'll find the Fancy Research Links configuration page in the Sidebar section and on the module page.
+Unpack the zip file and place the folder jc-fancy-research-links in the modules_v4 folder of webtrees. Upload the newly added folder to your server. It is activated by default. Go to the control panel to set some options. You can find the Fancy Research Links configuration page in the Sidebar section and on the module page.
 
 Configuration
 ------------------------
 All links are listed on the Fancy Research Links configuration page, where you have the following options:
 - Select the plugins you want to use in the sidebar (default = all).
-- Select the area you want to be expanded (default = 'International').
-- Select whether or not the Fancy Research Links sidebar should be expanded (default = collapsed).
-
-   _Webtrees sets the Family Navigator expanded by default, while all other sidebar sections are collapsed. When doing research as an editor or higher, it could be handy to have the Fancy Research section expanded._
-- Select whether or not the links should open in a new tab (default = links open in the same tab).
+- Select the area you want to expand (default = 'International').
+- Select whether or not to expand the Fancy Research Links sidebar (default = collapsed).
+   _Webtrees sets the Family Navigator as unfolded by default, while all other sidebar sections are collapsed. When doing research as an editor or above, it may be helpful to have the Fancy Research section unfolded._
+- Select whether or not to open the links in a new tab (default = links open in the same tab).
 
 Bugs and feature requests
 -------------------------
-If you experience any bugs or have a feature request for this module you can [create a new issue][4].
+If you are experiencing bugs or have a feature request for this module, please [create a new issue][8].
 
  [1]: https://github.com/JustCarmen/webtrees-fancy-research-links/releases/latest
- [2]: https://webtrees.github.io/download/
- [3]: https://poeditor.com/join/project?hash=VLrxy3AG3A
- [4]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
+ [2]: https://webtrees.net/
+ [3]: https://github.com/JustCarmen/webtrees-fancy-research-links/tree/main/plugins
+ [4]: https://github.com/JustCarmen/webtrees-fancy-research-links/blob/main/plugins/example/EmptyPlugin.php
+ [5]: https://github.com/fisharebest/webtrees/blob/main/app/Statistics/Service/CountryService.php
+ [6]: https://poeditor.com/join/project?hash=VLrxy3AG3A
+ [7]: mailto:carmen@justcarmen.nl
+ [8]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
 
