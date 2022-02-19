@@ -298,10 +298,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $plugins = $this->getPlugins();
 
-        $pluginlist = new Collection();
-        foreach ($plugins as $plugin) {
-            $pluginlist->push($plugin->pluginName());
-        };
+        $pluginlist = $plugins->map(function ($plugin) {
+            return $plugin->pluginName();
+        });
 
         return $pluginlist;
     }
