@@ -41,6 +41,20 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      * @var string
      */
     public const CUSTOM_VERSION = '2.0.2-dev';
+     /**
+     * @var string
+     */
+    public const GITHUB_REPO = 'webtrees-fancy-research-links';
+
+    /**
+     * @var string
+     */
+    public const AUTHOR_WEBSITE = 'https://justcarmen.nl';
+
+     /**
+     * @var string
+     */
+    public const CUSTOM_SUPPORT_URL = self::AUTHOR_WEBSITE . '/modules-webtrees-2/fancy-research-links/';
 
     /** @var CountryService */
     private $country_service;
@@ -100,7 +114,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function customModuleLatestVersionUrl(): string
     {
-        return 'https://raw.githubusercontent.com/JustCarmen/webtrees-fancy-research-links/master/latest-version.txt';
+        return 'https://raw.githubusercontent.com/' . self::CUSTOM_AUTHOR . '/' . self::GITHUB_REPO . '/main/latest-version.txt';
+    }
+
+    /**
+     * Fetch the latest version of this module.
+     *
+     * @return string
+     */
+    public function customModuleLatestVersion(): string
+    {
+        return 'https://github.com/' . self::CUSTOM_AUTHOR . '/' . self::GITHUB_REPO . '/releases/latest';
     }
 
     /**
@@ -109,7 +133,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function customModuleSupportUrl(): string
     {
-        return 'https://justcarmen.nl/modules-webtrees-2/fancy-research-links/';
+        return self::CUSTOM_SUPPORT_URL;
     }
 
     /**
