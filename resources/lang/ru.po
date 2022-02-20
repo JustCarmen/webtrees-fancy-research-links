@@ -1,15 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: ru\n"
 
 #: FancyResearchLinksModule.php:64
 msgid "A sidebar tool to provide quick links to popular research web sites."
@@ -36,8 +32,8 @@ msgid "Hit the radio button before a title to set a research area as default. Th
 msgstr "Нажмите переключатель перед заголовком, чтобы установить область исследования по умолчанию. Выбранная область исследования откроется развернутой на боковой панели."
 
 #: resources/views/settings.phtml:27
-msgid "If checked, the sidebar content with the Fancy Research Links will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
-msgstr "Если флажок установлен, содержимое боковой панели с Fancy Research Links будет раскрыто, а Семейный навигатор в боковой панели свернётся, если пользователь имеет права редактора или выше."
+msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
+msgstr "Если этот флажок установлен, содержимое боковой панели с Fancy Research Links будет расширяться, в то время как навигатор по семействам боковой панели свернется, если у пользователя есть роль редактора или выше."
 
 #: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
 #: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
@@ -84,3 +80,4 @@ msgstr "генеалогия"
 #: plugins/OnlineFamilieberichtenPlugin.php:14
 msgid "link only"
 msgstr "только ссылка"
+
