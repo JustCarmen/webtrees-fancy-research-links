@@ -267,7 +267,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         $pattern   = __DIR__ . '/plugins/*Plugin.php';
         $filenames = glob($pattern);
 
-        return Collection::make($filenames)
+        $collection = Collection::make($filenames)
             ->map(static function (string $filename) {
                 try {
                     $path_parts = pathinfo($filename);
@@ -278,6 +278,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
                     throw $ex;
                 }
             });
+
+        // We need to sort the collection by plugin label
+        $plugins = $collection->mapToGroups(function ($plugin) {
+            return [$plugin->pluginLabel() => $plugin];
+        });
+
+        // We only need the values of the sorted collection in a flattened way
+        return $plugins->sortkeys()->values()->flatten();
     }
 
     private function getPluginsByArea(): Collection
