@@ -1,83 +1,108 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"POT-Creation-Date: 2022-04-02 17:16+0200\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"Language: ru\n"
 
-#: FancyResearchLinksModule.php:64
+#: FancyResearchLinksModule.php:89
+#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:89
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Инструмент в боковой панели для быстрого перехода на поисковые сайты."
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:16
 #: resources/views/settings.phtml:16
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Отметьте плагины, которые вы хотите видеть в боковой панели. Уберите ненужные Вам плагины."
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:32
 #: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
 msgstr "Включение этого параметра изменит поведение браузера по умолчанию."
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:26
 #: resources/views/settings.phtml:26
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Расширьте содержимое боковой панели с помощью Fancy Research Links"
 
-#: FancyResearchLinksModule.php:54
+#: FancyResearchLinksModule.php:79
+#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:79
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:17
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Нажмите переключатель перед заголовком, чтобы установить область исследования по умолчанию. Выбранная область исследования откроется развернутой на боковой панели."
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:27
 #: resources/views/settings.phtml:27
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Если этот флажок установлен, содержимое боковой панели с Fancy Research Links будет расширяться, в то время как навигатор по семействам боковой панели свернется, если у пользователя есть роль редактора или выше."
 
-#: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
-#: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
-#: plugins/BillionGravesPlugin.php:24 plugins/ElephindPlugin.php:24
-#: plugins/FamilySearchPlugin.php:24 plugins/FindAGravePlugin.php:24
-#: plugins/FindMyPastPlugin.php:24 plugins/GeneAllPlugin.php:24
-#: plugins/GeneanetPlugin.php:24 plugins/GooglePlugin.php:24
-#: plugins/GrandeGuerrePlugin.php:35
-#: plugins/NationaalArchiefCuracaoPlugin.php:25 plugins/RogloPlugin.php:24
-#: plugins/RootsWebPlugin.php:24 plugins/WikipediaPlugin.php:24
-#: plugins/examples/CustomGooglePlugin1.php:33
-#: plugins/examples/CustomGooglePlugin2.php:33
+#: FancyResearchLinksModule.php:344
+#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:344
 msgid "International"
 msgstr "Международный"
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:31
 #: resources/views/settings.phtml:31
 msgid "Open links in a new tab"
 msgstr "Открывать ссылки в новой вкладке"
 
-#: FancyResearchLinksModule.php:182
+#: FancyResearchLinksModule.php:217
+#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:217
 msgid "Research links"
 msgstr "Поисковые ссылки"
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:38
 #: resources/views/settings.phtml:38
 msgid "Select/unselect all"
 msgstr "Все выделить или снять выделение со всех"
 
-#: FancyResearchLinksModule.php:283
+#: FancyResearchLinksModule.php:301
+#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:301
 msgid "There was an error loading the plugin "
 msgstr "Ошибка загрузки плагина "
 
+#: dist/jc-fancy-research-links/resources/views/settings.phtml:39
 #: resources/views/settings.phtml:39
 msgid "Toggle this checkbox to select all research links at once."
 msgstr "Отметить тут, чтобы выбрать все поисковые ссылки разом."
 
-#: plugins/GooglePlugin.php:29
+#: dist/jc-fancy-research-links/plugins/GooglePlugin.php:31
+#: plugins/GooglePlugin.php:31
 msgid "genealogy"
 msgstr "генеалогия"
 
-#: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
+#: dist/jc-fancy-research-links/plugins/BancaDatiCadutiDispersiPlugin.php:14
+#: dist/jc-fancy-research-links/plugins/FreeBMDPlugin.php:14
+#: dist/jc-fancy-research-links/plugins/MetaGenealogyPlugin.php:14
+#: dist/jc-fancy-research-links/plugins/NationaalArchiefCuracaoPlugin.php:15
+#: dist/jc-fancy-research-links/plugins/NationalArchivesOfAustraliaPlugin.php:15
+#: dist/jc-fancy-research-links/plugins/OnlineBegraafplaatsenPlugin.php:14
+#: dist/jc-fancy-research-links/plugins/OnlineFamilieberichtenPlugin.php:14
+#: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
+#: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
-#: plugins/OnlineFamilieberichtenPlugin.php:14
+#: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 msgid "link only"
 msgstr "только ссылка"
 
+#: plugins/AchelseKluisBidprentjesPlugin.php:14
+#: plugins/NederlandsBidprentjesArchiefPlugin.php:14
+msgid "prayer cards"
+msgstr ""
+
+#: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
+msgid "search prayer cards"
+msgstr ""
+
+#: plugins/WikiTreePlugin.php:14
+msgid "surname only"
+msgstr ""
