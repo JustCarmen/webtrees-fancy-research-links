@@ -11,7 +11,7 @@ class RootsWebPlugin extends FancyResearchLinksModule
 {
 	public function pluginLabel(): string
     {
-		return 'Rootsweb (link only)';
+		return 'Rootsweb (' . I18N::translate('link only') . ')';
 	}
 
 	public function pluginName(): string
