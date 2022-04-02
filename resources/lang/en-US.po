@@ -1,12 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"POT-Creation-Date: 2022-04-02 17:16+0200\n"
-"Language: en-US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: en-us\n"
 
 #: FancyResearchLinksModule.php:89
 #: dist/jc-fancy-research-links/FancyResearchLinksModule.php:89
@@ -97,12 +96,13 @@ msgstr "link only"
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 #: plugins/NederlandsBidprentjesArchiefPlugin.php:14
 msgid "prayer cards"
-msgstr ""
+msgstr "prayer cards"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr ""
+msgstr "search prayer cards"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr ""
+msgstr "surname only"
+
