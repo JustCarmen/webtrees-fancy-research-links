@@ -35,7 +35,7 @@ use Fisharebest\Webtrees\View;
                     </a>
                     <span class="badge badge-dark"><?= $count ?></span>
                 </div>
-                <ul class="collapse<?= $show ?>" id="<?= e($id) ?>">
+                <ul class="collapse<?= $show ?> ms-3" id="<?= e($id) ?>">
                 <?php foreach ($plugins_by_area as $plugin): ?>
                     <?php if ($enabled_plugins->contains($plugin->pluginName())) : ?>
                         <li class="pb-1"><a href="<?= e($plugin->researchLink($attributes)) ?>" target=<?= $target_blank ? "_blank" : "" ?>><?= $plugin->pluginLabel() ?></a></li>
