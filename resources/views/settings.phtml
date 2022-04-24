@@ -43,7 +43,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         <?php foreach ($plugins as $area => $plugins_by_area) : ?>
             <div class="mb-3 col-sm-12">
                 <div class="radio">
-                    <label class="radio">
+                    <label class="radio mb-1">
                         <input
                             type="radio"
                             name="expanded-area"
@@ -59,7 +59,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                     <?php foreach ($plugins_by_area as $plugin) : ?>
                         <?php $checked = (bool) $enabled_plugins->contains($plugin->pluginName()) ?>
                         <div class="checkbox col-sm-4" dir="ltr">
-                            <label class="checkbox-inline">
+                            <label class="checkbox-inline mb-1">
                                 <?= view('components/checkbox-inline', ['label' => $plugin->pluginLabel(), 'name' => 'enabled-plugins[' . $plugin->pluginName() . ']', 'checked' => $checked]) ?>
                             </label>
                         </div>
