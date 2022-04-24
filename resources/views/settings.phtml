@@ -20,7 +20,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
     <form method="post">
         <?= csrf_field() ?>
         <input type="hidden" name="save" id="save" value="1">
-        <div class="row form-group justify-content-between m-0">
+        <div class="row mb-3 justify-content-between m-0">
             <!-- EXPAND THE SIDEBAR CONTENT -->
             <div class="col">
                 <?= view('components/checkbox', ['label' => I18N::translate('Expand the sidebar content with the Fancy Research Links'), 'name' => 'expand-sidebar', 'checked' => (bool) $expand_sidebar]) ?>
@@ -32,7 +32,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                 <p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
             </div>
         </div>
-        <div class="row form-group mx-0">
+        <div class="row mb-3 mx-0">
             <!-- SELECT ALL -->
             <div class="col">
                 <?= view('components/checkbox', ['label' => I18N::translate('Select/unselect all'), 'name' => 'select-all']) ?>
@@ -41,7 +41,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         </div>
         <!-- RESEARCH LINKS -->
         <?php foreach ($plugins as $area => $plugins_by_area) : ?>
-            <div class="form-group col-sm-12">
+            <div class="mb-3 col-sm-12">
                 <div class="radio">
                     <label class="radio">
                         <input
@@ -78,9 +78,9 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 <script>
     $('#select-all-1').change(function(e) {
         if (e.currentTarget.checked) {
-            $('.form-group .row').find('input[type="checkbox"]').prop('checked', true);
+            $('.mb-3 .row').find('input[type="checkbox"]').prop('checked', true);
         } else {
-            $('.form-group .row').find('input[type="checkbox"]').prop('checked', false);
+            $('.mb-3 .row').find('input[type="checkbox"]').prop('checked', false);
         }
     });
 </script>
