@@ -212,7 +212,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      *
      * @return string
      */
-    public function sidebarTitle(): string
+    public function sidebarTitle(Individual $individual): string
     {
         return I18N::translate('Research links');
     }
