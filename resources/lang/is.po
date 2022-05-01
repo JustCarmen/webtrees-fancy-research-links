@@ -1,18 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n%10==1 && n%100!=11);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: is\n"
 
-#: FancyResearchLinksModule.php:64
+#: FancyResearchLinksModule.php:89
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Hliðarstikutól til að veita skjóta tengla á vinsælar rannsóknarvefsíður."
 
@@ -28,7 +23,7 @@ msgstr "Með því að virkja þetta þá breytist sjálfgefin hegðun vefskoða
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Stækkaðu innihald hliðarstikunnar með flottum rannsóknartenglum"
 
-#: FancyResearchLinksModule.php:54
+#: FancyResearchLinksModule.php:79
 msgid "Fancy Research Links"
 msgstr "Flottir rannsóknartenglar"
 
@@ -40,17 +35,7 @@ msgstr "Smelltu á valhnappinn á undan titli til að stilla rannsóknarsvæði 
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Ef hakað er við það mun innihald hliðarstikunnar með flottum rannsóknartenglum stækka á meðan Fjölskyldu vefsjáin í hliðarstikunni mun falla saman ef notandinn hefur hlutverk ritstjóra eða hærra."
 
-#: FancyResearchLinksModule.php:137 FancyResearchLinksModule.php:164
-#: FancyResearchLinksModule.php:232 plugins/AncestryPlugin.php:24
-#: plugins/BillionGravesPlugin.php:24 plugins/ElephindPlugin.php:24
-#: plugins/FamilySearchPlugin.php:24 plugins/FindAGravePlugin.php:24
-#: plugins/FindMyPastPlugin.php:24 plugins/GeneAllPlugin.php:24
-#: plugins/GeneanetPlugin.php:24 plugins/GooglePlugin.php:24
-#: plugins/GrandeGuerrePlugin.php:35
-#: plugins/NationaalArchiefCuracaoPlugin.php:25 plugins/RogloPlugin.php:24
-#: plugins/RootsWebPlugin.php:24 plugins/WikipediaPlugin.php:24
-#: plugins/examples/CustomGooglePlugin1.php:33
-#: plugins/examples/CustomGooglePlugin2.php:33
+#: FancyResearchLinksModule.php:344
 msgid "International"
 msgstr "Alþjóðlegt"
 
@@ -58,7 +43,7 @@ msgstr "Alþjóðlegt"
 msgid "Open links in a new tab"
 msgstr "Opnaðu tengla í nýjum flipa"
 
-#: FancyResearchLinksModule.php:182
+#: FancyResearchLinksModule.php:217
 msgid "Research links"
 msgstr "Rannsóknartenglar"
 
@@ -66,7 +51,7 @@ msgstr "Rannsóknartenglar"
 msgid "Select/unselect all"
 msgstr "Velja/afvelja allt"
 
-#: FancyResearchLinksModule.php:283
+#: FancyResearchLinksModule.php:301
 msgid "There was an error loading the plugin "
 msgstr "Villa kom upp við að hlaða viðbótinni "
 
@@ -74,14 +59,28 @@ msgstr "Villa kom upp við að hlaða viðbótinni "
 msgid "Toggle this checkbox to select all research links at once."
 msgstr "Breyttu þessum gátreit til að velja alla rannsóknartengla í einu."
 
-#: plugins/GooglePlugin.php:29
+#: plugins/GooglePlugin.php:31
 msgid "genealogy"
 msgstr "ættfræði"
 
-#: plugins/FreeBMDPlugin.php:26 plugins/MetaGenealogyPlugin.php:14
+#: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
+#: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
-#: plugins/OnlineFamilieberichtenPlugin.php:14
+#: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 msgid "link only"
 msgstr "eingöngu krækja"
+
+#: plugins/AchelseKluisBidprentjesPlugin.php:14
+msgid "prayer cards"
+msgstr "prayer cards"
+
+#: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
+msgid "search prayer cards"
+msgstr "search prayer cards"
+
+#: plugins/WikiTreePlugin.php:14
+msgid "surname only"
+msgstr "surname only"
+
