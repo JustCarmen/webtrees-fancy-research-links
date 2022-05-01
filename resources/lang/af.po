@@ -1,90 +1,68 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"POT-Creation-Date: 2022-04-02 17:16+0200\n"
-"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: af\n"
 
 #: FancyResearchLinksModule.php:89
-#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:89
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "’n Sypaneel met vinnige skakels na gewilde navorsingswebwerwe."
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:16
 #: resources/views/settings.phtml:16
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Kyk na die invoegtoepassings wat u in die sybalk wil gebruik. Ontmerk die plugins wat u nie nodig het nie."
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:32
 #: resources/views/settings.phtml:32
 msgid "Enabling this will change the default behavior of the browser."
 msgstr "Hierdie instelling sal die verstek gedrag van die blaaier verander."
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:26
 #: resources/views/settings.phtml:26
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Brei die sybalkinhoud uit met die Fancy Research Links"
 
 #: FancyResearchLinksModule.php:79
-#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:79
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:17
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Druk die radioknop voor 'n titel om 'n navorsingsarea as verstek in te stel. Die gekose navorsingsarea sal oopgevou word in die sybalk."
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:27
 #: resources/views/settings.phtml:27
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "As dit gemerk is, sal die sybalkinhoud met die Fancy Research Links uitbrei terwyl die sidebar Family-navigator sal in duie stort as die gebruiker die rol van redakteur of hoër is."
 
 #: FancyResearchLinksModule.php:344
-#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:344
 msgid "International"
 msgstr "Internasionaal"
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:31
 #: resources/views/settings.phtml:31
 msgid "Open links in a new tab"
 msgstr "Maak skakels in 'n nuwe oortjie oop"
 
 #: FancyResearchLinksModule.php:217
-#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:217
 msgid "Research links"
 msgstr "Navorsingskakels"
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:38
 #: resources/views/settings.phtml:38
 msgid "Select/unselect all"
 msgstr "Kies / ontmerk alle"
 
 #: FancyResearchLinksModule.php:301
-#: dist/jc-fancy-research-links/FancyResearchLinksModule.php:301
 msgid "There was an error loading the plugin "
 msgstr "Kon nie die inprop laai nie "
 
-#: dist/jc-fancy-research-links/resources/views/settings.phtml:39
 #: resources/views/settings.phtml:39
 msgid "Toggle this checkbox to select all research links at once."
 msgstr "Skakel hierdie regmerkie in om alle navorsingsskakels gelyktydig te kies."
 
-#: dist/jc-fancy-research-links/plugins/GooglePlugin.php:31
 #: plugins/GooglePlugin.php:31
 msgid "genealogy"
 msgstr "geslagsregister"
 
-#: dist/jc-fancy-research-links/plugins/BancaDatiCadutiDispersiPlugin.php:14
-#: dist/jc-fancy-research-links/plugins/FreeBMDPlugin.php:14
-#: dist/jc-fancy-research-links/plugins/MetaGenealogyPlugin.php:14
-#: dist/jc-fancy-research-links/plugins/NationaalArchiefCuracaoPlugin.php:15
-#: dist/jc-fancy-research-links/plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: dist/jc-fancy-research-links/plugins/OnlineBegraafplaatsenPlugin.php:14
-#: dist/jc-fancy-research-links/plugins/OnlineFamilieberichtenPlugin.php:14
 #: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
@@ -95,14 +73,14 @@ msgid "link only"
 msgstr "slegs skakel"
 
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
-#: plugins/NederlandsBidprentjesArchiefPlugin.php:14
 msgid "prayer cards"
-msgstr ""
+msgstr "prayer cards"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr ""
+msgstr "search prayer cards"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr ""
+msgstr "surname only"
+
