@@ -4,30 +4,39 @@ declare(strict_types=1);
 
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 
-use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class FindAGravePlugin extends FancyResearchLinksModule
 {
-	public function pluginLabel(): string
+    public function pluginLabel(): string
     {
-		return 'Find a Grave';
-	}
+        return 'Find a Grave';
+    }
 
-	public function pluginName(): string
-	{
-		return strtolower(basename(__FILE__, 'Plugin.php'));
-	}
-
-	public function researchArea(): string
+    public function pluginName(): string
     {
-		return 'INT';
-	}
+        return strtolower(basename(__FILE__, 'Plugin.php'));
+    }
 
-	public function researchLink($attributes): string
+    public function researchArea(): string
     {
-		$name = $attributes['NAME'];
+        return 'INT';
+    }
 
-		return 'https://www.findagrave.com/cgi-bin/fg.cgi?page=gsr&GSfn=' . $name['first'] . '&GSmn=&GSln=' . $name['surname'] . '&GSbyrel=all&GSby=&GSdyrel=all&GSdy=&GScntry=0&GSst=0&GSgrid=&df=all&GSob=n';
-	}
+    public function researchLink($attributes): string
+    {
+        // This uses the search syntax from the 2022 version of FindaGrave
+        // birth and death ± 1 in case webtrees entry is an estimate
+
+        $name = $attributes['NAME'];
+        $year = $attributes['YEAR'];
+
+        return 'https://www.findagrave.com/memorial/search?' .
+           'firstname='         . $name['first'] .
+           '&lastname='         . $name['surname'] .
+           '&birthyear='        . $year['BIRT'] .
+           '&birthyearfilter=1' .
+           '&deathyear='        . $year['DEAT'] .
+           '&deathyearfilter=1';
+    }
 }
