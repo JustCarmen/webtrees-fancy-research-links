@@ -11,7 +11,7 @@ class MyHeritagePlugin extends FancyResearchLinksModule
 {
   	public function pluginLabel(): string
     {
-		return 'MyHeritage';
+		return 'MyHeritage ($)';
 	}
 
 	public function pluginName(): string
