@@ -367,12 +367,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             }
         }
 
-        // $birth[] and $death[] are deprecated and will be removed in a future version.
-        $birth['year']      = $individual->getBirthDate()->minimumDate()->format('%Y');
-        $birth['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getBirthPlace()->placeName()));
-        $death['year']      = $individual->getDeathDate()->minimumDate()->format('%Y');
-        $death['place']     = strip_tags(str_replace(I18N::translate('unknown'), '', $individual->getDeathPlace()->placeName()));
-
         // support all birth (birt, chr, bapm) and death events (deat, buri, crem)
         $gedcom_events = array_merge(Gedcom::BIRTH_EVENTS, Gedcom::DEATH_EVENTS);
 
@@ -403,9 +397,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'NAME'      => $name,
             'YEAR'      => $year,
             'PLACE'     => $place,
-            'COUNTRY'   => $country,
-            'BIRTH'     => $birth,
-            'DEATH'     => $death
+            'COUNTRY'   => $country
         );
 
         return $attributes;
