@@ -1,15 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Fancy Research Links for webtrees 2\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: Josef Prause <josef.prause@gmail.com>\n"
-"Language-Team: \n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: cs\n"
 
 #: FancyResearchLinksModule.php:89
 msgid "A sidebar tool to provide quick links to popular research web sites."
@@ -87,3 +83,4 @@ msgstr "hledat svaté obrázky"
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "pouze příjmení"
+
