@@ -28,7 +28,8 @@ class MensenlinqPlugin extends FancyResearchLinksModule
     {
 		$name = $attributes['NAME'];
 
-		return 'https://mensenlinq.nl/overlijdensberichten/?passed_at_from=1970-01-01&passed_at_until=' .
-		date('Y-m-d') . '&lastname=' . $name['surname'] . '&firstname=' . $name['first'] . '&advanced=1&filtered=true';
+		return 'https://mensenlinq.nl/overlijdensberichten/?' .
+		'first_name=' . $name['first'] . '&last_name=' . $name['surname'] .
+		'&passed_date_from=1970-01-01&passed_date_to=' . date('Y-m-d');
 	}
 }
