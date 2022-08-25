@@ -394,16 +394,18 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             if ($eplaces !== []) {
                 foreach($eplaces as $eplace) {
                     $place[$event] = strip_tags($eplace->placeName());
+                    $country[$event] = strip_tags($eplace->lastParts(1)->first());
                 }
             }
         }
 
         $attributes = array(
-            'NAME'  => $name,
-            'YEAR'  => $year,
-            'PLACE' => $place,
-            'BIRTH' => $birth,
-            'DEATH' => $death
+            'NAME'      => $name,
+            'YEAR'      => $year,
+            'PLACE'     => $place,
+            'COUNTRY'   => $country,
+            'BIRTH'     => $birth,
+            'DEATH'     => $death
         );
 
         return $attributes;

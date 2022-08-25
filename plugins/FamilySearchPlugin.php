@@ -28,7 +28,7 @@ class FamilySearchPlugin extends FancyResearchLinksModule
     {
         $name = $attributes['NAME'];
         $year = $attributes['YEAR'];
-        $plac = $attributes['PLACE'];
+        $plac = $attributes['COUNTRY'];
 
         $bf = ((int)$year['BIRT']) < 1000 ? '' : (int)$year['BIRT']-1;
         $bt = ((int)$year['BIRT']) < 1000 ? '' : (int)$year['BIRT']+1;
