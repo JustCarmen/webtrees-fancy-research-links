@@ -374,6 +374,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
             $year[$event] = '';
             $place[$event] = '';
+            $country[$event] = '';
 
             $edates = $individual->getAllEventDates([$event]);
 
