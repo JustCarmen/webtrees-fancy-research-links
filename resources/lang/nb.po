@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Fancy Research Links for webtrees 2\n"
+"Language: nb\n"
+
+#: FancyResearchLinksModule.php:89
+msgid "A sidebar tool to provide quick links to popular research web sites."
+msgstr "Et sidefeltverktøy for å gi hurtigkoblinger til populære forskningsnettsteder."
+
+#: resources/views/settings.phtml:16
+msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
+msgstr "Sjekk pluginene du vil bruke i sidefeltet. Fjern merket for pluginene du ikke trenger."
+
+#: resources/views/settings.phtml:32
+msgid "Enabling this will change the default behavior of the browser."
+msgstr "Hvis du aktiverer dette, endres standardoppførselen til nettleseren."
+
+#: resources/views/settings.phtml:26
+msgid "Expand the sidebar content with the Fancy Research Links"
+msgstr "Utvid innholdet i sidefeltet med Fancy Research Links"
+
+#: FancyResearchLinksModule.php:79
+msgid "Fancy Research Links"
+msgstr "Fancy forskningslenker"
+
+#: resources/views/settings.phtml:17
+msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
+msgstr "Trykk på alternativknappen før en tittel for å angi et forskningsområde som standard. Det valgte forskningsområdet åpnes utfoldet i sidefeltet."
+
+#: resources/views/settings.phtml:27
+msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
+msgstr "Hvis det er merket av for det, vil sidefeltets innhold med Fancy forskningslenker utvides mens sidefeltet Familienavigator vil kollapse hvis brukeren har rollen som redaktør eller høyere."
+
+#: FancyResearchLinksModule.php:344
+msgid "International"
+msgstr "Internasjonal"
+
+#: resources/views/settings.phtml:31
+msgid "Open links in a new tab"
+msgstr "Åpne koblinger i en ny fane"
+
+#: FancyResearchLinksModule.php:217
+msgid "Research links"
+msgstr "Forskningslenker"
+
+#: resources/views/settings.phtml:38
+msgid "Select/unselect all"
+msgstr "Velg/opphev valget av alle"
+
+#: FancyResearchLinksModule.php:301
+msgid "There was an error loading the plugin "
+msgstr "Det oppsto en feil ved lasting av plugin "
+
+#: resources/views/settings.phtml:39
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Bruk denne avmerkingsboksen for å velge alle forskningslenker samtidig."
+
+#: plugins/GooglePlugin.php:31
+msgid "genealogy"
+msgstr "slektsforskning"
+
+#: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
+#: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
+#: plugins/NationaalArchiefCuracaoPlugin.php:15
+#: plugins/NationalArchivesOfAustraliaPlugin.php:15
+#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+msgid "link only"
+msgstr "kun lenke"
+
+#: plugins/AchelseKluisBidprentjesPlugin.php:14
+msgid "prayer cards"
+msgstr "bønnekort"
+
+#: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
+msgid "search prayer cards"
+msgstr "søk bønnekort"
+
+#: plugins/WikiTreePlugin.php:14
+msgid "surname only"
+msgstr "kun etternavn"
+
