@@ -18,6 +18,10 @@ let mix = require('laravel-mix');
 let config = require('./webpack.mix.config');
 require('laravel-mix-clean');
 
+// Disable mix-manifest.json (https://github.com/laravel-mix/laravel-mix/issues/580#issuecomment-919102692)
+// Prevent the distribution zip file containing an unwanted file
+mix.options({ manifest: false })
+
 mix
     .setPublicPath('./dist')
     .copyDirectory(config.plugins_dir, config.dist_dir + '/plugins')
