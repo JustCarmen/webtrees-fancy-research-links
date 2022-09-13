@@ -43,7 +43,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     /**
      * FancyResearchLinks constructor.
      *
-     * @param CountryService    $country_service
+     * @param CountryService $country_service
      */
     public function __construct(CountryService $country_service)
     {
@@ -71,8 +71,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     }
 
     /**
-     * {@inheritDoc}
-     * @see \Fisharebest\Webtrees\Module\ModuleCustomInterface::customModuleAuthorName()
+     * The person or organisation who created this module.
+     *
+     * @return string
      */
     public function customModuleAuthorName(): string
     {
@@ -80,8 +81,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     }
 
     /**
-     * {@inheritDoc}
-     * @see \Fisharebest\Webtrees\Module\ModuleCustomInterface::customModuleVersion()     *
+     * The version of this module.
+     *
+     * @return string
      */
     public function customModuleVersion(): string
     {
@@ -108,9 +110,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return 'https://github.com/' . self::CUSTOM_AUTHOR . '/' . self::GITHUB_REPO . '/releases/latest';
     }
 
-    /**
-     * {@inheritDoc}
-     * @see \Fisharebest\Webtrees\Module\ModuleCustomInterface::customModuleSupportUrl()
+     /**
+     * Where to get support for this module.  Perhaps a github repository?
+     *
+     * @return string
      */
     public function customModuleSupportUrl(): string
     {
@@ -144,7 +147,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      *
      * @return ResponseInterface
      */
-    public function getAdminAction(ServerRequestInterface $request): ResponseInterface
+    public function getAdminAction(): ResponseInterface
     {
         $this->layout = 'layouts/administration';
 
@@ -178,7 +181,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         if ($params['save'] === '1') {
             $this->setPreference('enabled-plugins', $enabled_plugins);
             $this->setPreference('expanded-area', $params['expanded-area'] ?? $this->getCountryList()['INT']);
-            $this->setPreference('expand-sidebar',$params['expand-sidebar'] ?? '0');
+            $this->setPreference('expand-sidebar', $params['expand-sidebar'] ?? '0');
             $this->setPreference('target-blank', $params['target-blank'] ?? '0');
 
             $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
@@ -249,7 +252,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      *
      * @param string $language
      *
-     * @return string[]
+     * @return array
      */
     public function customTranslations(string $language): array
     {
@@ -265,7 +268,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     /**
      * Collect all plugins from the plugins folder
      *
-     * @return Collection<ModuleCustomInterface>
+     * @return Collection
      */
     private function getPlugins(): Collection
     {
@@ -293,6 +296,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return $plugins->sortkeys()->values()->flatten();
     }
 
+    /**
+     * Group plugins by Area
+     *
+     * @return Collection
+     */
     private function getPluginsByArea(): Collection
     {
         $plugins = $this->getPlugins();
@@ -307,6 +315,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return $pluginlist->sortkeys();
     }
 
+    /**
+     * Get a list of plugins by their plugin name
+     *
+     * @return Collection
+     */
     private function getPluginsByName(): Collection
     {
         $plugins = $this->getPlugins();
@@ -318,6 +331,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return $pluginlist;
     }
 
+    /**
+     * Get a list of all countries
+     *
+     * @return array
+     */
     private function getCountryList(): array
     {
         // Add our 'International' area to the list of countries
@@ -327,6 +345,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return $countries;
     }
 
+    /**
+     * Make the attributes array for use in the plugins.
+     *
+     * @param Individual $individual
+     *
+     * @return array
+     */
     public function getAttributes(Individual $individual): array
     {
         $all_names  = $individual->getAllNames();
@@ -368,7 +393,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             $eplaces = $individual->getAllEventPlaces([$event]);
 
             if ($eplaces !== []) {
-                foreach($eplaces as $eplace) {
+                foreach ($eplaces as $eplace) {
                     $place[$event] = strip_tags($eplace->placeName());
                     $country[$event] = strip_tags($eplace->lastParts(1)->first());
                 }
