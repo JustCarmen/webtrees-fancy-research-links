@@ -32,31 +32,12 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     use ModuleConfigTrait;
     use ModuleSidebarTrait;
 
-    /**
-     * @var string
-     */
     public const CUSTOM_AUTHOR = 'JustCarmen';
-
-    /**
-     * @var string
-     */
     public const CUSTOM_VERSION = '2.2.1-dev';
-     /**
-     * @var string
-     */
     public const GITHUB_REPO = 'webtrees-fancy-research-links';
-
-    /**
-     * @var string
-     */
     public const AUTHOR_WEBSITE = 'https://justcarmen.nl';
-
-     /**
-     * @var string
-     */
     public const CUSTOM_SUPPORT_URL = self::AUTHOR_WEBSITE . '/modules-webtrees-2/fancy-research-links/';
 
-    /** @var CountryService */
     private $country_service;
 
     /**
