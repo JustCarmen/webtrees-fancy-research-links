@@ -155,7 +155,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'enabled_plugins'   => collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', ')))),
             'expanded_area'     => $this->getPreference('expanded-area', $this->getCountryList()['INT']),
             'expand_sidebar'    => $this->getPreference('expand-sidebar'),
-            'plugins'           => $this->getPluginsByArea(),
+            'plugins'           => $this->getPluginsByArea()->sortkeys(),
             'target_blank'      => $this->getPreference('target-blank'),
             'title'             => $this->title()
         ]);
