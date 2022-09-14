@@ -241,6 +241,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'enabled_plugins'   => $enabled_plugins,
             'expanded_area'     => $expanded_area,
             'expand_sidebar'    => $expand_sidebar,
+            'module'            => $this,
+            'is_admin'          => Auth::isAdmin(),
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
             'tree'              => $individual->tree(),
