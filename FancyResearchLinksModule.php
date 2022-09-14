@@ -307,14 +307,18 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $plugins = $this->getPlugins();
 
-        $pluginlist = $plugins->mapToGroups(function ($plugin) {
+        $collection = $plugins->mapToGroups(function ($plugin) {
             $area = $plugin->researchArea();
             $area_fullname = $this->getCountryList()[$area];
             return [$area_fullname => $plugin];
         });
 
-        // return localized sorted list
-        return $pluginlist->sortkeys();
+        // The first group should be the expanded area. Remove the group from the collection
+        $expanded_area  = $this->getPreference('expanded-area', $this->getCountryList()['INT']);
+        $pluginlist     = $collection->filter()->except($expanded_area);
+
+        // return the localized sorted list with the expanded area on top
+        return $pluginlist->sortkeys()->prepend($collection->get($expanded_area), $expanded_area);
     }
 
     /**
