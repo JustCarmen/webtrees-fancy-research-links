@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2022-05-01 09:43+0200\n"
+"POT-Creation-Date: 2022-09-14 05:14+0200\n"
 "PO-Revision-Date: 2015-07-04 20:49+0200\n"
 "Last-Translator: Carmen Pijpers <carmen@justcarmen.nl>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
@@ -19,8 +19,12 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: dist\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
+msgstr ""
+
+#: resources/views/sidebar.phtml:13 resources/views/sidebar.phtml:15
+msgid "Activate/deactivate plugins"
 msgstr ""
 
 #: resources/views/settings.phtml:16
@@ -35,7 +39,7 @@ msgstr ""
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr ""
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr ""
 
@@ -47,7 +51,7 @@ msgstr ""
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr ""
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:345
 msgid "International"
 msgstr ""
 
@@ -55,7 +59,7 @@ msgstr ""
 msgid "Open links in a new tab"
 msgstr ""
 
-#: FancyResearchLinksModule.php:217
+#: FancyResearchLinksModule.php:201
 msgid "Research links"
 msgstr ""
 
@@ -63,7 +67,7 @@ msgstr ""
 msgid "Select/unselect all"
 msgstr ""
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:287
 msgid "There was an error loading the plugin "
 msgstr ""
 
@@ -81,6 +85,7 @@ msgstr ""
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr ""
 
