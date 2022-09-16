@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: nl\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Een zijpaneel met snelle koppelingen naar populaire onderzoeks websites."
 
@@ -23,7 +23,7 @@ msgstr "Als u dit inschakelt, verandert het standaardgedrag van de browser."
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Klap het zijpaneel met de Fancy Research Links uit"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
@@ -35,7 +35,7 @@ msgstr "Klik op het keuzerondje voor een titel om een onderzoeksgebied als stand
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Indien aangevinkt, klapt de inhoud van de zijbalk met de Fancy Research Links uit terwijl de zijbalk met de Family navigator inklapt als de gebruiker de rol van editor of hoger heeft."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "Internationaal"
 
@@ -43,7 +43,7 @@ msgstr "Internationaal"
 msgid "Open links in a new tab"
 msgstr "Koppelingen openen in een nieuwe tab"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Onderzoekskoppelingen"
 
@@ -51,7 +51,7 @@ msgstr "Onderzoekskoppelingen"
 msgid "Select/unselect all"
 msgstr "Selecteer/deselecteer alles"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Het laden van de plugin veroorzaakt een fout "
 
@@ -69,6 +69,7 @@ msgstr "genealogie"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "alleen link"
 
