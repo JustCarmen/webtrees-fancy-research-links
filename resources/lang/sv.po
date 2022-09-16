@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: sv\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Ett sidebar verktyg med snabba länkar till populära forskning webbplatser."
 
@@ -23,7 +23,7 @@ msgstr "Om du aktiverar detta ändrar du webbläsarens standardbeteende."
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Utöka innehållet i sidofältet med Fancy Research Links"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Fantasi forsknings länkar"
 
@@ -35,7 +35,7 @@ msgstr "Tryck på radioknappen före en titel för att ange ett forskningsområd
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Om den är markerad expanderar sidofältets innehåll med Fancy Research Links medan sidofältets Family navigator fälls ihop om användaren har rollen redaktör eller högre."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "Internationella"
 
@@ -43,7 +43,7 @@ msgstr "Internationella"
 msgid "Open links in a new tab"
 msgstr "Öppna länkar i en ny flik"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Forsknings länkar"
 
@@ -51,7 +51,7 @@ msgstr "Forsknings länkar"
 msgid "Select/unselect all"
 msgstr "Markera/avmarkera alla"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Ett fel inträffade vid laddning av insticksprogrammet "
 
@@ -69,18 +69,19 @@ msgstr "släktforskning"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "endast länk"
 
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
-msgstr "prayer cards"
+msgstr "bönekort"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr "search prayer cards"
+msgstr "Sök bönekort"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr "surname only"
+msgstr "endast efternamn"
 
