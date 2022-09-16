@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: pl\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Narzędzie paska bocznego zapewniające szybki dostęp do popularnych serwisów internetowych."
 
@@ -23,7 +23,7 @@ msgstr "Włączenie spowoduje zmianę domyślnego zachowania przeglądarki."
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Rozszerz zawartość paska bocznego o Fancy Research Links"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
@@ -35,7 +35,7 @@ msgstr "Naciśnij przycisk , aby ustawić obszar badawczy jako domyślny. Wybran
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Jeśli jest zaznaczone, zawartość paska bocznego z Fancy Research Links będzie się rozszerzać, podczas gdy nawigator paska bocznego Family będzie się zamykać, jeśli użytkownik ma funkcję edytora lub wyższą."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "Międzynarodowe"
 
@@ -43,7 +43,7 @@ msgstr "Międzynarodowe"
 msgid "Open links in a new tab"
 msgstr "Otwórz linki w nowej karcie"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Linki do poszukiwań"
 
@@ -51,7 +51,7 @@ msgstr "Linki do poszukiwań"
 msgid "Select/unselect all"
 msgstr "Zaznacz/odznacz wszystko"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Wystąpił błąd podczas ładowania wtyczki "
 
@@ -69,18 +69,19 @@ msgstr "genealogia"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "tylko link"
 
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
-msgstr "prayer cards"
+msgstr "karty modlitewne"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr "search prayer cards"
+msgstr "wyszukiwanie kart modlitewnych"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr "surname only"
+msgstr "tylko nazwisko"
 
