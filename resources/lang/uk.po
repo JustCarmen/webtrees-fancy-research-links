@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: uk\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Інструмент бічної панелі для швидких посилань на популярні дослідницькі вебсайти."
 
@@ -23,7 +23,7 @@ msgstr "Увімкнення цього налаштування змінить 
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Розширте вміст бічної панелі за допомогою Fancy Research Links"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
@@ -35,7 +35,7 @@ msgstr "Натисніть перемикач перед заголовком, �
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Якщо відмічено, для користувачів, що виконують роль редактора або вище, вміст бічної панелі Fancy Research Links розкриватиметься, тоді як навігатор сімейної бічної панелі згортатиметься."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "Міжнародний"
 
@@ -43,7 +43,7 @@ msgstr "Міжнародний"
 msgid "Open links in a new tab"
 msgstr "Відкривати в новій вкладці"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Пошукові посилання"
 
@@ -51,7 +51,7 @@ msgstr "Пошукові посилання"
 msgid "Select/unselect all"
 msgstr "Вибрати/скасувати всіх"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Сталася помилка завантаження плагіну "
 
@@ -69,18 +69,19 @@ msgstr "генеалогія"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "лише посилання"
 
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
-msgstr "prayer cards"
+msgstr "молитовні картки"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr "search prayer cards"
+msgstr "пошук молитовних карток"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr "surname only"
+msgstr "тільки прізвище"
 
