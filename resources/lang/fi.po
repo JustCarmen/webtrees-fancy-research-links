@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: fi\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Sivupalkin työkalu tarjoaa nopeat yhteydet suosittuihin tutkimuskohde web-sivustoihin."
 
@@ -23,7 +23,7 @@ msgstr "Tämän toiminnon ottaminen käyttöön muuttaa selaimen oletuskäyttäy
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Laajenna sivupalkin sisältöä Fancy Research Links -linkkien avulla"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Hienot tutkimus linkit"
 
@@ -35,7 +35,7 @@ msgstr "Paina otsikon edessä olevaa valintanappia, jos haluat asettaa tutkimusa
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Jos valintaruutu on valittuna, sivupalkin sisältö, jossa on hienot tutkimuslinkit, laajenee, kun taas sivupalkin Perhe-navigaattori sulkeutuu, jos käyttäjällä on vähintään toimittajan rooli."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "Kansainväliset"
 
@@ -43,7 +43,7 @@ msgstr "Kansainväliset"
 msgid "Open links in a new tab"
 msgstr "Avaa linkit uudessa välilehdessä"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Tutkimus linkit"
 
@@ -51,7 +51,7 @@ msgstr "Tutkimus linkit"
 msgid "Select/unselect all"
 msgstr "Valitse/ poista kaikki"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Lisäosan lataamisessa tapahtui virhe "
 
@@ -69,18 +69,19 @@ msgstr "sukututkimus"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "vain linkki"
 
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
-msgstr "prayer cards"
+msgstr "rukouskortit"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr "search prayer cards"
+msgstr "Etsi rukouskortteja"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr "surname only"
+msgstr "vain sukunimi"
 
