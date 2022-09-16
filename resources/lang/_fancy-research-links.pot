@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Research Links\n"
-"POT-Creation-Date: 2022-09-14 05:14+0200\n"
+"POT-Creation-Date: 2022-09-16 07:17+0200\n"
 "PO-Revision-Date: 2015-07-04 20:49+0200\n"
 "Last-Translator: Carmen Pijpers <carmen@justcarmen.nl>\n"
 "Language-Team: \n"
@@ -21,10 +21,6 @@ msgstr ""
 
 #: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
-msgstr ""
-
-#: resources/views/sidebar.phtml:13 resources/views/sidebar.phtml:15
-msgid "Activate/deactivate plugins"
 msgstr ""
 
 #: resources/views/settings.phtml:16
@@ -51,7 +47,7 @@ msgstr ""
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr ""
 
-#: FancyResearchLinksModule.php:345
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr ""
 
@@ -59,7 +55,7 @@ msgstr ""
 msgid "Open links in a new tab"
 msgstr ""
 
-#: FancyResearchLinksModule.php:201
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr ""
 
@@ -67,7 +63,7 @@ msgstr ""
 msgid "Select/unselect all"
 msgstr ""
 
-#: FancyResearchLinksModule.php:287
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr ""
 
