@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: nb\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Et sidefeltverktøy for å gi hurtigkoblinger til populære forskningsnettsteder."
 
@@ -23,7 +23,7 @@ msgstr "Hvis du aktiverer dette, endres standardoppførselen til nettleseren."
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Utvid innholdet i sidefeltet med Fancy Research Links"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Fancy forskningslenker"
 
@@ -35,7 +35,7 @@ msgstr "Trykk på alternativknappen før en tittel for å angi et forskningsomr�
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Hvis det er merket av for det, vil sidefeltets innhold med Fancy forskningslenker utvides mens sidefeltet Familienavigator vil kollapse hvis brukeren har rollen som redaktør eller høyere."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "Internasjonal"
 
@@ -43,7 +43,7 @@ msgstr "Internasjonal"
 msgid "Open links in a new tab"
 msgstr "Åpne koblinger i en ny fane"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Forskningslenker"
 
@@ -51,7 +51,7 @@ msgstr "Forskningslenker"
 msgid "Select/unselect all"
 msgstr "Velg/opphev valget av alle"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Det oppsto en feil ved lasting av plugin "
 
@@ -69,6 +69,7 @@ msgstr "slektsforskning"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "kun lenke"
 
