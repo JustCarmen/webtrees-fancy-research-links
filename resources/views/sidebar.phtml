@@ -8,14 +8,6 @@ use Fisharebest\Webtrees\View;
 
 <div id="sb-jc-fancy-research-links">
     <!-- FANCY RESEARCH LINKS -->
-    <?php if ($is_admin): ?>
-    <div class="fst-italic bg-secondary mb-3 p-2">
-        <a href="<?= e($module->getConfigLink()) ?>" title="<?= I18N::translate('Activate/deactivate plugins') ?>">
-            <?= view('icons/preferences') ?>
-            <?= I18N::translate('Activate/deactivate plugins') ?>
-        </a>
-    </div>
-    <?php endif ?>
     <?php foreach ($plugins as $area => $plugins_by_area): ?>
         <?php
             if ($expanded_area === $area) {

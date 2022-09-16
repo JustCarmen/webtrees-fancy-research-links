@@ -198,7 +198,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     public function sidebarTitle(Individual $individual): string
     {
-        return I18N::translate('Research links');
+        return view($this->name() . '::sidebar-header', [
+            'module'   => $this,
+            'is_admin' => Auth::isAdmin(),
+        ]);
     }
 
     /**
@@ -241,8 +244,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'enabled_plugins'   => $enabled_plugins,
             'expanded_area'     => $expanded_area,
             'expand_sidebar'    => $expand_sidebar,
-            'module'            => $this,
-            'is_admin'          => Auth::isAdmin(),
             'plugins'           => $this->getPluginsByArea(),
             'target_blank'      => $this->getPreference('target-blank'),
             'tree'              => $individual->tree(),
