@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: de\n"
 
-#: FancyResearchLinksModule.php:89
+#: FancyResearchLinksModule.php:70
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Stellt in der seitlichen Navigationsleiste personenbezogene Verknüpfungen zu bekannten Ahnenforschungsportalen bereit."
 
@@ -23,7 +23,7 @@ msgstr "Die Aktivierung wird das Standardverhalten des Browsers ändern."
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Erweitern Sie den Inhalt der Seitenleiste mit den Fancy Research Links"
 
-#: FancyResearchLinksModule.php:79
+#: FancyResearchLinksModule.php:60
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
@@ -35,7 +35,7 @@ msgstr "Drücken Sie das Optionsfeld vor einem Titel, um einen Recherchebereich 
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Wenn diese Option aktiviert ist, wird der Inhalt der Seitenleiste mit den Fancy Research Links erweitert, während der Familiennavigator in der Seitenleiste eingeklappt wird, wenn der Benutzer die Rolle eines Redakteurs oder höher hat."
 
-#: FancyResearchLinksModule.php:344
+#: FancyResearchLinksModule.php:350
 msgid "International"
 msgstr "International"
 
@@ -43,7 +43,7 @@ msgstr "International"
 msgid "Open links in a new tab"
 msgstr "Verknüpfungen in einem neuen Reiter öffnen"
 
-#: FancyResearchLinksModule.php:217
+#: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Forschungsverknüpfungen"
 
@@ -51,7 +51,7 @@ msgstr "Forschungsverknüpfungen"
 msgid "Select/unselect all"
 msgstr "Alle auswählen/abwählen"
 
-#: FancyResearchLinksModule.php:301
+#: FancyResearchLinksModule.php:288
 msgid "There was an error loading the plugin "
 msgstr "Es gab einen Fehler beim Laden des Plugins "
 
@@ -69,18 +69,19 @@ msgstr "Genealogie"
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
+#: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
 msgstr "nur Link"
 
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
-msgstr "prayer cards"
+msgstr "Gebetsbildchen"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
-msgstr "search prayer cards"
+msgstr "Gebetsbildchen suchen"
 
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
-msgstr "surname only"
+msgstr "nur Nachname"
 
