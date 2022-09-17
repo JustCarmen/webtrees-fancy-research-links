@@ -20,11 +20,12 @@ A guide to add your own plugin:
 1. Take a copy of one of the existing files from the plugins folder or copy the empty plugin from the examples folder and rename it. Give it a recognizable name. Note that not all plugin files are exactly the same. Some use more variables than others. This depends on the research site to which the link refers. Open several plugins to see how they are configured.
 2. In the new file, change the class name to match the file name and change the plugin label to something appropriate. The plugin label is the text used in the research links lists.
 3. If a search site is limited to a particular country, set the plugin's research area with the official 3 letter country code. Look in [the webtrees function getAllCountries][5] for a list of available codes. Use 'INT' for 'International' in case of an international search site.
-3. Go to the research site you want to make a link to. Perform your search and note the URL the search generates. Use this URL to create a dynamic link in your new plugin file. Enter the link in the ‘researchLink’ section, carefully noting where to insert the variables.
-4. The $attributes collection is the parameter used in the researchLinks function. This $attributes collection contain 3 sub collections:
-   - $name  = $attributes['NAME'];
-   - $year  = $attributes['YEAR'];
+4. Go to the research site you want to make a link to. Perform your search and note the URL the search generates. Use this URL to create a dynamic link in your new plugin file. Enter the link in the ‘researchLink’ section, carefully noting where to insert the variables.
+5. The $attributes collection is the parameter used in the researchLinks function. This $attributes collection contain 3 sub collections:
+   - $name = $attributes['NAME'];
+   - $year = $attributes['YEAR'];
    - $place = $attributes['PLACE'];
+   - $country = $attributes['COUNTRY'];
 
    With one or more of those variables declared you have the following list of variables available to use in your own plugin:
    - Full name = $name[‘fullNN’] e.g. "John Michael van den Burgh"
@@ -34,15 +35,15 @@ A guide to add your own plugin:
    - Last name without prefix = $name[‘surn’] e.g. "Burgh"
    - Prefix = $name[‘prefix’] e.g. "van den"
    - Married name	= $name['msurname'] e.g. "de Vries"
-   - Birth year/place = $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago"
-   - Christening year/place = $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago"
-   - Baptism year/place	= $year['BAPM]	e.g. "1800" / $place['BAPM]	e.g. "Chicago"
-   - Death year/place = $year['DEAT'] e.g. "1880" / $place['DEAT]	e.g. "New York"
-   - Burial year/place = $year['BURI] e.g. "1880" / $place['BURI]	e.g. "New York"
-   - Cremation year/place = $year['CREM] e.g. "1880" / $place['CREM]	e.g. "New York"
-5. The Examples folder contains a sample plugin for a Google search that uses special name parts and uses the year of birth/death and the place of birth/death in the search with explanation.
-6. If you want to use this example plugin (modified or as is), just copy it to the root of the Plugins folder.
-7. If you have created a plugin that may be of interest to other users you can make a pull request or send me a copy.
+   - Birth year/place/country = $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago" / $country['BIRT'] e.g. "USA"
+   - Christening year/place/country = $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago" / $country['CHR'] e.g. "USA"
+   - Baptism year/place/country = $year['BAPM]	e.g. "1800" / $place['BAPM]	e.g. "Chicago" / $country['BAPM'] e.g. "USA"
+   - Death year/place/country = $year['DEAT'] e.g. "1880" / $place['DEAT]	e.g. "New York" / $country['DEAT'] e.g. "USA"
+   - Burial year/place/country = $year['BURI] e.g. "1880" / $place['BURI]	e.g. "New York" / $country['BURI'] e.g. "USA"
+   - Cremation year/place/country = $year['CREM] e.g. "1880" / $place['CREM]	e.g. "New York" / $country['CREM'] e.g. "USA"
+6. The Examples folder contains a sample plugin for a Google search that uses special name parts and uses the year of birth/death and the place of birth/death in the search with explanation.
+7. If you want to use this example plugin (modified or as is), just copy it to the root of the Plugins folder. The expample folder also contains an empty plugin with all the functions you need to create your own.
+8. If you have created a plugin that may be of interest to other users you can make a pull request or send me a copy.
 
 If you have problems creating your own link, you can open a new issue and request that a link be created for you.
 
