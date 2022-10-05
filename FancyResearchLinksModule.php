@@ -22,9 +22,9 @@ use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
-
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use Fisharebest\Webtrees\Statistics\Service\CountryService;
+use Illuminate\Database\Capsule\Manager as DB;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
@@ -130,6 +130,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         // Register a namespace for our views.
         View::registerNamespace($this->name(), $this->resourcesFolder() . 'views/');
+
+        // Changes in version 2.3.1 require to reset the expanded_area setting if neccessary
+        if (!array_key_exists($this->getPreference('expanded-area'), $this->getCountryList())) {
+            DB::table('module_setting')
+                ->where('module_name', '=', $this->name())
+                ->where('setting_name', '=', 'expanded-area')
+                ->delete();
+        }
     }
 
     /**
@@ -153,7 +161,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         return $this->viewResponse($this->name() . '::settings', [
             'enabled_plugins'   => collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', ')))),
-            'expanded_area'     => $this->getPreference('expanded-area', $this->getCountryList()['INT']),
+            'expanded_area'     => $this->getCountryList()[$this->getPreference('expanded-area', 'INT')],
             'expand_sidebar'    => $this->getPreference('expand-sidebar'),
             'plugins'           => $this->getPluginsByArea()->sortkeys(),
             'target_blank'      => $this->getPreference('target-blank'),
@@ -180,7 +188,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         if ($params['save'] === '1') {
             $this->setPreference('enabled-plugins', $enabled_plugins);
-            $this->setPreference('expanded-area', $params['expanded-area'] ?? $this->getCountryList()['INT']);
+            $this->setPreference('expanded-area', array_search($params['expanded-area'], $this->getCountryList()) ?? 'INT');
             $this->setPreference('expand-sidebar', $params['expand-sidebar'] ?? '0');
             $this->setPreference('target-blank', $params['target-blank'] ?? '0');
 
@@ -237,7 +245,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     {
         $expand_sidebar     = (bool) $this->getPreference('expand-sidebar') && Auth::isEditor($individual->tree());
         $enabled_plugins    = collect(explode(', ', $this->getPreference('enabled-plugins', $this->getPluginsByName()->join(', '))));
-        $expanded_area      = $this->getPreference('expanded-area', $this->getCountryList()['INT']);
+        $expanded_area      = $this->getCountryList()[$this->getPreference('expanded-area', 'INT')];
 
         return view($this->name() . '::sidebar', [
             'attributes'        => $this->getAttributes($individual),
@@ -315,8 +323,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         });
 
         // The first group should be the expanded area. Remove the group from the collection
-        $expanded_area  = $this->getPreference('expanded-area', $this->getCountryList()['INT']);
-        $pluginlist     = $collection->filter()->except($expanded_area);
+        $expanded_area  = $this->getCountryList()[$this->getPreference('expanded-area', 'INT')];
+        $pluginlist = $collection->filter()->except($expanded_area);
 
         // return the localized sorted list with the expanded area on top
         return $pluginlist->sortkeys()->prepend($collection->get($expanded_area), $expanded_area);
