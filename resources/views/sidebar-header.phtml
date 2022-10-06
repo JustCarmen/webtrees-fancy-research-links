@@ -5,18 +5,10 @@ use Fisharebest\Webtrees\View;
 
 ?>
 
-<?= I18N::translate('Research links') ?>
+<span class="col"><?= I18N::translate('Research links') ?></span>
 
 <?php if ($is_admin): ?>
-<a class="jc-config-link me-3" href="<?= e($module->getConfigLink()) ?>" title="<?= I18N::translate('Preferences') ?>">
+<span class="jc-config-link"><a href="<?= e($module->getConfigLink()) ?>" title="<?= I18N::translate('Preferences') ?>">
     <?= view('icons/preferences') ?>
-</a>
-
-<?php View::push('javascript') ?>
-<script>
-    $('.jc-config-link')
-        .parent('.accordion-button').after($('.jc-config-link'))
-        .parent('.accordion-header').addClass('d-flex justify-content-between align-items-center')
-</script>
-<?php View::endpush() ?>
+</a></span>
 <?php endif ?>
