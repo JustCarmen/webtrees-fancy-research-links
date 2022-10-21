@@ -9,21 +9,21 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 class CustomGooglePlugin extends FancyResearchLinksModule
 {
 
-  /**
-   * The plugin label is used in the sidebar
-   *
-   * @return string
-   */
+	/**
+	* The plugin label is used in the sidebar
+	*
+	* @return string
+	*/
 	public function pluginLabel(): string
-    {
+	{
 		return 'Google custom search';
 	}
 
 	/**
-   * The plugin name is the internal name and is generated automatically
-   *
-   * @return string
-   */
+	* The plugin name is the internal name and is generated automatically
+	*
+	* @return string
+	*/
 	public function pluginName(): string
 	{
 		return strtolower(basename(__FILE__, 'Plugin.php'));
@@ -50,26 +50,26 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 * $place = $attributes['PLACE'];
 	 * $country = $attributes['COUNTRY'];
 	 *
-	 * - Full name 						= $name[‘fullNN’] 	e.g. "John Michael van den Burgh"
-	 * - Full given name 				= $name[‘givn’] 	e.g. "John Michael"
-	 * - First name 					= $name[‘first’] 	e.g. "John"
-	 * - Last name with prefix 			= $name[‘surname’] 	e.g. "van den Burgh"
-	 * - Last name without prefix 		= $name[‘surn’] 	e.g. "Burgh"
-	 * - Prefix 						= $name[‘prefix’] 	e.g. "van den"
-	 * - Married name					= $name['msurname'] e.g. "de Vries"
+	 * - Full name                      = $name['fullNN']   e.g. "John Michael van den Burgh"
+	 * - Full given name                = $name['givn']     e.g. "John Michael"
+	 * - First name                     = $name['first']    e.g. "John"
+	 * - Last name with prefix          = $name['surname']  e.g. "van den Burgh"
+	 * - Last name without prefix       = $name['surn']     e.g. "Burgh"
+	 * - Prefix                         = $name['prefix']   e.g. "van den"
+	 * - Married name                   = $name['msurname'] e.g. "de Vries"
 	 *
-	 * - Birth year/place/country		= $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago" / $country['BIRT'] e.g. "USA"
-	 * - Christening year/place/country	= $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago" / $country['CHR'] e.g. "USA"
-	 * - Baptism year/place/country		= $year['BAPM]	e.g. "1800" / $place['BAPM]	e.g. "Chicago" / $country['BAPM'] e.g. "USA"
+	 * - Birth year/place/country       = $year['BIRT'] e.g. "1800" / $place['BIRT'] e.g. "Chicago" / $country['BIRT'] e.g. "USA"
+	 * - Christening year/place/country = $year['CHR']  e.g. "1800" / $place['CHR']  e.g. "Chicago" / $country['CHR'] e.g. "USA"
+	 * - Baptism year/place/country     = $year['BAPM'] e.g. "1800" / $place['BAPM'] e.g. "Chicago" / $country['BAPM'] e.g. "USA"
 	 *
-	 * - Death year/place/country		= $year['DEAT'] e.g. "1880" / $place['DEAT]	e.g. "New York" / $country['DEAT'] e.g. "USA"
-	 * - Burial year/place/country		= $year['BURI]	e.g. "1880" / $place['BURI]	e.g. "New York" / $country['BURI'] e.g. "USA"
-	 * - Cremation year/place/country	= $year['CREM]	e.g. "1880" / $place['CREM]	e.g. "New York" / $country['CREM'] e.g. "USA"
+	 * - Death year/place/country       = $year['DEAT'] e.g. "1880" / $place['DEAT'] e.g. "New York" / $country['DEAT'] e.g. "USA"
+	 * - Burial year/place/country      = $year['BURI'] e.g. "1880" / $place['BURI'] e.g. "New York" / $country['BURI'] e.g. "USA"
+	 * - Cremation year/place/country   = $year['CREM'] e.g. "1880" / $place['CREM'] e.g. "New York" / $country['CREM'] e.g. "USA"
 	 *
 	 * @return string
 	 */
 	public function researchLink($attributes): string
-    {
+	{
 		$name = $attributes['NAME'];
 		$year = $attributes['YEAR'];
 		$place = $attributes['PLACE'];
