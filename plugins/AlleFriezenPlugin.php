@@ -18,7 +18,7 @@ class AlleFriezenPlugin extends FancyResearchLinksModule
 	 */
 	public function pluginLabel(): string
 	{
-		return 'Alle Friezen';
+		return 'AlleFriezen';
 	}
 
 	/**
