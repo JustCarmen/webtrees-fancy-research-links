@@ -18,7 +18,7 @@ class AlleGroningersPlugin extends FancyResearchLinksModule
 	 */
 	public function pluginLabel(): string
 	{
-		return 'Alle Groningers';
+		return 'AlleGroningers';
 	}
 
 	/**
