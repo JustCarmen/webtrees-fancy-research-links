@@ -43,7 +43,7 @@ class AncientFacesPlugin extends FancyResearchLinksModule
 
 		if ($name['msurname']) {
 			$lastname = $name['msurname'];
-			$maidenname = $name['surname'];
+			$maidenname = $name['surname']; // the first name listed, could be the married name but we assume not.
 		} else {
 			$lastname = $name['surname'];
 			$maidenname = '';

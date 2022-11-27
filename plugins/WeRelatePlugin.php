@@ -6,7 +6,6 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
-// settings: http://localhost/hetverschil.info/webtrees/module/_jc-fancy-research-links_/Admin
 class WeRelatePlugin extends FancyResearchLinksModule
 {
 
