@@ -49,7 +49,7 @@ If you have problems creating your own link, you can open a new issue and reques
 
 Translations
 ------------
-You can help to translate this module. The language files are on [POEditor][6] where you can update them. Or use a local editor, like poeditor or notepad++ to make the translations and send them back to me. You can do this via a pull request or via [email][7]. Updated translations will be included in the next version of this module.
+You can help to translate this module. The language files are on [POEditor][6] where you can update them. Or use a local editor, like Poedit or Notepad++ to make the translations and send them back to me. You can do this via a pull request or via [email][7]. Updated translations will be included in the next version of this module.
 
 Installation & upgrading
 ------------------------
