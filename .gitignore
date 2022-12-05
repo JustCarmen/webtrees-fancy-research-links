@@ -1,2 +1,5 @@
 /dist/
 /node_modules/
+poeditor-config.json
+compile-mo.bat
+format-pot.bat
