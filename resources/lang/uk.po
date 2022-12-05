@@ -27,6 +27,10 @@ msgstr "Розширте вміст бічної панелі за допомо�
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
+#: plugins/GooglePlugin.php:31
+msgid "genealogy"
+msgstr "генеалогія"
+
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Натисніть перемикач перед заголовком, щоб встановити область дослідження за замовчуванням. Обрана область дослідження відкриється на бічній панелі."
@@ -39,30 +43,6 @@ msgstr "Якщо відмічено, для користувачів, що ви�
 msgid "International"
 msgstr "Міжнародний"
 
-#: resources/views/settings.phtml:31
-msgid "Open links in a new tab"
-msgstr "Відкривати в новій вкладці"
-
-#: resources/views/sidebar-header.phtml:8
-msgid "Research links"
-msgstr "Пошукові посилання"
-
-#: resources/views/settings.phtml:38
-msgid "Select/unselect all"
-msgstr "Вибрати/скасувати всіх"
-
-#: FancyResearchLinksModule.php:288
-msgid "There was an error loading the plugin "
-msgstr "Сталася помилка завантаження плагіну "
-
-#: resources/views/settings.phtml:39
-msgid "Toggle this checkbox to select all research links at once."
-msgstr "Відмітьте тут, щоб вибрати всі пошукові посилання одночасно."
-
-#: plugins/GooglePlugin.php:31
-msgid "genealogy"
-msgstr "генеалогія"
-
 #: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
@@ -73,15 +53,35 @@ msgstr "генеалогія"
 msgid "link only"
 msgstr "лише посилання"
 
+#: resources/views/settings.phtml:31
+msgid "Open links in a new tab"
+msgstr "Відкривати в новій вкладці"
+
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
 msgstr "молитовні картки"
+
+#: resources/views/sidebar-header.phtml:8
+msgid "Research links"
+msgstr "Пошукові посилання"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
 msgstr "пошук молитовних карток"
 
+#: resources/views/settings.phtml:38
+msgid "Select/unselect all"
+msgstr "Вибрати/скасувати всіх"
+
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "тільки прізвище"
+
+#: FancyResearchLinksModule.php:288
+msgid "There was an error loading the plugin "
+msgstr "Сталася помилка завантаження плагіну "
+
+#: resources/views/settings.phtml:39
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Відмітьте тут, щоб вибрати всі пошукові посилання одночасно."
 

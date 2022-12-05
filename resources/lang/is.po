@@ -27,6 +27,10 @@ msgstr "Stækkaðu innihald hliðarstikunnar með flottum rannsóknartenglum"
 msgid "Fancy Research Links"
 msgstr "Flottir rannsóknartenglar"
 
+#: plugins/GooglePlugin.php:31
+msgid "genealogy"
+msgstr "ættfræði"
+
 #: resources/views/settings.phtml:17
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Smelltu á valhnappinn á undan titli til að stilla rannsóknarsvæði sem sjálfgefið. Valið rannsóknarsvæði mun opnast óbrotið í hliðarstikunni."
@@ -39,30 +43,6 @@ msgstr "Ef hakað er við það mun innihald hliðarstikunnar með flottum ranns
 msgid "International"
 msgstr "Alþjóðlegt"
 
-#: resources/views/settings.phtml:31
-msgid "Open links in a new tab"
-msgstr "Opnaðu tengla í nýjum flipa"
-
-#: resources/views/sidebar-header.phtml:8
-msgid "Research links"
-msgstr "Rannsóknartenglar"
-
-#: resources/views/settings.phtml:38
-msgid "Select/unselect all"
-msgstr "Velja/afvelja allt"
-
-#: FancyResearchLinksModule.php:288
-msgid "There was an error loading the plugin "
-msgstr "Villa kom upp við að hlaða viðbótinni "
-
-#: resources/views/settings.phtml:39
-msgid "Toggle this checkbox to select all research links at once."
-msgstr "Breyttu þessum gátreit til að velja alla rannsóknartengla í einu."
-
-#: plugins/GooglePlugin.php:31
-msgid "genealogy"
-msgstr "ættfræði"
-
 #: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
@@ -73,15 +53,35 @@ msgstr "ættfræði"
 msgid "link only"
 msgstr "eingöngu krækja"
 
+#: resources/views/settings.phtml:31
+msgid "Open links in a new tab"
+msgstr "Opnaðu tengla í nýjum flipa"
+
 #: plugins/AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
 msgstr "bænakort"
+
+#: resources/views/sidebar-header.phtml:8
+msgid "Research links"
+msgstr "Rannsóknartenglar"
 
 #: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
 msgstr "leitaðu í bænaspjöldum"
 
+#: resources/views/settings.phtml:38
+msgid "Select/unselect all"
+msgstr "Velja/afvelja allt"
+
 #: plugins/WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "aðeins eftirnafn"
+
+#: FancyResearchLinksModule.php:288
+msgid "There was an error loading the plugin "
+msgstr "Villa kom upp við að hlaða viðbótinni "
+
+#: resources/views/settings.phtml:39
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Breyttu þessum gátreit til að velja alla rannsóknartengla í einu."
 
