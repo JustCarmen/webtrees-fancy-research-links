@@ -39,7 +39,7 @@ msgstr "Trykk på alternativknappen før en tittel for å angi et forskningsomr�
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Hvis det er merket av for det, vil sidefeltets innhold med Fancy forskningslenker utvides mens sidefeltet Familienavigator vil kollapse hvis brukeren har rollen som redaktør eller høyere."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "Internasjonal"
 
@@ -47,7 +47,7 @@ msgstr "Internasjonal"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Velg/opphev valget av alle"
 msgid "surname only"
 msgstr "kun etternavn"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Det oppsto en feil ved lasting av plugin "
 

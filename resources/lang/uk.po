@@ -39,7 +39,7 @@ msgstr "Натисніть перемикач перед заголовком, �
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Якщо відмічено, для користувачів, що виконують роль редактора або вище, вміст бічної панелі Fancy Research Links розкриватиметься, тоді як навігатор сімейної бічної панелі згортатиметься."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "Міжнародний"
 
@@ -47,7 +47,7 @@ msgstr "Міжнародний"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Вибрати/скасувати всіх"
 msgid "surname only"
 msgstr "тільки прізвище"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Сталася помилка завантаження плагіну "
 

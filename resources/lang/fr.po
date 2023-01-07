@@ -39,7 +39,7 @@ msgstr "Cliquez sur le bouton radio situé devant un titre pour définir un doma
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Si cette case est cochée, le contenu de la barre latérale avec les liens de recherche fantaisie s'étendra tandis que le navigateur familial de la barre latérale se réduira si l'utilisateur a le rôle d'éditeur ou un rôle supérieur."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "International"
 
@@ -47,7 +47,7 @@ msgstr "International"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Sélectionner/désélectionner tout"
 msgid "surname only"
 msgstr "nom de famille uniquement"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Une erreur s'est produite lors du chargement du plugin "
 

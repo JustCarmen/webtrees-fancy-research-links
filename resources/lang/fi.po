@@ -39,7 +39,7 @@ msgstr "Paina otsikon edessä olevaa valintanappia, jos haluat asettaa tutkimusa
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Jos valintaruutu on valittuna, sivupalkin sisältö, jossa on hienot tutkimuslinkit, laajenee, kun taas sivupalkin Perhe-navigaattori sulkeutuu, jos käyttäjällä on vähintään toimittajan rooli."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "Kansainväliset"
 
@@ -47,7 +47,7 @@ msgstr "Kansainväliset"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Valitse/ poista kaikki"
 msgid "surname only"
 msgstr "vain sukunimi"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Lisäosan lataamisessa tapahtui virhe "
 

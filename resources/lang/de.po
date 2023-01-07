@@ -39,7 +39,7 @@ msgstr "Drücken Sie das Optionsfeld vor einem Titel, um einen Recherchebereich 
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Wenn diese Option aktiviert ist, wird der Inhalt der Seitenleiste mit den Fancy Research Links erweitert, während der Familiennavigator in der Seitenleiste eingeklappt wird, wenn der Benutzer die Rolle eines Redakteurs oder höher hat."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "International"
 
@@ -47,7 +47,7 @@ msgstr "International"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Alle auswählen/abwählen"
 msgid "surname only"
 msgstr "nur Nachname"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Es gab einen Fehler beim Laden des Plugins "
 

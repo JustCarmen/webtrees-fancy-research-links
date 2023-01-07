@@ -39,7 +39,7 @@ msgstr "Naciśnij przycisk , aby ustawić obszar badawczy jako domyślny. Wybran
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Jeśli jest zaznaczone, zawartość paska bocznego z Fancy Research Links będzie się rozszerzać, podczas gdy nawigator paska bocznego Family będzie się zamykać, jeśli użytkownik ma funkcję edytora lub wyższą."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "Międzynarodowe"
 
@@ -47,7 +47,7 @@ msgstr "Międzynarodowe"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Zaznacz/odznacz wszystko"
 msgid "surname only"
 msgstr "tylko nazwisko"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Wystąpił błąd podczas ładowania wtyczki "
 

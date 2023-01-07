@@ -39,7 +39,7 @@ msgstr "Smelltu á valhnappinn á undan titli til að stilla rannsóknarsvæði 
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Ef hakað er við það mun innihald hliðarstikunnar með flottum rannsóknartenglum stækka á meðan Fjölskyldu vefsjáin í hliðarstikunni mun falla saman ef notandinn hefur hlutverk ritstjóra eða hærra."
 
-#: FancyResearchLinksModule.php:350
+#: FancyResearchLinksModule.php:358
 msgid "International"
 msgstr "Alþjóðlegt"
 
@@ -47,7 +47,7 @@ msgstr "Alþjóðlegt"
 #: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
 #: plugins/NationaalArchiefCuracaoPlugin.php:15
 #: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
 #: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
 #: plugins/WarsOfBulgariaPlugin.php:14
 msgid "link only"
@@ -77,7 +77,7 @@ msgstr "Velja/afvelja allt"
 msgid "surname only"
 msgstr "aðeins eftirnafn"
 
-#: FancyResearchLinksModule.php:288
+#: FancyResearchLinksModule.php:296
 msgid "There was an error loading the plugin "
 msgstr "Villa kom upp við að hlaða viðbótinni "
 
