@@ -27,7 +27,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                 <p class="small text-muted"><?= I18N::translate('If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher.') ?></p>
             </div>
             <!-- OPEN LINKS IN NEW TAB -->
-            <div class="col text-right">
+            <div class="col text-end">
                 <?= view('components/checkbox', ['label' => I18N::translate('Open links in a new tab'), 'name' => 'target-blank', 'checked' => (bool) $target_blank]) ?>
                 <p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
             </div>
