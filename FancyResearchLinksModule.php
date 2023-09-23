@@ -100,16 +100,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         return 'https://raw.githubusercontent.com/' . self::CUSTOM_AUTHOR . '/' . self::GITHUB_REPO . '/main/latest-version.txt';
     }
 
-    /**
-     * Fetch the latest version of this module.
-     *
-     * @return string
-     */
-    public function customModuleLatestVersion(): string
-    {
-        return 'https://github.com/' . self::CUSTOM_AUTHOR . '/' . self::GITHUB_REPO . '/releases/latest';
-    }
-
      /**
      * Where to get support for this module.  Perhaps a github repository?
      *
