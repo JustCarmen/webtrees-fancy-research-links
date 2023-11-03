@@ -11,7 +11,7 @@ class CensusOfIrelandPlugin extends FancyResearchLinksModule
 {
     public function pluginLabel(): string
     {
-        return 'National Archives - Census of Ireland';
+        return 'National Archives - Census of Ireland - Advanced Search (link only)';
     }
 
     public function pluginName(): string
@@ -26,10 +26,8 @@ class CensusOfIrelandPlugin extends FancyResearchLinksModule
 
     public function researchLink($attributes): string
     {
-        // This uses the search syntax from the 2023 version of National Archive - Census Search
-
-        $name = $attributes['NAME'];
-
-        return 'http://www.census.nationalarchives.ie/search/results.jsp?searchMoreVisible=true&surname=' . $name['surname'] . '&firstname=' . $name['first'];
+        // This is a link to the search Census page of the 2023 version of National Archive - Census Search
+        
+        return 'http://www.census.nationalarchives.ie/search/#searchmore';
     }
 }
