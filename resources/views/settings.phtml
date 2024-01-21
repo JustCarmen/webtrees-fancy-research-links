@@ -20,19 +20,19 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
     <form method="post">
         <?= csrf_field() ?>
         <input type="hidden" name="save" id="save" value="1">
-        <div class="row mb-3 justify-content-between m-0">
+        <div class="alert alert-secondary row mb-3 justify-content-between m-0">
             <!-- EXPAND THE SIDEBAR CONTENT -->
-            <div class="col">
+            <div>
                 <?= view('components/checkbox', ['label' => I18N::translate('Expand the sidebar content with the Fancy Research Links'), 'name' => 'expand-sidebar', 'checked' => (bool) $expand_sidebar]) ?>
                 <p class="small text-muted"><?= I18N::translate('If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher.') ?></p>
             </div>
             <!-- OPEN LINKS IN NEW TAB -->
-            <div class="col text-end">
+            <div>
                 <?= view('components/checkbox', ['label' => I18N::translate('Open links in a new tab'), 'name' => 'target-blank', 'checked' => (bool) $target_blank]) ?>
                 <p class="small text-muted"><i class="fa fa-exclamation-triangle"></i> <?= I18N::translate('Enabling this will change the default behavior of the browser.') ?></p>
             </div>
         </div>
-        <div class="row mb-3 mx-0">
+        <div class="alert alert-secondary row mb-3 mx-0">
             <!-- SELECT ALL -->
             <div class="col">
                 <?= view('components/checkbox', ['label' => I18N::translate('Select/unselect all'), 'name' => 'select-all']) ?>
@@ -41,7 +41,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         </div>
         <!-- RESEARCH LINKS -->
         <?php foreach ($plugins as $area => $plugins_by_area) : ?>
-            <div class="mb-3 col-sm-12">
+            <div class="alert alert-light mb-3 col-sm-12">
                 <div class="radio">
                     <label class="radio mb-1">
                         <input
