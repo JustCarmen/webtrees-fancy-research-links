@@ -41,7 +41,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         </div>
         <!-- RESEARCH LINKS -->
         <?php foreach ($plugins as $area => $plugins_by_area) : ?>
-            <div class="alert alert-light mb-3 col-sm-12">
+            <div class="jc-area-box alert alert-light mb-3 col-sm-12">
                 <div class="radio">
                     <label class="radio mb-1">
                         <input
@@ -55,6 +55,9 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
                         <span class="h4"><?= $area ?></span>
                     </label>
                 </div>
+                <?php if ($plugins_by_area->count() > 1) : ?>
+                    <p class="small"><a href="#"><?= I18N::translate('Select/unselect all') ?></a></p>
+                <?php endif ?>
                 <div class="row">
                     <?php foreach ($plugins_by_area as $plugin) : ?>
                         <?php $checked = (bool) $enabled_plugins->contains($plugin->pluginName()) ?>
@@ -83,5 +86,18 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
             $('.mb-3 .row').find('input[type="checkbox"]').prop('checked', false);
         }
     });
+
+    $('a').on('click', function(e) {
+        e.preventDefault();
+        if ($(this).hasClass('jc-area-selected')) {
+            $(this).closest('.jc-area-box').find('input[type="checkbox"]').prop('checked', false);
+            $(this).toggleClass('jc-area-selected', false);
+        } else {
+            $(this).closest('.jc-area-box').find('input[type="checkbox"]').prop('checked', true);
+            $(this).toggleClass('jc-area-selected', true);
+        }
+        return false;
+    });
+
 </script>
 <?php View::endpush() ?>
