@@ -87,7 +87,7 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
         }
     });
 
-    $('a').on('click', function(e) {
+    $('.jc-area-box a').on('click', function(e) {
         e.preventDefault();
         if ($(this).hasClass('jc-area-selected')) {
             $(this).closest('.jc-area-box').find('input[type="checkbox"]').prop('checked', false);
