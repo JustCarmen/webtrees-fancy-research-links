@@ -11,4 +11,34 @@ use Fisharebest\Webtrees\View;
 <span class="jc-config-link"><a href="<?= e($module->getConfigLink()) ?>" title="<?= I18N::translate('Preferences') ?>">
     <?= view('icons/preferences') ?>
 </a></span>
+
+<?php View::push('javascript') ?>
+<script>
+    // Get the current page url and store it in a session cookie
+    // https://www.w3schools.com/js/js_cookies.asp
+    // https://stackoverflow.com/questions/14196671/session-only-cookies-with-javascript
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
+    // Note that having the browser set to Continue where you left off will not delete the session cookie.
+    function setCookie(cname, cvalue) {
+        if (window.location.protocol == 'http:') {
+            document.cookie = cname + "=" + cvalue + ";path=/;SameSite=Lax";
+        } else {
+            document.cookie = cname + "=" + cvalue + ";path=/;SameSite=Lax;Secure";
+        }
+    }
+
+    function deleteCookie(cname) {
+        document.cookie = cname + "=; Max-Age=0; path=/";
+    }
+
+    // delete any old cookie
+    deleteCookie("FRL_PAGE")
+
+    // set a new cookie when clicking the config link
+    $('.jc-config-link a').on('click', function(e) {
+        setCookie("FRL_PAGE", window.location.href);
+    });
+</script>
+<?php View::endpush() ?>
+
 <?php endif ?>

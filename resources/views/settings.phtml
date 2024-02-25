@@ -8,7 +8,12 @@ use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
 
 <?= view('components/breadcrumbs', ['links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
 
-<h1><?= $title ?></h1>
+<div class="d-flex justify-content-between align-items-baseline">
+    <h1><?= $title ?></h1>
+    <?php if (isset($_COOKIE["FRL_PAGE"])): ?>
+    <div><a href="<?= $_COOKIE["FRL_PAGE"] ?>"><?= I18N::translate('back to the last individual page') ?></a></div>
+    <?php endif ?>
+</div>
 
 <div class="jc-fancy-research-links mb-5">
 
