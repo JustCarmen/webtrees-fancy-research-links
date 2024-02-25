@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 
+/**
+ * Søgning på for- og efternavn samt fødselsår 
+ * og -sted i LinkLives (link-lives.dk).
+ */
+
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class LinkLivesPlugin extends FancyResearchLinksModule
