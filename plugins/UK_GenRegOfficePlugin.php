@@ -11,7 +11,7 @@ class UK_GenRegOfficePlugin extends FancyResearchLinksModule
 {
 	public function pluginLabel(): string
     {
-		return 'General Register Office (' . I18N::translate('link only') . ')';
+		return 'General Register Office (' . I18N::translate('link only') . ') ($)';
 	}
 
 	public function pluginName(): string
