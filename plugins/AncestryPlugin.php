@@ -29,9 +29,9 @@ class AncestryPlugin extends FancyResearchLinksModule
 		$domain = [
 		// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/
 		'de'     => 'de', // German
-		'en_GB'  => 'co.uk',
-		'en_US'  => 'com',
-		'en_AUS' => 'com.au', // not used by webtrees
+		'en-GB'  => 'co.uk',
+		'en-US'  => 'com',
+		'en-AU' => 'com.au', // not used by webtrees
 		'fr'     => 'fr',
 		'it'     => 'it',
 		'sv'     => 'se', // Swedish
@@ -41,7 +41,7 @@ class AncestryPlugin extends FancyResearchLinksModule
 		if (isset($domain[$locale])) {
 			$ancestry_domain = $domain[$locale];
 		} else {
-			$ancestry_domain = $domain['en_US'];
+			$ancestry_domain = $domain['en-US'];
 		}
 
 		$name = $attributes['NAME'];
