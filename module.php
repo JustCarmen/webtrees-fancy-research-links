@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Webtrees;
+
 require __DIR__ . '/FancyResearchLinksModule.php';
 
 $files = glob( __DIR__ . '/plugins/*.php');
