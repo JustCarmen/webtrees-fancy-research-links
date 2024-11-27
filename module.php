@@ -11,4 +11,9 @@ foreach ($files as $file) {
     require($file);
 }
 
-return app(FancyResearchLinksModule::class);
+if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
+    return Registry::container()->get(FancyResearchLinksModule::class);
+}
+else {
+    return app(FancyResearchLinksModule::class);
+}
