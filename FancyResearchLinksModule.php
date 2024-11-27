@@ -10,6 +10,8 @@ use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Gedcom;
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Webtrees;
 use Illuminate\Support\Collection;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
@@ -280,7 +282,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             ->map(static function (string $filename) {
                 try {
                     $path_parts = pathinfo($filename);
-                    $plugin = app(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
+                        $plugin =  Registry::container()->get(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    }
+                    else {
+                        $plugin = app(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    }
+
                     return $plugin;
                 } catch (Throwable $ex) {
                     FlashMessages::addMessage(I18N::translate('There was an error loading the plugin ' . $path_parts['filename'] . '.') . '<br>' . e($ex->getMessage()), 'danger');
