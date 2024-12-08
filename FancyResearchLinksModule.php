@@ -10,12 +10,14 @@ use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Gedcom;
+use Fisharebest\Webtrees\Registry;
 use Illuminate\Support\Collection;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
 use Psr\Http\Message\ResponseInterface;
 use Fisharebest\Localization\Translation;
 use Psr\Http\Message\ServerRequestInterface;
+use Illuminate\Database\Capsule\Manager as DB;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
@@ -24,7 +26,6 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use Fisharebest\Webtrees\Statistics\Service\CountryService;
-use Illuminate\Database\Capsule\Manager as DB;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
@@ -280,7 +281,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             ->map(static function (string $filename) {
                 try {
                     $path_parts = pathinfo($filename);
-                    $plugin = app(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    $plugin = Registry::container()->get(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
                     return $plugin;
                 } catch (Throwable $ex) {
                     FlashMessages::addMessage(I18N::translate('There was an error loading the plugin ' . $path_parts['filename'] . '.') . '<br>' . e($ex->getMessage()), 'danger');
