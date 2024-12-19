@@ -33,6 +33,6 @@ class DEU_Denkmalprojekt1Plugin extends FancyResearchLinksModule
 			return $v !== null && $v !== '';
 		}));
 
-		return "http://www.denkmalprojekt.org/search/renamed-search.pl?Match=0&Realm=All&Terms=" . e($query);
+		return "http://www.denkmalprojekt.org/search/RWDsearch.pl?Match=0&Realm=All&Terms=" . e($query);
 	}
 }
