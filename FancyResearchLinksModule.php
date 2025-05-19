@@ -26,6 +26,8 @@ use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use Fisharebest\Webtrees\Statistics\Service\CountryService;
+use Fisharebest\Webtrees\Webtrees;
+use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
@@ -274,14 +276,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     private function getPlugins(): Collection
     {
-        $pattern   = __DIR__ . '/plugins/*Plugin.php';
-        $filenames = glob($pattern);
+        ###The files on custom directory doesn't appear using GLOB_BRACE and GLOB_BRACE is not well supported always. It's better to stay away from it.
+        ###$filenames = glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '{*Plugin.php, custom' . DIRECTORY_SEPARATOR . '*Plugin.php}', GLOB_BRACE);
+        $filenames = array_merge( glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '*Plugin.php'),
+                                  glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'custom' . DIRECTORY_SEPARATOR . '*Plugin.php'));
 
         $collection = Collection::make($filenames)
             ->map(static function (string $filename) {
                 try {
                     $path_parts = pathinfo($filename);
-                    $plugin = Registry::container()->get(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    $plugin = FancyResearchLinksModule::getClass(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    #$plugin = new FancyResearchLinksModule($service);   
                     return $plugin;
                 } catch (Throwable $ex) {
                     FlashMessages::addMessage(I18N::translate('There was an error loading the plugin ' . $path_parts['filename'] . '.') . '<br>' . e($ex->getMessage()), 'danger');
@@ -385,6 +390,12 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         foreach ($gedcom_events as $event) {
 
             $year[$event] = '';
+            $year[$event . "_gregorian"] = '';
+            $year[$event . "_julian"] = '';
+            $year[$event . "_jewish"] = '';
+            $year[$event . "_french"] = '';
+            $year[$event . "_hijri"] = '';
+            $year[$event . "_jalali"] = '';
             $place[$event] = '';
             $country[$event] = '';
 
@@ -392,7 +403,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
             if ($edates !== []) {
                 foreach ($edates as $edate) {
-                    $year[$event] = $edate->minimumDate()->format('%Y');
+                    $dateTmp = $edate->minimumDate();
+                    $year[$event] = $dateTmp->format('%Y');
+                    $year[$event . "_gregorian"] = $dateTmp->convertToCalendar("gregorian")->format('%Y');
+                    $year[$event . "_julian"] = $dateTmp->convertToCalendar("julian")->format('%Y');
+                    $year[$event . "_jewish"] = $dateTmp->convertToCalendar("jewish")->format('%Y');
+                    $year[$event . "_french"] = $dateTmp->convertToCalendar("french")->format('%Y');
+                    $year[$event . "_hijri"] = $dateTmp->convertToCalendar("hijri")->format('%Y');
+                    $year[$event . "_jalali"] = $dateTmp->convertToCalendar("jalali")->format('%Y');
                 }
             }
 
@@ -414,5 +432,21 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         );
 
         return $attributes;
+    }
+
+
+    /**
+     * A breaking change in webtrees 2.2.0 changes how the classes are retrieved.
+     * This function allows support for both 2.1.X and 2.2.X versions
+     * @param $class
+     * @return mixed
+     */
+    static function getClass($class)
+    {
+        if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
+            return Registry::container()->get($class);
+        } else {
+            return app($class);
+        }
     }
 };
