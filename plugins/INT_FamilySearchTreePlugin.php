@@ -7,11 +7,11 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks\Plugin;
 use Fisharebest\Webtrees\I18N;
 use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
-class INT_FamilySearchPlugin extends FancyResearchLinksModule
+class INT_FamilySearchTreePlugin extends FancyResearchLinksModule
 {
     public function pluginLabel(): string
     {
-        return 'FamilySearch';
+        return 'FamilySearchTree';
     }
 
     public function pluginName(): string
@@ -35,7 +35,7 @@ class INT_FamilySearchPlugin extends FancyResearchLinksModule
         $df = ((int)$year['DEAT']) < 1000 ? '' : (int)$year['DEAT']-1;
         $dt = ((int)$year['DEAT']) < 1000 ? '' : (int)$year['DEAT']+1;
 
-        return 'https://www.familysearch.org/search/record/results' .
+        return 'https://www.familysearch.org/search/tree/results' .
            '?q.givenName='    		. $name['givn']    .
            '&q.surname='      		. $name['surname'] . '%20' . $name['msurname'] .
            '&count=100'             .
