@@ -11,7 +11,7 @@ class DEU_MetaGenealogyPlugin extends FancyResearchLinksModule
 {
 	public function pluginLabel(): string
     {
-		return 'Genealogy.net Meta Search (' . I18N::translate('link only') . ')';
+		return I18N::translate('Genealogy.net Meta Search');
 	}
 
 	public function pluginName(): string
@@ -26,6 +26,18 @@ class DEU_MetaGenealogyPlugin extends FancyResearchLinksModule
 
 	public function researchLink($attributes): string
     {
-		return "https://meta.genealogy.net";
+		$name = $attributes['NAME'];
+		$plac = $attributes['PLACE'];
+
+		$place = '';
+
+		if (!empty($plac['BIRT'])) {
+			$place = '&placename=' . $plac['BIRT'];
+		}
+		else if (!empty($plac['DEAT'])) {
+			$place = '&placename=' . $plac['DEAT'];
+		}
+
+		return 'https://meta.genealogy.net/metasearch/search?lastname=' . $name['surname'] . $place;
 	}
 }
