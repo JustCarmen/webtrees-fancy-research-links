@@ -4,84 +4,104 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
+"X-Poedit-Flags-xgettext: --add-comments\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: dist\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: nl\n"
 
-#: FancyResearchLinksModule.php:70
+#: FancyResearchLinksModule.php:71
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Een zijpaneel met snelle koppelingen naar populaire onderzoeks websites."
 
-#: resources/views/settings.phtml:16
+#: resources/views/settings.phtml:21
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Vink de plugins aan die u wilt gebruiken in de zijbalk. Vink de plugins uit die u niet nodig hebt"
 
-#: resources/views/settings.phtml:32
+#: resources/views/settings.phtml:37
 msgid "Enabling this will change the default behavior of the browser."
 msgstr "Als u dit inschakelt, verandert het standaardgedrag van de browser."
 
-#: resources/views/settings.phtml:26
+#: resources/views/settings.phtml:31
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Klap het zijpaneel met de Fancy Research Links uit"
 
-#: FancyResearchLinksModule.php:60
+#: FancyResearchLinksModule.php:61
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
-#: plugins/GooglePlugin.php:31
-msgid "genealogy"
-msgstr "genealogie"
-
-#: resources/views/settings.phtml:17
+#: resources/views/settings.phtml:22
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Klik op het keuzerondje voor een titel om een onderzoeksgebied als standaard in te stellen. Het gekozen onderzoeksgebied wordt opengevouwen geopend in de zijbalk."
 
-#: resources/views/settings.phtml:27
+#: resources/views/settings.phtml:32
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Indien aangevinkt, klapt de inhoud van de zijbalk met de Fancy Research Links uit terwijl de zijbalk met de Family navigator inklapt als de gebruiker de rol van editor of hoger heeft."
 
-#: FancyResearchLinksModule.php:358
+#: FancyResearchLinksModule.php:349
 msgid "International"
 msgstr "Internationaal"
 
-#: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
-#: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
-#: plugins/NationaalArchiefCuracaoPlugin.php:15
-#: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
-#: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
-#: plugins/WarsOfBulgariaPlugin.php:14
-msgid "link only"
-msgstr "alleen link"
-
-#: resources/views/settings.phtml:31
+#: resources/views/settings.phtml:36
 msgid "Open links in a new tab"
 msgstr "Koppelingen openen in een nieuwe tab"
-
-#: plugins/AchelseKluisBidprentjesPlugin.php:14
-msgid "prayer cards"
-msgstr "bidprentjes"
 
 #: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Onderzoekskoppelingen"
 
-#: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
-msgid "search prayer cards"
-msgstr "bidprentjes zoeken"
-
-#: resources/views/settings.phtml:38
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
 msgid "Select/unselect all"
 msgstr "Selecteer/deselecteer alles"
 
-#: plugins/WikiTreePlugin.php:14
-msgid "surname only"
-msgstr "alleen achternaam"
-
-#: FancyResearchLinksModule.php:296
+#: FancyResearchLinksModule.php:287
 msgid "There was an error loading the plugin "
 msgstr "Het laden van de plugin veroorzaakt een fout "
 
-#: resources/views/settings.phtml:39
+#: resources/views/settings.phtml:44
 msgid "Toggle this checkbox to select all research links at once."
 msgstr "Schakel dit selectievakje in om alle onderzoekslinks tegelijk te selecteren."
+
+#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
+msgid "genealogy"
+msgstr "genealogie"
+
+#: plugins/AUS_NationalArchivesOfAustraliaPlugin.php:15
+#: plugins/BGR_WarsOfBulgariaPlugin.php:14 plugins/CAN_NecroCanadaPlugin.php:13
+#: plugins/GBR_FreeBMDPlugin.php:14 plugins/GBR_GenRegOfficePlugin.php:14
+#: plugins/INT_NationaalArchiefCuracaoPlugin.php:15
+#: plugins/INT_RootsWebPlugin.php:14
+#: plugins/ITA_BancaDatiCadutiDispersiPlugin.php:14
+#: plugins/NLD_GenealIXPlugin.php:14
+#: plugins/NLD_OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NLD_OnlineFamilieberichtenPlugin.php:14
+#: plugins/NZL_CMGCContactPlugin.php:13 plugins/NZL_bmdBirthsPlugin.php:14
+#: plugins/NZL_bmdDeathsPlugin.php:14 plugins/NZL_bmdMarriagesPlugin.php:14
+msgid "link only"
+msgstr "alleen link"
+
+#: plugins/INT_AchelseKluisBidprentjesPlugin.php:14
+msgid "prayer cards"
+msgstr "bidprentjes"
+
+#: plugins/NLD_OpenArchievenZoekBidprentjesPlugin.php:14
+msgid "search prayer cards"
+msgstr "bidprentjes zoeken"
+
+#: plugins/INT_WikiTreePlugin.php:14
+msgid "surname only"
+msgstr "alleen achternaam"
+
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogie.net meta zoeken"
+
+#: resources/views/settings.phtml:14
+msgid "back to the last individual page"
+msgstr "terug naar de laatste Individuele pagina"
 
