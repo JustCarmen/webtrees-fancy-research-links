@@ -85,3 +85,6 @@ msgstr "Es gab einen Fehler beim Laden des Plugins "
 msgid "Toggle this checkbox to select all research links at once."
 msgstr "Aktivieren Sie dieses Kontrollkästchen, um alle Recherche-Links auf einmal auszuwählen."
 
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogy.net Meta Suche"
