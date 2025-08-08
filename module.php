@@ -10,10 +10,8 @@ use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 require __DIR__ . '/FancyResearchLinksModule.php';
 
-###The files on custom directory doesn't appear using GLOB_BRACE and GLOB_BRACE is not well supported always. It's better to stay away from it.
-###$files = glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '{*.php, custom' . DIRECTORY_SEPARATOR . '*.php}', GLOB_BRACE);
 $files = array_merge( glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '*.php'),
-                      glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'custom' . DIRECTORY_SEPARATOR . '*.php'));
+                      glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'MyPlugins' . DIRECTORY_SEPARATOR . '*.php'));
 
 foreach ($files as $file) {
     require($file);

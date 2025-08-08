@@ -35,15 +35,15 @@ A guide to add your own plugin:
    - Last name without prefix = $name[‘surn’] e.g. "Burgh"
    - Prefix = $name[‘prefix’] e.g. "van den"
    - Married name	= $name['msurname'] e.g. "de Vries"
-   - Birth year/place/country = $year['BIRT'] e.g. "1800" / $place['BIRT]	e.g. "Chicago" / $country['BIRT'] e.g. "USA"
-   - Christening year/place/country = $year['CHR]	e.g. "1800" / $place['CHR]	e.g. "Chicago" / $country['CHR'] e.g. "USA"
-   - Baptism year/place/country = $year['BAPM]	e.g. "1800" / $place['BAPM]	e.g. "Chicago" / $country['BAPM'] e.g. "USA"
-   - Death year/place/country = $year['DEAT'] e.g. "1880" / $place['DEAT]	e.g. "New York" / $country['DEAT'] e.g. "USA"
-   - Burial year/place/country = $year['BURI] e.g. "1880" / $place['BURI]	e.g. "New York" / $country['BURI'] e.g. "USA"
-   - Cremation year/place/country = $year['CREM] e.g. "1880" / $place['CREM]	e.g. "New York" / $country['CREM'] e.g. "USA"
+   - Birth year/place/country = $year['BIRT'] e.g. "1800" / $place['BIRT']	e.g. "Chicago" / $country['BIRT'] e.g. "USA"
+   - Christening year/place/country = $year['CHR']	e.g. "1800" / $place['CHR']	e.g. "Chicago" / $country['CHR'] e.g. "USA"
+   - Baptism year/place/country = $year['BAPM']	e.g. "1800" / $place['BAPM']	e.g. "Chicago" / $country['BAPM'] e.g. "USA"
+   - Death year/place/country = $year['DEAT'] e.g. "1880" / $place['DEAT']	e.g. "New York" / $country['DEAT'] e.g. "USA"
+   - Burial year/place/country = $year['BURI'] e.g. "1880" / $place['BURI']	e.g. "New York" / $country['BURI'] e.g. "USA"
+   - Cremation year/place/country = $year['CREM'] e.g. "1880" / $place['CREM']	e.g. "New York" / $country['CREM'] e.g. "USA"
 6. The Examples folder contains a sample plugin for a Google search that uses special name parts and uses the year of birth/death and the place of birth/death in the search with explanation.
-7. If you want to use this example plugin (modified or as is), just copy it to the root of the Plugins folder. The expample folder also contains an empty plugin with all the functions you need to create your own.
-8. If you have created a plugin that may be of interest to other users you can make a pull request or send me a copy.
+7. If you want to use this example plugin (modified or as is), copy it to the main Plugins folder or to the MyPlugins folder (more information about the MyPlugins folder [here][9]). The example folder also contains an empty plugin with all the functions you need to create your own.
+8. If you have created a plugin that may be of interest to other users put it in the main plugins folder. Then you can make a pull request or send me a copy.
 
 If you have problems creating your own link, you can open a new issue and request that a link be created for you.
 
@@ -76,4 +76,5 @@ If you are experiencing bugs or have a feature request for this module, please [
  [6]: https://poeditor.com/join/project?hash=VLrxy3AG3A
  [7]: mailto:carmen@justcarmen.nl
  [8]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
+ [9]: https://github.com/JustCarmen/webtrees-fancy-research-links/tree/main/plugins/MyPlugins/README.md
 

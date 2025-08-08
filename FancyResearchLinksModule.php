@@ -276,10 +276,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     private function getPlugins(): Collection
     {
-        ###The files on custom directory doesn't appear using GLOB_BRACE and GLOB_BRACE is not well supported always. It's better to stay away from it.
-        ###$filenames = glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '{*Plugin.php, custom' . DIRECTORY_SEPARATOR . '*Plugin.php}', GLOB_BRACE);
+
         $filenames = array_merge( glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '*Plugin.php'),
-                                  glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'custom' . DIRECTORY_SEPARATOR . '*Plugin.php'));
+                                  glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'MyPlugins' . DIRECTORY_SEPARATOR . '*Plugin.php'));
 
         $collection = Collection::make($filenames)
             ->map(static function (string $filename) {
