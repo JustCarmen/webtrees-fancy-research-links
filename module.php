@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
 use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Statistics\Service\CountryService;
+use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
 
 require __DIR__ . '/FancyResearchLinksModule.php';
 
@@ -15,4 +17,5 @@ foreach ($files as $file) {
     require($file);
 }
 
-return Registry::container()->get(FancyResearchLinksModule::class);
+$countryService = FancyResearchLinksModule::getClass(CountryService::class);
+return new FancyResearchLinksModule($countryService);   
