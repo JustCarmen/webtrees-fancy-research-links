@@ -29,6 +29,19 @@ class INT_FamilySearchPlugin extends FancyResearchLinksModule
         $name = $attributes['NAME'];
         $year = $attributes['YEAR'];
         $plac = $attributes['PLACE'];
+        $gender = $attributes['SEX'];
+
+        switch($gender) {
+            case 'M':
+                $sex = '&q.sex=Male';
+                break;
+            case 'F':
+                $sex = '&q.sex=Female';
+                break;
+            default:
+                $sex = '';
+                break;
+        }
 
         $bf = ((int)$year['BIRT']) < 1000 ? '' : (int)$year['BIRT']-1;
         $bt = ((int)$year['BIRT']) < 1000 ? '' : (int)$year['BIRT']+1;
@@ -43,7 +56,8 @@ class INT_FamilySearchPlugin extends FancyResearchLinksModule
            '&q.birthLikeDate.to='   . $bt .
            '&q.deathLikeDate.from=' . $df .
            '&q.deathLikeDate.to='   . $dt .
-           '&q.birthLikePlace='     . $plac['BIRT']   .
-           '&q.deathLikePlace='     . $plac['DEAT'];
+           '&q.birthLikePlace='     . $plac['BIRT'] .
+           '&q.deathLikePlace='     . $plac['DEAT'] .
+           $sex;
     }
 }

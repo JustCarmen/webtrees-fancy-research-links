@@ -47,6 +47,19 @@ class INT_AncestryPlugin extends FancyResearchLinksModule
 		$name = $attributes['NAME'];
 		$year = $attributes['YEAR'];
 		$plac = $attributes['PLACE'];
+        $gender = $attributes['SEX'];
+
+        switch($gender) {
+            case 'M':
+                $sex = '&gender=m';
+                break;
+            case 'F':
+                $sex = '&gender=f';
+                break;
+            default:
+                $sex = '';
+                break;
+        }
 
 		$birthyear	= $year['BIRT'];
 		$birthplace	= $plac['BIRT'];
@@ -58,7 +71,8 @@ class INT_AncestryPlugin extends FancyResearchLinksModule
 		return 'https://ancestry.' . $ancestry_domain .
 		'/search/?name=' . $name['givn'] . '_' . $name['surname'] .
 		'&birth=' . $birthyear . '_' . $birthplace .
-		'&death=' . $deathyear . '_' . $deathplace;
+		'&death=' . $deathyear . '_' . $deathplace .
+		$sex;
 		//'&marriage=' . $marryear . '_' . $marrplace;
 		//'&residence=' . $resi;
 	}
