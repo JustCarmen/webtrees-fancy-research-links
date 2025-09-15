@@ -4,84 +4,104 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2\n"
+"X-Poedit-Flags-xgettext: --add-comments\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: dist\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
 "Project-Id-Version: Fancy Research Links for webtrees 2\n"
 "Language: fr\n"
 
-#: FancyResearchLinksModule.php:70
+#: FancyResearchLinksModule.php:71
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Ajoute dans la barre latérale des liens vers des sites de recherche généalogique connus."
 
-#: resources/views/settings.phtml:16
+#: resources/views/settings.phtml:21
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Cochez les plugins que vous voulez utiliser dans la barre latérale. Décochez les plugins dont vous n'avez pas besoin."
 
-#: resources/views/settings.phtml:32
+#: resources/views/settings.phtml:37
 msgid "Enabling this will change the default behavior of the browser."
 msgstr "En activant cette option, vous modifiez le comportement par défaut du navigateur."
 
-#: resources/views/settings.phtml:26
+#: resources/views/settings.phtml:31
 msgid "Expand the sidebar content with the Fancy Research Links"
 msgstr "Développez le contenu de la barre latérale avec les liens de recherche fantaisie."
 
-#: FancyResearchLinksModule.php:60
+#: FancyResearchLinksModule.php:61
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
-#: plugins/GooglePlugin.php:31
-msgid "genealogy"
-msgstr "généalogie"
-
-#: resources/views/settings.phtml:17
+#: resources/views/settings.phtml:22
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Cliquez sur le bouton radio situé devant un titre pour définir un domaine de recherche par défaut. La zone de recherche choisie s'ouvrira dépliée dans la barre latérale."
 
-#: resources/views/settings.phtml:27
+#: resources/views/settings.phtml:32
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
 msgstr "Si cette case est cochée, le contenu de la barre latérale avec les liens de recherche fantaisie s'étendra tandis que le navigateur familial de la barre latérale se réduira si l'utilisateur a le rôle d'éditeur ou un rôle supérieur."
 
-#: FancyResearchLinksModule.php:358
+#: FancyResearchLinksModule.php:349
 msgid "International"
 msgstr "International"
 
-#: plugins/BancaDatiCadutiDispersiPlugin.php:14 plugins/FreeBMDPlugin.php:14
-#: plugins/GenealIXPlugin.php:14 plugins/MetaGenealogyPlugin.php:14
-#: plugins/NationaalArchiefCuracaoPlugin.php:15
-#: plugins/NationalArchivesOfAustraliaPlugin.php:15
-#: plugins/NecroCanadaPlugin.php:13 plugins/OnlineBegraafplaatsenPlugin.php:14
-#: plugins/OnlineFamilieberichtenPlugin.php:14 plugins/RootsWebPlugin.php:14
-#: plugins/WarsOfBulgariaPlugin.php:14
-msgid "link only"
-msgstr "lien seulement"
-
-#: resources/views/settings.phtml:31
+#: resources/views/settings.phtml:36
 msgid "Open links in a new tab"
 msgstr "Ouvrir les liens dans un nouvel onglet"
-
-#: plugins/AchelseKluisBidprentjesPlugin.php:14
-msgid "prayer cards"
-msgstr "cartes de prière"
 
 #: resources/views/sidebar-header.phtml:8
 msgid "Research links"
 msgstr "Liens de recherche"
 
-#: plugins/OpenArchievenZoekBidprentjesPlugin.php:14
-msgid "search prayer cards"
-msgstr "Recherche de cartes de prière"
-
-#: resources/views/settings.phtml:38
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
 msgid "Select/unselect all"
 msgstr "Sélectionner/désélectionner tout"
 
-#: plugins/WikiTreePlugin.php:14
-msgid "surname only"
-msgstr "nom de famille uniquement"
-
-#: FancyResearchLinksModule.php:296
+#: FancyResearchLinksModule.php:287
 msgid "There was an error loading the plugin "
 msgstr "Une erreur s'est produite lors du chargement du plugin "
 
-#: resources/views/settings.phtml:39
+#: resources/views/settings.phtml:44
 msgid "Toggle this checkbox to select all research links at once."
 msgstr "Activez cette case à cocher pour sélectionner tous les liens de recherche en même temps."
+
+#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
+msgid "genealogy"
+msgstr "généalogie"
+
+#: plugins/AUS_NationalArchivesOfAustraliaPlugin.php:15
+#: plugins/BGR_WarsOfBulgariaPlugin.php:14 plugins/CAN_NecroCanadaPlugin.php:13
+#: plugins/GBR_FreeBMDPlugin.php:14 plugins/GBR_GenRegOfficePlugin.php:14
+#: plugins/INT_NationaalArchiefCuracaoPlugin.php:15
+#: plugins/INT_RootsWebPlugin.php:14
+#: plugins/ITA_BancaDatiCadutiDispersiPlugin.php:14
+#: plugins/NLD_GenealIXPlugin.php:14
+#: plugins/NLD_OnlineBegraafplaatsenPlugin.php:14
+#: plugins/NLD_OnlineFamilieberichtenPlugin.php:14
+#: plugins/NZL_CMGCContactPlugin.php:13 plugins/NZL_bmdBirthsPlugin.php:14
+#: plugins/NZL_bmdDeathsPlugin.php:14 plugins/NZL_bmdMarriagesPlugin.php:14
+msgid "link only"
+msgstr "lien seulement"
+
+#: plugins/INT_AchelseKluisBidprentjesPlugin.php:14
+msgid "prayer cards"
+msgstr "cartes de prière"
+
+#: plugins/NLD_OpenArchievenZoekBidprentjesPlugin.php:14
+msgid "search prayer cards"
+msgstr "Recherche de cartes de prière"
+
+#: plugins/INT_WikiTreePlugin.php:14
+msgid "surname only"
+msgstr "nom de famille uniquement"
+
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogy.net Meta Search"
+
+#: resources/views/settings.phtml:14
+msgid "back to the last individual page"
+msgstr "back to the last individual page"
 

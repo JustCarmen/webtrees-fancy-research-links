@@ -8,7 +8,9 @@ use Fisharebest\Webtrees\Registry;
 
 require __DIR__ . '/FancyResearchLinksModule.php';
 
-$files = glob( __DIR__ . '/plugins/*.php');
+$files = array_merge( glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '*.php'),
+                      glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'MyPlugins' . DIRECTORY_SEPARATOR . '*.php'));
+
 foreach ($files as $file) {
     require($file);
 }
