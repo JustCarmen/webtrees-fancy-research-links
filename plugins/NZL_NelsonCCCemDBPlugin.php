@@ -10,7 +10,7 @@ class NZL_NelsonCCCemDBPlugin extends FancyResearchLinksModule
 {
 	public function pluginLabel(): string
     {
-		return 'Auckland City Council Cemetery Database';
+		return 'Nelson City Council Cemetery Database';
 	}
 
 	public function pluginName(): string
