@@ -41,6 +41,11 @@ A guide to add your own plugin:
    - Death year/place/country = $year['DEAT'] e.g. "1880" / $place['DEAT']	e.g. "New York" / $country['DEAT'] e.g. "USA"
    - Burial year/place/country = $year['BURI'] e.g. "1880" / $place['BURI']	e.g. "New York" / $country['BURI'] e.g. "USA"
    - Cremation year/place/country = $year['CREM'] e.g. "1880" / $place['CREM']	e.g. "New York" / $country['CREM'] e.g. "USA"
+
+    The module also supports other calendar dates. Add them as a suffix to the event, e.g.:
+	 $year['BIRT_julian' ], $year['DEAT_jewish'], $year['BURI_french'], $year['BAPM__hijri'], $year['CHR_jalali']
+
+    You don't need to use a suffix for the default Gregorian calendar.
 6. The Examples folder contains a sample plugin for a Google search that uses special name parts and uses the year of birth/death and the place of birth/death in the search with explanation.
 7. If you want to use this example plugin (modified or as is), copy it to the main Plugins folder or to the MyPlugins folder (more information about the MyPlugins folder [here][9]). The example folder also contains an empty plugin with all the functions you need to create your own.
 8. If you have created a plugin that may be of interest to other users put it in the main plugins folder. Then you can make a pull request or send me a copy.

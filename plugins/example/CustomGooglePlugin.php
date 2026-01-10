@@ -66,6 +66,10 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 * - Burial year/place/country		= $year['BURI']	e.g. "1880" / $place['BURI']	e.g. "New York" / $country['BURI'] e.g. "USA"
 	 * - Cremation year/place/country	= $year['CREM']	e.g. "1880" / $place['CREM']	e.g. "New York" / $country['CREM'] e.g. "USA"
 	 *
+	 * The module also supports other calendar dates. Add them as a suffix to the event, e.g.:
+	 * $year['BIRT_julian' ], $year['DEAT_jewish'], $year['BURI_french'], $year['BAPM__hijri'], $year['CHR_jalali']
+	 * You don't need to use a suffix for the default Gregorian calendar.
+	 *
 	 * @return string
 	 */
 	public function researchLink($attributes): string

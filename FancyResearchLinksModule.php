@@ -384,7 +384,17 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         foreach ($gedcom_events as $event) {
 
+            // The Gregorian calendar is the most common calendar in the world so we set it as default (like in webtrees)
+            // Do not add a suffix for the default calendar
             $year[$event] = '';
+
+            // Add other calendars for plugins that support them
+            $year[$event . "_julian"] = '';
+            $year[$event . "_jewish"] = '';
+            $year[$event . "_french"] = '';
+            $year[$event . "_hijri"] = '';
+            $year[$event . "_jalali"] = '';
+
             $place[$event] = '';
             $country[$event] = '';
 
@@ -392,7 +402,14 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
             if ($edates !== []) {
                 foreach ($edates as $edate) {
-                    $year[$event] = $edate->minimumDate()->format('%Y');
+                    $dateTmp = $edate->minimumDate();
+                    // Set Gregorian calendar as default.
+                    $year[$event] = $dateTmp->convertToCalendar("gregorian")->format('%Y');
+                    $year[$event . "_julian"] = $dateTmp->convertToCalendar("julian")->format('%Y');
+                    $year[$event . "_jewish"] = $dateTmp->convertToCalendar("jewish")->format('%Y');
+                    $year[$event . "_french"] = $dateTmp->convertToCalendar("french")->format('%Y');
+                    $year[$event . "_hijri"] = $dateTmp->convertToCalendar("hijri")->format('%Y');
+                    $year[$event . "_jalali"] = $dateTmp->convertToCalendar("jalali")->format('%Y');
                 }
             }
 
