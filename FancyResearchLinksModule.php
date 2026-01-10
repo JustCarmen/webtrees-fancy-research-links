@@ -380,6 +380,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             }
         }
 
+        $gender = $individual->sex();
+
         // support all birth (birt, chr, bapm) and death events (deat, buri, crem)
         $gedcom_events = array_merge(Gedcom::BIRTH_EVENTS, Gedcom::DEATH_EVENTS);
 
@@ -428,7 +430,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             'NAME'      => $name,
             'YEAR'      => $year,
             'PLACE'     => $place,
-            'COUNTRY'   => $country
+            'COUNTRY'   => $country,
+            'SEX'       => $gender
         );
 
         return $attributes;
