@@ -11,6 +11,7 @@ use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Gedcom;
 use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Webtrees;
 use Illuminate\Support\Collection;
 use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\FlashMessages;
@@ -431,5 +432,20 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         );
 
         return $attributes;
+    }
+
+    /**
+     * A breaking change in webtrees 2.2.0 changes how the classes are retrieved.
+     * This function allows support for both 2.1.X and 2.2.X versions
+     * @param $class
+     * @return mixed
+     */
+    static function getClass($class)
+    {
+        if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
+            return Registry::container()->get($class);
+        } else {
+            return app($class);
+        }
     }
 };
