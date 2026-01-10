@@ -17,11 +17,15 @@ msgstr ""
 
 #: FancyResearchLinksModule.php:71
 msgid "A sidebar tool to provide quick links to popular research web sites."
-msgstr "Ett sidebar verktyg med snabba länkar till populära forskning webbplatser."
+msgstr "Ett sidofältsverktyg med snabblänkar till populära forskningswebbplatser."
+
+#: resources/views/settings.phtml:14
+msgid "back to the last individual page"
+msgstr "tillbaka till den senaste personens sida"
 
 #: resources/views/settings.phtml:21
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
-msgstr "Markera de plugins du vill använda i sidofältet. Avmarkera de plugins som du inte behöver."
+msgstr "Markera de plugins som du vill använda i sidofältet. Avmarkera de plugins som du inte behöver."
 
 #: resources/views/settings.phtml:37
 msgid "Enabling this will change the default behavior of the browser."
@@ -33,7 +37,15 @@ msgstr "Utöka innehållet i sidofältet med Fancy Research Links"
 
 #: FancyResearchLinksModule.php:61
 msgid "Fancy Research Links"
-msgstr "Fantasi forsknings länkar"
+msgstr "Fancy Research-länkar"
+
+#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
+msgid "genealogy"
+msgstr "släktforskning"
+
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogy.net Meta Search"
 
 #: resources/views/settings.phtml:22
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
@@ -41,35 +53,11 @@ msgstr "Tryck på radioknappen före en titel för att ange ett forskningsområd
 
 #: resources/views/settings.phtml:32
 msgid "If checked, the sidebar content with the Fancy Research Links  will expand while the sidebar Family navigator will collapse if the user has the role of editor or higher."
-msgstr "Om den är markerad expanderar sidofältets innehåll med Fancy Research Links medan sidofältets Family navigator fälls ihop om användaren har rollen redaktör eller högre."
+msgstr "Om den är markerad expanderas sidofältets innehåll med Fancy Research-länkar medan sidofältets familjenavigator fälls ihop om användaren har rollen redaktör eller högre."
 
 #: FancyResearchLinksModule.php:349
 msgid "International"
 msgstr "Internationella"
-
-#: resources/views/settings.phtml:36
-msgid "Open links in a new tab"
-msgstr "Öppna länkar i en ny flik"
-
-#: resources/views/sidebar-header.phtml:8
-msgid "Research links"
-msgstr "Forsknings länkar"
-
-#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
-msgid "Select/unselect all"
-msgstr "Markera/avmarkera alla"
-
-#: FancyResearchLinksModule.php:287
-msgid "There was an error loading the plugin "
-msgstr "Ett fel inträffade vid laddning av insticksprogrammet "
-
-#: resources/views/settings.phtml:44
-msgid "Toggle this checkbox to select all research links at once."
-msgstr "Markera den här kryssrutan för att välja alla forskningslänkar samtidigt."
-
-#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
-msgid "genealogy"
-msgstr "släktforskning"
 
 #: plugins/AUS_NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/BGR_WarsOfBulgariaPlugin.php:14 plugins/CAN_NecroCanadaPlugin.php:13
@@ -85,23 +73,35 @@ msgstr "släktforskning"
 msgid "link only"
 msgstr "endast länk"
 
+#: resources/views/settings.phtml:36
+msgid "Open links in a new tab"
+msgstr "Öppna länkar i en ny flik"
+
 #: plugins/INT_AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
 msgstr "bönekort"
+
+#: resources/views/sidebar-header.phtml:8
+msgid "Research links"
+msgstr "Forskningslänkar"
 
 #: plugins/NLD_OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
 msgstr "Sök bönekort"
 
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
+msgid "Select/unselect all"
+msgstr "Markera/avmarkera alla"
+
 #: plugins/INT_WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "endast efternamn"
 
-#: plugins/DEU_MetaGenealogyPlugin.php:14
-msgid "Genealogy.net Meta Search"
-msgstr "Genealogy.net Meta Search"
+#: FancyResearchLinksModule.php:287
+msgid "There was an error loading the plugin "
+msgstr "Ett fel inträffade vid laddning av insticksprogrammet "
 
-#: resources/views/settings.phtml:14
-msgid "back to the last individual page"
-msgstr "back to the last individual page"
+#: resources/views/settings.phtml:44
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Markera den här kryssrutan för att välja alla forskningslänkar samtidigt."
 

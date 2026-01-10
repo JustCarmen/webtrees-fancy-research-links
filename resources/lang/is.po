@@ -19,6 +19,10 @@ msgstr ""
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Hliðarstikutól til að veita skjóta tengla á vinsælar rannsóknarvefsíður."
 
+#: resources/views/settings.phtml:14
+msgid "back to the last individual page"
+msgstr "back to the last individual page"
+
 #: resources/views/settings.phtml:21
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Hakaðu við viðbætur sem þú vilt nota í hliðarstikunni. Taktu hakið úr viðbótunum sem þú þarft ekki."
@@ -35,6 +39,14 @@ msgstr "Stækkaðu innihald hliðarstikunnar með flottum rannsóknartenglum"
 msgid "Fancy Research Links"
 msgstr "Flottir rannsóknartenglar"
 
+#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
+msgid "genealogy"
+msgstr "ættfræði"
+
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogy.net Meta Search"
+
 #: resources/views/settings.phtml:22
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Smelltu á valhnappinn á undan titli til að stilla rannsóknarsvæði sem sjálfgefið. Valið rannsóknarsvæði mun opnast óbrotið í hliðarstikunni."
@@ -46,30 +58,6 @@ msgstr "Ef hakað er við það mun innihald hliðarstikunnar með flottum ranns
 #: FancyResearchLinksModule.php:349
 msgid "International"
 msgstr "Alþjóðlegt"
-
-#: resources/views/settings.phtml:36
-msgid "Open links in a new tab"
-msgstr "Opnaðu tengla í nýjum flipa"
-
-#: resources/views/sidebar-header.phtml:8
-msgid "Research links"
-msgstr "Rannsóknartenglar"
-
-#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
-msgid "Select/unselect all"
-msgstr "Velja/afvelja allt"
-
-#: FancyResearchLinksModule.php:287
-msgid "There was an error loading the plugin "
-msgstr "Villa kom upp við að hlaða viðbótinni "
-
-#: resources/views/settings.phtml:44
-msgid "Toggle this checkbox to select all research links at once."
-msgstr "Breyttu þessum gátreit til að velja alla rannsóknartengla í einu."
-
-#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
-msgid "genealogy"
-msgstr "ættfræði"
 
 #: plugins/AUS_NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/BGR_WarsOfBulgariaPlugin.php:14 plugins/CAN_NecroCanadaPlugin.php:13
@@ -85,23 +73,35 @@ msgstr "ættfræði"
 msgid "link only"
 msgstr "eingöngu krækja"
 
+#: resources/views/settings.phtml:36
+msgid "Open links in a new tab"
+msgstr "Opnaðu tengla í nýjum flipa"
+
 #: plugins/INT_AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
 msgstr "bænakort"
+
+#: resources/views/sidebar-header.phtml:8
+msgid "Research links"
+msgstr "Rannsóknartenglar"
 
 #: plugins/NLD_OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
 msgstr "leitaðu í bænaspjöldum"
 
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
+msgid "Select/unselect all"
+msgstr "Velja/afvelja allt"
+
 #: plugins/INT_WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "aðeins eftirnafn"
 
-#: plugins/DEU_MetaGenealogyPlugin.php:14
-msgid "Genealogy.net Meta Search"
-msgstr "Genealogy.net Meta Search"
+#: FancyResearchLinksModule.php:287
+msgid "There was an error loading the plugin "
+msgstr "Villa kom upp við að hlaða viðbótinni "
 
-#: resources/views/settings.phtml:14
-msgid "back to the last individual page"
-msgstr "back to the last individual page"
+#: resources/views/settings.phtml:44
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Breyttu þessum gátreit til að velja alla rannsóknartengla í einu."
 

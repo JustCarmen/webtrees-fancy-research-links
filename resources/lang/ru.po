@@ -19,6 +19,10 @@ msgstr ""
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Инструмент в боковой панели для быстрого перехода на поисковые сайты."
 
+#: resources/views/settings.phtml:14
+msgid "back to the last individual page"
+msgstr "back to the last individual page"
+
 #: resources/views/settings.phtml:21
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Отметьте плагины, которые вы хотите видеть в боковой панели. Уберите ненужные Вам плагины."
@@ -35,6 +39,14 @@ msgstr "Расширьте содержимое боковой панели с �
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
+#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
+msgid "genealogy"
+msgstr "генеалогия"
+
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogy.net Meta Search"
+
 #: resources/views/settings.phtml:22
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Нажмите переключатель перед заголовком, чтобы установить область исследования по умолчанию. Выбранная область исследования откроется развернутой на боковой панели."
@@ -46,30 +58,6 @@ msgstr "Если этот флажок установлен, содержимо�
 #: FancyResearchLinksModule.php:349
 msgid "International"
 msgstr "Международный"
-
-#: resources/views/settings.phtml:36
-msgid "Open links in a new tab"
-msgstr "Открывать ссылки в новой вкладке"
-
-#: resources/views/sidebar-header.phtml:8
-msgid "Research links"
-msgstr "Поисковые ссылки"
-
-#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
-msgid "Select/unselect all"
-msgstr "Все выделить или снять выделение со всех"
-
-#: FancyResearchLinksModule.php:287
-msgid "There was an error loading the plugin "
-msgstr "Ошибка загрузки плагина "
-
-#: resources/views/settings.phtml:44
-msgid "Toggle this checkbox to select all research links at once."
-msgstr "Отметить тут, чтобы выбрать все поисковые ссылки разом."
-
-#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
-msgid "genealogy"
-msgstr "генеалогия"
 
 #: plugins/AUS_NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/BGR_WarsOfBulgariaPlugin.php:14 plugins/CAN_NecroCanadaPlugin.php:13
@@ -85,23 +73,35 @@ msgstr "генеалогия"
 msgid "link only"
 msgstr "только ссылка"
 
+#: resources/views/settings.phtml:36
+msgid "Open links in a new tab"
+msgstr "Открывать ссылки в новой вкладке"
+
 #: plugins/INT_AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
 msgstr "молитвенные карточки"
+
+#: resources/views/sidebar-header.phtml:8
+msgid "Research links"
+msgstr "Поисковые ссылки"
 
 #: plugins/NLD_OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
 msgstr "искать молитвенные карточки"
 
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
+msgid "Select/unselect all"
+msgstr "Все выделить или снять выделение со всех"
+
 #: plugins/INT_WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "только фамилия"
 
-#: plugins/DEU_MetaGenealogyPlugin.php:14
-msgid "Genealogy.net Meta Search"
-msgstr "Genealogy.net Meta Search"
+#: FancyResearchLinksModule.php:287
+msgid "There was an error loading the plugin "
+msgstr "Ошибка загрузки плагина "
 
-#: resources/views/settings.phtml:14
-msgid "back to the last individual page"
-msgstr "back to the last individual page"
+#: resources/views/settings.phtml:44
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Отметить тут, чтобы выбрать все поисковые ссылки разом."
 

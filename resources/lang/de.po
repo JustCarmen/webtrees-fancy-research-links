@@ -19,6 +19,10 @@ msgstr ""
 msgid "A sidebar tool to provide quick links to popular research web sites."
 msgstr "Stellt in der seitlichen Navigationsleiste personenbezogene Verknüpfungen zu bekannten Ahnenforschungsportalen bereit."
 
+#: resources/views/settings.phtml:14
+msgid "back to the last individual page"
+msgstr "back to the last individual page"
+
 #: resources/views/settings.phtml:21
 msgid "Check the plugins you want to use in the sidebar. Uncheck the plugins you don't need."
 msgstr "Markieren Sie die Plugins, die Sie in der Seitenleiste verwenden möchten. Deaktivieren Sie die Plugins, die Sie nicht benötigen."
@@ -35,6 +39,14 @@ msgstr "Erweitern Sie den Inhalt der Seitenleiste mit den Fancy Research Links"
 msgid "Fancy Research Links"
 msgstr "Fancy Research Links"
 
+#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
+msgid "genealogy"
+msgstr "Genealogie"
+
+#: plugins/DEU_MetaGenealogyPlugin.php:14
+msgid "Genealogy.net Meta Search"
+msgstr "Genealogy.net Meta Suche"
+
 #: resources/views/settings.phtml:22
 msgid "Hit the radio button before a title to set a research area as default. The chosen research area will open unfolded in the sidebar."
 msgstr "Drücken Sie das Optionsfeld vor einem Titel, um einen Recherchebereich als Standard festzulegen. Der gewählte Recherchebereich wird ausgeklappt in der Seitenleiste geöffnet."
@@ -46,30 +58,6 @@ msgstr "Wenn diese Option aktiviert ist, wird der Inhalt der Seitenleiste mit de
 #: FancyResearchLinksModule.php:349
 msgid "International"
 msgstr "International"
-
-#: resources/views/settings.phtml:36
-msgid "Open links in a new tab"
-msgstr "Verknüpfungen in einem neuen Reiter öffnen"
-
-#: resources/views/sidebar-header.phtml:8
-msgid "Research links"
-msgstr "Forschungsverknüpfungen"
-
-#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
-msgid "Select/unselect all"
-msgstr "Alle auswählen/abwählen"
-
-#: FancyResearchLinksModule.php:287
-msgid "There was an error loading the plugin "
-msgstr "Es gab einen Fehler beim Laden des Plugins "
-
-#: resources/views/settings.phtml:44
-msgid "Toggle this checkbox to select all research links at once."
-msgstr "Aktivieren Sie dieses Kontrollkästchen, um alle Recherche-Links auf einmal auszuwählen."
-
-#: plugins/INT_DuckDuckGoPlugin.php:31 plugins/INT_GooglePlugin.php:31
-msgid "genealogy"
-msgstr "Genealogie"
 
 #: plugins/AUS_NationalArchivesOfAustraliaPlugin.php:15
 #: plugins/BGR_WarsOfBulgariaPlugin.php:14 plugins/CAN_NecroCanadaPlugin.php:13
@@ -85,23 +73,35 @@ msgstr "Genealogie"
 msgid "link only"
 msgstr "nur Link"
 
+#: resources/views/settings.phtml:36
+msgid "Open links in a new tab"
+msgstr "Verknüpfungen in einem neuen Reiter öffnen"
+
 #: plugins/INT_AchelseKluisBidprentjesPlugin.php:14
 msgid "prayer cards"
 msgstr "Gebetsbildchen"
+
+#: resources/views/sidebar-header.phtml:8
+msgid "Research links"
+msgstr "Forschungsverknüpfungen"
 
 #: plugins/NLD_OpenArchievenZoekBidprentjesPlugin.php:14
 msgid "search prayer cards"
 msgstr "Gebetsbildchen suchen"
 
+#: resources/views/settings.phtml:43 resources/views/settings.phtml:64
+msgid "Select/unselect all"
+msgstr "Alle auswählen/abwählen"
+
 #: plugins/INT_WikiTreePlugin.php:14
 msgid "surname only"
 msgstr "nur Nachname"
 
-#: plugins/DEU_MetaGenealogyPlugin.php:14
-msgid "Genealogy.net Meta Search"
-msgstr "Genealogy.net Meta Suche"
+#: FancyResearchLinksModule.php:287
+msgid "There was an error loading the plugin "
+msgstr "Es gab einen Fehler beim Laden des Plugins "
 
-#: resources/views/settings.phtml:14
-msgid "back to the last individual page"
-msgstr "back to the last individual page"
+#: resources/views/settings.phtml:44
+msgid "Toggle this checkbox to select all research links at once."
+msgstr "Aktivieren Sie dieses Kontrollkästchen, um alle Recherche-Links auf einmal auszuwählen."
 
