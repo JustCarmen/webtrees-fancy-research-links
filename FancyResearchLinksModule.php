@@ -282,7 +282,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             ->map(static function (string $filename) {
                 try {
                     $path_parts = pathinfo($filename);
-                    $plugin = Registry::container()->get(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    $plugin = self::getClass(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
                     return $plugin;
                 } catch (Throwable $ex) {
                     FlashMessages::addMessage(I18N::translate('There was an error loading the plugin ' . $path_parts['filename'] . '.') . '<br>' . e($ex->getMessage()), 'danger');
