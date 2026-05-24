@@ -34,6 +34,6 @@ class DNK_LinkLivesPlugin extends FancyResearchLinksModule
 	  $year = $attributes['YEAR'];
 	  $place = $attributes['PLACE'];
 
-		return 'https://link-lives.dk/soeg/results?firstName=' . $name['givn'] . '&lastName=' . $name['surn'] . '&birthYear=' . $year['BIRT'] . '&birthPlace=' . $place['BIRT'] . '&index=pas,lifecourses&sortBy=relevance&sortOrder=desc&mode=default&pg=1&size=50';
+		return 'https://link-lives.dk/#/results?firstName=' . $name['givn'] . '&lastName=' . $name['surn'] . '&birthYear=' . $year['BIRT'] . '&birthPlace=' . $place['BIRT'] . '&index=pas,lifecourses&sortBy=relevance&sortOrder=desc&mode=fuzzy&pg=1&size=50';
 	}
 }
