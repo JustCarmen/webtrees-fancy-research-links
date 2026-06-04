@@ -26,7 +26,7 @@ use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
-use Fisharebest\Webtrees\Statistics\Service\CountryService;
+use JustCarmen\Webtrees\Service\CountryService;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
@@ -39,18 +39,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     public const GITHUB_REPO = 'webtrees-fancy-research-links';
     public const AUTHOR_WEBSITE = 'https://justcarmen.nl';
     public const CUSTOM_SUPPORT_URL = self::AUTHOR_WEBSITE . '/modules-webtrees-2/fancy-research-links/';
-
-    private $country_service;
-
-    /**
-     * FancyResearchLinks constructor.
-     *
-     * @param CountryService $country_service
-     */
-    public function __construct(CountryService $country_service)
-    {
-        $this->country_service = $country_service;
-    }
 
     /**
      * How should this module be identified in the control panel, etc.?
@@ -346,7 +334,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     private function getCountryList(): array
     {
         // Add our 'International' area to the list of countries
-        $countries = $this->country_service->getAllCountries();
+        $countries = $this->getClass(CountryService::class)->getAllCountries();
         $countries['INT'] = I18N::translate('International');
 
         return $countries;

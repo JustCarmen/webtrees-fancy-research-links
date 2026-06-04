@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
-use Fisharebest\Webtrees\Statistics\Service\CountryService;
-
 //Autoload the latest version of the common code library, which is shared between custom modules by JustCarmen.
 require_once __DIR__ . '/vendor/justcarmen/jc-common-code/autoload.php';
 
@@ -18,6 +16,4 @@ foreach ($files as $file) {
     require($file);
 }
 
-$country_service = FancyResearchLinksModule::getClass(CountryService::class);
-
-return new FancyResearchLinksModule($country_service);
+return new FancyResearchLinksModule();
