@@ -22,6 +22,7 @@ use Fisharebest\Webtrees\View;
 use Fisharebest\Webtrees\Webtrees;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Support\Collection;
+use JustCarmen\Webtrees\Helpers\Functions;
 use JustCarmen\Webtrees\Service\CountryService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -271,7 +272,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             ->map(static function (string $filename) {
                 try {
                     $path_parts = pathinfo($filename);
-                    $plugin = self::getClass(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
+                    $plugin = Functions::getClass(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
                     return $plugin;
                 } catch (Throwable $ex) {
                     FlashMessages::addMessage(I18N::translate('There was an error loading the plugin ' . $path_parts['filename'] . '.') . '<br>' . e($ex->getMessage()), 'danger');
@@ -335,7 +336,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     private function getCountryList(): array
     {
         // Add our 'International' area to the list of countries
-        $countries = $this->getClass(CountryService::class)->getAllCountries();
+        $countries = Functions::getClass(CountryService::class)->getAllCountries();
         $countries['INT'] = I18N::translate('International');
 
         return $countries;
@@ -424,20 +425,5 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         );
 
         return $attributes;
-    }
-
-    /**
-     * A breaking change in webtrees 2.2.0 changes how the classes are retrieved.
-     * This function allows support for both 2.1.X and 2.2.X versions
-     * @param $class
-     * @return mixed
-     */
-    static function getClass($class)
-    {
-        if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
-            return Registry::container()->get($class);
-        } else {
-            return app($class);
-        }
     }
 };
