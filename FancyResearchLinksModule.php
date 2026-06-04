@@ -36,11 +36,30 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     use ModuleConfigTrait;
     use ModuleSidebarTrait;
 
-    public const CUSTOM_AUTHOR = 'JustCarmen';
+    /**
+     * @var string
+     */
     public const CUSTOM_VERSION = '2.5.2';
-    public const GITHUB_REPO = 'webtrees-fancy-research-links';
-    public const AUTHOR_WEBSITE = 'https://justcarmen.nl';
-    public const CUSTOM_SUPPORT_URL = self::AUTHOR_WEBSITE . '/modules-webtrees-2/fancy-research-links/';
+
+    /**
+     * @var string
+     */
+    public const CUSTOM_AUTHOR = 'JustCarmen';
+
+    /**
+     * @var string
+     */
+    private const GITHUB_REPO = self::CUSTOM_AUTHOR . '/webtrees-fancy-research-links';
+
+    /**
+     * @var string
+     */
+    public const CUSTOM_SUPPORT_URL = 'https://github.com/' . self::GITHUB_REPO . '/issues';
+
+    /**
+     * @var string
+     */
+    public const CUSTOM_LATEST_VERSION = 'https://api.github.com/repos/' . self::GITHUB_REPO . '/releases/latest';
 
     /**
      * How should this module be identified in the control panel, etc.?
