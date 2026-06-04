@@ -4,29 +4,30 @@ declare(strict_types=1);
 
 namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
-use Throwable;
-use function str_replace;
-use Fisharebest\Webtrees\Auth;
-use Fisharebest\Webtrees\I18N;
-use Fisharebest\Webtrees\View;
-use Fisharebest\Webtrees\Gedcom;
-use Fisharebest\Webtrees\Registry;
-use Fisharebest\Webtrees\Webtrees;
-use Illuminate\Support\Collection;
-use Fisharebest\Webtrees\Individual;
-use Fisharebest\Webtrees\FlashMessages;
-use Psr\Http\Message\ResponseInterface;
 use Fisharebest\Localization\Translation;
-use Psr\Http\Message\ServerRequestInterface;
-use Illuminate\Database\Capsule\Manager as DB;
+use Fisharebest\Webtrees\Auth;
+use Fisharebest\Webtrees\FlashMessages;
+use Fisharebest\Webtrees\Gedcom;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Individual;
 use Fisharebest\Webtrees\Module\AbstractModule;
-use Fisharebest\Webtrees\Module\ModuleConfigTrait;
-use Fisharebest\Webtrees\Module\ModuleCustomTrait;
-use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
+use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
+use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Webtrees;
+use Illuminate\Database\Capsule\Manager as DB;
+use Illuminate\Support\Collection;
 use JustCarmen\Webtrees\Service\CountryService;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Throwable;
+
+use function str_replace;
 
 class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleSidebarInterface
 {
