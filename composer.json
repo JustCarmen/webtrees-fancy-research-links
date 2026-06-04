@@ -1,0 +1,18 @@
+{
+	"name": "justcarmen/jc-fancy-research-links",
+	"description": "A sidebar module for webtrees that provides shortcuts to popular research websites, using the individual data as a search reference.",
+	"type": "webtrees-module",
+	"license": "GPL-3.0+",
+	"keywords": [
+		"webtrees",
+		"genealogy",
+		"webtrees-module"
+	],
+    "require": {
+		"justcarmen/jc-common-code": "^1.0"
+	},
+    "config": {
+        "prepend-autoloader": false
+    }
+}
+

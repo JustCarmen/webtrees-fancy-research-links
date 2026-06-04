@@ -6,6 +6,9 @@ namespace JustCarmen\Webtrees\Module\FancyResearchLinks;
 
 use Fisharebest\Webtrees\Statistics\Service\CountryService;
 
+//Autoload the latest version of the common code library, which is shared between custom modules by JustCarmen.
+require_once __DIR__ . '/vendor/justcarmen/jc-common-code/autoload.php';
+
 require __DIR__ . '/FancyResearchLinksModule.php';
 
 $files = array_merge( glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '*.php'),

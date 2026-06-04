@@ -1,0 +1,14 @@
+{
+    "name": "justcarmen/jc-common-code",
+    "description": "Library to share common code between webtrees custom modules from justcarmen",
+    "type": "library",
+    "keywords": [
+        "webtrees",
+        "webtrees-module",
+		"custom-module"
+    ],
+    "license": "GPL-3.0",
+    "require": {
+        "php": ">=7.4"
+    }
+}
