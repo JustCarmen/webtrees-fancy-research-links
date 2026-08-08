@@ -21,6 +21,7 @@ use Fisharebest\Webtrees\View;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Support\Collection;
 use JustCarmen\Webtrees\Helpers\Functions;
+use JustCarmen\Webtrees\Internationalization\MoreI18N;
 use JustCarmen\Webtrees\Service\CountryService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -198,7 +199,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
             $this->setPreference('expand-sidebar', $params['expand-sidebar'] ?? '0');
             $this->setPreference('target-blank', $params['target-blank'] ?? '0');
 
-            $message = I18N::translate('The preferences for the module “%s” have been updated.', $this->title());
+            $message = MoreI18N::xlate('The preferences for the module “%s” have been updated.', $this->title());
             FlashMessages::addMessage($message, 'success');
         }
 
