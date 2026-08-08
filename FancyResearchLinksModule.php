@@ -158,8 +158,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     }
 
     /**
-     * @param ServerRequestInterface $request
-     *
      * @return ResponseInterface
      */
     public function getAdminAction(): ResponseInterface
@@ -295,8 +293,8 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         $collection = Collection::make($filenames)
             ->map(static function (string $filename) {
+                $path_parts = pathinfo($filename);
                 try {
-                    $path_parts = pathinfo($filename);
                     $plugin = Functions::getClass(__NAMESPACE__ . '\Plugin\\' . $path_parts['filename']);
                     return $plugin;
                 } catch (Throwable $ex) {
@@ -399,6 +397,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
 
         // support all birth (birt, chr, bapm) and death events (deat, buri, crem)
         $gedcom_events = array_merge(Gedcom::BIRTH_EVENTS, Gedcom::DEATH_EVENTS);
+
+        $year = [];
+        $place = [];
+        $country = [];
 
         foreach ($gedcom_events as $event) {
 
