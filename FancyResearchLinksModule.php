@@ -60,6 +60,13 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     public const CUSTOM_LATEST_VERSION = 'https://api.github.com/repos/' . self::GITHUB_REPO . '/releases/latest';
 
     /**
+     * Create a new module instance.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * How should this module be identified in the control panel, etc.?
      *
      * @return string
