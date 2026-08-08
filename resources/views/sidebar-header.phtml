@@ -2,13 +2,21 @@
 
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\View;
+use JustCarmen\Webtrees\Internationalization\MoreI18N;
+use JustCarmen\Webtrees\Module\FancyResearchLinks\FancyResearchLinksModule;
+
+/**
+ * @var bool $is_admin
+ * @var FancyResearchLinksModule $module
+ *
+*/
 
 ?>
 
 <span class="col"><?= I18N::translate('Research links') ?></span>
 
 <?php if ($is_admin): ?>
-<span class="jc-config-link"><a href="<?= e($module->getConfigLink()) ?>" title="<?= I18N::translate('Preferences') ?>">
+<span class="jc-config-link"><a href="<?= e($module->getConfigLink()) ?>" title="<?= MoreI18N::xlate('Preferences') ?>">
     <?= view('icons/preferences') ?>
 </a></span>
 
