@@ -2,7 +2,6 @@
 
 use Fisharebest\Webtrees\View;
 use Illuminate\Support\Collection;
-use Ramsey\Uuid\Uuid;
 
 /**
  * @var array<string, list<object>> $plugins
@@ -13,55 +12,105 @@ use Ramsey\Uuid\Uuid;
  * @var bool $expand_sidebar
  */
 
+$enabled_areas = [];
+foreach ($plugins as $area => $plugins_by_area) {
+    $count = 0;
+    foreach ($plugins_by_area as $plugin) {
+        if ($enabled_plugins->contains($plugin->pluginName())) {
+            $count++;
+        }
+    }
+
+    if ($count > 0) {
+        $enabled_areas[$area] = $count;
+    }
+}
+
+$selected_area = count($enabled_areas) ? array_key_first($enabled_areas) : null;
+
 ?>
 
 <div id="sb-jc-fancy-research-links">
     <!-- FANCY RESEARCH LINKS -->
-    <?php foreach ($plugins as $area => $plugins_by_area): ?>
-        <?php
-            if ($expanded_area === $area) {
-                $expanded = "true";
-                $show = " show";
-            } else {
-                $expanded = "false";
-                $show = "";
-            }
-            $id = 'collapse-' . Uuid::uuid4()->toString();
-
-            $count = 0;
-            foreach ($plugins_by_area as $plugin) {
-                if ($enabled_plugins->contains($plugin->pluginName())) {
-                    $count = $count + 1;
-                }
-            }
-        ?>
-        <div class="fancy-research-link-area mb-3">
-            <?php if ($count > 0) : ?>
-                <div>
-                    <a href="#<?= e($id) ?>" role="button" data-bs-toggle="collapse" aria-controls="<?= e($id) ?>" aria-expanded="<?= $expanded ?>">
-                        <?= view('icons/expand') ?>
-                        <?= view('icons/collapse') ?>
-                        <span class="text-uppercase fw-bold"><?= $area ?></span>
-                    </a>
-                    <span class="badge bg-dark bg-gradient rounded-pill"><?= $count ?></span>
+    <?php if ($selected_area !== null) : ?>
+        <?php if (count($enabled_areas) === 1) : ?>
+            <div class="mb-2 px-2">
+                <div class="fw-bold">
+                    <?= e($selected_area) ?>
                 </div>
-                <ul class="collapse<?= $show ?> ms-3" id="<?= e($id) ?>">
-                <?php foreach ($plugins_by_area as $plugin): ?>
-                    <?php if ($enabled_plugins->contains($plugin->pluginName())) : ?>
-                        <li class="pb-1"><a href="<?= e($plugin->researchLink($attributes)) ?>" target=<?= $target_blank ? "_blank" : "" ?>><?= $plugin->pluginLabel() ?></a></li>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+            </div>
+        <?php else : ?>
+            <div class="mb-3">
+                <label for="fancy-research-links-country" class="form-label visually-hidden">Selecteer een land</label>
+                <select id="fancy-research-links-country" class="form-select" onchange="updateFancyResearchLinks(this.value)">
+                    <?php foreach ($enabled_areas as $area => $count) : ?>
+                        <option value="<?= e($area) ?>" data-count="<?= $count ?>" <?= $area === $selected_area ? 'selected' : '' ?> class="country-option">
+                            <?= e($area) ?> (<?= $count ?>)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        <?php endif; ?>
+
+        <div class="fancy-research-link-area">
+            <?php foreach ($plugins as $area => $plugins_by_area) : ?>
+                <?php if (!array_key_exists($area, $enabled_areas)) {
+                    continue;
+                }
+
+                $visible = $area === $selected_area ? '' : 'd-none';
+                $slug = preg_replace('/[^a-z0-9]+/i', '-', strtolower($area));
+                $slug = trim($slug, '-');
+                ?>
+                <ul class="country-plugins list-group list-group-flush ms-0 <?= $visible ?>" data-area="<?= e($area) ?>" id="fancy-research-links-<?= e($slug) ?>">
+                    <?php foreach ($plugins_by_area as $plugin) : ?>
+                        <?php if ($enabled_plugins->contains($plugin->pluginName())) : ?>
+                            <li class="list-group-item px-3 py-1 border-0 rounded-3 mb-1">
+                                <a class="d-flex align-items-center gap-2 text-decoration-none" href="<?= e($plugin->researchLink($attributes)) ?>" target="<?= $target_blank ? '_blank' : '' ?>">
+                                    <span class="flex-grow-1 text-body"><?= $plugin->pluginLabel() ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </ul>
-            <?php endif; ?>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+    <?php endif; ?>
 </div>
 
-<?php if ($expand_sidebar) : ?>
 <?php View::push('javascript') ?>
 <script>
+    <?php if ($expand_sidebar) : ?>
     $("#sidebar-content-family_nav").removeClass("show");
     $("#sidebar-content-_jc-fancy-research-links_").addClass("show");
+    <?php endif; ?>
+
+    function updateFancyResearchLinks(selectedArea) {
+        var countrySelect = document.getElementById('fancy-research-links-country');
+
+        if (typeof selectedArea === 'undefined' || selectedArea === null || selectedArea === '') {
+            if (countrySelect) {
+                selectedArea = countrySelect.value;
+            } else {
+                var visibleBlock = document.querySelector('#sb-jc-fancy-research-links .country-plugins:not(.d-none)');
+                if (visibleBlock) {
+                    selectedArea = visibleBlock.getAttribute('data-area');
+                }
+            }
+        }
+
+        document.querySelectorAll('#sb-jc-fancy-research-links .country-plugins').forEach(function (block) {
+            var area = block.getAttribute('data-area');
+            if (area === selectedArea) {
+                block.classList.remove('d-none');
+            } else {
+                block.classList.add('d-none');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateFancyResearchLinks();
+    });
 </script>
 <?php View::endpush() ?>
-<?php endif; ?>
