@@ -3,7 +3,7 @@
         'name' => 'justcarmen/jc-fancy-research-links',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '85d98431075fc2c6d0a70e300f00331907bb9f09',
+        'reference' => '9b92647cb6c52220f323bf4b6b10839563e157b8',
         'type' => 'webtrees-module',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'justcarmen/jc-fancy-research-links' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '85d98431075fc2c6d0a70e300f00331907bb9f09',
+            'reference' => '9b92647cb6c52220f323bf4b6b10839563e157b8',
             'type' => 'webtrees-module',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
