@@ -98,8 +98,10 @@ $selected_area = count($enabled_areas) ? array_key_first($enabled_areas) : null;
 <?php View::push('javascript') ?>
 <script>
     <?php if ($expand_sidebar) : ?>
-    $("#sidebar-content-family_nav").removeClass("show");
-    $("#sidebar-content-_jc-fancy-research-links_").addClass("show");
+    window.addEventListener('load', function () {
+        bootstrap.Collapse.getOrCreateInstance(document.getElementById('sidebar-content-family_nav'), { toggle: false }).hide();
+        bootstrap.Collapse.getOrCreateInstance(document.getElementById('sidebar-content-_jc-fancy-research-links_'), { toggle: false }).show();
+    });
     <?php endif; ?>
 
     function updateFancyResearchLinks(selectedArea) {
