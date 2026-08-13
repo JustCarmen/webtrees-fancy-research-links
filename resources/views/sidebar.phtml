@@ -67,6 +67,9 @@ $selected_area = count($enabled_areas) ? array_key_first($enabled_areas) : null;
                         <?php if ($enabled_plugins->contains($plugin->pluginName())) : ?>
                             <li class="list-group-item px-3 py-1 border-0 rounded-3 mb-1">
                                 <a class="d-flex align-items-center gap-2 text-decoration-none" href="<?= e($plugin->researchLink($attributes)) ?>" target="<?= $target_blank ? '_blank' : '' ?>">
+                                    <svg class="fancy-research-link-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+                                        <path fill="currentColor" d="M290.4 19.8C295.4 7.8 307.1 0 320 0L480 0c17.7 0 32 14.3 32 32l0 160c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9L400 157.3 246.6 310.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L354.7 112 297.4 54.6c-9.2-9.2-11.9-22.9-6.9-34.9zM0 176c0-44.2 35.8-80 80-80l80 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-80 0c-8.8 0-16 7.2-16 16l0 256c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16l0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80c0 44.2-35.8 80-80 80L80 512c-44.2 0-80-35.8-80-80L0 176z"/>
+                                    </svg>
                                     <span class="flex-grow-1 text-body"><?= $plugin->pluginLabel() ?></span>
                                 </a>
                             </li>
@@ -80,17 +83,22 @@ $selected_area = count($enabled_areas) ? array_key_first($enabled_areas) : null;
 
 <?php View::push('styles') ?>
 <style>
-    /* use fontawesome's up-right-from-square icon */
-    #sb-jc-fancy-research-links li a::before {
-        content: "";
+    #sb-jc-fancy-research-links a {
+        color: var(--bs-body-color);
+    }
+
+    #sb-jc-fancy-research-links .fancy-research-link-icon {
         width: 1em;
         height: 1em;
+        display: inline-block;
         flex: 0 0 auto;
         margin-right: 0.25rem;
-        align-self: center;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M290.4 19.8C295.4 7.8 307.1 0 320 0L480 0c17.7 0 32 14.3 32 32l0 160c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9L400 157.3 246.6 310.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L354.7 112 297.4 54.6c-9.2-9.2-11.9-22.9-6.9-34.9zM0 176c0-44.2 35.8-80 80-80l80 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-80 0c-8.8 0-16 7.2-16 16l0 256c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16l0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80c0 44.2-35.8 80-80 80L80 512c-44.2 0-80-35.8-80-80L0 176z'/></svg>");
-        background-size: contain;
-        background-repeat: no-repeat;
+        color: currentColor;
+        vertical-align: -0.125em;
+    }
+
+    #sb-jc-fancy-research-links .fancy-research-link-icon path {
+        fill: currentColor;
     }
 </style>
 <?php View::endpush() ?>
