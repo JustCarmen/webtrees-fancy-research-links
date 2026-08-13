@@ -38,7 +38,7 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     /**
      * @var string
      */
-    public const CUSTOM_VERSION = '2.5.2';
+    public const CUSTOM_VERSION = '2.6.0';
 
     /**
      * @var string
