@@ -8,78 +8,99 @@ Fancy Research Links for webtrees
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XPBC2W85M38AS&item_name=webtrees%20modules%20by%20JustCarmen&currency_code=EUR)
 
 Introduction
------------
-A sidebar module that provides shortcuts to popular research websites, using the individual data as a search reference.
+------------
+Fancy Research Links is a sidebar module for webtrees that adds quick links to popular research websites using the individual’s data as search parameters.
 
-Look in [the plugins folder][3] to get a quick overview of the available plugins (research links).
+Browse the available plugins in [the plugins folder][3] to see the built-in research links.
 
-You can expand the list of possible research sites by creating your own plugin. To get started you can use an existing plugin from the plugins folder or take [the empty plugin template][4] from the examples folder.
+You can expand the list of supported research sites by creating your own plugin. Start from an existing plugin in the plugins folder or use the empty template in [the examples folder][4].
 
-A guide to add your own plugin:
+Creating your own plugin
+-----------------------
+Follow these steps to add a custom research link:
 
-1. Take a copy of one of the existing files from the plugins folder or copy the empty plugin from the examples folder and rename it. Give it a recognizable name. Note that not all plugin files are exactly the same. Some use more variables than others. This depends on the research site to which the link refers. Open several plugins to see how they are configured.
-2. In the new file, change the class name to match the file name and change the plugin label to something appropriate. The plugin label is the text used in the research links lists.
-3. If a search site is limited to a particular country, set the plugin's research area with the official 3 letter country code. Look in [the webtrees function getAllCountries][5] for a list of available codes. Use 'INT' for 'International' in case of an international search site.
-4. Go to the research site you want to make a link to. Perform your search and note the URL the search generates. Use this URL to create a dynamic link in your new plugin file. Enter the link in the ‘researchLink’ section, carefully noting where to insert the variables.
-5. The $attributes collection is the parameter used in the researchLinks function. This $attributes collection contain 3 sub collections:
-   - $name = $attributes['NAME'];
-   - $year = $attributes['YEAR'];
-   - $place = $attributes['PLACE'];
-   - $country = $attributes['COUNTRY'];
+1. Copy an existing plugin from the plugins folder, or copy the empty plugin template from the examples folder and rename it. Give it a clear name so it is easy to recognize later.
+2. Change the class name to match the file name, and update the plugin label to something appropriate. The label is the text shown in the research links list.
+3. If the search site is limited to a specific country, set the plugin’s research area with the official 3-letter country code. See [the getAllCountries function][5] for the available codes. Use `INT` for international searches.
+4. Go to the research site you want to include and perform a search. Note the URL that is generated. Use that URL as the basis for your dynamic link in the plugin file. Add it in the `researchLink` section and be careful with the variable placeholders.
+5. The `$attributes` collection is passed to the `researchLinks` function. It contains these sub-collections:
+   - `$name = $attributes['NAME'];`
+   - `$year = $attributes['YEAR'];`
+   - `$place = $attributes['PLACE'];`
+   - `$country = $attributes['COUNTRY'];`
 
-   With one or more of those variables declared you have the following list of variables available to use in your own plugin:
-   - Full name = $name[‘fullNN’] e.g. "John Michael van den Burgh"
-   - Full given name = $name[‘givn’] e.g. "John Michael"
-   - First name = $name[‘first’] e.g. "John"
-   - Last name with prefix = $name[‘surname’] e.g. "van den Burgh"
-   - Last name without prefix = $name[‘surn’] e.g. "Burgh"
-   - Prefix = $name[‘prefix’] e.g. "van den"
-   - Married name	= $name['msurname'] e.g. "de Vries"
-   - Birth year/place/country = $year['BIRT'] e.g. "1800" / $place['BIRT']	e.g. "Chicago" / $country['BIRT'] e.g. "USA"
-   - Christening year/place/country = $year['CHR']	e.g. "1800" / $place['CHR']	e.g. "Chicago" / $country['CHR'] e.g. "USA"
-   - Baptism year/place/country = $year['BAPM']	e.g. "1800" / $place['BAPM']	e.g. "Chicago" / $country['BAPM'] e.g. "USA"
-   - Death year/place/country = $year['DEAT'] e.g. "1880" / $place['DEAT']	e.g. "New York" / $country['DEAT'] e.g. "USA"
-   - Burial year/place/country = $year['BURI'] e.g. "1880" / $place['BURI']	e.g. "New York" / $country['BURI'] e.g. "USA"
-   - Cremation year/place/country = $year['CREM'] e.g. "1880" / $place['CREM']	e.g. "New York" / $country['CREM'] e.g. "USA"
+   The following variables are available for use in your plugin:
+   - Full name: `$name['fullNN']` (for example, `John Michael van den Burgh`)
+   - Full given name: `$name['givn']` (for example, `John Michael`)
+   - First name: `$name['first']` (for example, `John`)
+   - Last name with prefix: `$name['surname']` (for example, `van den Burgh`)
+   - Last name without prefix: `$name['surn']` (for example, `Burgh`)
+   - Prefix: `$name['prefix']` (for example, `van den`)
+   - Married name: `$name['msurname']` (for example, `de Vries`)
+   - Birth year/place/country: `$year['BIRT']`, `$place['BIRT']`, `$country['BIRT']`
+   - Christening year/place/country: `$year['CHR']`, `$place['CHR']`, `$country['CHR']`
+   - Baptism year/place/country: `$year['BAPM']`, `$place['BAPM']`, `$country['BAPM']`
+   - Death year/place/country: `$year['DEAT']`, `$place['DEAT']`, `$country['DEAT']`
+   - Burial year/place/country: `$year['BURI']`, `$place['BURI']`, `$country['BURI']`
+   - Cremation year/place/country: `$year['CREM']`, `$place['CREM']`, `$country['CREM']`
 
-    The module also supports other calendar dates. Add them as a suffix to the event, e.g.:
-	 $year['BIRT_julian' ], $year['DEAT_jewish'], $year['BURI_french'], $year['BAPM__hijri'], $year['CHR_jalali']
+   The module also supports additional calendar systems. Add the calendar suffix to the event name, for example:
+   - `$year['BIRT_julian']`
+   - `$year['DEAT_jewish']`
+   - `$year['BURI_french']`
+   - `$year['BAPM_hijri']`
+   - `$year['CHR_jalali']`
 
-    You don't need to use a suffix for the default Gregorian calendar.
-6. The Examples folder contains a sample plugin for a Google search that uses special name parts and uses the year of birth/death and the place of birth/death in the search with explanation.
-7. If you want to use this example plugin (modified or as is), copy it to the main Plugins folder or to the MyPlugins folder (more information about the MyPlugins folder [here][9]). The example folder also contains an empty plugin with all the functions you need to create your own.
-8. If you have created a plugin that may be of interest to other users put it in the main plugins folder. Then you can make a pull request or send me a copy.
+   You do not need a suffix for the default Gregorian calendar.
+6. The examples folder contains a sample plugin for a Google search. It demonstrates how to use special name parts, plus the birth/death year and place in a search URL.
+7. If you want to use this example plugin, either as-is or after modifying it, copy it to the main plugins folder or to the MyPlugins folder. More information about the MyPlugins folder is available [here][9]. The examples folder also contains an empty plugin with all the functions needed to create your own custom link.
+8. If you create a plugin that may be useful to other users, place it in the main plugins folder and submit a pull request or send it to me.
 
-If you have problems creating your own link, you can open a new issue and request that a link be created for you.
+If you are having trouble creating a link, please open a new issue and ask for a custom link to be added.
 
 Translations
 ------------
-You can help to translate this module. The language files are on [POEditor][6] where you can update them. Or use a local editor, like Poedit or Notepad++ to make the translations and send them back to me. You can do this via a pull request or via [email][7]. Updated translations will be included in the next version of this module.
+You can help translate this module. The language files are available on [POEditor][6] where you can contribute updates. Alternatively, use a local editor such as Poedit or Notepad++ to edit the translations, then send them back to me via pull request or [email][7]. Updated translations will be included in the next module release.
 
-Installation & upgrading
-------------------------
-Unpack the zip file and place the folder jc-fancy-research-links in the modules_v4 folder of webtrees. Upload the newly added folder to your server. It is activated by default. Go to the control panel to set some options. You can find the Fancy Research Links configuration page in the Sidebar section and on the module page.
+Installation
+-------------------------
+Install using [Custom Module Manager][10] for an easy and convenient way to install webtrees custom modules.
+Open the Custom Module Manager in webtrees, scroll to “Fancy Research Links”, and click “Install Module”.
+
+Manual installation
+-------------------
+Download the [latest release][11] of the module. Unpack the ZIP file and place the folder `jc-fancy-research-links` in the `modules_v4` folder of webtrees. Upload the new folder to your server. The module is enabled by default. Go to the control panel to adjust the options. You can find the Fancy Research Links configuration page in the Sidebar section and on the module page.
+
+Install using Composer
+----------------------
+If you are using the webtrees source code, you can install this module with Composer:
+
+```bash
+composer require webtrees/jc-fancy-research-links
+```
 
 Configuration
-------------------------
-All links are listed on the Fancy Research Links configuration page, where you have the following options:
-- Select the plugins you want to use in the sidebar (default = all).
-- Select the area you want to expand (default = 'International').
-- Select whether or not to expand the Fancy Research Links sidebar (default = collapsed).
-   _Webtrees sets the Family Navigator as unfolded by default, while all other sidebar sections are collapsed. When doing research as an editor or above, it may be helpful to have the Fancy Research section unfolded._
-- Select whether or not to open the links in a new tab (default = links open in the same tab).
+-------------
+All links are listed on the Fancy Research Links configuration page, where you can choose the following options:
+- Select which plugins to use in the sidebar (default: all)
+- Select the research area to expand (default: `International`)
+- Choose whether to expand the Fancy Research Links sidebar by default (default: collapsed)
+  _Webtrees keeps the Family Navigator open by default, while other sidebar sections are collapsed. When researching as an editor or above, it may be helpful to leave the Fancy Research section open._
+- Choose whether links open in a new tab (default: open in the same tab)
 
 Bugs and feature requests
 -------------------------
 If you are experiencing bugs or have a feature request for this module, please [create a new issue][8].
 
- [1]: https://github.com/JustCarmen/webtrees-fancy-research-links/releases/latest
- [2]: https://webtrees.net/
- [3]: https://github.com/JustCarmen/webtrees-fancy-research-links/tree/main/plugins
- [4]: https://github.com/JustCarmen/webtrees-fancy-research-links/blob/main/plugins/example/EmptyPlugin.php
- [5]: https://github.com/fisharebest/webtrees/blob/main/app/Statistics/Service/CountryService.php
- [6]: https://poeditor.com/join/project?hash=VLrxy3AG3A
- [7]: mailto:carmen@justcarmen.nl
- [8]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
- [9]: https://github.com/JustCarmen/webtrees-fancy-research-links/tree/main/plugins/MyPlugins/README.md
+[1]: https://github.com/JustCarmen/webtrees-fancy-research-links/releases/latest
+[2]: https://webtrees.net/
+[3]: https://github.com/JustCarmen/webtrees-fancy-research-links/tree/main/plugins
+[4]: https://github.com/JustCarmen/webtrees-fancy-research-links/blob/main/plugins/example/EmptyPlugin.php
+[5]: https://github.com/JustCarmen/jc-common-code/blob/main/Service/CountryService.php
+[6]: https://poeditor.com/join/project?hash=VLrxy3AG3A
+[7]: mailto:carmen@justcarmen.nl
+[8]: https://github.com/JustCarmen/webtrees-fancy-research-links/issues?state=open
+[9]: https://github.com/JustCarmen/webtrees-fancy-research-links/tree/main/plugins/MyPlugins/README.md
+[10]: https://github.com/Jefferson49/CustomModuleManager
+[11]: https://github.com/JustCarmen/webtrees-fancy-research-links/releases/latest
 
