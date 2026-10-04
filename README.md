@@ -74,7 +74,7 @@ Download the [latest release][11] of the module. Unpack the ZIP file and place t
 If you are using the webtrees source code, you can install this module with Composer:
 
 ```bash
-composer require webtrees/jc-fancy-research-links
+composer require justcarmen/jc-fancy-research-links
 ```
 
 Configuration
