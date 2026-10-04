@@ -14,7 +14,6 @@ use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleConfigInterface;
 use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
-use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleSidebarInterface;
 use Fisharebest\Webtrees\Module\ModuleSidebarTrait;
 use Fisharebest\Webtrees\View;
@@ -23,6 +22,7 @@ use Illuminate\Support\Collection;
 use JustCarmen\Webtrees\Helpers\Functions;
 use JustCarmen\Webtrees\Internationalization\MoreI18N;
 use JustCarmen\Webtrees\Service\CountryService;
+use JustCarmen\Webtrees\Traits\ModuleCustomTrait;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Throwable;
@@ -85,46 +85,6 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     public function description(): string
     {
         return I18N::translate('A sidebar tool to provide quick links to popular research web sites.');
-    }
-
-    /**
-     * The person or organisation who created this module.
-     *
-     * @return string
-     */
-    public function customModuleAuthorName(): string
-    {
-        return self::CUSTOM_AUTHOR;
-    }
-
-    /**
-     * The version of this module.
-     *
-     * @return string
-     */
-    public function customModuleVersion(): string
-    {
-        return self::CUSTOM_VERSION;
-    }
-
-    /**
-     * A URL that will provide the latest stable version of this module.
-     *
-     * @return string
-     */
-    public function customModuleLatestVersionUrl(): string
-    {
-        return 'https://raw.githubusercontent.com/' . self::CUSTOM_AUTHOR . '/' . self::GITHUB_REPO . '/main/latest-version.txt';
-    }
-
-     /**
-     * Where to get support for this module.  Perhaps a github repository?
-     *
-     * @return string
-     */
-    public function customModuleSupportUrl(): string
-    {
-        return self::CUSTOM_SUPPORT_URL;
     }
 
     /**
