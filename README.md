@@ -67,12 +67,10 @@ Installation
 Install using [Custom Module Manager][10] for an easy and convenient way to install webtrees custom modules.
 Open the Custom Module Manager in webtrees, scroll to “Fancy Research Links”, and click “Install Module”.
 
-Manual installation
--------------------
+### Manual installation
 Download the [latest release][11] of the module. Unpack the ZIP file and place the folder `jc-fancy-research-links` in the `modules_v4` folder of webtrees. Upload the new folder to your server. The module is enabled by default. Go to the control panel to adjust the options. You can find the Fancy Research Links configuration page in the Sidebar section and on the module page.
 
-Install using Composer
-----------------------
+### Install using Composer
 If you are using the webtrees source code, you can install this module with Composer:
 
 ```bash
