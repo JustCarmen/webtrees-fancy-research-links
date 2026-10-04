@@ -9,10 +9,15 @@
 		"webtrees-module"
 	],
     "require": {
-		"justcarmen/jc-common-code": "^1.0"
+		"php": ">=7.4",
+		"justcarmen/jc-common-code": "^1.0",
+    	"webtrees/module-installer": "^1.0"
 	},
     "config": {
         "prepend-autoloader": false
+    },
+    "conflict": {
+        "fisharebest/webtrees": "<2.1"
     }
 }
 
