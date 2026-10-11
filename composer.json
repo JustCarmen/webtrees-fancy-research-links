@@ -11,13 +11,15 @@
     "require": {
 		"php": ">=7.4",
 		"justcarmen/jc-common-code": "^1.0",
-    	"webtrees/module-installer": "^1.0"
+    	"magicsunday/webtrees-module-installer-plugin": "^2.1"
 	},
     "config": {
-        "prepend-autoloader": false
+        "prepend-autoloader": false,
+		"allow-plugins": {
+			"magicsunday/webtrees-module-installer-plugin": true
+		}
     },
     "conflict": {
         "fisharebest/webtrees": "<2.1"
     }
 }
-

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9fee0b57ce8ff8ccba99ab85d972af1",
+    "content-hash": "3fc3c036669b4d329df8d78efe927894",
     "packages": [
         {
             "name": "justcarmen/jc-common-code",
@@ -38,6 +38,72 @@
                 "source": "https://github.com/JustCarmen/jc-common-code/tree/v1.0.0"
             },
             "time": "2026-05-17T12:42:51+00:00"
+        },
+        {
+            "name": "magicsunday/webtrees-module-installer-plugin",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magicsunday/webtrees-module-installer-plugin.git",
+                "reference": "0d9744918e74775228f317450a0b64d1f2ce4bc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magicsunday/webtrees-module-installer-plugin/zipball/0d9744918e74775228f317450a0b64d1f2ce4bc3",
+                "reference": "0d9744918e74775228f317450a0b64d1f2ce4bc3",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.6",
+                "php": "8.3 - 8.5"
+            },
+            "require-dev": {
+                "composer/composer": "^2.8",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "overtrue/phplint": "^9.0",
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^12.0",
+                "rector/rector": "^2.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "MagicSunday\\Webtrees\\Composer\\ModuleInstallerPlugin",
+                "branch-alias": {
+                    "dev-main": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MagicSunday\\Webtrees\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Rico Sonntag",
+                    "email": "mail@ricosonntag.de",
+                    "homepage": "https://ricosonntag.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Composer plugin for the webtrees genealogy application — auto-installs webtrees-module packages into the modules_v4 directory during composer install and update.",
+            "keywords": [
+                "composer-plugin",
+                "installer",
+                "module",
+                "webtrees",
+                "webtrees-module"
+            ],
+            "support": {
+                "issues": "https://github.com/magicsunday/webtrees-module-installer-plugin/issues",
+                "source": "https://github.com/magicsunday/webtrees-module-installer-plugin/tree/2.1.0"
+            },
+            "time": "2026-06-08T18:46:12+00:00"
         }
     ],
     "packages-dev": [],
@@ -46,7 +112,9 @@
     "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
+    "platform": {
+        "php": ">=7.4"
+    },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
