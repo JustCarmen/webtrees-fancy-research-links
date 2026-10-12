@@ -85,6 +85,7 @@ If you are using the webtrees source code, you can install this module with Comp
 ```bash
 composer require justcarmen/jc-fancy-research-links
 ```
+After installation you should run composer update to install the neccessary vendor files.
 
 Configuration
 -------------
