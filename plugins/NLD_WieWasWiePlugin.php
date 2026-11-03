@@ -28,6 +28,6 @@ class NLD_WieWasWiePlugin extends FancyResearchLinksModule
     {
 		$name = $attributes['NAME'];
 
-		return 'https://www.wiewaswie.nl/nl/zoeken?q=' . $name['fullNN'];
+		return 'https://www.wiewaswie.nl/nl/zoeken?formType=basic&searchTerms=' . $name['fullNN'];
 	}
 }
