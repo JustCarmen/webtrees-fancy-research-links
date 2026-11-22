@@ -61,6 +61,11 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
     public const CUSTOM_LATEST_VERSION = 'https://api.github.com/repos/' . self::GITHUB_REPO . '/releases/latest';
 
     /**
+     * @var Collection|null
+     */
+    private ?Collection $plugins = null;
+
+    /**
      * Create a new module instance.
      */
     public function __construct()
@@ -248,6 +253,10 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
      */
     private function getPlugins(): Collection
     {
+        if ($this->plugins !== null) {
+            return $this->plugins;
+        }
+
        $filenames = array_merge( glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . '*Plugin.php'),
                                   glob(__DIR__ . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'MyPlugins' . DIRECTORY_SEPARATOR . '*Plugin.php'));
 
@@ -269,7 +278,9 @@ class FancyResearchLinksModule extends AbstractModule implements ModuleCustomInt
         });
 
         // We only need the values of the sorted collection in a flattened way
-        return $plugins->sortkeys()->values()->flatten();
+        $this->plugins = $plugins->sortkeys()->values()->flatten();
+
+        return $this->plugins;
     }
 
     /**
