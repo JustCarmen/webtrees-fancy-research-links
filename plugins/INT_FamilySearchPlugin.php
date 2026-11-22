@@ -24,7 +24,7 @@ class INT_FamilySearchPlugin extends FancyResearchLinksModule
         return 'INT';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         $name = $attributes['NAME'];
         $year = $attributes['YEAR'];

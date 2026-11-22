@@ -24,7 +24,7 @@ class GBR_GenRegOfficePlugin extends FancyResearchLinksModule
 		return 'GBR';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
     {
 		return 'https://www.gro.gov.uk/gro/content/certificates/indexes_search.asp';
 	}

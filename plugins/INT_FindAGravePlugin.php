@@ -23,7 +23,7 @@ class INT_FindAGravePlugin extends FancyResearchLinksModule
         return 'INT';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         // This uses the search syntax from the 2022 version of FindaGrave
         // birth and death ± 1 in case webtrees entry is an estimate

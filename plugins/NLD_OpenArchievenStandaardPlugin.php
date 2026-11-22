@@ -24,7 +24,7 @@ class NLD_OpenArchievenStandaardPlugin extends FancyResearchLinksModule
 		return 'NLD';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$languages = ['de', 'en', 'fr', 'nl'];
 

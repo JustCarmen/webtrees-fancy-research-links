@@ -24,7 +24,7 @@ class INT_AncestryPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 	{
 		$domain = [
 		// these are all the languages supported by ancestry. See: http://corporate.ancestry.com/about-ancestry/international/

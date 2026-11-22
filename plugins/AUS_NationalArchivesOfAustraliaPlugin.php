@@ -25,7 +25,7 @@ class AUS_NationalArchivesOfAustraliaPlugin extends FancyResearchLinksModule
 		return 'AUS';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
     {
 		return "https://recordsearch.naa.gov.au";
 	}

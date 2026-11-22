@@ -24,7 +24,7 @@ class ITA_CimiteroOrbassanoPlugin extends FancyResearchLinksModule
 		return 'ITA';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 
     {
 		$name = $attributes['NAME'];

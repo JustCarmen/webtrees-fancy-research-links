@@ -24,7 +24,7 @@ class RUS_PodvigNarodaPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'http://podvignaroda.ru/?#tab=navPeople_search';
     }

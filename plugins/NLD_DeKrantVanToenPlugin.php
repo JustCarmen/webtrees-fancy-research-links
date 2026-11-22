@@ -36,7 +36,7 @@ class NLD_DeKrantVanToenPlugin extends FancyResearchLinksModule
 		return 'NLD';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 	{
 		$name = $attributes['NAME'];
 		$searchname = $name['first'] . ' ' . $name['surname'];

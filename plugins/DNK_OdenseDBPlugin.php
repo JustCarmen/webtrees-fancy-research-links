@@ -23,7 +23,7 @@ class DNK_OdenseDBPlugin extends FancyResearchLinksModule
         return 'DNK';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
     $name = $attributes['NAME'];
 

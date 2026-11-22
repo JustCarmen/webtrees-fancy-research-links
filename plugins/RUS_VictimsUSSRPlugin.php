@@ -24,7 +24,7 @@ class RUS_VictimsUSSRPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'http://lists.memo.ru/';
     }

@@ -28,7 +28,7 @@ class DNK_arkivdkPlugin extends FancyResearchLinksModule
 		return 'DNK';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     
     {
         $name = $attributes['NAME'];

@@ -24,7 +24,7 @@ class RUS_PatriotIzdatPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'http://www.patriot-izdat.ru/memory/memorybook/';
     }

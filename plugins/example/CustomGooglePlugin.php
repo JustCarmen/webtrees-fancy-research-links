@@ -72,7 +72,7 @@ class CustomGooglePlugin extends FancyResearchLinksModule
 	 *
 	 * @return string
 	 */
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 	{
 		$name = $attributes['NAME'];
 		$year = $attributes['YEAR'];

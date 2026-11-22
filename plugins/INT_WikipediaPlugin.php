@@ -24,7 +24,7 @@ class INT_WikipediaPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$language = substr(I18N::languageTag(), 0, 2);
 		$name = $attributes['NAME'];

@@ -29,7 +29,7 @@ class RUS_PolRegisterPlugin extends FancyResearchLinksModule
 		return 'DNK';
 	}
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
 	{
 		$name = $attributes['NAME'];
 		$year = $attributes['YEAR'];

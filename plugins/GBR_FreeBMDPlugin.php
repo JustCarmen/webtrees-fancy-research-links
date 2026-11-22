@@ -24,7 +24,7 @@ class GBR_FreeBMDPlugin extends FancyResearchLinksModule
 		return 'GBR';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
     {
 		return 'https://www.freebmd.org.uk/cgi/search.pl';
 	}

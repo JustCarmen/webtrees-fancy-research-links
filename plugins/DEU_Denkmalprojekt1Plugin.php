@@ -24,7 +24,7 @@ class DEU_Denkmalprojekt1Plugin extends FancyResearchLinksModule
 		return 'DEU';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 

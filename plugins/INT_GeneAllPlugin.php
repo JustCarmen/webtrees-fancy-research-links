@@ -24,7 +24,7 @@ class INT_GeneAllPlugin extends FancyResearchLinksModule
 		return 'INT';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$languages = [
 			'de'    => 'de',

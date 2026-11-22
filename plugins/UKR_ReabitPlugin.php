@@ -24,7 +24,7 @@ class UKR_ReabitPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         $name = $attributes['NAME'];
 

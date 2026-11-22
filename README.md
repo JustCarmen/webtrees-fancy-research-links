@@ -31,7 +31,7 @@ Follow these steps to add a custom research link:
 1. Copy an existing plugin from the plugins folder, or copy the empty plugin template from the examples folder and rename it. Give it a clear name so it is easy to recognize later.
 2. Change the class name to match the file name, and update the plugin label to something appropriate. The label is the text shown in the research links list.
 3. If the search site is limited to a specific country, set the plugin’s research area with the official 3-letter country code. See [the getAllCountries function][5] for the available codes. Use `INT` for international searches.
-4. Go to the research site you want to include and perform a search. Note the URL that is generated. Use that URL as the basis for your dynamic link in the plugin file. Add it in the `researchLink` section and be careful with the variable placeholders.
+4. Go to the research site you want to include and perform a search. Note the URL that is generated. Use that URL as the basis for your dynamic link in the plugin file. Add it in the `researchLink` section and be careful with the variable placeholders. Type the parameter as `array $attributes`; if the plugin does not use attribute data, omit the parameter.
 5. The `$attributes` collection is passed to the `researchLinks` function. It contains these sub-collections:
    - `$name = $attributes['NAME'];`
    - `$year = $attributes['YEAR'];`

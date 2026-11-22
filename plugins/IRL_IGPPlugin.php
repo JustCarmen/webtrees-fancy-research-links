@@ -24,7 +24,7 @@ class IRL_IGPPlugin extends FancyResearchLinksModule
         return 'IRL';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         // This uses the search syntax from the 2023 version of Free Find, using IGP branding
 

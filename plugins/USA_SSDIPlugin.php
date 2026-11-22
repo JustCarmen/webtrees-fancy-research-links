@@ -24,7 +24,7 @@ class USA_SSDIPlugin extends FancyResearchLinksModule
 		return 'USA';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 		$year = $attributes['YEAR'];

@@ -24,7 +24,7 @@ class EmptyPlugin extends FancyResearchLinksModule
 		return '';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
     {
 		return '';
 	}

@@ -36,7 +36,7 @@ class USA_VotersRefPlugin extends FancyResearchLinksModule
 		return 'USA';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 	{
 		$name = $attributes['NAME'];
 		$searchname = $name['givn'];

@@ -24,7 +24,7 @@ class NIR_PRONIUlsterCovenantPlugin extends FancyResearchLinksModule
         return 'NIR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         //
 

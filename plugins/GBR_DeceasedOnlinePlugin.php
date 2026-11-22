@@ -24,7 +24,7 @@ class GBR_DeceasedOnlinePlugin extends FancyResearchLinksModule
 		return 'GBR';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 

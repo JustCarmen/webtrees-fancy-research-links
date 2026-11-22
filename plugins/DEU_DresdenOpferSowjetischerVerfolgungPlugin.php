@@ -24,7 +24,7 @@ class DEU_DresdenOpferSowjetischerVerfolgungPlugin extends FancyResearchLinksMod
         return 'DEU';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         $name = $attributes['NAME'];
 

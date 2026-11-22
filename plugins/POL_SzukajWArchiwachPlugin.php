@@ -24,7 +24,7 @@ class POL_SzukajWArchiwachPlugin extends FancyResearchLinksModule
         return 'POL';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'https://www.szukajwarchiwach.gov.pl/';
     }

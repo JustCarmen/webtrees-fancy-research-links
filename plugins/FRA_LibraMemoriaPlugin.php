@@ -35,7 +35,7 @@ class FRA_LibraMemoriaPlugin extends FancyResearchLinksModule
 		return 'FRA';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 		$date = urlencode(date('d/m/y'));

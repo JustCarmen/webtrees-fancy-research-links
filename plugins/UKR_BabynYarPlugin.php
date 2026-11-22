@@ -24,7 +24,7 @@ class UKR_BabynYarPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'https://babynyar.org/ua/names';
     }

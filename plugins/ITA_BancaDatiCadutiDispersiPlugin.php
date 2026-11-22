@@ -24,7 +24,7 @@ class ITA_BancaDatiCadutiDispersiPlugin extends FancyResearchLinksModule
 		return 'ITA';
 	}
 
-	public static function researchLink($attributes): string
+	public static function researchLink(): string
     {
         return 'https://www.difesa.it/il-ministro/cadutiinguerra/index/26602.html';
 

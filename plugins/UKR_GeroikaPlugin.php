@@ -24,7 +24,7 @@ class UKR_GeroikaPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'http://www.db.geroika.org.ua/ua/search.html';
     }

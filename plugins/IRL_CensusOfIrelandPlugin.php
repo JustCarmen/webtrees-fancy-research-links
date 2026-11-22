@@ -24,7 +24,7 @@ class IRL_CensusOfIrelandPlugin extends FancyResearchLinksModule
         return 'IRL';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
         // This is a link to the search Census page of the 2023 version of National Archive - Census Search
 

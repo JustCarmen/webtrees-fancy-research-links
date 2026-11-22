@@ -36,7 +36,7 @@ class NLD_HvNoFrieslandPlugin extends FancyResearchLinksModule
 		return 'NLD';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 	{
 		$name 		 = $attributes['NAME'];
 		$searchname  = 'mylastname=' . urlencode($name['surname']) . '&lnqualify=contains';

@@ -36,7 +36,7 @@ class USA_LegacyPlugin extends FancyResearchLinksModule
 		return 'USA';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
 	{
 		$name = $attributes['NAME'];
 		$lastname = $name['msurname'] ? $name['msurname'] : $name['surname'];

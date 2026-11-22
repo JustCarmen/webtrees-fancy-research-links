@@ -24,7 +24,7 @@ class NLD_OnlineBegraafplaatsenPlugin extends FancyResearchLinksModule
 		return 'NLD';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
     {
 		return 'https://www.online-begraafplaatsen.nl/';
 	}

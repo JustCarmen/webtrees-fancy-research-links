@@ -24,7 +24,7 @@ class NLD_MemoriPlugin extends FancyResearchLinksModule
 		return 'NLD';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 		$place = $attributes['PLACE'];

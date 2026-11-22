@@ -24,7 +24,7 @@ class AUS_AustCemeteriesPlugin extends FancyResearchLinksModule
         return 'AUS';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         $name = $attributes['NAME'];
 

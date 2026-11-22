@@ -24,7 +24,7 @@ class DEU_DresdenVerurteilteSowjetischerMilitaertribunalePlugin extends FancyRes
         return 'DEU';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         $name = $attributes['NAME'];
 

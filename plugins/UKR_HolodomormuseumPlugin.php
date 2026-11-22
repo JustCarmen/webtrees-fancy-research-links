@@ -24,7 +24,7 @@ class UKR_HolodomormuseumPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'https://holodomormuseum.org.ua/iedynyj-reiestr-zhertv-holodomoru/';
     }

@@ -24,7 +24,7 @@ class BEL_RijksarchiefBelgiePlugin extends FancyResearchLinksModule
 		return 'BEL';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 

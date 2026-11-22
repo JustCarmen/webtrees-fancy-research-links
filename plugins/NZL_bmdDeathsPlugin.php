@@ -24,7 +24,7 @@ class NZL_bmdDeathsPlugin extends FancyResearchLinksModule
 		return 'NZL';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
 	{
 		return 'https://www.bdmhistoricalrecords.dia.govt.nz/Search/Search?Path=querySubmit.m%3fReportName%3dDeathSearch';
 	}

@@ -24,7 +24,7 @@ class UKR_UkrainianLibertationMovementPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'http://avr.org.ua/';
     }

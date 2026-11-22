@@ -24,7 +24,7 @@ class NLD_GenealIXPlugin extends FancyResearchLinksModule
 		return 'NLD';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(): string
 
     {
 		return 'https://www.genealix.nl/';

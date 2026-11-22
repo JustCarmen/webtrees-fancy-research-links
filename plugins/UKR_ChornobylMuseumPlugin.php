@@ -24,7 +24,7 @@ class UKR_ChornobylMuseumPlugin extends FancyResearchLinksModule
         return 'UKR';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(): string
     {
 		return 'http://memory.chornobylmuseum.kiev.ua/searchform.php';
     }

@@ -24,7 +24,7 @@ class RUS_NKVDMemoPlugin extends FancyResearchLinksModule
         return 'RUS';
     }
 
-    public function researchLink($attributes): string
+    public function researchLink(array $attributes): string
     {
         $name = $attributes['NAME'];
 

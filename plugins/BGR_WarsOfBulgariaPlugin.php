@@ -24,7 +24,7 @@ class BGR_WarsOfBulgariaPlugin extends FancyResearchLinksModule
 		return 'BGR';
 	}
 
-	public static function researchLink($attributes): string
+	public static function researchLink(): string
     {
         return 'https://wars.archives.bg/';
 

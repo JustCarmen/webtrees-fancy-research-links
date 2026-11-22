@@ -22,7 +22,7 @@ class CAN_GovtCanadaSearchPlugin extends FancyResearchLinksModule
 		return 'CAN';
 	}
 
-	public function researchLink($attributes): string
+	public function researchLink(array $attributes): string
     {
 		$name = $attributes['NAME'];
 		$year = $attributes['YEAR'];
